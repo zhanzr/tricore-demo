@@ -1,8 +1,8 @@
 # --- Build directories ---
-build/
-build2/
+*/Debug/
+*/Release/
 */build/
-*/build2/
+
 
 # --- CMake generated ---
 CMakeCache.txt
@@ -45,5 +45,8 @@ Desktop.ini
 *.swp
 *.swo
 *~
-build_riscv
+*.src
 .metadata/
+*.src
+*/Debug/
+*/Release/

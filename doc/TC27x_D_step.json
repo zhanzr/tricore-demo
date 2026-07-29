@@ -1,0 +1,857 @@
+{
+    "deviceName": "TC27x D step",
+    "flaxFileName": "flax_TC2xx.hex",
+    "busWidth": 32,
+    "addressStep": 4,
+    "isRRAM": false,
+    "registers": [
+        {
+            "registerName": "ChipID",
+            "registerValue": [
+                "0x47467172",
+                "0x47467072"
+            ]
+        },
+        {
+            "registerName": "JTAGID",
+            "registerValue": [
+                "0x401DA083",
+                "0x501DA083"
+            ]
+        }
+    ],
+    "memory": [
+        {
+            "memoryName": "ProgramFlash",
+            "memoryStartCachedAddress": "0x80000000",
+            "memoryEndCachedAddress": "0x803FFFFF",
+            "memoryStartAddress": "0xA0000000",
+            "memoryEndAddress": "0xA03FFFFF",
+            "memorySize": "0x400000",
+            "burstSize": "0x100",
+            "isSRAM": false,
+            "physicalSectors": [
+                {
+                    "sectorStartAddress": "0xA0000000",
+                    "sectorEndAddress": "0xA007FFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0080000",
+                    "sectorEndAddress": "0xA00FFFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0100000",
+                    "sectorEndAddress": "0xA017FFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0180000",
+                    "sectorEndAddress": "0xA01FFFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0200000",
+                    "sectorEndAddress": "0xA027FFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0280000",
+                    "sectorEndAddress": "0xA02FFFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0300000",
+                    "sectorEndAddress": "0xA037FFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0380000",
+                    "sectorEndAddress": "0xA03FFFFF",
+                    "sectorSize": "0x80000",
+                    "restricted": false
+                }
+            ],
+            "logicalSectors": [
+                {
+                    "sectorStartAddress": "0xA0000000",
+                    "sectorEndAddress": "0xA0003FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0004000",
+                    "sectorEndAddress": "0xA0007FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0008000",
+                    "sectorEndAddress": "0xA000BFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA000C000",
+                    "sectorEndAddress": "0xA000FFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0010000",
+                    "sectorEndAddress": "0xA0013FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0014000",
+                    "sectorEndAddress": "0xA0017FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0018000",
+                    "sectorEndAddress": "0xA001BFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA001C000",
+                    "sectorEndAddress": "0xA001FFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0020000",
+                    "sectorEndAddress": "0xA0027FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0028000",
+                    "sectorEndAddress": "0xA002FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0030000",
+                    "sectorEndAddress": "0xA0037FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0038000",
+                    "sectorEndAddress": "0xA003FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0040000",
+                    "sectorEndAddress": "0xA0047FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0048000",
+                    "sectorEndAddress": "0xA004FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0050000",
+                    "sectorEndAddress": "0xA0057FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0058000",
+                    "sectorEndAddress": "0xA005FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0060000",
+                    "sectorEndAddress": "0xA006FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0070000",
+                    "sectorEndAddress": "0xA007FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0080000",
+                    "sectorEndAddress": "0xA008FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0090000",
+                    "sectorEndAddress": "0xA009FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA00A0000",
+                    "sectorEndAddress": "0xA00BFFFF",
+                    "sectorSize": "0x20000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA00C0000",
+                    "sectorEndAddress": "0xA00DFFFF",
+                    "sectorSize": "0x20000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA00E0000",
+                    "sectorEndAddress": "0xA00FFFFF",
+                    "sectorSize": "0x20000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0100000",
+                    "sectorEndAddress": "0xA013FFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0140000",
+                    "sectorEndAddress": "0xA017FFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0180000",
+                    "sectorEndAddress": "0xA01BFFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA01C0000",
+                    "sectorEndAddress": "0xA01FFFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0200000",
+                    "sectorEndAddress": "0xA0203FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0204000",
+                    "sectorEndAddress": "0xA0207FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0208000",
+                    "sectorEndAddress": "0xA020BFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA020C000",
+                    "sectorEndAddress": "0xA020FFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0210000",
+                    "sectorEndAddress": "0xA0213FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0214000",
+                    "sectorEndAddress": "0xA0217FFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0218000",
+                    "sectorEndAddress": "0xA021BFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA021C000",
+                    "sectorEndAddress": "0xA021FFFF",
+                    "sectorSize": "0x4000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0220000",
+                    "sectorEndAddress": "0xA0227FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0228000",
+                    "sectorEndAddress": "0xA022FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0230000",
+                    "sectorEndAddress": "0xA0237FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0238000",
+                    "sectorEndAddress": "0xA023FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0240000",
+                    "sectorEndAddress": "0xA0247FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0248000",
+                    "sectorEndAddress": "0xA024FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0250000",
+                    "sectorEndAddress": "0xA0257FFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0258000",
+                    "sectorEndAddress": "0xA025FFFF",
+                    "sectorSize": "0x8000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0260000",
+                    "sectorEndAddress": "0xA026FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0270000",
+                    "sectorEndAddress": "0xA027FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0280000",
+                    "sectorEndAddress": "0xA028FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0290000",
+                    "sectorEndAddress": "0xA029FFFF",
+                    "sectorSize": "0x10000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA02A0000",
+                    "sectorEndAddress": "0xA02BFFFF",
+                    "sectorSize": "0x20000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA02C0000",
+                    "sectorEndAddress": "0xA02DFFFF",
+                    "sectorSize": "0x20000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA02E0000",
+                    "sectorEndAddress": "0xA02FFFFF",
+                    "sectorSize": "0x20000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0300000",
+                    "sectorEndAddress": "0xA033FFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0340000",
+                    "sectorEndAddress": "0xA037FFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA0380000",
+                    "sectorEndAddress": "0xA03BFFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xA03C0000",
+                    "sectorEndAddress": "0xA03FFFFF",
+                    "sectorSize": "0x40000",
+                    "restricted": false
+                }
+            ]
+        },
+        {
+            "memoryName": "DataFlash",
+            "memoryStartAddress": "0xAF000000",
+            "memoryEndAddress": "0xAF05FFFF",
+            "memorySize": "0x60000",
+            "burstSize": "0x20",
+            "isSRAM": false,
+            "physicalSectors": [
+                {
+                    "sectorStartAddress": "0xAF000000",
+                    "sectorEndAddress": "0xAF05FFFF",
+                    "sectorSize": "0x60000",
+                    "restricted": false
+                }
+            ],
+            "logicalSectors": [
+                {
+                    "sectorStartAddress": "0xAF000000",
+                    "sectorEndAddress": "0xAF001FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF002000",
+                    "sectorEndAddress": "0xAF003FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF004000",
+                    "sectorEndAddress": "0xAF005FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF006000",
+                    "sectorEndAddress": "0xAF007FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF008000",
+                    "sectorEndAddress": "0xAF009FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF00A000",
+                    "sectorEndAddress": "0xAF00BFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF00C000",
+                    "sectorEndAddress": "0xAF00DFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF00E000",
+                    "sectorEndAddress": "0xAF00FFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF010000",
+                    "sectorEndAddress": "0xAF011FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF012000",
+                    "sectorEndAddress": "0xAF013FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF014000",
+                    "sectorEndAddress": "0xAF015FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF016000",
+                    "sectorEndAddress": "0xAF017FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF018000",
+                    "sectorEndAddress": "0xAF019FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF01A000",
+                    "sectorEndAddress": "0xAF01BFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF01C000",
+                    "sectorEndAddress": "0xAF01DFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF01E000",
+                    "sectorEndAddress": "0xAF01FFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF020000",
+                    "sectorEndAddress": "0xAF021FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF022000",
+                    "sectorEndAddress": "0xAF023FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF024000",
+                    "sectorEndAddress": "0xAF025FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF026000",
+                    "sectorEndAddress": "0xAF027FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF028000",
+                    "sectorEndAddress": "0xAF029FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF02A000",
+                    "sectorEndAddress": "0xAF02BFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF02C000",
+                    "sectorEndAddress": "0xAF02DFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF02E000",
+                    "sectorEndAddress": "0xAF02FFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF030000",
+                    "sectorEndAddress": "0xAF031FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF032000",
+                    "sectorEndAddress": "0xAF033FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF034000",
+                    "sectorEndAddress": "0xAF035FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF036000",
+                    "sectorEndAddress": "0xAF037FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF038000",
+                    "sectorEndAddress": "0xAF039FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF03A000",
+                    "sectorEndAddress": "0xAF03BFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF03C000",
+                    "sectorEndAddress": "0xAF03DFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF03E000",
+                    "sectorEndAddress": "0xAF03FFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF040000",
+                    "sectorEndAddress": "0xAF041FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF042000",
+                    "sectorEndAddress": "0xAF043FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF044000",
+                    "sectorEndAddress": "0xAF045FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF046000",
+                    "sectorEndAddress": "0xAF047FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF048000",
+                    "sectorEndAddress": "0xAF049FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF04A000",
+                    "sectorEndAddress": "0xAF04BFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF04C000",
+                    "sectorEndAddress": "0xAF04DFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF04E000",
+                    "sectorEndAddress": "0xAF04FFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF050000",
+                    "sectorEndAddress": "0xAF051FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF052000",
+                    "sectorEndAddress": "0xAF053FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF054000",
+                    "sectorEndAddress": "0xAF055FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF056000",
+                    "sectorEndAddress": "0xAF057FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF058000",
+                    "sectorEndAddress": "0xAF059FFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF05A000",
+                    "sectorEndAddress": "0xAF05BFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF05C000",
+                    "sectorEndAddress": "0xAF05DFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                },
+                {
+                    "sectorStartAddress": "0xAF05E000",
+                    "sectorEndAddress": "0xAF05FFFF",
+                    "sectorSize": "0x2000",
+                    "restricted": false
+                }
+            ],
+            "UCB": [
+                {
+                    "sectorStartAddress": "0xAF100000",
+                    "sectorEndAddress": "0xAF1003FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF100400",
+                    "sectorEndAddress": "0xAF1007FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF100800",
+                    "sectorEndAddress": "0xAF100BFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF100C00",
+                    "sectorEndAddress": "0xAF100FFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF101000",
+                    "sectorEndAddress": "0xAF1013FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF101400",
+                    "sectorEndAddress": "0xAF1017FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF101800",
+                    "sectorEndAddress": "0xAF101BFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF101C00",
+                    "sectorEndAddress": "0xAF101FFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF102000",
+                    "sectorEndAddress": "0xAF1023FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF102400",
+                    "sectorEndAddress": "0xAF1027FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF102800",
+                    "sectorEndAddress": "0xAF102BFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF102C00",
+                    "sectorEndAddress": "0xAF102FFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF103000",
+                    "sectorEndAddress": "0xAF1033FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF103400",
+                    "sectorEndAddress": "0xAF1037FF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF103800",
+                    "sectorEndAddress": "0xAF103BFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                },
+                {
+                    "sectorStartAddress": "0xAF103C00",
+                    "sectorEndAddress": "0xAF103FFF",
+                    "sectorSize": "0x400",
+                    "restricted": true
+                }
+            ]
+        },
+        {
+            "memoryName": "CPU2 DSPR",
+            "memoryStartAddress": "0x50000000",
+            "memoryEndAddress": "0x5001DFFF",
+            "memorySize": "0x1E000",
+            "isSRAM": true
+        },
+        {
+            "memoryName": "CPU2 PSPR",
+            "memoryStartAddress": "0x50100000",
+            "memoryEndAddress": "0x50107FFF",
+            "memorySize": "0x8000",
+            "isSRAM": true
+        },
+        {
+            "memoryName": "CPU1 DSPR",
+            "memoryStartAddress": "0x60000000",
+            "memoryEndAddress": "0x6001DFFF",
+            "memorySize": "0x1E000",
+            "isSRAM": true
+        },
+        {
+            "memoryName": "CPU1 PSPR",
+            "memoryStartAddress": "0x60100000",
+            "memoryEndAddress": "0x60107FFF",
+            "memorySize": "0x8000",
+            "isSRAM": true
+        },
+        {
+            "memoryName": "CPU0 DSPR",
+            "memoryStartAddress": "0x70000000",
+            "memoryEndAddress": "0x7001BFFF",
+            "memorySize": "0x1C000",
+            "isSRAM": true
+        },
+        {
+            "memoryName": "CPU0 PSPR",
+            "memoryStartAddress": "0x70100000",
+            "memoryEndAddress": "0x70105FFF",
+            "memorySize": "0x6000",
+            "isSRAM": true
+        }
+    ]
+}
