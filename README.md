@@ -18,3 +18,8 @@ The free edition enforces a runtime check via `tlm.dll` (Tasking License Manager
 
 ### About the in IDE Flasher
 If the original 'TC27x_D_step.json' does not support the non-D Step, first add the JTAG IDS in the file.
+
+#  APPLICATION KIT TC2X5 V2.0
+![screenshoot](board_1.png "screenshoot")
+![screenshoot](board_2.jpg "screenshoot")
+![screenshoot](board_3.jpg "screenshoot")
