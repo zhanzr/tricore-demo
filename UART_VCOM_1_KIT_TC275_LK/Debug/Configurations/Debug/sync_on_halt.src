@@ -1,0 +1,442 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc20508a --dep-file=Configurations/Debug/sync_on_halt.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_PinMap -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore/Compilers -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Icu -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Infra/Platform -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Msc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Math -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Dsadc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Can -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Dma -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Infra -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12 -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Pwm -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Impl -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Phy_Pef7071 -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Driver -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Timer -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Timer -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Trap -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5 -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Hssl -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Dts -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Psi5 -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/CStart -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiSlave -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/PwmHl -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Crc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Timer -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Infra/Sfr -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Cam -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Eray -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/General -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D/_Reg -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Configurations -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiMaster -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Asc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Sent -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Adc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Psi5s -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Time -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmHl -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Irq -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/InternalMux -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Pwm -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Trig -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TimerWithTrigger -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/StdIf -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Spi -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6 -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/I2c -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Timer -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/PwmHl -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Configurations/Debug -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/_Utilities -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Rdc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Lin -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/IncrEnc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmBc -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TPwm -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim/In -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Std -ID:/aurix_1036_wks/UART_VCOM_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Io -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Configurations/Debug/sync_on_halt.src ../Configurations/Debug/sync_on_halt.c"
+	.compiler_name		"ctc"
+	;source	'../Configurations/Debug/sync_on_halt.c'
+
+	
+$TC16X
+	
+	.include <sfr/regtc27xd.def>
+	.sdecl	'.text.sync_on_halt._sync_on_halt_end',code,cluster('_sync_on_halt_end')
+	.sect	'.text.sync_on_halt._sync_on_halt_end'
+	.align	2
+	
+	.global	_sync_on_halt_end
+; Function _sync_on_halt_end
+.L7:
+_sync_on_halt_end:	.type	func
+	nop
+.L45:
+	debug
+.L46:
+	ret
+.L28:
+	
+___sync_on_halt_end_function_end:
+	.size	_sync_on_halt_end,___sync_on_halt_end_function_end-_sync_on_halt_end
+.L18:
+	; End of function
+	
+	.sdecl	'.text.sync_on_halt._sync_on_halt',code,cluster('_sync_on_halt'),protect
+	.sect	'.text.sync_on_halt._sync_on_halt'
+	.align	2
+	
+	.global	_sync_on_halt
+; Function _sync_on_halt
+.L9:
+_sync_on_halt:	.type	func
+	stlcx _sync_on_halt_lcx
+.L51:
+	stucx _sync_on_halt_ucx
+.L52:
+	mfcr	d15,#65028
+.L53:
+	insert	d15,d15,#2,#10,#2
+.L54:
+	mtcr	#65028,d15
+	isync
+.L55:
+	mfcr	d15,#37380
+	or	d15,#1
+	mtcr	#37380,d15
+	isync
+.L56:
+	mfcr	d15,#37380
+	or	d15,#2
+	mtcr	#37380,d15
+	isync
+.L57:
+	movh.a	a15,#32768
+.L36:
+	lea	a2,63
+.L2:
+	mov.aa	a4,a15
+.L58:
+	mov.a	a5,#3
+.L3:
+	cachei.wi	[a4+]1
+.L59:
+	loop	a5,.L3
+.L60:
+	lea	a15,[a15]32
+	loop	a2,.L2
+.L4:
+.L5:
+	mfcr	d15,#37380
+	jnz.t	d15:0,.L5
+.L61:
+	mfcr	d15,#37380
+	jnz.t	d15:1,.L4
+.L62:
+	ld.w	d15,_sync_on_halt_ucx+4
+.L63:
+	mtcr	#65028,d15
+	isync
+.L64:
+	lducx _sync_on_halt_ucx
+.L65:
+	ldlcx _sync_on_halt_lcx
+.L66:
+	dsync
+.L67:
+	isync
+.L68:
+	nop
+.L69:
+	nop
+.L70:
+	j _sync_on_halt_end
+.L71:
+	ret
+.L29:
+	
+___sync_on_halt_function_end:
+	.size	_sync_on_halt,___sync_on_halt_function_end-_sync_on_halt
+.L23:
+	; End of function
+	
+	.sdecl	'.zbss.clone.sync_on_halt._sync_on_halt_lcx',data,cluster('_sync_on_halt_lcx') at 0xd0003f80
+	.sect	'.zbss.clone.sync_on_halt._sync_on_halt_lcx'
+	.global	_sync_on_halt_lcx
+	.align	64
+_sync_on_halt_lcx:	.type	object
+	.size	_sync_on_halt_lcx,64
+	.space	64
+	.sdecl	'.zbss.clone.sync_on_halt._sync_on_halt_ucx',data,cluster('_sync_on_halt_ucx') at 0xd0003fc0
+	.sect	'.zbss.clone.sync_on_halt._sync_on_halt_ucx'
+	.global	_sync_on_halt_ucx
+	.align	64
+_sync_on_halt_ucx:	.type	object
+	.size	_sync_on_halt_ucx,64
+	.space	64
+	.calls	'_sync_on_halt_end','',0
+	.calls	'_sync_on_halt','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L11:
+	.word	452
+	.half	3
+	.word	.L12
+	.byte	4
+.L10:
+	.byte	1
+	.byte	'../Configurations/Debug/sync_on_halt.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\aurix_1036_wks\\UART_VCOM_1_KIT_TC275_LK\\Debug\\',0,12,1
+	.word	.L13
+	.byte	2
+	.byte	'unsigned char',0,1,8
+.L30:
+	.byte	3
+	.word	184
+	.byte	4
+	.byte	'__cacheiwi',0,1,1,1,1,5
+	.byte	'p',0
+	.word	201
+	.byte	0,2
+	.byte	'int',0,4,5,4
+	.byte	'__mtcr',0,1,1,1,1,6
+	.word	230
+	.byte	6
+	.word	230
+	.byte	0,7
+	.word	230
+	.byte	8
+	.byte	'__mfcr',0
+	.word	260
+	.byte	1,1,1,1,6
+	.word	230
+	.byte	0,9
+	.byte	'__debug',0,1,1,1,1,9
+	.byte	'__nop',0,1,1,1,1,9
+	.byte	'__isync',0,1,1,1,1,9
+	.byte	'__dsync',0,1,1,1,1
+.L32:
+	.byte	2
+	.byte	'unsigned int',0,4,7,2
+	.byte	'short int',0,2,5,10
+	.byte	'__wchar_t',0,1,1,1
+	.word	353
+	.byte	10
+	.byte	'__size_t',0,1,1,1
+	.word	337
+	.byte	10
+	.byte	'__ptrdiff_t',0,1,1,1
+	.word	230
+	.byte	11,1,3
+	.word	421
+	.byte	10
+	.byte	'__codeptr',0,1,1,1
+	.word	423
+.L35:
+	.byte	12,64
+	.word	337
+	.byte	13,15,0,0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L12:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,15,0,73,19,0,0,4,46,1,3,8,54
+	.byte	15,39,12,63,12,60,12,0,0,5,5,0,3,8,73,19,0,0,6,5,0,73,19,0,0,7,53,0,73,19,0,0,8,46,1,3,8,73,19,54,15,39
+	.byte	12,63,12,60,12,0,0,9,46,0,3,8,54,15,39,12,63,12,60,12,0,0,10,22,0,3,8,58,15,59,15,57,15,73,19,0,0,11,21
+	.byte	0,54,15,0,0,12,1,1,11,15,73,19,0,0,13,33,0,47,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L13:
+	.word	.L38-.L37
+.L37:
+	.half	3
+	.word	.L40-.L39
+.L39:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Configurations/Debug/sync_on_halt.c',0,0,0,0,0
+.L40:
+.L38:
+	.sdecl	'.debug_info',debug,cluster('_sync_on_halt_end')
+	.sect	'.debug_info'
+.L14:
+	.word	237
+	.half	3
+	.word	.L15
+	.byte	4,1
+	.byte	'../Configurations/Debug/sync_on_halt.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\aurix_1036_wks\\UART_VCOM_1_KIT_TC275_LK\\Debug\\',0,12,1
+	.word	.L17,.L16
+	.byte	2
+	.word	.L10
+	.byte	3
+	.byte	'_sync_on_halt_end',0,1,74,13,1,1,1
+	.word	.L7,.L28,.L6
+	.byte	4
+	.word	.L7,.L28
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('_sync_on_halt_end')
+	.sect	'.debug_abbrev'
+.L15:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('_sync_on_halt_end')
+	.sect	'.debug_line'
+.L16:
+	.word	.L42-.L41
+.L41:
+	.half	3
+	.word	.L44-.L43
+.L43:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Configurations/Debug/sync_on_halt.c',0,0,0,0,0
+.L44:
+	.byte	5,14,7,0,5,2
+	.word	.L7
+	.byte	3,203,0,1,5,16,9
+	.half	.L45-.L7
+	.byte	3,1,1,5,1,9
+	.half	.L46-.L45
+	.byte	3,1,1,7,9
+	.half	.L18-.L46
+	.byte	0,1,1
+.L42:
+	.sdecl	'.debug_ranges',debug,cluster('_sync_on_halt_end')
+	.sect	'.debug_ranges'
+.L17:
+	.word	-1,.L7,0,.L18-.L7,0,0
+	.sdecl	'.debug_info',debug,cluster('_sync_on_halt')
+	.sect	'.debug_info'
+.L19:
+	.word	304
+	.half	3
+	.word	.L20
+	.byte	4,1
+	.byte	'../Configurations/Debug/sync_on_halt.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\aurix_1036_wks\\UART_VCOM_1_KIT_TC275_LK\\Debug\\',0,12,1
+	.word	.L22,.L21
+	.byte	2
+	.word	.L10
+	.byte	3
+	.byte	'_sync_on_halt',0,1,83,25,1,1,1
+	.word	.L9,.L29,.L8
+	.byte	4
+	.word	.L9,.L29
+	.byte	5
+	.byte	'line_addr',0,1,178,1,33
+	.word	.L30,.L31
+	.byte	5
+	.byte	'line_index',0,1,179,1,33
+	.word	.L32,.L33
+	.byte	5
+	.byte	'way_index',0,1,180,1,33
+	.word	.L32,.L34
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('_sync_on_halt')
+	.sect	'.debug_abbrev'
+.L20:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('_sync_on_halt')
+	.sect	'.debug_line'
+.L21:
+	.word	.L48-.L47
+.L47:
+	.half	3
+	.word	.L50-.L49
+.L49:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Configurations/Debug/sync_on_halt.c',0,0,0,0,0
+.L50:
+	.byte	5,9,7,0,5,2
+	.word	.L9
+	.byte	3,221,1,1,9
+	.half	.L51-.L9
+	.byte	3,1,1,5,50,9
+	.half	.L52-.L51
+	.byte	3,4,1,5,71,9
+	.half	.L53-.L52
+	.byte	1,5,15,9
+	.half	.L54-.L53
+	.byte	1,5,9,9
+	.half	.L55-.L54
+	.byte	3,54,1,9
+	.half	.L56-.L55
+	.byte	3,1,1,5,21,9
+	.half	.L57-.L56
+	.byte	3,207,0,1,5,56,9
+	.half	.L36-.L57
+	.byte	3,2,1,5,74,9
+	.half	.L2-.L36
+	.byte	3,2,1,5,61,9
+	.half	.L58-.L2
+	.byte	1,5,35,9
+	.half	.L3-.L58
+	.byte	3,2,1,5,61,9
+	.half	.L59-.L3
+	.byte	3,126,1,5,27,7,9
+	.half	.L60-.L59
+	.byte	3,5,1,5,56,3,121,1,5,16,7,9
+	.half	.L5-.L60
+	.byte	3,19,1,5,34,9
+	.half	.L61-.L5
+	.byte	1,5,38,9
+	.half	.L62-.L61
+	.byte	3,8,1,5,15,9
+	.half	.L63-.L62
+	.byte	1,5,9,9
+	.half	.L64-.L63
+	.byte	3,1,1,9
+	.half	.L65-.L64
+	.byte	3,1,1,5,16,9
+	.half	.L66-.L65
+	.byte	3,5,1,9
+	.half	.L67-.L66
+	.byte	3,1,1,5,14,9
+	.half	.L68-.L67
+	.byte	3,1,1,9
+	.half	.L69-.L68
+	.byte	3,1,1,5,9,9
+	.half	.L70-.L69
+	.byte	3,4,1,5,1,9
+	.half	.L71-.L70
+	.byte	3,2,1,7,9
+	.half	.L23-.L71
+	.byte	0,1,1
+.L48:
+	.sdecl	'.debug_ranges',debug,cluster('_sync_on_halt')
+	.sect	'.debug_ranges'
+.L22:
+	.word	-1,.L9,0,.L23-.L9,0,0
+	.sdecl	'.debug_info',debug,cluster('_sync_on_halt_lcx')
+	.sect	'.debug_info'
+.L24:
+	.word	215
+	.half	3
+	.word	.L25
+	.byte	4,1
+	.byte	'../Configurations/Debug/sync_on_halt.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\aurix_1036_wks\\UART_VCOM_1_KIT_TC275_LK\\Debug\\',0,12,1,2
+	.word	.L10
+	.byte	3
+	.byte	'_sync_on_halt_lcx',0,1,70,41
+	.word	.L35
+	.byte	1,5,3
+	.word	_sync_on_halt_lcx
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('_sync_on_halt_lcx')
+	.sect	'.debug_abbrev'
+.L25:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('_sync_on_halt_ucx')
+	.sect	'.debug_info'
+.L26:
+	.word	215
+	.half	3
+	.word	.L27
+	.byte	4,1
+	.byte	'../Configurations/Debug/sync_on_halt.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\aurix_1036_wks\\UART_VCOM_1_KIT_TC275_LK\\Debug\\',0,12,1,2
+	.word	.L10
+	.byte	3
+	.byte	'_sync_on_halt_ucx',0,1,71,41
+	.word	.L35
+	.byte	1,5,3
+	.word	_sync_on_halt_ucx
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('_sync_on_halt_ucx')
+	.sect	'.debug_abbrev'
+.L27:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_loc',debug,cluster('_sync_on_halt')
+	.sect	'.debug_loc'
+.L8:
+	.word	-1,.L9,0,.L29-.L9
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L31:
+	.word	-1,.L9,.L36-.L9,.L29-.L9
+	.half	1
+	.byte	111
+	.word	0,0
+.L33:
+	.word	0,0
+.L34:
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('_sync_on_halt_end')
+	.sect	'.debug_loc'
+.L6:
+	.word	-1,.L7,0,.L28-.L7
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L72:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('_sync_on_halt_end')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L72,.L7,.L28-.L7
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('_sync_on_halt')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L72,.L9,.L29-.L9
+	.byte	8,19,8,22,8,23,0,0
+	; Module end

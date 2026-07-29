@@ -1,0 +1,1548 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc12420a --dep-file=Libraries/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_PinMap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore/Compilers -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Icu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Math -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Can -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Impl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Phy_Pef7071 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Driver -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Trap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/CStart -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiSlave -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Crc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Cam -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/General -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D/_Reg -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiMaster -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Asc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Adc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Time -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Irq -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/InternalMux -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Trig -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TimerWithTrigger -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/StdIf -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Spi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations/Debug -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/_Utilities -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Rdc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Lin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/IncrEnc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmBc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TPwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim/In -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Io -w544 -w557 -t2 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Libraries/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.src ../Libraries/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.c'
+
+	
+$TC16X
+	.sdecl	'.rodata.IfxAsclin_Asc..1.cnt',data,rom
+	.sect	'.rodata.IfxAsclin_Asc..1.cnt'
+	.align	4
+.1.cnt:	.type	object
+	.size	.1.cnt,8
+	.word	-1,2147483647
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_blockingRead',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_blockingRead'
+	.align	2
+	
+	.global	IfxAsclin_Asc_blockingRead
+; Function IfxAsclin_Asc_blockingRead
+IfxAsclin_Asc_blockingRead:	.type	func
+	sub.a	a10,#8
+	mov.aa	a15,a4
+	mov	d15,#1
+	st.h	[a10],d15
+	j	.L2
+.L3:
+.L2:
+	lea	a5,[a10]2
+	lea	a6,[a10]0
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e4,[a2]0
+	mov.aa	a4,a15
+	call	IfxAsclin_Asc_read
+	jne	d2,#1,.L3
+	ld.bu	d2,[a10]2
+	j	.L4
+.L4:
+	ret
+	
+__IfxAsclin_Asc_blockingRead_function_end:
+	.size	IfxAsclin_Asc_blockingRead,__IfxAsclin_Asc_blockingRead_function_end-IfxAsclin_Asc_blockingRead
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_blockingWrite',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_blockingWrite'
+	.align	2
+	
+	.global	IfxAsclin_Asc_blockingWrite
+; Function IfxAsclin_Asc_blockingWrite
+IfxAsclin_Asc_blockingWrite:	.type	func
+	sub.a	a10,#8
+	st.b	[a10],d4
+	mov	d15,#1
+	st.h	[a10]2,d15
+	lea	a5,[a10]0
+	lea	a6,[a10]2
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e4,[a15]0
+	call	IfxAsclin_Asc_write
+	j	.L5
+.L5:
+	ret
+	
+__IfxAsclin_Asc_blockingWrite_function_end:
+	.size	IfxAsclin_Asc_blockingWrite,__IfxAsclin_Asc_blockingWrite_function_end-IfxAsclin_Asc_blockingWrite
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_canReadCount',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_canReadCount'
+	.align	2
+	
+	.global	IfxAsclin_Asc_canReadCount
+; Function IfxAsclin_Asc_canReadCount
+IfxAsclin_Asc_canReadCount:	.type	func
+	ld.a	a4,[a4]8
+	call	Ifx_Fifo_canReadCount
+	j	.L6
+.L6:
+	ret
+	
+__IfxAsclin_Asc_canReadCount_function_end:
+	.size	IfxAsclin_Asc_canReadCount,__IfxAsclin_Asc_canReadCount_function_end-IfxAsclin_Asc_canReadCount
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_canWriteCount',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_canWriteCount'
+	.align	2
+	
+	.global	IfxAsclin_Asc_canWriteCount
+; Function IfxAsclin_Asc_canWriteCount
+IfxAsclin_Asc_canWriteCount:	.type	func
+	ld.a	a4,[a4]4
+	call	Ifx_Fifo_canWriteCount
+	j	.L7
+.L7:
+	ret
+	
+__IfxAsclin_Asc_canWriteCount_function_end:
+	.size	IfxAsclin_Asc_canWriteCount,__IfxAsclin_Asc_canWriteCount_function_end-IfxAsclin_Asc_canWriteCount
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_clearRx',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_clearRx'
+	.align	2
+	
+	.global	IfxAsclin_Asc_clearRx
+; Function IfxAsclin_Asc_clearRx
+IfxAsclin_Asc_clearRx:	.type	func
+	ld.a	a15,[a4]
+	ld.bu	d15,[a15]16
+	or	d15,#1
+	st.b	[a15]16,d15
+	ld.a	a4,[a4]8
+	call	Ifx_Fifo_clear
+	ret
+	
+__IfxAsclin_Asc_clearRx_function_end:
+	.size	IfxAsclin_Asc_clearRx,__IfxAsclin_Asc_clearRx_function_end-IfxAsclin_Asc_clearRx
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_clearTx',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_clearTx'
+	.align	2
+	
+	.global	IfxAsclin_Asc_clearTx
+; Function IfxAsclin_Asc_clearTx
+IfxAsclin_Asc_clearTx:	.type	func
+	mov.aa	a15,a4
+	ld.a	a4,[a15]4
+	call	Ifx_Fifo_clear
+	ld.a	a15,[a15]
+	ld.bu	d15,[a15]12
+	or	d15,#1
+	st.b	[a15]12,d15
+	ret
+	
+__IfxAsclin_Asc_clearTx_function_end:
+	.size	IfxAsclin_Asc_clearTx,__IfxAsclin_Asc_clearTx_function_end-IfxAsclin_Asc_clearTx
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_disableModule',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_disableModule'
+	.align	2
+	
+	.global	IfxAsclin_Asc_disableModule
+; Function IfxAsclin_Asc_disableModule
+IfxAsclin_Asc_disableModule:	.type	func
+	ld.a	a15,[a4]
+	call	IfxScuWdt_getCpuWatchdogPassword
+	mov	d8,d2
+	mov	d4,d8
+	call	IfxScuWdt_clearCpuEndinit
+	ld.bu	d15,[a15]
+	or	d15,#1
+	st.b	[a15],d15
+	mov	d4,d8
+	call	IfxScuWdt_setCpuEndinit
+	ret
+	
+__IfxAsclin_Asc_disableModule_function_end:
+	.size	IfxAsclin_Asc_disableModule,__IfxAsclin_Asc_disableModule_function_end-IfxAsclin_Asc_disableModule
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_flushTx',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_flushTx'
+	.align	2
+	
+	.global	IfxAsclin_Asc_flushTx
+; Function IfxAsclin_Asc_flushTx
+IfxAsclin_Asc_flushTx:	.type	func
+	mov.aa	a12,a4
+	mov	e6,d5,d4
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e0,[a2]0
+	ne	d15,d6,d0
+	or.ne	d15,d7,d1
+	jne	d15,#0,.L8
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e8,[a2]0
+	j	.L9
+.L8:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L10
+.L10:
+	disable
+	nop
+	j	.L11
+.L11:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L12
+.L12:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L13
+	enable
+.L13:
+	j	.L14
+.L14:
+	addx	d8,d0,d6
+	addc	d9,d1,d7
+.L9:
+	j	.L15
+.L15:
+	ld.a	a4,[a12]4
+	ld.h	d4,[a4]20
+	call	Ifx_Fifo_canWriteCount
+	mov	d15,d2
+	j	.L16
+.L16:
+	jeq	d15,#0,.L17
+.L18:
+	ld.a	a15,[a12]
+	ld.bu	d15,[a15]14
+	and	d15,#31
+	j	.L19
+.L19:
+	eq	d15,d15,#0
+	jne	d15,#0,.L20
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e0,[a15]0
+	ne	d2,d8,d0
+	or.ne	d2,d9,d1
+	jne	d2,#0,.L21
+	mov	d0,#0
+	j	.L22
+.L21:
+	mfcr	d0,#65068
+	extr.u	d0,d0,#15,#1
+	ne	d0,d0,#0
+	j	.L23
+.L23:
+	disable
+	nop
+	j	.L24
+.L24:
+	ld.w	d1,0xf0000010
+	mov	d3,#0
+	mov	d2,d1
+	ld.w	d5,0xf000002c
+	mov	d4,#0
+	or	d2,d4
+	or	d3,d5
+	j	.L25
+.L25:
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e4,[a15]0
+	and	d2,d4
+	and	d3,d5
+	jeq	d0,#0,.L26
+	enable
+.L26:
+	j	.L27
+.L27:
+	ge.u	d0,d2,d8
+	and.eq	d0,d3,d9
+	or.lt	d0,d9,d3
+.L22:
+	j	.L28
+.L28:
+	jeq	d0,#0,.L18
+.L20:
+.L17:
+	mov	d2,d15
+	j	.L29
+.L29:
+	ret
+	
+__IfxAsclin_Asc_flushTx_function_end:
+	.size	IfxAsclin_Asc_flushTx,__IfxAsclin_Asc_flushTx_function_end-IfxAsclin_Asc_flushTx
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getReadCount',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getReadCount'
+	.align	2
+	
+	.global	IfxAsclin_Asc_getReadCount
+; Function IfxAsclin_Asc_getReadCount
+IfxAsclin_Asc_getReadCount:	.type	func
+	ld.a	a15,[a4]8
+	ld.h	d2,[a15]4
+	j	.L30
+.L30:
+	j	.L31
+.L31:
+	ret
+	
+__IfxAsclin_Asc_getReadCount_function_end:
+	.size	IfxAsclin_Asc_getReadCount,__IfxAsclin_Asc_getReadCount_function_end-IfxAsclin_Asc_getReadCount
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getReadEvent',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getReadEvent'
+	.align	2
+	
+	.global	IfxAsclin_Asc_getReadEvent
+; Function IfxAsclin_Asc_getReadEvent
+IfxAsclin_Asc_getReadEvent:	.type	func
+	ld.a	a15,[a4]8
+	lea	a2,[a15]25
+	j	.L32
+.L32:
+	ret
+	
+__IfxAsclin_Asc_getReadEvent_function_end:
+	.size	IfxAsclin_Asc_getReadEvent,__IfxAsclin_Asc_getReadEvent_function_end-IfxAsclin_Asc_getReadEvent
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getSendCount',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getSendCount'
+	.align	2
+	
+	.global	IfxAsclin_Asc_getSendCount
+; Function IfxAsclin_Asc_getSendCount
+IfxAsclin_Asc_getSendCount:	.type	func
+	ld.w	d2,[a4]16
+	j	.L33
+.L33:
+	ret
+	
+__IfxAsclin_Asc_getSendCount_function_end:
+	.size	IfxAsclin_Asc_getSendCount,__IfxAsclin_Asc_getSendCount_function_end-IfxAsclin_Asc_getSendCount
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getTxTimeStamp',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getTxTimeStamp'
+	.align	2
+	
+	.global	IfxAsclin_Asc_getTxTimeStamp
+; Function IfxAsclin_Asc_getTxTimeStamp
+IfxAsclin_Asc_getTxTimeStamp:	.type	func
+	ld.d	e2,[a4]20
+	j	.L34
+.L34:
+	ret
+	
+__IfxAsclin_Asc_getTxTimeStamp_function_end:
+	.size	IfxAsclin_Asc_getTxTimeStamp,__IfxAsclin_Asc_getTxTimeStamp_function_end-IfxAsclin_Asc_getTxTimeStamp
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getWriteCount',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getWriteCount'
+	.align	2
+	
+	.global	IfxAsclin_Asc_getWriteCount
+; Function IfxAsclin_Asc_getWriteCount
+IfxAsclin_Asc_getWriteCount:	.type	func
+	ld.a	a15,[a4]4
+	ld.h	d0,[a15]4
+	j	.L35
+.L35:
+	ld.h	d15,[a15]20
+	sub	d15,d0
+	extr	d2,d15,#0,#16
+	j	.L36
+.L36:
+	j	.L37
+.L37:
+	ret
+	
+__IfxAsclin_Asc_getWriteCount_function_end:
+	.size	IfxAsclin_Asc_getWriteCount,__IfxAsclin_Asc_getWriteCount_function_end-IfxAsclin_Asc_getWriteCount
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getWriteEvent',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_getWriteEvent'
+	.align	2
+	
+	.global	IfxAsclin_Asc_getWriteEvent
+; Function IfxAsclin_Asc_getWriteEvent
+IfxAsclin_Asc_getWriteEvent:	.type	func
+	ld.a	a15,[a4]4
+	lea	a2,[a15]25
+	j	.L38
+.L38:
+	ret
+	
+__IfxAsclin_Asc_getWriteEvent_function_end:
+	.size	IfxAsclin_Asc_getWriteEvent,__IfxAsclin_Asc_getWriteEvent_function_end-IfxAsclin_Asc_getWriteEvent
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_initModule',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_initModule'
+	.align	2
+	
+	.global	IfxAsclin_Asc_initModule
+; Function IfxAsclin_Asc_initModule
+IfxAsclin_Asc_initModule:	.type	func
+	sub.a	a10,#8
+	st.a	[a10],a4
+	mov.aa	a13,a5
+	ld.a	a15,[a13]
+	st.a	[a4],a15
+	mov.aa	a4,a15
+	call	IfxAsclin_enableModule
+	mov	d4,#0
+	mov.aa	a4,a15
+	call	IfxAsclin_setClockSource
+	mov	d15,#0
+	ld.bu	d0,[a15]26
+	insert	d15,d0,d15,#0,#2
+	st.b	[a15]26,d15
+	ld.hu	d15,[a13]8
+	ld.hu	d0,[a15]20
+	add	d15,#-1
+	extr.u	d15,d15,#0,#16
+	insert	d15,d0,d15,#0,#12
+	st.h	[a15]20,d15
+	ld.bu	d4,[a13]44
+	mov.aa	a4,a15
+	call	IfxAsclin_setClockSource
+	ld.w	d4,[a13]4
+	ld.bu	d5,[a13]10
+	ld.bu	d6,[a13]13
+	ld.bu	d7,[a13]12
+	mov.aa	a4,a15
+	call	IfxAsclin_setBitTiming
+	mov	d8,d2
+	mov	d4,#0
+	mov.aa	a4,a15
+	call	IfxAsclin_setClockSource
+	ld.bu	d15,[a13]60
+	jeq	d15,#0,.L39
+	mov	d0,#1
+	j	.L40
+.L39:
+	mov	d0,#0
+.L40:
+	ld.bu	d15,[a15]7
+	insert	d15,d15,d0,#4,#1
+	st.b	[a15]7,d15
+	ld.bu	d15,[a13]22
+	jeq	d15,#0,.L41
+	mov	d15,#1
+	j	.L42
+.L41:
+	mov	d15,#0
+.L42:
+	ld.bu	d0,[a15]27
+	insert	d15,d0,d15,#6,#1
+	st.b	[a15]27,d15
+	ld.bu	d15,[a13]20
+	ld.bu	d0,[a15]27
+	insert	d15,d0,d15,#7,#1
+	st.b	[a15]27,d15
+	ld.bu	d15,[a13]17
+	ld.bu	d0,[a15]25
+	insert	d15,d0,d15,#1,#3
+	st.b	[a15]25,d15
+	ld.bu	d15,[a13]19
+	ld.bu	d0,[a15]27
+	insert	d15,d0,d15,#4,#1
+	st.b	[a15]27,d15
+	ld.bu	d15,[a13]21
+	ld.bu	d0,[a15]28
+	insert	d15,d0,d15,#0,#4
+	st.b	[a15]28,d15
+	ld.bu	d0,[a13]24
+	ld.bu	d15,[a15]12
+	insert	d15,d15,d0,#6,#2
+	st.b	[a15]12,d15
+	ld.bu	d15,[a13]25
+	ld.bu	d0,[a15]16
+	insert	d15,d0,d15,#6,#2
+	st.b	[a15]16,d15
+	ld.bu	d15,[a13]16
+	ld.hu	d0,[a15]24
+	insert	d15,d0,d15,#6,#3
+	st.h	[a15]24,d15
+	ld.bu	d0,[a13]26
+	ld.bu	d15,[a15]13
+	min.u	d0,d0,#15
+	extr.u	d0,d0,#0,#8
+	insert	d15,d15,d0,#0,#4
+	st.b	[a15]13,d15
+	ld.bu	d15,[a13]27
+	ld.bu	d0,[a15]17
+	min.u	d15,d15,#15
+	extr.u	d15,d15,#0,#8
+	insert	d15,d0,d15,#0,#4
+	st.b	[a15]17,d15
+	ld.bu	d15,[a13]18
+	ld.bu	d0,[a15]26
+	insert	d15,d0,d15,#0,#2
+	st.b	[a15]26,d15
+	ld.a	a12,[a13]40
+	jz.a	a12,.L43
+	ld.a	a14,[a12]
+	jz.a	a14,.L44
+	ld.b	d0,[a12]4
+	ld.bu	d9,[a12]29
+	ld.w	d15,[a14]4
+	jeq	d15,#0,.L45
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	extr.u	d5,d0,#0,#8
+	call	IfxPort_setPinMode
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	mov	d5,d9
+	call	IfxPort_setPinPadDriver
+	ld.a	a2,[a14]
+	mov	d15,#1
+	jeq	d15,#0,.L46
+	mov	d0,#1
+	j	.L47
+.L46:
+	mov	d0,#0
+.L47:
+	ld.bu	d15,[a2]7
+	insert	d15,d15,d0,#5,#1
+	st.b	[a2]7,d15
+	ld.a	a2,[a14]
+	ld.bu	d15,[a14]12
+	ld.bu	d0,[a2]6
+	insert	d15,d0,d15,#0,#2
+	st.b	[a2]6,d15
+.L45:
+.L44:
+	ld.a	a14,[a12]8
+	jz.a	a14,.L48
+	ld.b	d0,[a12]12
+	ld.bu	d9,[a12]29
+	ld.w	d15,[a14]4
+	jeq	d15,#0,.L49
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	extr.u	d5,d0,#0,#8
+	call	IfxPort_setPinMode
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	mov	d5,d9
+	call	IfxPort_setPinPadDriver
+	ld.a	a2,[a14]
+	ld.bu	d15,[a14]12
+	ld.bu	d0,[a2]4
+	insert	d15,d0,d15,#0,#3
+	st.b	[a2]4,d15
+.L49:
+.L48:
+	ld.a	a14,[a12]16
+	jz.a	a14,.L50
+	ld.bu	d5,[a12]20
+	ld.bu	d9,[a12]29
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	ld.bu	d15,[a14]12
+	or	d5,d15
+	call	IfxPort_setPinMode
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	mov	d5,d9
+	call	IfxPort_setPinPadDriver
+.L50:
+	ld.a	a14,[a12]24
+	jz.a	a14,.L51
+	ld.bu	d5,[a12]28
+	ld.bu	d9,[a12]29
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	ld.bu	d15,[a14]12
+	or	d5,d15
+	call	IfxPort_setPinMode
+	ld.a	a4,[a14]4
+	ld.bu	d4,[a14]8
+	mov	d5,d9
+	call	IfxPort_setPinPadDriver
+.L51:
+.L43:
+	ld.bu	d4,[a13]44
+	mov.aa	a4,a15
+	call	IfxAsclin_setClockSource
+	mov	d15,#0
+	st.w	[a15]64,d15
+	mov	d15,#-1
+	st.w	[a15]60,d15
+	mov	d15,#0
+	ld.a	a2,[a10]
+	st.b	[a2]14,d15
+	ld.bu	d15,[a13]45
+	jz.t	d15:0,.L52
+	mov	d15,#1
+	jeq	d15,#0,.L53
+	mov	d15,#1
+	j	.L54
+.L53:
+	mov	d15,#0
+.L54:
+	ld.bu	d0,[a15]66
+	insert	d15,d0,d15,#0,#1
+	st.b	[a15]66,d15
+.L52:
+	ld.bu	d15,[a13]45
+	jz.t	d15:1,.L55
+	mov	d15,#1
+	jeq	d15,#0,.L56
+	mov	d15,#1
+	j	.L57
+.L56:
+	mov	d15,#0
+.L57:
+	ld.bu	d0,[a15]66
+	insert	d15,d0,d15,#2,#1
+	st.b	[a15]66,d15
+.L55:
+	ld.bu	d15,[a13]45
+	jz.t	d15:2,.L58
+	mov	d15,#1
+	jeq	d15,#0,.L59
+	mov	d15,#1
+	j	.L60
+.L59:
+	mov	d15,#0
+.L60:
+	ld.bu	d0,[a15]67
+	insert	d15,d0,d15,#2,#1
+	st.b	[a15]67,d15
+.L58:
+	ld.bu	d15,[a13]45
+	jz.t	d15:3,.L61
+	mov	d15,#1
+	jeq	d15,#0,.L62
+	mov	d15,#1
+	j	.L63
+.L62:
+	mov	d15,#0
+.L63:
+	ld.bu	d0,[a15]67
+	insert	d15,d0,d15,#3,#1
+	st.b	[a15]67,d15
+.L61:
+	ld.bu	d15,[a13]45
+	jz.t	d15:4,.L64
+	mov	d15,#1
+	jeq	d15,#0,.L65
+	mov	d15,#1
+	j	.L66
+.L65:
+	mov	d15,#0
+.L66:
+	ld.bu	d0,[a15]67
+	insert	d15,d0,d15,#6,#1
+	st.b	[a15]67,d15
+.L64:
+	mov	d15,#0
+	st.b	[a2]13,d15
+	mov	d15,#0
+	st.b	[a2]12,d15
+	ld.bu	d15,[a13]61
+	st.b	[a2]15,d15
+	mov	e0,#0
+	st.d	[a2]20,e0
+	mov	d15,#0
+	st.w	[a2]16,d15
+	ld.bu	d15,[a2]15
+	mov	d0,#0
+	jeq	d15,d0,.L67
+	mov	d0,#1
+	jeq	d15,d0,.L68
+	j	.L69
+.L67:
+	mov	d9,#1
+	j	.L70
+.L68:
+	mov	d9,#12
+	j	.L71
+.L69:
+	mov	d9,#0
+	j	.L72
+.L72:
+.L71:
+.L70:
+	ld.w	d15,[a13]48
+	jeq	d15,#0,.L73
+	ld.a	a4,[a13]48
+	ld.h	d4,[a13]46
+	mov	d5,d9
+	call	Ifx_Fifo_init
+	ld.a	a4,[a10]
+	st.a	[a4]4,a2
+	j	.L74
+.L73:
+	ld.h	d4,[a13]46
+	mov	d5,d9
+	call	Ifx_Fifo_create
+	ld.a	a4,[a10]
+	st.a	[a4]4,a2
+.L74:
+	ld.w	d15,[a13]56
+	jeq	d15,#0,.L75
+	ld.a	a4,[a13]56
+	ld.h	d4,[a13]52
+	mov	d5,d9
+	call	Ifx_Fifo_init
+	ld.a	a4,[a10]
+	st.a	[a4]8,a2
+	j	.L76
+.L75:
+	ld.h	d4,[a13]52
+	mov	d5,d9
+	call	Ifx_Fifo_create
+	ld.a	a4,[a10]
+	st.a	[a4]8,a2
+.L76:
+	ld.bu	d9,[a13]38
+	ld.hu	d15,[a13]34
+	jge.u	d15,#1,.L77
+	jne	d9,#3,.L78
+.L77:
+	mov.aa	a4,a15
+	call	IfxAsclin_getSrcPointerRx
+	ld.hu	d15,[a13]34
+	ld.bu	d0,[a2]
+	extr.u	d15,d15,#0,#8
+	insert	d15,d0,d15,#0,#8
+	st.b	[a2],d15
+	ld.bu	d15,[a2]1
+	insert	d15,d15,d9,#3,#2
+	st.b	[a2]1,d15
+	ld.bu	d15,[a2]3
+	or	d15,#2
+	st.b	[a2]3,d15
+	mov	d15,#1
+	jeq	d15,#0,.L79
+	mov	d15,#1
+	j	.L80
+.L79:
+	mov	d15,#0
+.L80:
+	ld.bu	d0,[a15]67
+	insert	d15,d0,d15,#4,#1
+	st.b	[a15]67,d15
+	ld.bu	d15,[a2]1
+	or	d15,#4
+	st.b	[a2]1,d15
+.L78:
+	ld.hu	d15,[a13]32
+	jge.u	d15,#1,.L81
+	jne	d9,#3,.L82
+.L81:
+	mov.aa	a4,a15
+	call	IfxAsclin_getSrcPointerTx
+	ld.hu	d15,[a13]32
+	ld.bu	d0,[a2]
+	extr.u	d15,d15,#0,#8
+	insert	d15,d0,d15,#0,#8
+	st.b	[a2],d15
+	ld.bu	d15,[a2]1
+	insert	d15,d15,d9,#3,#2
+	st.b	[a2]1,d15
+	ld.bu	d15,[a2]3
+	or	d15,#2
+	st.b	[a2]3,d15
+	mov	d15,#1
+	jeq	d15,#0,.L83
+	mov	d15,#1
+	j	.L84
+.L83:
+	mov	d15,#0
+.L84:
+	ld.bu	d0,[a15]67
+	insert	d15,d0,d15,#7,#1
+	st.b	[a15]67,d15
+	ld.bu	d15,[a2]1
+	or	d15,#4
+	st.b	[a2]1,d15
+.L82:
+	ld.hu	d15,[a13]36
+	jlt.u	d15,#1,.L85
+	mov.aa	a4,a15
+	call	IfxAsclin_getSrcPointerEr
+	ld.hu	d15,[a13]36
+	ld.bu	d0,[a2]
+	extr.u	d15,d15,#0,#8
+	insert	d15,d0,d15,#0,#8
+	st.b	[a2],d15
+	ld.bu	d15,[a2]1
+	insert	d15,d15,d9,#3,#2
+	st.b	[a2]1,d15
+	ld.bu	d15,[a2]3
+	or	d15,#2
+	st.b	[a2]3,d15
+	mov	d15,#1
+	jeq	d15,#0,.L86
+	mov	d15,#1
+	j	.L87
+.L86:
+	mov	d15,#0
+.L87:
+	ld.bu	d0,[a15]66
+	insert	d15,d0,d15,#0,#1
+	st.b	[a15]66,d15
+	ld.bu	d15,[a2]1
+	or	d15,#4
+	st.b	[a2]1,d15
+.L85:
+	mov	d15,#1
+	jeq	d15,#0,.L88
+	mov	d15,#1
+	j	.L89
+.L88:
+	mov	d15,#0
+.L89:
+	ld.bu	d0,[a15]16
+	insert	d15,d0,d15,#1,#1
+	st.b	[a15]16,d15
+	mov	d15,#1
+	jeq	d15,#0,.L90
+	mov	d0,#1
+	j	.L91
+.L90:
+	mov	d0,#0
+.L91:
+	ld.bu	d15,[a15]12
+	insert	d15,d15,d0,#1,#1
+	st.b	[a15]12,d15
+	ld.bu	d15,[a15]16
+	or	d15,#1
+	st.b	[a15]16,d15
+	ld.bu	d15,[a15]12
+	or	d15,#1
+	st.b	[a15]12,d15
+	mov	d2,d8
+	j	.L92
+.L92:
+	ret
+	
+__IfxAsclin_Asc_initModule_function_end:
+	.size	IfxAsclin_Asc_initModule,__IfxAsclin_Asc_initModule_function_end-IfxAsclin_Asc_initModule
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_initModuleConfig',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_initModuleConfig'
+	.align	2
+	
+	.global	IfxAsclin_Asc_initModuleConfig
+; Function IfxAsclin_Asc_initModuleConfig
+IfxAsclin_Asc_initModuleConfig:	.type	func
+	st.a	[a4],a5
+	mov	d15,#0
+	st.b	[a4]60,d15
+	mov	d15,#1
+	st.b	[a4]44,d15
+	mov	d15,#1
+	st.h	[a4]8,d15
+	movh	d15,#18401
+	st.w	[a4]4,d15
+	mov	d15,#3
+	st.b	[a4]10,d15
+	mov	d15,#0
+	st.b	[a4]12,d15
+	mov	d15,#3
+	st.b	[a4]13,d15
+	mov	d15,#0
+	st.b	[a4]16,d15
+	mov	d15,#1
+	st.b	[a4]17,d15
+	mov	d15,#1
+	st.b	[a4]18,d15
+	mov	d15,#0
+	st.b	[a4]19,d15
+	mov	d15,#0
+	st.b	[a4]22,d15
+	mov	d15,#0
+	st.b	[a4]20,d15
+	mov	d15,#7
+	st.b	[a4]21,d15
+	mov	d15,#1
+	st.b	[a4]24,d15
+	mov	d15,#1
+	st.b	[a4]25,d15
+	mov	d15,#0
+	st.b	[a4]26,d15
+	mov	d15,#0
+	st.b	[a4]27,d15
+	mov	d15,#0
+	st.b	[a4]28,d15
+	mov	d15,#0
+	st.h	[a4]34,d15
+	mov	d15,#0
+	st.h	[a4]32,d15
+	mov	d15,#0
+	st.h	[a4]36,d15
+	mov	d15,#0
+	st.b	[a4]38,d15
+	mov	d15,#255
+	st.b	[a4]45,d15
+	mov.a	a15,#0
+	st.a	[a4]40,a15
+	mov.a	a15,#0
+	st.a	[a4]56,a15
+	mov.a	a15,#0
+	st.a	[a4]48,a15
+	mov	d15,#0
+	st.h	[a4]46,d15
+	mov	d15,#0
+	st.h	[a4]52,d15
+	mov	d15,#0
+	st.b	[a4]61,d15
+	ret
+	
+__IfxAsclin_Asc_initModuleConfig_function_end:
+	.size	IfxAsclin_Asc_initModuleConfig,__IfxAsclin_Asc_initModuleConfig_function_end-IfxAsclin_Asc_initModuleConfig
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_initiateTransmission',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_initiateTransmission'
+	.align	2
+	
+	.global	IfxAsclin_Asc_initiateTransmission
+; Function IfxAsclin_Asc_initiateTransmission
+IfxAsclin_Asc_initiateTransmission:	.type	func
+	sub.a	a10,#16
+	mov.aa	a15,a4
+	ld.bu	d15,[a15]12
+	jne	d15,#0,.L93
+	ld.a	a2,[a15]4
+	ld.h	d15,[a2]4
+	j	.L94
+.L94:
+	jeq	d15,#0,.L95
+	mov	d15,#0
+	j	.L96
+.L95:
+	mov	d15,#1
+.L96:
+	j	.L97
+.L97:
+	jne	d15,#0,.L98
+	mov	d15,#1
+	st.b	[a15]12,d15
+	ld.bu	d15,[a15]15
+	mov	d0,#0
+	jeq	d15,d0,.L99
+	mov	d0,#1
+	jeq	d15,d0,.L100
+	j	.L101
+.L99:
+	ld.a	a4,[a15]4
+	lea	a5,[a10]0
+	mov	d4,#1
+	mov	e6,#0
+	call	Ifx_Fifo_read
+	j	.L102
+.L100:
+	ld.a	a4,[a15]4
+	lea	a5,[a10]4
+	mov	d4,#12
+	mov	e6,#0
+	call	Ifx_Fifo_read
+	ld.bu	d15,[a10]12
+	st.b	[a10],d15
+	j	.L103
+.L101:
+.L103:
+.L102:
+	ld.a	a4,[a15]
+	lea	a5,[a10]0
+	mov	d4,#1
+	call	IfxAsclin_write8
+.L98:
+.L93:
+	ret
+	
+__IfxAsclin_Asc_initiateTransmission_function_end:
+	.size	IfxAsclin_Asc_initiateTransmission,__IfxAsclin_Asc_initiateTransmission_function_end-IfxAsclin_Asc_initiateTransmission
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_isrError',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_isrError'
+	.align	2
+	
+	.global	IfxAsclin_Asc_isrError
+; Function IfxAsclin_Asc_isrError
+IfxAsclin_Asc_isrError:	.type	func
+	ld.a	a15,[a4]
+	ld.bu	d15,[a15]54
+	and	d15,#1
+	j	.L104
+.L104:
+	jeq	d15,#0,.L105
+	ld.bu	d15,[a15]62
+	or	d15,#1
+	st.b	[a15]62,d15
+	ld.bu	d15,[a4]14
+	or	d15,#1
+	st.b	[a4]14,d15
+.L105:
+	ld.bu	d15,[a15]54
+	extr.u	d15,d15,#2,#1
+	j	.L106
+.L106:
+	jeq	d15,#0,.L107
+	ld.bu	d15,[a15]62
+	or	d15,#4
+	st.b	[a15]62,d15
+	ld.bu	d15,[a4]14
+	or	d15,#2
+	st.b	[a4]14,d15
+.L107:
+	ld.bu	d15,[a15]55
+	extr.u	d15,d15,#2,#1
+	j	.L108
+.L108:
+	jeq	d15,#0,.L109
+	ld.bu	d15,[a15]63
+	or	d15,#4
+	st.b	[a15]63,d15
+	ld.bu	d15,[a4]14
+	or	d15,#4
+	st.b	[a4]14,d15
+.L109:
+	ld.bu	d15,[a15]55
+	extr.u	d15,d15,#3,#1
+	j	.L110
+.L110:
+	jeq	d15,#0,.L111
+	ld.bu	d15,[a15]63
+	or	d15,#8
+	st.b	[a15]63,d15
+	ld.bu	d15,[a4]14
+	or	d15,#8
+	st.b	[a4]14,d15
+.L111:
+	ld.bu	d15,[a15]55
+	extr.u	d15,d15,#6,#1
+	j	.L112
+.L112:
+	jeq	d15,#0,.L113
+	ld.bu	d15,[a15]63
+	or	d15,#64
+	st.b	[a15]63,d15
+	ld.bu	d15,[a4]14
+	or	d15,#16
+	st.b	[a4]14,d15
+.L113:
+	ret
+	
+__IfxAsclin_Asc_isrError_function_end:
+	.size	IfxAsclin_Asc_isrError,__IfxAsclin_Asc_isrError_function_end-IfxAsclin_Asc_isrError
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_isrReceive',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_isrReceive'
+	.align	2
+	
+	.global	IfxAsclin_Asc_isrReceive
+; Function IfxAsclin_Asc_isrReceive
+IfxAsclin_Asc_isrReceive:	.type	func
+	sub.a	a10,#32
+	mov.aa	a15,a4
+	ld.bu	d15,[a15]15
+	mov	d0,#0
+	jeq	d15,d0,.L114
+	mov	d0,#1
+	jeq	d15,d0,.L115
+	j	.L116
+.L114:
+	ld.a	a2,[a15]
+	ld.bu	d15,[a2]18
+	and	d15,#31
+	j	.L117
+.L117:
+	ld.a	a4,[a15]
+	lea	a5,[a10]0
+	mov	d4,d15
+	call	IfxAsclin_read8
+	ld.a	a4,[a15]8
+	lea	a5,[a10]0
+	mov	e6,#0
+	mov	d4,d15
+	call	Ifx_Fifo_write
+	jeq	d2,#0,.L118
+	mov	d15,#1
+	st.b	[a15]13,d15
+.L118:
+	j	.L119
+.L115:
+	j	.L120
+.L121:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L122
+.L122:
+	disable
+	nop
+	j	.L123
+.L123:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L124
+.L124:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L125
+	enable
+.L125:
+	j	.L126
+.L126:
+	st.d	[a10]16,e0
+	ld.a	a4,[a15]
+	lea	a5,[a10]0
+	mov	d4,#1
+	call	IfxAsclin_read8
+	ld.bu	d15,[a10]
+	st.b	[a10]24,d15
+	ld.a	a4,[a15]8
+	lea	a5,[a10]16
+	mov	d4,#12
+	mov	e6,#0
+	call	Ifx_Fifo_write
+	jeq	d2,#0,.L127
+	mov	d15,#1
+	st.b	[a15]13,d15
+.L127:
+.L120:
+	ld.a	a2,[a15]
+	ld.bu	d15,[a2]18
+	and	d15,#31
+	j	.L128
+.L128:
+	jge.u	d15,#1,.L121
+	j	.L129
+.L116:
+.L129:
+.L119:
+	ret
+	
+__IfxAsclin_Asc_isrReceive_function_end:
+	.size	IfxAsclin_Asc_isrReceive,__IfxAsclin_Asc_isrReceive_function_end-IfxAsclin_Asc_isrReceive
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_isrTransmit',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_isrTransmit'
+	.align	2
+	
+	.global	IfxAsclin_Asc_isrTransmit
+; Function IfxAsclin_Asc_isrTransmit
+IfxAsclin_Asc_isrTransmit:	.type	func
+	sub.a	a10,#24
+	mov.aa	a15,a4
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L130
+.L130:
+	disable
+	nop
+	j	.L131
+.L131:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L132
+.L132:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L133
+	enable
+.L133:
+	j	.L134
+.L134:
+	st.d	[a15]20,e0
+	ld.w	d15,[a15]16
+	add	d15,#1
+	st.w	[a15]16,d15
+	ld.a	a2,[a15]4
+	ld.h	d15,[a2]4
+	j	.L135
+.L135:
+	jeq	d15,#0,.L136
+	mov	d15,#0
+	j	.L137
+.L136:
+	mov	d15,#1
+.L137:
+	j	.L138
+.L138:
+	jne	d15,#0,.L139
+	ld.bu	d15,[a15]15
+	mov	d0,#0
+	jeq	d15,d0,.L140
+	mov	d0,#1
+	jeq	d15,d0,.L141
+	j	.L142
+.L140:
+	mov	d15,#0
+	st.b	[a10]16,d15
+	ld.a	a2,[a15]4
+	ld.h	d15,[a2]4
+	j	.L143
+.L143:
+	extr.u	d0,d15,#0,#16
+	ld.a	a2,[a15]
+	ld.bu	d15,[a2]14
+	and	d15,#31
+	j	.L144
+.L144:
+	st.b	[a10]16,d15
+	ld.bu	d15,[a10]16
+	rsub	d15,d15,#16
+	extr.u	d15,d15,#0,#16
+	jge.u	d0,d15,.L145
+	mov	d15,d0
+.L145:
+	ld.a	a4,[a15]4
+	lea	a5,[a10]0
+	extr	d4,d15,#0,#16
+	mov	e6,#0
+	call	Ifx_Fifo_read
+	ld.a	a4,[a15]
+	lea	a5,[a10]0
+	mov	d4,d15
+	call	IfxAsclin_write8
+	j	.L146
+.L141:
+	ld.a	a4,[a15]4
+	lea	a5,[a10]0
+	mov	d4,#12
+	mov	e6,#0
+	call	Ifx_Fifo_read
+	ld.bu	d15,[a10]8
+	st.b	[a10]12,d15
+	ld.a	a4,[a15]
+	lea	a5,[a10]12
+	mov	d4,#1
+	call	IfxAsclin_write8
+	j	.L147
+.L142:
+.L147:
+.L146:
+	j	.L148
+.L139:
+	mov	d15,#0
+	st.b	[a15]12,d15
+.L148:
+	ret
+	
+__IfxAsclin_Asc_isrTransmit_function_end:
+	.size	IfxAsclin_Asc_isrTransmit,__IfxAsclin_Asc_isrTransmit_function_end-IfxAsclin_Asc_isrTransmit
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_read',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_read'
+	.align	2
+	
+	.global	IfxAsclin_Asc_read
+; Function IfxAsclin_Asc_read
+IfxAsclin_Asc_read:	.type	func
+	mov.aa	a15,a6
+	mov	e6,d5,d4
+	ld.a	a4,[a4]8
+	ld.h	d4,[a15]
+	call	Ifx_Fifo_read
+	ld.h	d15,[a15]
+	sub	d15,d2
+	st.h	[a15],d15
+	eq	d2,d2,#0
+	j	.L149
+.L149:
+	ret
+	
+__IfxAsclin_Asc_read_function_end:
+	.size	IfxAsclin_Asc_read,__IfxAsclin_Asc_read_function_end-IfxAsclin_Asc_read
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_resetSendCount',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_resetSendCount'
+	.align	2
+	
+	.global	IfxAsclin_Asc_resetSendCount
+; Function IfxAsclin_Asc_resetSendCount
+IfxAsclin_Asc_resetSendCount:	.type	func
+	mov	d15,#0
+	st.w	[a4]16,d15
+	ret
+	
+__IfxAsclin_Asc_resetSendCount_function_end:
+	.size	IfxAsclin_Asc_resetSendCount,__IfxAsclin_Asc_resetSendCount_function_end-IfxAsclin_Asc_resetSendCount
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_stdIfDPipeInit',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_stdIfDPipeInit'
+	.align	2
+	
+	.global	IfxAsclin_Asc_stdIfDPipeInit
+; Function IfxAsclin_Asc_stdIfDPipeInit
+IfxAsclin_Asc_stdIfDPipeInit:	.type	func
+	mov.aa	a15,a4
+	mov.aa	a12,a5
+	mov	d4,#0
+	mov	d5,#76
+	mov.aa	a4,a15
+	call	memset
+	st.a	[a15],a12
+	movh.a	a2,#@his(IfxAsclin_Asc_write)
+	lea	a2,[a2]@los(IfxAsclin_Asc_write)
+	st.a	[a15]8,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_read)
+	lea	a2,[a2]@los(IfxAsclin_Asc_read)
+	st.a	[a15]12,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_getReadCount)
+	lea	a2,[a2]@los(IfxAsclin_Asc_getReadCount)
+	st.a	[a15]16,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_getReadEvent)
+	lea	a2,[a2]@los(IfxAsclin_Asc_getReadEvent)
+	st.a	[a15]20,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_getWriteCount)
+	lea	a2,[a2]@los(IfxAsclin_Asc_getWriteCount)
+	st.a	[a15]24,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_getWriteEvent)
+	lea	a2,[a2]@los(IfxAsclin_Asc_getWriteEvent)
+	st.a	[a15]28,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_canReadCount)
+	lea	a2,[a2]@los(IfxAsclin_Asc_canReadCount)
+	st.a	[a15]32,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_canWriteCount)
+	lea	a2,[a2]@los(IfxAsclin_Asc_canWriteCount)
+	st.a	[a15]36,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_flushTx)
+	lea	a2,[a2]@los(IfxAsclin_Asc_flushTx)
+	st.a	[a15]40,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_clearTx)
+	lea	a2,[a2]@los(IfxAsclin_Asc_clearTx)
+	st.a	[a15]44,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_clearRx)
+	lea	a2,[a2]@los(IfxAsclin_Asc_clearRx)
+	st.a	[a15]48,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_isrReceive)
+	lea	a2,[a2]@los(IfxAsclin_Asc_isrReceive)
+	st.a	[a15]52,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_isrTransmit)
+	lea	a2,[a2]@los(IfxAsclin_Asc_isrTransmit)
+	st.a	[a15]56,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_isrError)
+	lea	a2,[a2]@los(IfxAsclin_Asc_isrError)
+	st.a	[a15]60,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_getSendCount)
+	lea	a2,[a2]@los(IfxAsclin_Asc_getSendCount)
+	st.a	[a15]64,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_getTxTimeStamp)
+	lea	a2,[a2]@los(IfxAsclin_Asc_getTxTimeStamp)
+	st.a	[a15]68,a2
+	movh.a	a2,#@his(IfxAsclin_Asc_resetSendCount)
+	lea	a2,[a2]@los(IfxAsclin_Asc_resetSendCount)
+	st.a	[a15]72,a2
+	mov	d15,#0
+	st.b	[a15]4,d15
+	mov	d2,#1
+	j	.L150
+.L150:
+	ret
+	
+__IfxAsclin_Asc_stdIfDPipeInit_function_end:
+	.size	IfxAsclin_Asc_stdIfDPipeInit,__IfxAsclin_Asc_stdIfDPipeInit_function_end-IfxAsclin_Asc_stdIfDPipeInit
+	; End of function
+	
+	.sdecl	'.text.IfxAsclin_Asc.IfxAsclin_Asc_write',code
+	.sect	'.text.IfxAsclin_Asc.IfxAsclin_Asc_write'
+	.align	2
+	
+	.global	IfxAsclin_Asc_write
+; Function IfxAsclin_Asc_write
+IfxAsclin_Asc_write:	.type	func
+	mov.aa	a15,a4
+	mov.aa	a12,a5
+	mov.aa	a13,a6
+	mov	e8,d5,d4
+	mov	d2,#1
+	ld.bu	d15,[a15]12
+	ld.a	a2,[a15]4
+	ld.h	d0,[a2]20
+	extr.u	d10,d0,#0,#16
+	ld.h	d0,[a13]
+	jeq	d0,#0,.L151
+	jne	d15,#0,.L152
+	ld.h	d15,[a13]
+	jge	d10,d15,.L153
+	ld.a	a4,[a15]4
+	extr	d4,d10,#0,#16
+	mov.aa	a5,a12
+	mov	e6,d9,d8
+	call	Ifx_Fifo_write
+	mov.aa	a4,a15
+	call	IfxAsclin_Asc_initiateTransmission
+	ld.a	a4,[a15]4
+	addsc.a	a5,a12,d10,#0
+	ld.h	d15,[a13]
+	sub	d15,d10
+	extr	d4,d15,#0,#16
+	mov	e6,d9,d8
+	call	Ifx_Fifo_write
+	mov	d8,d2
+	mov.aa	a4,a15
+	call	IfxAsclin_Asc_initiateTransmission
+	j	.L154
+.L153:
+.L152:
+	ld.a	a4,[a15]4
+	ld.h	d4,[a13]
+	mov.aa	a5,a12
+	mov	e6,d9,d8
+	call	Ifx_Fifo_write
+	mov	d8,d2
+	mov.aa	a4,a15
+	call	IfxAsclin_Asc_initiateTransmission
+.L154:
+	ld.h	d15,[a13]
+	sub	d15,d8
+	st.h	[a13],d15
+	eq	d2,d8,#0
+.L151:
+	j	.L155
+.L155:
+	ret
+	
+__IfxAsclin_Asc_write_function_end:
+	.size	IfxAsclin_Asc_write,__IfxAsclin_Asc_write_function_end-IfxAsclin_Asc_write
+	; End of function
+	
+	.calls	'__INDIRECT__','IfxAsclin_Asc_isrError'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_isrReceive'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_isrTransmit'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_canReadCount'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_canWriteCount'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_clearRx'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_clearTx'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_flushTx'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_getReadCount'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_getReadEvent'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_getSendCount'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_getTxTimeStamp'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_getWriteCount'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_getWriteEvent'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_read'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_resetSendCount'
+	.calls	'__INDIRECT__','IfxAsclin_Asc_write'
+	.calls	'IfxAsclin_Asc_blockingRead','IfxAsclin_Asc_read'
+	.calls	'IfxAsclin_Asc_blockingWrite','IfxAsclin_Asc_write'
+	.calls	'IfxAsclin_Asc_canReadCount','Ifx_Fifo_canReadCount'
+	.calls	'IfxAsclin_Asc_canWriteCount','Ifx_Fifo_canWriteCount'
+	.calls	'IfxAsclin_Asc_clearRx','Ifx_Fifo_clear'
+	.calls	'IfxAsclin_Asc_clearTx','Ifx_Fifo_clear'
+	.calls	'IfxAsclin_Asc_disableModule','IfxScuWdt_getCpuWatchdogPassword'
+	.calls	'IfxAsclin_Asc_disableModule','IfxScuWdt_clearCpuEndinit'
+	.calls	'IfxAsclin_Asc_disableModule','IfxScuWdt_setCpuEndinit'
+	.calls	'IfxAsclin_Asc_flushTx','Ifx_Fifo_canWriteCount'
+	.calls	'IfxAsclin_Asc_initModule','IfxAsclin_enableModule'
+	.calls	'IfxAsclin_Asc_initModule','IfxAsclin_setClockSource'
+	.calls	'IfxAsclin_Asc_initModule','IfxAsclin_setBitTiming'
+	.calls	'IfxAsclin_Asc_initModule','IfxPort_setPinMode'
+	.calls	'IfxAsclin_Asc_initModule','IfxPort_setPinPadDriver'
+	.calls	'IfxAsclin_Asc_initModule','Ifx_Fifo_init'
+	.calls	'IfxAsclin_Asc_initModule','Ifx_Fifo_create'
+	.calls	'IfxAsclin_Asc_initModule','IfxAsclin_getSrcPointerRx'
+	.calls	'IfxAsclin_Asc_initModule','IfxAsclin_getSrcPointerTx'
+	.calls	'IfxAsclin_Asc_initModule','IfxAsclin_getSrcPointerEr'
+	.calls	'IfxAsclin_Asc_initiateTransmission','Ifx_Fifo_read'
+	.calls	'IfxAsclin_Asc_initiateTransmission','IfxAsclin_write8'
+	.calls	'IfxAsclin_Asc_isrReceive','IfxAsclin_read8'
+	.calls	'IfxAsclin_Asc_isrReceive','Ifx_Fifo_write'
+	.calls	'IfxAsclin_Asc_isrTransmit','Ifx_Fifo_read'
+	.calls	'IfxAsclin_Asc_isrTransmit','IfxAsclin_write8'
+	.calls	'IfxAsclin_Asc_read','Ifx_Fifo_read'
+	.calls	'IfxAsclin_Asc_stdIfDPipeInit','memset'
+	.calls	'IfxAsclin_Asc_write','Ifx_Fifo_write'
+	.calls	'IfxAsclin_Asc_write','IfxAsclin_Asc_initiateTransmission'
+	.calls	'IfxAsclin_Asc_blockingRead','',8
+	.calls	'IfxAsclin_Asc_blockingWrite','',8
+	.calls	'IfxAsclin_Asc_canReadCount','',0
+	.calls	'IfxAsclin_Asc_canWriteCount','',0
+	.calls	'IfxAsclin_Asc_clearRx','',0
+	.calls	'IfxAsclin_Asc_clearTx','',0
+	.calls	'IfxAsclin_Asc_disableModule','',0
+	.calls	'IfxAsclin_Asc_flushTx','',0
+	.calls	'IfxAsclin_Asc_getReadCount','',0
+	.calls	'IfxAsclin_Asc_getReadEvent','',0
+	.calls	'IfxAsclin_Asc_getSendCount','',0
+	.calls	'IfxAsclin_Asc_getTxTimeStamp','',0
+	.calls	'IfxAsclin_Asc_getWriteCount','',0
+	.calls	'IfxAsclin_Asc_getWriteEvent','',0
+	.calls	'IfxAsclin_Asc_initModule','',8
+	.calls	'IfxAsclin_Asc_initModuleConfig','',0
+	.calls	'IfxAsclin_Asc_initiateTransmission','',16
+	.calls	'IfxAsclin_Asc_isrError','',0
+	.calls	'IfxAsclin_Asc_isrReceive','',32
+	.calls	'IfxAsclin_Asc_isrTransmit','',24
+	.calls	'IfxAsclin_Asc_read','',0
+	.calls	'IfxAsclin_Asc_resetSendCount','',0
+	.calls	'IfxAsclin_Asc_stdIfDPipeInit','',0
+	.extern	IfxScuWdt_clearCpuEndinit
+	.extern	IfxScuWdt_setCpuEndinit
+	.extern	IfxScuWdt_getCpuWatchdogPassword
+	.extern	IfxPort_setPinMode
+	.extern	IfxPort_setPinPadDriver
+	.extern	IfxAsclin_setBitTiming
+	.extern	IfxAsclin_enableModule
+	.extern	IfxAsclin_getSrcPointerEr
+	.extern	IfxAsclin_getSrcPointerRx
+	.extern	IfxAsclin_getSrcPointerTx
+	.extern	IfxAsclin_read8
+	.extern	IfxAsclin_setClockSource
+	.extern	IfxAsclin_write8
+	.extern	Ifx_Fifo_canReadCount
+	.extern	Ifx_Fifo_canWriteCount
+	.extern	Ifx_Fifo_clear
+	.extern	Ifx_Fifo_create
+	.extern	Ifx_Fifo_init
+	.extern	Ifx_Fifo_read
+	.extern	Ifx_Fifo_write
+	.extern	memset
+	.extern	__INDIRECT__
+	.calls	'IfxAsclin_Asc_write','',0
+	; Module end

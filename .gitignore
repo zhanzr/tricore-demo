@@ -1,0 +1,49 @@
+# --- Build directories ---
+build/
+build2/
+*/build/
+*/build2/
+
+# --- CMake generated ---
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CMakeConfigureLog.yaml
+CTestTestfile.cmake
+cmake_clean.cmake
+_deps/
+generated/
+install_manifest.txt
+*.ninja
+*.ninja_log
+*.ninja_deps
+*.rules.ninja
+
+# --- Compiled outputs ---
+*.elf
+*.uf2
+*.dis
+*.hex
+*.bin
+*.map
+*.o
+*.d
+
+# --- WiFi credentials (user-specific, keep out of repo) ---
+wifi_config.h
+*.a
+
+# --- Python virtual environment ---
+venv_dir/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Editor / IDE ---
+*.swp
+*.swo
+*~
+build_riscv
+.metadata/

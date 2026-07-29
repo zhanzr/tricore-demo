@@ -1,0 +1,890 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc19616a --dep-file=Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_PinMap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore/Compilers -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Icu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Math -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Can -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Impl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Phy_Pef7071 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Driver -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Trap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/CStart -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiSlave -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Crc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Cam -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/General -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D/_Reg -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiMaster -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Asc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Adc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Time -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Irq -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/InternalMux -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Trig -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TimerWithTrigger -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/StdIf -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Spi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations/Debug -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/_Utilities -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Rdc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Lin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/IncrEnc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmBc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TPwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim/In -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Io -w544 -w557 -t2 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.src ../Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_clearAllEventFlags',code
+	.sect	'.text.IfxScuEru.IfxScuEru_clearAllEventFlags'
+	.align	2
+	
+	.global	IfxScuEru_clearAllEventFlags
+; Function IfxScuEru_clearAllEventFlags
+IfxScuEru_clearAllEventFlags:	.type	func
+	movh	d15,#255
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036224),d15
+	ret
+	
+__IfxScuEru_clearAllEventFlags_function_end:
+	.size	IfxScuEru_clearAllEventFlags,__IfxScuEru_clearAllEventFlags_function_end-IfxScuEru_clearAllEventFlags
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_clearEventFlag',code
+	.sect	'.text.IfxScuEru.IfxScuEru_clearEventFlag'
+	.align	2
+	
+	.global	IfxScuEru_clearEventFlag
+; Function IfxScuEru_clearEventFlag
+IfxScuEru_clearEventFlag:	.type	func
+	mov	d15,#1
+	add	d0,d4,#16
+	sha	d15,d15,d0
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036224),d15
+	ret
+	
+__IfxScuEru_clearEventFlag_function_end:
+	.size	IfxScuEru_clearEventFlag,__IfxScuEru_clearEventFlag_function_end-IfxScuEru_clearEventFlag
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_clearInputChannelConfiguration',code
+	.sect	'.text.IfxScuEru.IfxScuEru_clearInputChannelConfiguration'
+	.align	2
+	
+	.global	IfxScuEru_clearInputChannelConfiguration
+; Function IfxScuEru_clearInputChannelConfiguration
+IfxScuEru_clearInputChannelConfiguration:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L2
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d15,[a2]
+	insert	d15,d15,#0,#16,#16
+	st.w	[a15],d15
+	j	.L3
+.L2:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d15,[a2]
+	insert	d15,d15,#0,#0,#16
+	st.w	[a15],d15
+.L3:
+	ret
+	
+__IfxScuEru_clearInputChannelConfiguration_function_end:
+	.size	IfxScuEru_clearInputChannelConfiguration,__IfxScuEru_clearInputChannelConfiguration_function_end-IfxScuEru_clearInputChannelConfiguration
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_clearOutputChannelConfiguration',code
+	.sect	'.text.IfxScuEru.IfxScuEru_clearOutputChannelConfiguration'
+	.align	2
+	
+	.global	IfxScuEru_clearOutputChannelConfiguration
+; Function IfxScuEru_clearOutputChannelConfiguration
+IfxScuEru_clearOutputChannelConfiguration:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L4
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d15,[a2]
+	insert	d15,d15,#0,#16,#16
+	st.w	[a15],d15
+	j	.L5
+.L4:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d15,[a2]
+	insert	d15,d15,#0,#0,#16
+	st.w	[a15],d15
+.L5:
+	ret
+	
+__IfxScuEru_clearOutputChannelConfiguration_function_end:
+	.size	IfxScuEru_clearOutputChannelConfiguration,__IfxScuEru_clearOutputChannelConfiguration_function_end-IfxScuEru_clearOutputChannelConfiguration
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_connectTrigger',code
+	.sect	'.text.IfxScuEru.IfxScuEru_connectTrigger'
+	.align	2
+	
+	.global	IfxScuEru_connectTrigger
+; Function IfxScuEru_connectTrigger
+IfxScuEru_connectTrigger:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L6
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	insert	d15,d15,d5,#4,#3
+	st.b	[a2]3,d15
+	j	.L7
+.L6:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	insert	d15,d15,d5,#4,#3
+	st.b	[a2]1,d15
+.L7:
+	ret
+	
+__IfxScuEru_connectTrigger_function_end:
+	.size	IfxScuEru_connectTrigger,__IfxScuEru_connectTrigger_function_end-IfxScuEru_connectTrigger
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_disableAutoClear',code
+	.sect	'.text.IfxScuEru.IfxScuEru_disableAutoClear'
+	.align	2
+	
+	.global	IfxScuEru_disableAutoClear
+; Function IfxScuEru_disableAutoClear
+IfxScuEru_disableAutoClear:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L8
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	insert	d15,d15,#0,#2,#1
+	st.b	[a2]3,d15
+	j	.L9
+.L8:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	insert	d15,d15,#0,#2,#1
+	st.b	[a2]1,d15
+.L9:
+	ret
+	
+__IfxScuEru_disableAutoClear_function_end:
+	.size	IfxScuEru_disableAutoClear,__IfxScuEru_disableAutoClear_function_end-IfxScuEru_disableAutoClear
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_disableFallingEdgeDetection',code
+	.sect	'.text.IfxScuEru.IfxScuEru_disableFallingEdgeDetection'
+	.align	2
+	
+	.global	IfxScuEru_disableFallingEdgeDetection
+; Function IfxScuEru_disableFallingEdgeDetection
+IfxScuEru_disableFallingEdgeDetection:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L10
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	insert	d15,d15,#0,#0,#1
+	st.b	[a2]3,d15
+	j	.L11
+.L10:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	insert	d15,d15,#0,#0,#1
+	st.b	[a2]1,d15
+.L11:
+	ret
+	
+__IfxScuEru_disableFallingEdgeDetection_function_end:
+	.size	IfxScuEru_disableFallingEdgeDetection,__IfxScuEru_disableFallingEdgeDetection_function_end-IfxScuEru_disableFallingEdgeDetection
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_disablePatternDetectionTrigger',code
+	.sect	'.text.IfxScuEru.IfxScuEru_disablePatternDetectionTrigger'
+	.align	2
+	
+	.global	IfxScuEru_disablePatternDetectionTrigger
+; Function IfxScuEru_disablePatternDetectionTrigger
+IfxScuEru_disablePatternDetectionTrigger:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L12
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	insert	d15,d15,#0,#5,#1
+	st.b	[a2]3,d15
+	j	.L13
+.L12:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	insert	d15,d15,#0,#5,#1
+	st.b	[a2]1,d15
+.L13:
+	ret
+	
+__IfxScuEru_disablePatternDetectionTrigger_function_end:
+	.size	IfxScuEru_disablePatternDetectionTrigger,__IfxScuEru_disablePatternDetectionTrigger_function_end-IfxScuEru_disablePatternDetectionTrigger
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_disableRisingEdgeDetection',code
+	.sect	'.text.IfxScuEru.IfxScuEru_disableRisingEdgeDetection'
+	.align	2
+	
+	.global	IfxScuEru_disableRisingEdgeDetection
+; Function IfxScuEru_disableRisingEdgeDetection
+IfxScuEru_disableRisingEdgeDetection:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L14
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	insert	d15,d15,#0,#1,#1
+	st.b	[a2]3,d15
+	j	.L15
+.L14:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	insert	d15,d15,#0,#1,#1
+	st.b	[a2]1,d15
+.L15:
+	ret
+	
+__IfxScuEru_disableRisingEdgeDetection_function_end:
+	.size	IfxScuEru_disableRisingEdgeDetection,__IfxScuEru_disableRisingEdgeDetection_function_end-IfxScuEru_disableRisingEdgeDetection
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_disableTriggerPulse',code
+	.sect	'.text.IfxScuEru.IfxScuEru_disableTriggerPulse'
+	.align	2
+	
+	.global	IfxScuEru_disableTriggerPulse
+; Function IfxScuEru_disableTriggerPulse
+IfxScuEru_disableTriggerPulse:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L16
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	insert	d15,d15,#0,#3,#1
+	st.b	[a2]3,d15
+	j	.L17
+.L16:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	insert	d15,d15,#0,#3,#1
+	st.b	[a2]1,d15
+.L17:
+	ret
+	
+__IfxScuEru_disableTriggerPulse_function_end:
+	.size	IfxScuEru_disableTriggerPulse,__IfxScuEru_disableTriggerPulse_function_end-IfxScuEru_disableTriggerPulse
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_enableAutoClear',code
+	.sect	'.text.IfxScuEru.IfxScuEru_enableAutoClear'
+	.align	2
+	
+	.global	IfxScuEru_enableAutoClear
+; Function IfxScuEru_enableAutoClear
+IfxScuEru_enableAutoClear:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L18
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	or	d15,#4
+	st.b	[a2]3,d15
+	j	.L19
+.L18:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	or	d15,#4
+	st.b	[a2]1,d15
+.L19:
+	ret
+	
+__IfxScuEru_enableAutoClear_function_end:
+	.size	IfxScuEru_enableAutoClear,__IfxScuEru_enableAutoClear_function_end-IfxScuEru_enableAutoClear
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_enableFallingEdgeDetection',code
+	.sect	'.text.IfxScuEru.IfxScuEru_enableFallingEdgeDetection'
+	.align	2
+	
+	.global	IfxScuEru_enableFallingEdgeDetection
+; Function IfxScuEru_enableFallingEdgeDetection
+IfxScuEru_enableFallingEdgeDetection:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L20
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	or	d15,#1
+	st.b	[a2]3,d15
+	j	.L21
+.L20:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	or	d15,#1
+	st.b	[a2]1,d15
+.L21:
+	ret
+	
+__IfxScuEru_enableFallingEdgeDetection_function_end:
+	.size	IfxScuEru_enableFallingEdgeDetection,__IfxScuEru_enableFallingEdgeDetection_function_end-IfxScuEru_enableFallingEdgeDetection
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_enablePatternDetectionTrigger',code
+	.sect	'.text.IfxScuEru.IfxScuEru_enablePatternDetectionTrigger'
+	.align	2
+	
+	.global	IfxScuEru_enablePatternDetectionTrigger
+; Function IfxScuEru_enablePatternDetectionTrigger
+IfxScuEru_enablePatternDetectionTrigger:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L22
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	or	d15,#32
+	st.b	[a2]3,d15
+	j	.L23
+.L22:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	or	d15,#32
+	st.b	[a2]1,d15
+.L23:
+	ret
+	
+__IfxScuEru_enablePatternDetectionTrigger_function_end:
+	.size	IfxScuEru_enablePatternDetectionTrigger,__IfxScuEru_enablePatternDetectionTrigger_function_end-IfxScuEru_enablePatternDetectionTrigger
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_enableRisingEdgeDetection',code
+	.sect	'.text.IfxScuEru.IfxScuEru_enableRisingEdgeDetection'
+	.align	2
+	
+	.global	IfxScuEru_enableRisingEdgeDetection
+; Function IfxScuEru_enableRisingEdgeDetection
+IfxScuEru_enableRisingEdgeDetection:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L24
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	or	d15,#2
+	st.b	[a2]3,d15
+	j	.L25
+.L24:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	or	d15,#2
+	st.b	[a2]1,d15
+.L25:
+	ret
+	
+__IfxScuEru_enableRisingEdgeDetection_function_end:
+	.size	IfxScuEru_enableRisingEdgeDetection,__IfxScuEru_enableRisingEdgeDetection_function_end-IfxScuEru_enableRisingEdgeDetection
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_enableTriggerPulse',code
+	.sect	'.text.IfxScuEru.IfxScuEru_enableTriggerPulse'
+	.align	2
+	
+	.global	IfxScuEru_enableTriggerPulse
+; Function IfxScuEru_enableTriggerPulse
+IfxScuEru_enableTriggerPulse:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L26
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	or	d15,#8
+	st.b	[a2]3,d15
+	j	.L27
+.L26:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	or	d15,#8
+	st.b	[a2]1,d15
+.L27:
+	ret
+	
+__IfxScuEru_enableTriggerPulse_function_end:
+	.size	IfxScuEru_enableTriggerPulse,__IfxScuEru_enableTriggerPulse_function_end-IfxScuEru_enableTriggerPulse
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_getAllEventFlagsStatus',code
+	.sect	'.text.IfxScuEru.IfxScuEru_getAllEventFlagsStatus'
+	.align	2
+	
+	.global	IfxScuEru_getAllEventFlagsStatus
+; Function IfxScuEru_getAllEventFlagsStatus
+IfxScuEru_getAllEventFlagsStatus:	.type	func
+	movh.a	a15,#61443
+	ld.w	d2,[a15]@los(0xf0036220)
+	j	.L28
+.L28:
+	ret
+	
+__IfxScuEru_getAllEventFlagsStatus_function_end:
+	.size	IfxScuEru_getAllEventFlagsStatus,__IfxScuEru_getAllEventFlagsStatus_function_end-IfxScuEru_getAllEventFlagsStatus
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_getEventFlagStatus',code
+	.sect	'.text.IfxScuEru.IfxScuEru_getEventFlagStatus'
+	.align	2
+	
+	.global	IfxScuEru_getEventFlagStatus
+; Function IfxScuEru_getEventFlagStatus
+IfxScuEru_getEventFlagStatus:	.type	func
+	mov	d15,#1
+	sh	d15,d15,d4
+	movh.a	a15,#61443
+	ld.w	d0,[a15]@los(0xf0036220)
+	and	d0,d15
+	jeq	d0,#0,.L29
+	mov	d2,#1
+	j	.L30
+.L29:
+	mov	d2,#0
+.L30:
+	j	.L31
+.L31:
+	ret
+	
+__IfxScuEru_getEventFlagStatus_function_end:
+	.size	IfxScuEru_getEventFlagStatus,__IfxScuEru_getEventFlagStatus_function_end-IfxScuEru_getEventFlagStatus
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_getInputChannelConfiguration',code
+	.sect	'.text.IfxScuEru.IfxScuEru_getInputChannelConfiguration'
+	.align	2
+	
+	.global	IfxScuEru_getInputChannelConfiguration
+; Function IfxScuEru_getInputChannelConfiguration
+IfxScuEru_getInputChannelConfiguration:	.type	func
+	sha	d15,d4,#-1
+	jz.t	d4:0,.L32
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d15,#4
+	addsc.a	a15,a15,d15,#0
+	ld.w	d15,[a15]
+	insert	d2,d15,#0,#0,#16
+	j	.L33
+.L32:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d15,#4
+	addsc.a	a15,a15,d15,#0
+	ld.w	d15,[a15]
+	insert	d2,d15,#0,#16,#16
+.L33:
+	j	.L34
+.L34:
+	ret
+	
+__IfxScuEru_getInputChannelConfiguration_function_end:
+	.size	IfxScuEru_getInputChannelConfiguration,__IfxScuEru_getInputChannelConfiguration_function_end-IfxScuEru_getInputChannelConfiguration
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_getOutputChannelConfiguration',code
+	.sect	'.text.IfxScuEru.IfxScuEru_getOutputChannelConfiguration'
+	.align	2
+	
+	.global	IfxScuEru_getOutputChannelConfiguration
+; Function IfxScuEru_getOutputChannelConfiguration
+IfxScuEru_getOutputChannelConfiguration:	.type	func
+	sha	d15,d4,#-1
+	jz.t	d4:0,.L35
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d15,#4
+	addsc.a	a15,a15,d15,#0
+	ld.w	d15,[a15]
+	insert	d2,d15,#0,#0,#16
+	j	.L36
+.L35:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d15,#4
+	addsc.a	a15,a15,d15,#0
+	ld.w	d15,[a15]
+	insert	d2,d15,#0,#16,#16
+.L36:
+	j	.L37
+.L37:
+	ret
+	
+__IfxScuEru_getOutputChannelConfiguration_function_end:
+	.size	IfxScuEru_getOutputChannelConfiguration,__IfxScuEru_getOutputChannelConfiguration_function_end-IfxScuEru_getOutputChannelConfiguration
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_getPatternDetectionResult',code
+	.sect	'.text.IfxScuEru.IfxScuEru_getPatternDetectionResult'
+	.align	2
+	
+	.global	IfxScuEru_getPatternDetectionResult
+; Function IfxScuEru_getPatternDetectionResult
+IfxScuEru_getPatternDetectionResult:	.type	func
+	mov	d15,#1
+	sh	d15,d15,d4
+	movh.a	a15,#61443
+	ld.w	d0,[a15]@los(0xf0036228)
+	and	d0,d15
+	jeq	d0,#0,.L38
+	mov	d2,#1
+	j	.L39
+.L38:
+	mov	d2,#0
+.L39:
+	j	.L40
+.L40:
+	ret
+	
+__IfxScuEru_getPatternDetectionResult_function_end:
+	.size	IfxScuEru_getPatternDetectionResult,__IfxScuEru_getPatternDetectionResult_function_end-IfxScuEru_getPatternDetectionResult
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_getWholePatternDetectionResult',code
+	.sect	'.text.IfxScuEru.IfxScuEru_getWholePatternDetectionResult'
+	.align	2
+	
+	.global	IfxScuEru_getWholePatternDetectionResult
+; Function IfxScuEru_getWholePatternDetectionResult
+IfxScuEru_getWholePatternDetectionResult:	.type	func
+	movh.a	a15,#61443
+	ld.w	d2,[a15]@los(0xf0036228)
+	j	.L41
+.L41:
+	ret
+	
+__IfxScuEru_getWholePatternDetectionResult_function_end:
+	.size	IfxScuEru_getWholePatternDetectionResult,__IfxScuEru_getWholePatternDetectionResult_function_end-IfxScuEru_getWholePatternDetectionResult
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_selectExternalInput',code
+	.sect	'.text.IfxScuEru.IfxScuEru_selectExternalInput'
+	.align	2
+	
+	.global	IfxScuEru_selectExternalInput
+; Function IfxScuEru_selectExternalInput
+IfxScuEru_selectExternalInput:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L42
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]2
+	insert	d15,d15,d5,#4,#3
+	st.b	[a2]2,d15
+	j	.L43
+.L42:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036210)
+	mul	d15,d0,#4
+	addsc.a	a2,a2,d15,#0
+	ld.bu	d15,[a2]
+	insert	d15,d15,d5,#4,#3
+	st.b	[a15],d15
+.L43:
+	ret
+	
+__IfxScuEru_selectExternalInput_function_end:
+	.size	IfxScuEru_selectExternalInput,__IfxScuEru_selectExternalInput_function_end-IfxScuEru_selectExternalInput
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_setEventFlag',code
+	.sect	'.text.IfxScuEru.IfxScuEru_setEventFlag'
+	.align	2
+	
+	.global	IfxScuEru_setEventFlag
+; Function IfxScuEru_setEventFlag
+IfxScuEru_setEventFlag:	.type	func
+	mov	d15,#1
+	sha	d15,d15,d4
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036224),d15
+	ret
+	
+__IfxScuEru_setEventFlag_function_end:
+	.size	IfxScuEru_setEventFlag,__IfxScuEru_setEventFlag_function_end-IfxScuEru_setEventFlag
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_setFlagPatternDetection',code
+	.sect	'.text.IfxScuEru.IfxScuEru_setFlagPatternDetection'
+	.align	2
+	
+	.global	IfxScuEru_setFlagPatternDetection
+; Function IfxScuEru_setFlagPatternDetection
+IfxScuEru_setFlagPatternDetection:	.type	func
+	jz.t	d4:0,.L44
+	add	d1,d5,#16
+	mov	d0,#1
+	sha	d0,d0,d1
+	sha	d4,#-1
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d4,#4
+	addsc.a	a15,a15,d15,#0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf003622c)
+	mul	d15,d4,#4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d15,[a2]
+	mov	d2,#-1
+	xor	d0,d2
+	and	d15,d0
+	sh	d6,d6,d1
+	or	d15,d6
+	st.w	[a15],d15
+	j	.L45
+.L44:
+	mov	d0,#1
+	sha	d0,d0,d5
+	sha	d4,#-1
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d4,#4
+	addsc.a	a15,a15,d15,#0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf003622c)
+	mul	d15,d4,#4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d15,[a2]
+	mov	d1,#-1
+	xor	d0,d1
+	and	d15,d0
+	sh	d6,d6,d5
+	or	d15,d6
+	st.w	[a15],d15
+.L45:
+	ret
+	
+__IfxScuEru_setFlagPatternDetection_function_end:
+	.size	IfxScuEru_setFlagPatternDetection,__IfxScuEru_setFlagPatternDetection_function_end-IfxScuEru_setFlagPatternDetection
+	; End of function
+	
+	.sdecl	'.text.IfxScuEru.IfxScuEru_setInterruptGatingPattern',code
+	.sect	'.text.IfxScuEru.IfxScuEru_setInterruptGatingPattern'
+	.align	2
+	
+	.global	IfxScuEru_setInterruptGatingPattern
+; Function IfxScuEru_setInterruptGatingPattern
+IfxScuEru_setInterruptGatingPattern:	.type	func
+	sha	d0,d4,#-1
+	jz.t	d4:0,.L46
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+	insert	d15,d15,d5,#6,#2
+	st.b	[a2]3,d15
+	j	.L47
+.L46:
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a2,a15,d15,#0
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf003622c)
+	mul	d15,d0,#4
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+	insert	d15,d15,d5,#6,#2
+	st.b	[a2]1,d15
+.L47:
+	ret
+	
+__IfxScuEru_setInterruptGatingPattern_function_end:
+	.size	IfxScuEru_setInterruptGatingPattern,__IfxScuEru_setInterruptGatingPattern_function_end-IfxScuEru_setInterruptGatingPattern
+	; End of function
+	
+	.calls	'IfxScuEru_clearAllEventFlags','',0
+	.calls	'IfxScuEru_clearEventFlag','',0
+	.calls	'IfxScuEru_clearInputChannelConfiguration','',0
+	.calls	'IfxScuEru_clearOutputChannelConfiguration','',0
+	.calls	'IfxScuEru_connectTrigger','',0
+	.calls	'IfxScuEru_disableAutoClear','',0
+	.calls	'IfxScuEru_disableFallingEdgeDetection','',0
+	.calls	'IfxScuEru_disablePatternDetectionTrigger','',0
+	.calls	'IfxScuEru_disableRisingEdgeDetection','',0
+	.calls	'IfxScuEru_disableTriggerPulse','',0
+	.calls	'IfxScuEru_enableAutoClear','',0
+	.calls	'IfxScuEru_enableFallingEdgeDetection','',0
+	.calls	'IfxScuEru_enablePatternDetectionTrigger','',0
+	.calls	'IfxScuEru_enableRisingEdgeDetection','',0
+	.calls	'IfxScuEru_enableTriggerPulse','',0
+	.calls	'IfxScuEru_getAllEventFlagsStatus','',0
+	.calls	'IfxScuEru_getEventFlagStatus','',0
+	.calls	'IfxScuEru_getInputChannelConfiguration','',0
+	.calls	'IfxScuEru_getOutputChannelConfiguration','',0
+	.calls	'IfxScuEru_getPatternDetectionResult','',0
+	.calls	'IfxScuEru_getWholePatternDetectionResult','',0
+	.calls	'IfxScuEru_selectExternalInput','',0
+	.calls	'IfxScuEru_setEventFlag','',0
+	.calls	'IfxScuEru_setFlagPatternDetection','',0
+	.calls	'IfxScuEru_setInterruptGatingPattern','',0
+	; Module end

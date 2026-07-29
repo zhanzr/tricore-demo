@@ -1,0 +1,1051 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc18052a --dep-file=Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_PinMap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore/Compilers -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Icu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Math -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Can -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Impl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Phy_Pef7071 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Driver -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Trap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/CStart -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiSlave -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Crc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Cam -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/General -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D/_Reg -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiMaster -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Asc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Adc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Time -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Irq -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/InternalMux -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Trig -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TimerWithTrigger -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/StdIf -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Spi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations/Debug -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/_Utilities -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Rdc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Lin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/IncrEnc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmBc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TPwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim/In -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Io -w544 -w557 -t2 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.src ../Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.c'
+
+	
+$TC16X
+	.sdecl	'.rodata.IfxStm..1.cnt',data,rom
+	.sect	'.rodata.IfxStm..1.cnt'
+	.align	4
+.1.cnt:	.type	object
+	.size	.1.cnt,8
+	.word	-1,2147483647
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_create',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_create'
+	.align	2
+	
+	.global	Ifx_Fifo_create
+; Function Ifx_Fifo_create
+Ifx_Fifo_create:	.type	func
+	mov	d15,d5
+	add	d4,#3
+	insert	d0,d4,#0,#0,#2
+	extr	d8,d0,#0,#16
+	add	d0,d8,#28
+	add	d4,d0,#8
+	call	malloc
+	jz.a	a2,.L2
+	mov.aa	a4,a2
+	mov	e4,d15,d8
+	call	Ifx_Fifo_init
+.L2:
+	j	.L3
+.L3:
+	ret
+	
+__Ifx_Fifo_create_function_end:
+	.size	Ifx_Fifo_create,__Ifx_Fifo_create_function_end-Ifx_Fifo_create
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_destroy',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_destroy'
+	.align	2
+	
+	.global	Ifx_Fifo_destroy
+; Function Ifx_Fifo_destroy
+Ifx_Fifo_destroy:	.type	func
+	call	free
+	ret
+	
+__Ifx_Fifo_destroy_function_end:
+	.size	Ifx_Fifo_destroy,__Ifx_Fifo_destroy_function_end-Ifx_Fifo_destroy
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_init',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_init'
+	.align	2
+	
+	.global	Ifx_Fifo_init
+; Function Ifx_Fifo_init
+Ifx_Fifo_init:	.type	func
+	add	d4,#3
+	insert	d15,d4,#0,#0,#2
+	extr	d0,d15,#0,#16
+	mov	d15,#0
+	st.b	[a4]24,d15
+	mov	d15,#1
+	st.b	[a4]25,d15
+	mov.d	d15,a4
+	add	d15,d15,#28
+	add	d15,#7
+	insert	d15,d15,#0,#0,#3
+	st.w	[a4],d15
+	mov	d15,#0
+	st.h	[a4]4,d15
+	mov	d15,#0
+	st.h	[a4]14,d15
+	mov	d15,#0
+	st.w	[a4]10,d15
+	st.w	[a4]6,d15
+	mov	d15,#0
+	st.h	[a4]18,d15
+	st.h	[a4]16,d15
+	st.h	[a4]20,d0
+	st.h	[a4]22,d5
+	mov.aa	a2,a4
+	j	.L4
+.L4:
+	ret
+	
+__Ifx_Fifo_init_function_end:
+	.size	Ifx_Fifo_init,__Ifx_Fifo_init_function_end-Ifx_Fifo_init
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_beginRead',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_beginRead'
+	.align	2
+	
+; Function Ifx_Fifo_beginRead
+Ifx_Fifo_beginRead:	.type	func
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d0,d15,#0
+	j	.L5
+.L5:
+	disable
+	nop
+	j	.L6
+.L6:
+	ld.h	d15,[a4]4
+	j	.L7
+.L7:
+	min	d15,d4,d15
+	extr	d1,d15,#0,#16
+	ld.h	d15,[a4]22
+	div	e2,d1,d15
+	sub	d1,d3
+	extr	d2,d1,#0,#16
+	mov	d15,#0
+	st.b	[a4]24,d15
+	sub	d4,d2
+	ld.h	d15,[a4]20
+	min	d15,d4,d15
+	st.w	[a4]6,d15
+	jeq	d0,#0,.L8
+	enable
+.L8:
+	j	.L9
+.L9:
+	ret
+	
+__Ifx_Fifo_beginRead_function_end:
+	.size	Ifx_Fifo_beginRead,__Ifx_Fifo_beginRead_function_end-Ifx_Fifo_beginRead
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_canReadCount',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_canReadCount'
+	.align	2
+	
+	.global	Ifx_Fifo_canReadCount
+; Function Ifx_Fifo_canReadCount
+Ifx_Fifo_canReadCount:	.type	func
+	mov	d0,d4
+	ld.h	d15,[a4]22
+	jlt	d0,d15,.L10
+	ld.h	d15,[a4]20
+	jge	d15,d0,.L11
+.L10:
+	mov	d2,#0
+	j	.L12
+.L11:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d4,d15,#0
+	j	.L13
+.L13:
+	disable
+	nop
+	j	.L14
+.L14:
+	ld.h	d15,[a4]4
+	j	.L15
+.L15:
+	sub	d0,d15
+	jge	d0,#1,.L16
+	mov	d0,#0
+	st.w	[a4]6,d0
+	mov	d0,#1
+	st.b	[a4]24,d0
+	jeq	d4,#0,.L17
+	enable
+.L17:
+	mov	d2,#1
+	j	.L18
+.L16:
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e2,[a15]0
+	ne	d15,d6,d2
+	or.ne	d15,d7,d3
+	jne	d15,#0,.L19
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e2,[a15]0
+	j	.L20
+.L19:
+	mfcr	d1,#65068
+	extr.u	d1,d1,#15,#1
+	ne	d15,d1,#0
+	j	.L21
+.L21:
+	disable
+	nop
+	j	.L22
+.L22:
+	ld.w	d1,0xf0000010
+	mov	d3,#0
+	mov	d2,d1
+	ld.w	d9,0xf000002c
+	mov	d8,#0
+	or	d2,d8
+	or	d3,d9
+	j	.L23
+.L23:
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e8,[a15]0
+	and	d2,d8
+	and	d3,d9
+	jeq	d15,#0,.L24
+	enable
+.L24:
+	j	.L25
+.L25:
+	addx	d2,d2,d6
+	addc	d3,d3,d7
+.L20:
+	j	.L26
+.L26:
+	mov	d15,#0
+	st.b	[a4]24,d15
+	st.w	[a4]6,d0
+	jeq	d4,#0,.L27
+	enable
+.L27:
+	j	.L28
+.L29:
+.L28:
+	ld.bu	d15,[a4]24
+	jne	d15,#0,.L30
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e0,[a15]0
+	ne	d15,d2,d0
+	or.ne	d15,d3,d1
+	jne	d15,#0,.L31
+	mov	d15,#0
+	j	.L32
+.L31:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L33
+.L33:
+	disable
+	nop
+	j	.L34
+.L34:
+	ld.w	d0,0xf0000010
+	mov	d5,#0
+	mov	d4,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d4
+	or	d1,d5
+	j	.L35
+.L35:
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e4,[a15]0
+	and	d0,d4
+	and	d1,d5
+	jeq	d15,#0,.L36
+	enable
+.L36:
+	j	.L37
+.L37:
+	ge.u	d15,d0,d2
+	and.eq	d15,d1,d3
+	or.lt	d15,d3,d1
+.L32:
+	j	.L38
+.L38:
+	jeq	d15,#0,.L29
+.L30:
+	mov	d15,#0
+	st.w	[a4]6,d15
+	ld.bu	d15,[a4]24
+	eq	d2,d15,#1
+.L18:
+.L12:
+	j	.L39
+.L39:
+	ret
+	
+__Ifx_Fifo_canReadCount_function_end:
+	.size	Ifx_Fifo_canReadCount,__Ifx_Fifo_canReadCount_function_end-Ifx_Fifo_canReadCount
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_readEnd',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_readEnd'
+	.align	2
+	
+; Function Ifx_Fifo_readEnd
+Ifx_Fifo_readEnd:	.type	func
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d0,d15,#0
+	j	.L40
+.L40:
+	disable
+	nop
+	j	.L41
+.L41:
+	ld.h	d15,[a4]4
+	sub	d15,d5
+	st.h	[a4]4,d15
+	ld.w	d15,[a4]10
+	jeq	d15,#0,.L42
+	ld.w	d15,[a4]10
+	sub	d15,d5
+	st.w	[a4]10,d15
+	ld.w	d15,[a4]10
+	jge	d15,#1,.L43
+	mov	d15,#0
+	st.w	[a4]10,d15
+	mov	d15,#1
+	st.b	[a4]25,d15
+.L43:
+.L42:
+	jeq	d0,#0,.L44
+	enable
+.L44:
+	sub	d4,d5
+	extr	d2,d4,#0,#16
+	j	.L45
+.L45:
+	ret
+	
+__Ifx_Fifo_readEnd_function_end:
+	.size	Ifx_Fifo_readEnd,__Ifx_Fifo_readEnd_function_end-Ifx_Fifo_readEnd
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_read',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_read'
+	.align	2
+	
+	.global	Ifx_Fifo_read
+; Function Ifx_Fifo_read
+Ifx_Fifo_read:	.type	func
+	sub.a	a10,#8
+	mov.aa	a15,a4
+	mov.aa	a12,a5
+	mov	d8,d4
+	mov	d9,#0
+	jeq	d8,#0,.L46
+	ld.a	a2,[a15]
+	st.a	[a10],a2
+	ld.h	d15,[a15]20
+	st.h	[a10]6,d15
+	ld.h	d15,[a15]16
+	st.h	[a10]4,d15
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e0,[a2]0
+	ne	d15,d6,d0
+	or.ne	d15,d7,d1
+	jne	d15,#0,.L47
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e10,[a2]0
+	j	.L48
+.L47:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L49
+.L49:
+	disable
+	nop
+	j	.L50
+.L50:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L51
+.L51:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L52
+	enable
+.L52:
+	j	.L53
+.L53:
+	addx	d10,d0,d6
+	addc	d11,d1,d7
+.L48:
+	j	.L54
+.L54:
+.L55:
+	mov.aa	a4,a15
+	mov	d4,d8
+	call	Ifx_Fifo_beginRead
+	mov	d15,d2
+	jeq	d15,#0,.L56
+	lea	a4,[a10]0
+	mov.aa	a5,a12
+	mov	d4,d15
+	call	Ifx_CircularBuffer_read8
+	mov.aa	a12,a2
+	mov.aa	a4,a15
+	mov	e4,d15,d8
+	call	Ifx_Fifo_readEnd
+	mov	d8,d2
+.L56:
+	jne	d9,#0,.L57
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e0,[a2]0
+	ne	d15,d10,d0
+	or.ne	d15,d11,d1
+	jne	d15,#0,.L58
+	mov	d15,#0
+	j	.L59
+.L58:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L60
+.L60:
+	disable
+	nop
+	j	.L61
+.L61:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L62
+.L62:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L63
+	enable
+.L63:
+	j	.L64
+.L64:
+	ge.u	d15,d0,d10
+	and.eq	d15,d1,d11
+	or.lt	d15,d11,d1
+.L59:
+	j	.L65
+.L65:
+	jeq	d15,#0,.L66
+.L57:
+	mov	d15,#0
+	st.w	[a15]6,d15
+	j	.L67
+.L66:
+	jeq	d8,#0,.L68
+	j	.L69
+.L70:
+.L69:
+	ld.bu	d15,[a15]24
+	jne	d15,#0,.L71
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e0,[a2]0
+	ne	d15,d10,d0
+	or.ne	d15,d11,d1
+	jne	d15,#0,.L72
+	mov	d15,#0
+	j	.L73
+.L72:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L74
+.L74:
+	disable
+	nop
+	j	.L75
+.L75:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L76
+.L76:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L77
+	enable
+.L77:
+	j	.L78
+.L78:
+	ge.u	d15,d0,d10
+	and.eq	d15,d1,d11
+	or.lt	d15,d11,d1
+.L73:
+	j	.L79
+.L79:
+	jeq	d15,#0,.L70
+.L71:
+	ld.bu	d15,[a15]24
+	eq	d9,d15,#0
+.L68:
+	jne	d8,#0,.L55
+.L67:
+	ld.hu	d15,[a10]4
+	st.h	[a15]16,d15
+.L46:
+	mov	d2,d8
+	j	.L80
+.L80:
+	ret
+	
+__Ifx_Fifo_read_function_end:
+	.size	Ifx_Fifo_read,__Ifx_Fifo_read_function_end-Ifx_Fifo_read
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_clear',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_clear'
+	.align	2
+	
+	.global	Ifx_Fifo_clear
+; Function Ifx_Fifo_clear
+Ifx_Fifo_clear:	.type	func
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d0,d15,#0
+	j	.L81
+.L81:
+	disable
+	nop
+	j	.L82
+.L82:
+	ld.w	d15,[a4]10
+	jeq	d15,#0,.L83
+	mov	d15,#0
+	st.w	[a4]10,d15
+	mov	d15,#1
+	st.b	[a4]25,d15
+.L83:
+	mov	d15,#0
+	st.b	[a4]24,d15
+	mov	d15,#0
+	st.w	[a4]6,d15
+	mov	d15,#0
+	st.h	[a4]4,d15
+	mov	d15,#0
+	st.h	[a4]14,d15
+	ld.h	d15,[a4]18
+	st.h	[a4]16,d15
+	jeq	d0,#0,.L84
+	enable
+.L84:
+	ret
+	
+__Ifx_Fifo_clear_function_end:
+	.size	Ifx_Fifo_clear,__Ifx_Fifo_clear_function_end-Ifx_Fifo_clear
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_beginWrite',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_beginWrite'
+	.align	2
+	
+; Function Ifx_Fifo_beginWrite
+Ifx_Fifo_beginWrite:	.type	func
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d0,d15,#0
+	j	.L85
+.L85:
+	disable
+	nop
+	j	.L86
+.L86:
+	ld.h	d1,[a4]4
+	j	.L87
+.L87:
+	ld.h	d15,[a4]20
+	sub	d15,d1
+	min	d15,d4,d15
+	extr	d1,d15,#0,#16
+	ld.h	d15,[a4]22
+	div	e2,d1,d15
+	sub	d1,d3
+	extr	d2,d1,#0,#16
+	mov	d15,#0
+	st.b	[a4]25,d15
+	sub	d4,d2
+	ld.h	d15,[a4]20
+	min	d15,d4,d15
+	st.w	[a4]10,d15
+	jeq	d0,#0,.L88
+	enable
+.L88:
+	j	.L89
+.L89:
+	ret
+	
+__Ifx_Fifo_beginWrite_function_end:
+	.size	Ifx_Fifo_beginWrite,__Ifx_Fifo_beginWrite_function_end-Ifx_Fifo_beginWrite
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_canWriteCount',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_canWriteCount'
+	.align	2
+	
+	.global	Ifx_Fifo_canWriteCount
+; Function Ifx_Fifo_canWriteCount
+Ifx_Fifo_canWriteCount:	.type	func
+	mov	d2,d4
+	ld.h	d15,[a4]22
+	jlt	d2,d15,.L90
+	ld.h	d15,[a4]20
+	jge	d15,d2,.L91
+.L90:
+	mov	d2,#0
+	j	.L92
+.L91:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d3,d15,#0
+	j	.L93
+.L93:
+	disable
+	nop
+	j	.L94
+.L94:
+	ld.h	d0,[a4]4
+	j	.L95
+.L95:
+	ld.h	d15,[a4]20
+	sub	d0,d15,d0
+	jlt	d0,d2,.L96
+	mov	d0,#0
+	st.w	[a4]10,d0
+	mov	d0,#1
+	st.b	[a4]25,d0
+	jeq	d3,#0,.L97
+	enable
+.L97:
+	mov	d2,#1
+	j	.L98
+.L96:
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e0,[a15]0
+	ne	d15,d6,d0
+	or.ne	d15,d7,d1
+	jne	d15,#0,.L99
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e4,[a15]0
+	j	.L100
+.L99:
+	mfcr	d0,#65068
+	extr.u	d0,d0,#15,#1
+	ne	d15,d0,#0
+	j	.L101
+.L101:
+	disable
+	nop
+	j	.L102
+.L102:
+	ld.w	d0,0xf0000010
+	mov	d5,#0
+	mov	d4,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d4
+	or	d1,d5
+	j	.L103
+.L103:
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e4,[a15]0
+	and	d0,d4
+	and	d1,d5
+	jeq	d15,#0,.L104
+	enable
+.L104:
+	j	.L105
+.L105:
+	addx	d4,d0,d6
+	addc	d5,d1,d7
+.L100:
+	j	.L106
+.L106:
+	mov	d15,#0
+	st.b	[a4]25,d15
+	ld.h	d0,[a4]4
+	j	.L107
+.L107:
+	ld.h	d15,[a4]20
+	sub	d15,d0
+	sub	d2,d15
+	mov	d15,#0
+	max	d15,d15,d2
+	st.w	[a4]10,d15
+	jeq	d3,#0,.L108
+	enable
+.L108:
+	j	.L109
+.L110:
+.L109:
+	ld.bu	d15,[a4]25
+	jne	d15,#0,.L111
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e0,[a15]0
+	ne	d15,d4,d0
+	or.ne	d15,d5,d1
+	jne	d15,#0,.L112
+	mov	d15,#0
+	j	.L113
+.L112:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L114
+.L114:
+	disable
+	nop
+	j	.L115
+.L115:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L116
+.L116:
+	movh.a	a15,#@his(.1.cnt)
+	lea	a15,[a15]@los(.1.cnt)
+	ld.d	e2,[a15]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L117
+	enable
+.L117:
+	j	.L118
+.L118:
+	ge.u	d15,d0,d4
+	and.eq	d15,d1,d5
+	or.lt	d15,d5,d1
+.L113:
+	j	.L119
+.L119:
+	jeq	d15,#0,.L110
+.L111:
+	mov	d15,#0
+	st.w	[a4]10,d15
+	ld.bu	d15,[a4]25
+	eq	d2,d15,#1
+.L98:
+.L92:
+	j	.L120
+.L120:
+	ret
+	
+__Ifx_Fifo_canWriteCount_function_end:
+	.size	Ifx_Fifo_canWriteCount,__Ifx_Fifo_canWriteCount_function_end-Ifx_Fifo_canWriteCount
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_endWrite',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_endWrite'
+	.align	2
+	
+; Function Ifx_Fifo_endWrite
+Ifx_Fifo_endWrite:	.type	func
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d1,d15,#0
+	j	.L121
+.L121:
+	disable
+	nop
+	j	.L122
+.L122:
+	ld.h	d15,[a4]4
+	add	d0,d15,d5
+	st.h	[a4]4,d0
+	ld.h	d0,[a4]14
+	ld.h	d15,[a4]4
+	max	d15,d0,d15
+	st.h	[a4]14,d15
+	ld.w	d15,[a4]6
+	jeq	d15,#0,.L123
+	ld.w	d15,[a4]6
+	sub	d15,d5
+	st.w	[a4]6,d15
+	ld.w	d15,[a4]6
+	jge	d15,#1,.L124
+	mov	d15,#0
+	st.w	[a4]6,d15
+	mov	d15,#1
+	st.b	[a4]24,d15
+.L124:
+.L123:
+	jeq	d1,#0,.L125
+	enable
+.L125:
+	sub	d4,d5
+	extr	d2,d4,#0,#16
+	j	.L126
+.L126:
+	ret
+	
+__Ifx_Fifo_endWrite_function_end:
+	.size	Ifx_Fifo_endWrite,__Ifx_Fifo_endWrite_function_end-Ifx_Fifo_endWrite
+	; End of function
+	
+	.sdecl	'.text.Ifx_Fifo.Ifx_Fifo_write',code
+	.sect	'.text.Ifx_Fifo.Ifx_Fifo_write'
+	.align	2
+	
+	.global	Ifx_Fifo_write
+; Function Ifx_Fifo_write
+Ifx_Fifo_write:	.type	func
+	sub.a	a10,#8
+	mov.aa	a15,a4
+	mov.aa	a12,a5
+	mov	d8,d4
+	mov	d9,#0
+	jeq	d8,#0,.L127
+	ld.a	a2,[a15]
+	st.a	[a10],a2
+	ld.h	d15,[a15]20
+	st.h	[a10]6,d15
+	ld.h	d15,[a15]18
+	st.h	[a10]4,d15
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e0,[a2]0
+	ne	d15,d6,d0
+	or.ne	d15,d7,d1
+	jne	d15,#0,.L128
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e10,[a2]0
+	j	.L129
+.L128:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L130
+.L130:
+	disable
+	nop
+	j	.L131
+.L131:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L132
+.L132:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L133
+	enable
+.L133:
+	j	.L134
+.L134:
+	addx	d10,d0,d6
+	addc	d11,d1,d7
+.L129:
+	j	.L135
+.L135:
+.L136:
+	mov.aa	a4,a15
+	mov	d4,d8
+	call	Ifx_Fifo_beginWrite
+	mov	d15,d2
+	jeq	d15,#0,.L137
+	lea	a4,[a10]0
+	mov.aa	a5,a12
+	mov	d4,d15
+	call	Ifx_CircularBuffer_write8
+	mov.aa	a12,a2
+	mov.aa	a4,a15
+	mov	e4,d15,d8
+	call	Ifx_Fifo_endWrite
+	mov	d8,d2
+.L137:
+	jne	d9,#0,.L138
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e0,[a2]0
+	ne	d15,d10,d0
+	or.ne	d15,d11,d1
+	jne	d15,#0,.L139
+	mov	d15,#0
+	j	.L140
+.L139:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L141
+.L141:
+	disable
+	nop
+	j	.L142
+.L142:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L143
+.L143:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L144
+	enable
+.L144:
+	j	.L145
+.L145:
+	ge.u	d15,d0,d10
+	and.eq	d15,d1,d11
+	or.lt	d15,d11,d1
+.L140:
+	j	.L146
+.L146:
+	jeq	d15,#0,.L147
+.L138:
+	mov	d15,#0
+	st.w	[a15]10,d15
+	j	.L148
+.L147:
+	jeq	d8,#0,.L149
+	j	.L150
+.L151:
+.L150:
+	ld.bu	d15,[a15]25
+	jne	d15,#0,.L152
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e0,[a2]0
+	ne	d15,d10,d0
+	or.ne	d15,d11,d1
+	jne	d15,#0,.L153
+	mov	d15,#0
+	j	.L154
+.L153:
+	mfcr	d15,#65068
+	extr.u	d15,d15,#15,#1
+	ne	d15,d15,#0
+	j	.L155
+.L155:
+	disable
+	nop
+	j	.L156
+.L156:
+	ld.w	d0,0xf0000010
+	mov	d3,#0
+	mov	d2,d0
+	ld.w	d1,0xf000002c
+	mov	d0,#0
+	or	d0,d2
+	or	d1,d3
+	j	.L157
+.L157:
+	movh.a	a2,#@his(.1.cnt)
+	lea	a2,[a2]@los(.1.cnt)
+	ld.d	e2,[a2]0
+	and	d0,d2
+	and	d1,d3
+	jeq	d15,#0,.L158
+	enable
+.L158:
+	j	.L159
+.L159:
+	ge.u	d15,d0,d10
+	and.eq	d15,d1,d11
+	or.lt	d15,d11,d1
+.L154:
+	j	.L160
+.L160:
+	jeq	d15,#0,.L151
+.L152:
+	ld.bu	d15,[a15]25
+	eq	d9,d15,#0
+.L149:
+	jne	d8,#0,.L136
+.L148:
+	ld.hu	d15,[a10]4
+	st.h	[a15]18,d15
+.L127:
+	mov	d2,d8
+	j	.L161
+.L161:
+	ret
+	
+__Ifx_Fifo_write_function_end:
+	.size	Ifx_Fifo_write,__Ifx_Fifo_write_function_end-Ifx_Fifo_write
+	; End of function
+	
+	.calls	'Ifx_Fifo_create','malloc'
+	.calls	'Ifx_Fifo_create','Ifx_Fifo_init'
+	.calls	'Ifx_Fifo_destroy','free'
+	.calls	'Ifx_Fifo_read','Ifx_Fifo_beginRead'
+	.calls	'Ifx_Fifo_read','Ifx_CircularBuffer_read8'
+	.calls	'Ifx_Fifo_read','Ifx_Fifo_readEnd'
+	.calls	'Ifx_Fifo_write','Ifx_Fifo_beginWrite'
+	.calls	'Ifx_Fifo_write','Ifx_CircularBuffer_write8'
+	.calls	'Ifx_Fifo_write','Ifx_Fifo_endWrite'
+	.calls	'Ifx_Fifo_create','',0
+	.calls	'Ifx_Fifo_destroy','',0
+	.calls	'Ifx_Fifo_init','',0
+	.calls	'Ifx_Fifo_beginRead','',0
+	.calls	'Ifx_Fifo_canReadCount','',0
+	.calls	'Ifx_Fifo_readEnd','',0
+	.calls	'Ifx_Fifo_read','',8
+	.calls	'Ifx_Fifo_clear','',0
+	.calls	'Ifx_Fifo_beginWrite','',0
+	.calls	'Ifx_Fifo_canWriteCount','',0
+	.calls	'Ifx_Fifo_endWrite','',0
+	.extern	malloc
+	.extern	free
+	.extern	Ifx_CircularBuffer_read8
+	.extern	Ifx_CircularBuffer_write8
+	.calls	'Ifx_Fifo_write','',8
+	; Module end

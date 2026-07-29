@@ -1,0 +1,179 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc24560a --dep-file=Libraries/Service/CpuGeneric/StdIf/IfxStdIf_Pos.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_PinMap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore/Compilers -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Icu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Math -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Can -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Impl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Phy_Pef7071 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Driver -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Trap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/CStart -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiSlave -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Crc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Cam -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/General -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D/_Reg -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiMaster -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Asc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Adc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Time -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Irq -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/InternalMux -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Trig -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TimerWithTrigger -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/StdIf -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Spi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations/Debug -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/_Utilities -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Rdc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Lin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/IncrEnc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmBc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TPwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim/In -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Io -w544 -w557 -t2 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Libraries/Service/CpuGeneric/StdIf/IfxStdIf_Pos.src ../Libraries/Service/CpuGeneric/StdIf/IfxStdIf_Pos.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/Service/CpuGeneric/StdIf/IfxStdIf_Pos.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.IfxStdIf_Pos.IfxStdIf_Pos_initConfig',code
+	.sect	'.text.IfxStdIf_Pos.IfxStdIf_Pos_initConfig'
+	.align	2
+	
+	.global	IfxStdIf_Pos_initConfig
+; Function IfxStdIf_Pos_initConfig
+IfxStdIf_Pos_initConfig:	.type	func
+	mov	d15,#0
+	st.w	[a4],d15
+	mov	d15,#0
+	st.b	[a4]4,d15
+	mov	d15,#0
+	st.w	[a4]6,d15
+	mov	d15,#1
+	st.h	[a4]10,d15
+	mov	d15,#1
+	st.b	[a4]12,d15
+	mov	d15,#4719
+	addih	d15,d15,#14979
+	st.w	[a4]14,d15
+	mov	d15,#0
+	st.w	[a4]18,d15
+	mov	d15,#0
+	st.w	[a4]22,d15
+	mov.u	d15,#58963
+	addih	d15,d15,#17666
+	st.w	[a4]26,d15
+	mov	d15,#0
+	st.b	[a4]30,d15
+	mov	d15,#0
+	st.w	[a4]32,d15
+	ret
+	
+__IfxStdIf_Pos_initConfig_function_end:
+	.size	IfxStdIf_Pos_initConfig,__IfxStdIf_Pos_initConfig_function_end-IfxStdIf_Pos_initConfig
+	; End of function
+	
+	.sdecl	'.text.IfxStdIf_Pos.IfxStdIf_Pos_printStatus',code
+	.sect	'.text.IfxStdIf_Pos.IfxStdIf_Pos_printStatus'
+	.align	2
+	
+	.global	IfxStdIf_Pos_printStatus
+; Function IfxStdIf_Pos_printStatus
+IfxStdIf_Pos_printStatus:	.type	func
+	mov.aa	a15,a5
+	ld.a	a2,[a4]24
+	ld.a	a4,[a4]
+	calli	a2
+	j	.L2
+.L2:
+	mov	d8,d2
+	movh.a	a5,#@his(.1.str)
+	lea	a5,[a5]@los(.1.str)
+	mov.aa	a4,a15
+	call	IfxStdIf_DPipe_print
+	jeq	d8,#0,.L3
+	extr.u	d15,d8,#0,#8
+	jz.t	d15:4,.L4
+	movh.a	a5,#@his(.2.str)
+	lea	a5,[a5]@los(.2.str)
+	mov.aa	a4,a15
+	call	IfxStdIf_DPipe_print
+.L4:
+	extr.u	d15,d8,#0,#8
+	jz.t	d15:0,.L5
+	movh.a	a5,#@his(.3.str)
+	lea	a5,[a5]@los(.3.str)
+	mov.aa	a4,a15
+	call	IfxStdIf_DPipe_print
+.L5:
+	extr.u	d15,d8,#0,#8
+	jz.t	d15:2,.L6
+	movh.a	a5,#@his(.4.str)
+	lea	a5,[a5]@los(.4.str)
+	mov.aa	a4,a15
+	call	IfxStdIf_DPipe_print
+.L6:
+	extr.u	d15,d8,#0,#8
+	jz.t	d15:1,.L7
+	movh.a	a5,#@his(.5.str)
+	lea	a5,[a5]@los(.5.str)
+	mov.aa	a4,a15
+	call	IfxStdIf_DPipe_print
+.L7:
+	extr.u	d15,d8,#0,#8
+	jz.t	d15:3,.L8
+	movh.a	a5,#@his(.6.str)
+	lea	a5,[a5]@los(.6.str)
+	mov.aa	a4,a15
+	call	IfxStdIf_DPipe_print
+.L8:
+	j	.L9
+.L3:
+	movh.a	a5,#@his(.7.str)
+	lea	a5,[a5]@los(.7.str)
+	mov.aa	a4,a15
+	call	IfxStdIf_DPipe_print
+.L9:
+	ret
+	
+__IfxStdIf_Pos_printStatus_function_end:
+	.size	IfxStdIf_Pos_printStatus,__IfxStdIf_Pos_printStatus_function_end-IfxStdIf_Pos_printStatus
+	; End of function
+	
+	.sdecl	'.rodata.IfxStdIf_Pos..1.str',data,rom
+	.sect	'.rodata.IfxStdIf_Pos..1.str'
+.1.str:	.type	object
+	.size	.1.str,20
+	.byte	68,83,65,68,67,32,82,68
+	.byte	67,32,115,116,97,116,117,115
+	.byte	58,13,10
+	.space	1
+	.sdecl	'.rodata.IfxStdIf_Pos..2.str',data,rom
+	.sect	'.rodata.IfxStdIf_Pos..2.str'
+.2.str:	.type	object
+	.size	.2.str,24
+	.byte	45,32,67,111,109,109,117,110
+	.byte	105,99,97,116,105,111,110,32
+	.byte	101,114,114,111
+	.byte	114,13,10
+	.space	1
+	.sdecl	'.rodata.IfxStdIf_Pos..3.str',data,rom
+	.sect	'.rodata.IfxStdIf_Pos..3.str'
+.3.str:	.type	object
+	.size	.3.str,26
+	.byte	45,32,83,121,110,99,104,114
+	.byte	111,110,105,122,97,116,105,111
+	.byte	110,32,101,114,114,111,114,13
+	.byte	10
+	.space	1
+	.sdecl	'.rodata.IfxStdIf_Pos..4.str',data,rom
+	.sect	'.rodata.IfxStdIf_Pos..4.str'
+.4.str:	.type	object
+	.size	.4.str,29
+	.byte	45,32,83,105,103,110,97,108
+	.byte	32,100,101,103,114,97,100,97
+	.byte	116,105,111,110,32,101,114,114
+	.byte	111,114,13,10
+	.space	1
+	.sdecl	'.rodata.IfxStdIf_Pos..5.str',data,rom
+	.sect	'.rodata.IfxStdIf_Pos..5.str'
+.5.str:	.type	object
+	.size	.5.str,22
+	.byte	45,32,83,105,103,110,97,108
+	.byte	32,108,111,115,115,32,101,114
+	.byte	114,111,114,13
+	.byte	10
+	.space	1
+	.sdecl	'.rodata.IfxStdIf_Pos..6.str',data,rom
+	.sect	'.rodata.IfxStdIf_Pos..6.str'
+.6.str:	.type	object
+	.size	.6.str,19
+	.byte	45,32,84,114,97,99,107,105
+	.byte	110,103,32,101,114,114,111,114
+	.byte	13,10
+	.space	1
+	.sdecl	'.rodata.IfxStdIf_Pos..7.str',data,rom
+	.sect	'.rodata.IfxStdIf_Pos..7.str'
+.7.str:	.type	object
+	.size	.7.str,10
+	.byte	45,32,82,101,97,100,121,13
+	.byte	10
+	.space	1
+	.calls	'IfxStdIf_Pos_printStatus','__INDIRECT__'
+	.calls	'IfxStdIf_Pos_printStatus','IfxStdIf_DPipe_print'
+	.calls	'IfxStdIf_Pos_initConfig','',0
+	.extern	IfxStdIf_DPipe_print
+	.extern	__INDIRECT__
+	.calls	'IfxStdIf_Pos_printStatus','',0
+	; Module end

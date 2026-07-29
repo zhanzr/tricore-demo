@@ -1,0 +1,2307 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc22724a --dep-file=Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_PinMap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore/Compilers -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Icu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Math -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Can -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Impl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Phy_Pef7071 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Driver -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Trap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/CStart -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiSlave -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Crc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Cam -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/General -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D/_Reg -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiMaster -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Asc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Adc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Time -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Irq -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/InternalMux -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Trig -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TimerWithTrigger -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/StdIf -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Spi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations/Debug -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/_Utilities -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Rdc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Lin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/IncrEnc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmBc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TPwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim/In -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Io -w544 -w557 -t2 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.src ../Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_calculateSysPllDividers',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_calculateSysPllDividers'
+	.align	2
+	
+	.global	IfxScuCcu_calculateSysPllDividers
+; Function IfxScuCcu_calculateSysPllDividers
+IfxScuCcu_calculateSysPllDividers:	.type	func
+	sub.a	a10,#40
+	mov	d8,d4
+	mov	d15,#0
+	st.w	[a10]32,d15
+	ld.w	d9,[a4]80
+	mov.u	d0,#49664
+	addih	d0,d0,#3051
+	mov	d15,#13824
+	addih	d15,d15,#366
+	st.w	[a10]28,d15
+	mov	d15,#4608
+	addih	d15,d15,#122
+	st.w	[a10]24,d15
+	mov.u	d15,#33792
+	addih	d15,d15,#6103
+	st.w	[a10]16,d15
+	mov	d15,#2048
+	addih	d15,d15,#12207
+	st.w	[a10]12,d15
+	mov	d1,#16
+	mov	d14,#128
+	mov	d15,#0
+	st.w	[a10]8,d15
+	mov	d15,#0
+	st.w	[a10],d15
+	mov	d15,#0
+	st.w	[a10]4,d15
+	mov	d3,#0
+	mov	d2,d0
+	mov	d15,#2
+	st.w	[a10]20,d15
+	mov	d15,#7168
+	addih	d15,d15,#3662
+	jge.u	d15,d8,.L2
+	mov	d15,#1
+	st.w	[a10]20,d15
+.L2:
+	j	.L3
+.L4:
+	div.u	e4,d9,d1
+	mov	d5,#0
+	mov	d7,#0
+	ld.w	d15,[a10]24
+	mov	d6,d15
+	lt.u	d15,d4,d6
+	and.eq	d15,d5,d7
+	or.lt.u	d15,d5,d7
+	jne	d15,#0,.L5
+	mov	d7,#0
+	ld.w	d15,[a10]28
+	mov	d6,d15
+	lt.u	d15,d6,d4
+	and.eq	d15,d5,d7
+	or.lt.u	d15,d7,d5
+	jne	d15,#0,.L6
+	mov	d0,#1
+	j	.L7
+.L8:
+	mov	d13,#0
+	mov	d12,d8
+	mov	d11,#0
+	mov	d10,d0
+	mul.u	e4,d12,d10
+	mul.u	e6,d12,d11
+	madd.u	e6,e6,d13,d10
+	add	d5,d6
+	mov	d7,#0
+	ld.w	d15,[a10]16
+	mov	d6,d15
+	lt.u	d15,d4,d6
+	and.eq	d15,d5,d7
+	or.lt.u	d15,d5,d7
+	jne	d15,#0,.L9
+	mov	d7,#0
+	ld.w	d15,[a10]12
+	mov	d6,d15
+	lt.u	d15,d6,d4
+	and.eq	d15,d5,d7
+	or.lt.u	d15,d7,d5
+	jne	d15,#0,.L10
+	mov	d6,#1
+	j	.L11
+.L12:
+	mul	d15,d1,d0
+	div.u	e4,d6,d15
+	mul	d15,d4,d9
+	sub	d15,d8
+	mov	d5,#0
+	mov	d4,d15
+	ne	d15,d4,#0
+	or.ne	d15,d5,#0
+	jne	d15,#0,.L13
+	mov	e2,d5,d4
+	st.w	[a10]8,d0
+	st.w	[a10],d6
+	st.w	[a10]4,d1
+	j	.L14
+.L13:
+	ge.u	d15,d4,d2
+	and.eq	d15,d3,d5
+	or.lt.u	d15,d3,d5
+	jne	d15,#0,.L15
+	mov	e2,d5,d4
+	st.w	[a10]8,d0
+	st.w	[a10],d6
+	st.w	[a10]4,d1
+.L15:
+	add	d6,#1
+.L11:
+	jge.u	d14,d6,.L12
+.L10:
+.L9:
+	ld.w	d15,[a10]20
+	add	d0,d15
+.L7:
+	mov	d15,#128
+	jge.u	d15,d0,.L8
+.L6:
+.L5:
+	add	d1,#-1
+.L3:
+	mov	d15,#1
+	jge.u	d1,d15,.L4
+.L14:
+	mul	d0,d8,#2
+	mov	d15,#100
+	div.u	e0,d0,d15
+	mov	d1,#0
+	ge.u	d15,d2,d0
+	and.eq	d15,d3,d1
+	or.lt.u	d15,d1,d3
+	jne	d15,#0,.L16
+	ld.w	d15,[a10]
+	add	d15,#-1
+	st.b	[a4]9,d15
+	ld.w	d15,[a10]4
+	add	d15,#-1
+	st.b	[a4]8,d15
+	ld.w	d15,[a10]8
+	add	d15,#-1
+	st.b	[a4]10,d15
+	mov	d15,#0
+	st.w	[a4]12,d15
+	mov	d15,#0
+	st.b	[a4],d15
+	j	.L17
+.L16:
+	mov	d15,#1
+	st.w	[a10]32,d15
+.L17:
+	ld.w	d2,[a10]32
+	j	.L18
+.L18:
+	ret
+	
+__IfxScuCcu_calculateSysPllDividers_function_end:
+	.size	IfxScuCcu_calculateSysPllDividers,__IfxScuCcu_calculateSysPllDividers_function_end-IfxScuCcu_calculateSysPllDividers
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getBaud1Frequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getBaud1Frequency'
+	.align	2
+	
+	.global	IfxScuCcu_getBaud1Frequency
+; Function IfxScuCcu_getBaud1Frequency
+IfxScuCcu_getBaud1Frequency:	.type	func
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036030)
+	ld.w	d8,[a15]
+	extr.u	d15,d8,#0,#4
+	jne	d15,#0,.L19
+	mov	d2,#0
+	j	.L20
+.L19:
+	call	IfxScuCcu_getMaxFrequency
+	extr.u	d15,d8,#0,#4
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L20:
+	j	.L21
+.L21:
+	ret
+	
+__IfxScuCcu_getBaud1Frequency_function_end:
+	.size	IfxScuCcu_getBaud1Frequency,__IfxScuCcu_getBaud1Frequency_function_end-IfxScuCcu_getBaud1Frequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getBaud2Frequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getBaud2Frequency'
+	.align	2
+	
+	.global	IfxScuCcu_getBaud2Frequency
+; Function IfxScuCcu_getBaud2Frequency
+IfxScuCcu_getBaud2Frequency:	.type	func
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036030)
+	ld.w	d8,[a15]
+	extr.u	d15,d8,#4,#4
+	jne	d15,#0,.L22
+	mov	d2,#0
+	j	.L23
+.L22:
+	call	IfxScuCcu_getMaxFrequency
+	extr.u	d15,d8,#4,#4
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L23:
+	j	.L24
+.L24:
+	ret
+	
+__IfxScuCcu_getBaud2Frequency_function_end:
+	.size	IfxScuCcu_getBaud2Frequency,__IfxScuCcu_getBaud2Frequency_function_end-IfxScuCcu_getBaud2Frequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getBbbFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getBbbFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getBbbFrequency
+; Function IfxScuCcu_getBbbFrequency
+IfxScuCcu_getBbbFrequency:	.type	func
+	call	IfxScuCcu_getSourceFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036031)
+	extr.u	d0,d15,#4,#4
+	mov	d15,#0
+	jeq	d15,d0,.L25
+	mov	d15,#1
+	jeq	d15,d0,.L26
+	mov	d15,#2
+	jeq	d15,d0,.L27
+	mov	d15,#3
+	jeq	d15,d0,.L28
+	mov	d15,#4
+	jeq	d15,d0,.L29
+	j	.L30
+.L25:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036040)
+	and	d15,#15
+	jne	d15,#0,.L31
+	mov	d2,#0
+	j	.L32
+.L31:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036040)
+	and	d15,#15
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L32:
+	j	.L33
+.L26:
+	movh	d15,#16880
+	div.f	d2,d2,d15
+	j	.L34
+.L27:
+	movh	d15,#17008
+	div.f	d2,d2,d15
+	j	.L35
+.L28:
+	movh	d15,#17136
+	div.f	d2,d2,d15
+	j	.L36
+.L29:
+	movh	d15,#17264
+	div.f	d2,d2,d15
+	j	.L37
+.L30:
+	mov	d2,#0
+	j	.L38
+.L38:
+.L37:
+.L36:
+.L35:
+.L34:
+.L33:
+	j	.L39
+.L39:
+	ret
+	
+__IfxScuCcu_getBbbFrequency_function_end:
+	.size	IfxScuCcu_getBbbFrequency,__IfxScuCcu_getBbbFrequency_function_end-IfxScuCcu_getBbbFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getCpuFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getCpuFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getCpuFrequency
+; Function IfxScuCcu_getCpuFrequency
+IfxScuCcu_getCpuFrequency:	.type	func
+	mov	d8,d4
+	call	IfxScuCcu_getSriFrequency
+	mov	d0,#0
+	mov	d15,#0
+	jeq	d15,d8,.L40
+	mov	d15,#1
+	jeq	d15,d8,.L41
+	mov	d15,#2
+	jeq	d15,d8,.L42
+	j	.L43
+.L40:
+	movh.a	a15,#61443
+	ld.w	d0,[a15]@los(0xf0036080)
+	j	.L44
+.L41:
+	movh.a	a15,#61443
+	ld.w	d0,[a15]@los(0xf0036084)
+	j	.L45
+.L42:
+	movh.a	a15,#61443
+	ld.w	d0,[a15]@los(0xf0036088)
+	j	.L46
+.L43:
+	mov	d2,#0
+	j	.L47
+.L47:
+.L46:
+.L45:
+.L44:
+	jeq	d0,#0,.L48
+	utof	d15,d0
+	movh	d0,#17024
+	div.f	d15,d15,d0
+	mul.f	d2,d2,d15
+.L48:
+	j	.L49
+.L49:
+	ret
+	
+__IfxScuCcu_getCpuFrequency_function_end:
+	.size	IfxScuCcu_getCpuFrequency,__IfxScuCcu_getCpuFrequency_function_end-IfxScuCcu_getCpuFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getFsi2Frequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getFsi2Frequency'
+	.align	2
+	
+	.global	IfxScuCcu_getFsi2Frequency
+; Function IfxScuCcu_getFsi2Frequency
+IfxScuCcu_getFsi2Frequency:	.type	func
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036030)
+	ld.w	d8,[a15]
+	extr.u	d15,d8,#20,#2
+	jne	d15,#0,.L50
+	mov	d2,#0
+	j	.L51
+.L50:
+	call	IfxScuCcu_getSriFrequency
+	extr.u	d15,d8,#8,#4
+	jeq	d15,#1,.L52
+	extr.u	d15,d8,#8,#4
+	jne	d15,#2,.L53
+.L52:
+	extr.u	d15,d8,#20,#2
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L53:
+.L51:
+	j	.L54
+.L54:
+	ret
+	
+__IfxScuCcu_getFsi2Frequency_function_end:
+	.size	IfxScuCcu_getFsi2Frequency,__IfxScuCcu_getFsi2Frequency_function_end-IfxScuCcu_getFsi2Frequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getFsiFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getFsiFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getFsiFrequency
+; Function IfxScuCcu_getFsiFrequency
+IfxScuCcu_getFsiFrequency:	.type	func
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036030)
+	ld.w	d8,[a15]
+	extr.u	d15,d8,#24,#2
+	jne	d15,#0,.L55
+	mov	d2,#0
+	j	.L56
+.L55:
+	call	IfxScuCcu_getSriFrequency
+	extr.u	d15,d8,#8,#4
+	jeq	d15,#1,.L57
+	extr.u	d15,d8,#8,#4
+	jne	d15,#2,.L58
+.L57:
+	extr.u	d15,d8,#24,#2
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L58:
+.L56:
+	j	.L59
+.L59:
+	ret
+	
+__IfxScuCcu_getFsiFrequency_function_end:
+	.size	IfxScuCcu_getFsiFrequency,__IfxScuCcu_getFsiFrequency_function_end-IfxScuCcu_getFsiFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getMaxFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getMaxFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getMaxFrequency
+; Function IfxScuCcu_getMaxFrequency
+IfxScuCcu_getMaxFrequency:	.type	func
+	call	IfxScuCcu_getSourceFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036031)
+	extr.u	d0,d15,#4,#4
+	mov	d15,#0
+	jeq	d15,d0,.L60
+	mov	d15,#1
+	jeq	d15,d0,.L61
+	mov	d15,#2
+	jeq	d15,d0,.L62
+	mov	d15,#3
+	jeq	d15,d0,.L63
+	mov	d15,#4
+	jeq	d15,d0,.L64
+	j	.L65
+.L60:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003604c)
+	and	d15,#15
+	jne	d15,#0,.L66
+	j	.L67
+.L66:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003604c)
+	and	d15,#15
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L67:
+	j	.L68
+.L61:
+	movh	d15,#16752
+	div.f	d2,d2,d15
+	j	.L69
+.L62:
+	movh	d15,#16880
+	div.f	d2,d2,d15
+	j	.L70
+.L63:
+	movh	d15,#17008
+	div.f	d2,d2,d15
+	j	.L71
+.L64:
+	movh	d15,#17136
+	div.f	d2,d2,d15
+	j	.L72
+.L65:
+	mov	d2,#0
+	j	.L73
+.L73:
+.L72:
+.L71:
+.L70:
+.L69:
+.L68:
+	j	.L74
+.L74:
+	ret
+	
+__IfxScuCcu_getMaxFrequency_function_end:
+	.size	IfxScuCcu_getMaxFrequency,__IfxScuCcu_getMaxFrequency_function_end-IfxScuCcu_getMaxFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getModuleFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getModuleFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getModuleFrequency
+; Function IfxScuCcu_getModuleFrequency
+IfxScuCcu_getModuleFrequency:	.type	func
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036038)
+	ld.w	d8,[a15]
+	call	IfxScuCcu_getSpbFrequency
+	extr.u	d15,d8,#14,#2
+	jne	d15,#1,.L75
+	mov	d15,#1024
+	extr.u	d0,d8,#0,#10
+	sub	d15,d0
+	itof	d15,d15
+	div.f	d2,d2,d15
+	j	.L76
+.L75:
+	extr.u	d15,d8,#14,#2
+	jne	d15,#2,.L77
+	extr.u	d15,d8,#0,#10
+	itof	d15,d15
+	mul.f	d15,d2,d15
+	movh	d0,#17536
+	div.f	d2,d15,d0
+	j	.L78
+.L77:
+	mov	d2,#0
+.L78:
+.L76:
+	j	.L79
+.L79:
+	ret
+	
+__IfxScuCcu_getModuleFrequency_function_end:
+	.size	IfxScuCcu_getModuleFrequency,__IfxScuCcu_getModuleFrequency_function_end-IfxScuCcu_getModuleFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getOsc0Frequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getOsc0Frequency'
+	.align	2
+	
+	.global	IfxScuCcu_getOsc0Frequency
+; Function IfxScuCcu_getOsc0Frequency
+IfxScuCcu_getOsc0Frequency:	.type	func
+	movh.a	a15,#@his(IfxScuCcu_xtalFrequency)
+	lea	a15,[a15]@los(IfxScuCcu_xtalFrequency)
+	ld.w	d15,[a15]
+	utof	d2,d15
+	j	.L80
+.L80:
+	ret
+	
+__IfxScuCcu_getOsc0Frequency_function_end:
+	.size	IfxScuCcu_getOsc0Frequency,__IfxScuCcu_getOsc0Frequency_function_end-IfxScuCcu_getOsc0Frequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getOscFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getOscFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getOscFrequency
+; Function IfxScuCcu_getOscFrequency
+IfxScuCcu_getOscFrequency:	.type	func
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036037)
+	extr.u	d15,d15,#4,#2
+	jne	d15,#0,.L81
+	mov.u	d2,#48160
+	addih	d2,d2,#19646
+	j	.L82
+.L81:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036037)
+	extr.u	d15,d15,#4,#2
+	jne	d15,#1,.L83
+	movh.a	a15,#@his(IfxScuCcu_xtalFrequency)
+	lea	a15,[a15]@los(IfxScuCcu_xtalFrequency)
+	ld.w	d15,[a15]
+	utof	d2,d15
+	j	.L84
+.L83:
+	mov	d2,#0
+.L84:
+.L82:
+	j	.L85
+.L85:
+	ret
+	
+__IfxScuCcu_getOscFrequency_function_end:
+	.size	IfxScuCcu_getOscFrequency,__IfxScuCcu_getOscFrequency_function_end-IfxScuCcu_getOscFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getPllErayFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getPllErayFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getPllErayFrequency
+; Function IfxScuCcu_getPllErayFrequency
+IfxScuCcu_getPllErayFrequency:	.type	func
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036000)
+	call	IfxScuCcu_getOscFrequency
+	ld.bu	d15,[a15]36
+	and	d15,#1
+	jne	d15,#1,.L86
+	ld.bu	d15,[a15]46
+	and	d15,#127
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d2,d15
+	j	.L87
+.L86:
+	ld.bu	d15,[a15]36
+	extr.u	d15,d15,#3,#1
+	jne	d15,#1,.L88
+	mov.u	d0,#48160
+	addih	d0,d0,#19646
+	ld.bu	d15,[a15]44
+	and	d15,#127
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d0,d15
+	j	.L89
+.L88:
+	ld.bu	d15,[a15]41
+	extr.u	d15,d15,#1,#5
+	add	d15,#1
+	itof	d15,d15
+	mul.f	d0,d2,d15
+	ld.bu	d15,[a15]44
+	and	d15,#127
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d0,d15
+.L89:
+.L87:
+	j	.L90
+.L90:
+	ret
+	
+__IfxScuCcu_getPllErayFrequency_function_end:
+	.size	IfxScuCcu_getPllErayFrequency,__IfxScuCcu_getPllErayFrequency_function_end-IfxScuCcu_getPllErayFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getPllErayVcoFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getPllErayVcoFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getPllErayVcoFrequency
+; Function IfxScuCcu_getPllErayVcoFrequency
+IfxScuCcu_getPllErayVcoFrequency:	.type	func
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036024)
+	extr.u	d15,d15,#3,#1
+	jne	d15,#1,.L91
+	mov.u	d2,#48160
+	addih	d2,d2,#19646
+	j	.L92
+.L91:
+	call	IfxScuCcu_getOscFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036029)
+	extr.u	d15,d15,#1,#5
+	add	d15,#1
+	itof	d15,d15
+	mul.f	d0,d2,d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003602b)
+	and	d15,#15
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d0,d15
+.L92:
+	j	.L93
+.L93:
+	ret
+	
+__IfxScuCcu_getPllErayVcoFrequency_function_end:
+	.size	IfxScuCcu_getPllErayVcoFrequency,__IfxScuCcu_getPllErayVcoFrequency_function_end-IfxScuCcu_getPllErayVcoFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getPllFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getPllFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getPllFrequency
+; Function IfxScuCcu_getPllFrequency
+IfxScuCcu_getPllFrequency:	.type	func
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036000)
+	call	IfxScuCcu_getOscFrequency
+	ld.bu	d15,[a15]20
+	and	d15,#1
+	jne	d15,#1,.L94
+	ld.bu	d15,[a15]30
+	and	d15,#127
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d2,d15
+	j	.L95
+.L94:
+	ld.bu	d15,[a15]20
+	extr.u	d15,d15,#3,#1
+	jne	d15,#1,.L96
+	mov.u	d0,#48160
+	addih	d0,d0,#19646
+	ld.bu	d15,[a15]28
+	and	d15,#127
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d0,d15
+	j	.L97
+.L96:
+	ld.bu	d15,[a15]25
+	extr.u	d15,d15,#1,#7
+	add	d15,#1
+	itof	d15,d15
+	mul.f	d1,d2,d15
+	ld.bu	d15,[a15]28
+	and	d15,#127
+	add	d0,d15,#1
+	ld.bu	d15,[a15]27
+	and	d15,#15
+	add	d15,#1
+	mul	d0,d15
+	itof	d15,d0
+	div.f	d2,d1,d15
+.L97:
+.L95:
+	j	.L98
+.L98:
+	ret
+	
+__IfxScuCcu_getPllFrequency_function_end:
+	.size	IfxScuCcu_getPllFrequency,__IfxScuCcu_getPllFrequency_function_end-IfxScuCcu_getPllFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getPllVcoFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getPllVcoFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getPllVcoFrequency
+; Function IfxScuCcu_getPllVcoFrequency
+IfxScuCcu_getPllVcoFrequency:	.type	func
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036014)
+	extr.u	d15,d15,#3,#1
+	jne	d15,#1,.L99
+	mov.u	d2,#48160
+	addih	d2,d2,#19646
+	j	.L100
+.L99:
+	call	IfxScuCcu_getOscFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036019)
+	extr.u	d15,d15,#1,#7
+	add	d15,#1
+	itof	d15,d15
+	mul.f	d0,d2,d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003601b)
+	and	d15,#15
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d0,d15
+.L100:
+	j	.L101
+.L101:
+	ret
+	
+__IfxScuCcu_getPllVcoFrequency_function_end:
+	.size	IfxScuCcu_getPllVcoFrequency,__IfxScuCcu_getPllVcoFrequency_function_end-IfxScuCcu_getPllVcoFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getSourceFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getSourceFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getSourceFrequency
+; Function IfxScuCcu_getSourceFrequency
+IfxScuCcu_getSourceFrequency:	.type	func
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	extr.u	d15,d15,#4,#2
+	mov	d0,#0
+	jeq	d15,d0,.L102
+	mov	d0,#1
+	jeq	d15,d0,.L103
+	j	.L104
+.L102:
+	mov.u	d2,#48160
+	addih	d2,d2,#19646
+	j	.L105
+.L105:
+	j	.L106
+.L103:
+	call	IfxScuCcu_getPllFrequency
+	j	.L107
+.L104:
+	mov	d2,#0
+	j	.L108
+.L108:
+.L107:
+.L106:
+	j	.L109
+.L109:
+	ret
+	
+__IfxScuCcu_getSourceFrequency_function_end:
+	.size	IfxScuCcu_getSourceFrequency,__IfxScuCcu_getSourceFrequency_function_end-IfxScuCcu_getSourceFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getSpbFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getSpbFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getSpbFrequency
+; Function IfxScuCcu_getSpbFrequency
+IfxScuCcu_getSpbFrequency:	.type	func
+	call	IfxScuCcu_getSourceFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036031)
+	extr.u	d0,d15,#4,#4
+	mov	d15,#0
+	jeq	d15,d0,.L110
+	mov	d15,#1
+	jeq	d15,d0,.L111
+	mov	d15,#2
+	jeq	d15,d0,.L112
+	mov	d15,#3
+	jeq	d15,d0,.L113
+	mov	d15,#4
+	jeq	d15,d0,.L114
+	j	.L115
+.L110:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036032)
+	and	d15,#15
+	jne	d15,#0,.L116
+	mov	d2,#0
+	j	.L117
+.L116:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036032)
+	and	d15,#15
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L117:
+	j	.L118
+.L111:
+	movh	d15,#16880
+	div.f	d2,d2,d15
+	j	.L119
+.L112:
+	movh	d15,#17008
+	div.f	d2,d2,d15
+	j	.L120
+.L113:
+	movh	d15,#17136
+	div.f	d2,d2,d15
+	j	.L121
+.L114:
+	movh	d15,#17264
+	div.f	d2,d2,d15
+	j	.L122
+.L115:
+	mov	d2,#0
+	j	.L123
+.L123:
+.L122:
+.L121:
+.L120:
+.L119:
+.L118:
+	j	.L124
+.L124:
+	ret
+	
+__IfxScuCcu_getSpbFrequency_function_end:
+	.size	IfxScuCcu_getSpbFrequency,__IfxScuCcu_getSpbFrequency_function_end-IfxScuCcu_getSpbFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_getSriFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_getSriFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_getSriFrequency
+; Function IfxScuCcu_getSriFrequency
+IfxScuCcu_getSriFrequency:	.type	func
+	call	IfxScuCcu_getSourceFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036031)
+	extr.u	d0,d15,#4,#4
+	mov	d15,#0
+	jeq	d15,d0,.L125
+	mov	d15,#1
+	jeq	d15,d0,.L126
+	mov	d15,#2
+	jeq	d15,d0,.L127
+	mov	d15,#3
+	jeq	d15,d0,.L128
+	mov	d15,#4
+	jeq	d15,d0,.L129
+	j	.L130
+.L125:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036031)
+	and	d15,#15
+	jne	d15,#0,.L131
+	mov	d2,#0
+	j	.L132
+.L131:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036031)
+	and	d15,#15
+	itof	d15,d15
+	div.f	d2,d2,d15
+.L132:
+	j	.L133
+.L126:
+	movh	d15,#16880
+	div.f	d2,d2,d15
+	j	.L134
+.L127:
+	movh	d15,#17008
+	div.f	d2,d2,d15
+	j	.L135
+.L128:
+	movh	d15,#17136
+	div.f	d2,d2,d15
+	j	.L136
+.L129:
+	movh	d15,#17264
+	div.f	d2,d2,d15
+	j	.L137
+.L130:
+	mov	d2,#0
+	j	.L138
+.L138:
+.L137:
+.L136:
+.L135:
+.L134:
+.L133:
+	j	.L139
+.L139:
+	ret
+	
+__IfxScuCcu_getSriFrequency_function_end:
+	.size	IfxScuCcu_getSriFrequency,__IfxScuCcu_getSriFrequency_function_end-IfxScuCcu_getSriFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_init',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_init'
+	.align	2
+	
+	.global	IfxScuCcu_init
+; Function IfxScuCcu_init
+IfxScuCcu_init:	.type	func
+	mov.aa	a15,a4
+	mov	d8,#0
+	movh.a	a2,#@his(IfxScuCcu_xtalFrequency)
+	lea	a2,[a2]@los(IfxScuCcu_xtalFrequency)
+	ld.w	d15,[a15]80
+	st.w	[a2],d15
+	call	IfxScuWdt_getCpuWatchdogPassword
+	mov	d9,d2
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d10,d2
+	mov	d4,d9
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036130)
+	extr.u	d11,d15,#3,#1
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036130)
+	or	d15,#8
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036130),d15
+	mov	d4,d9
+	call	IfxScuWdt_setCpuEndinit
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L140
+.L141:
+.L140:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L141
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	insert	d15,d15,#0,#4,#2
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036033),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	or	d15,#64
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036033),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036018)
+	or	d15,#16
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036018),d15
+	j	.L142
+.L143:
+.L142:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L143
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036037)
+	insert	d15,d15,#1,#4,#2
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036037),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036037)
+	or	d15,#64
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036037),d15
+	call	IfxScuCcu_isOscillatorStable
+	or	d8,d2
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	jne	d8,#0,.L144
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L145
+.L146:
+.L145:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036014)
+	extr.u	d15,d15,#5,#1
+	jeq	d15,#0,.L146
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf003601c)
+	ld.bu	d15,[a15]10
+	insert	d15,d0,d15,#0,#7
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003601c),d15
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf003601b)
+	ld.bu	d15,[a15]8
+	insert	d15,d0,d15,#0,#4
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003601b),d15
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf0036019)
+	ld.bu	d15,[a15]9
+	insert	d15,d0,d15,#1,#7
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036019),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036018)
+	or	d15,#64
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036018),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003601a)
+	insert	d15,d15,#0,#0,#1
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003601a),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036018)
+	or	d15,#32
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036018),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003601a)
+	or	d15,#1
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003601a),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003601a)
+	or	d15,#4
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003601a),d15
+	mov.u	d4,#46871
+	addih	d4,d4,#14417
+	call	IfxScuCcu_wait
+	j	.L147
+.L148:
+.L147:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036014)
+	extr.u	d15,d15,#2,#1
+	jeq	d15,#0,.L148
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036018)
+	insert	d15,d15,#0,#0,#1
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036018),d15
+	j	.L149
+.L150:
+.L149:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L150
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	insert	d15,d15,#1,#4,#2
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036033),d15
+	j	.L151
+.L152:
+.L151:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L152
+	ld.w	d4,[a15]12
+	call	IfxScuCcu_wait
+	movh.a	a2,#61443
+	ld.w	d0,[a2]@los(0xf0036030)
+	ld.w	d15,[a15]20
+	mov	d1,#-1
+	xor	d15,d1
+	and	d0,d15
+	ld.w	d15,[a15]20
+	ld.w	d1,[a15]16
+	and	d15,d1
+	or	d0,d15
+	mov	d15,#1
+	insert	d0,d0,d15,#28,#2
+	mov	d15,#1
+	insert	d0,d0,d15,#30,#1
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036030)
+	st.w	[a2],d0
+	j	.L153
+.L154:
+.L153:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036037)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L154
+	movh.a	a2,#61443
+	ld.w	d0,[a2]@los(0xf0036034)
+	ld.w	d15,[a15]28
+	mov	d1,#-1
+	xor	d15,d1
+	and	d0,d15
+	ld.w	d15,[a15]28
+	ld.w	d1,[a15]24
+	and	d15,d1
+	or	d0,d15
+	mov	d15,#1
+	insert	d0,d0,d15,#28,#2
+	mov	d15,#1
+	insert	d0,d0,d15,#30,#1
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036034)
+	st.w	[a2],d0
+	j	.L155
+.L156:
+.L155:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036043)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L156
+	movh.a	a2,#61443
+	ld.w	d0,[a2]@los(0xf0036040)
+	ld.w	d15,[a15]36
+	mov	d1,#-1
+	xor	d15,d1
+	and	d0,d15
+	ld.w	d15,[a15]36
+	ld.w	d1,[a15]32
+	and	d15,d1
+	or	d0,d15
+	mov	d15,#1
+	insert	d0,d0,d15,#30,#1
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036040)
+	st.w	[a2],d0
+	j	.L157
+.L158:
+.L157:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003604f)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L158
+	movh.a	a2,#61443
+	ld.w	d0,[a2]@los(0xf003604c)
+	ld.w	d15,[a15]44
+	mov	d1,#-1
+	xor	d15,d1
+	and	d0,d15
+	ld.w	d15,[a15]44
+	ld.w	d1,[a15]40
+	and	d15,d1
+	or	d0,d15
+	mov	d15,#1
+	insert	d0,d0,d15,#30,#1
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf003604c)
+	st.w	[a2],d0
+	movh.a	a2,#61443
+	ld.w	d0,[a2]@los(0xf0036080)
+	ld.w	d15,[a15]52
+	mov	d1,#-1
+	xor	d15,d1
+	and	d0,d15
+	ld.w	d15,[a15]52
+	ld.w	d1,[a15]48
+	and	d15,d1
+	or	d0,d15
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036080)
+	st.w	[a2],d0
+	movh.a	a2,#61443
+	ld.w	d0,[a2]@los(0xf0036084)
+	ld.w	d15,[a15]60
+	mov	d1,#-1
+	xor	d15,d1
+	and	d0,d15
+	ld.w	d15,[a15]60
+	ld.w	d1,[a15]56
+	and	d15,d1
+	or	d0,d15
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036084)
+	st.w	[a2],d0
+	movh.a	a2,#61443
+	ld.w	d15,[a2]@los(0xf0036088)
+	ld.w	d0,[a15]68
+	mov	d1,#-1
+	xor	d0,d1
+	and	d15,d0
+	ld.w	d0,[a15]68
+	ld.w	d1,[a15]64
+	and	d0,d1
+	or	d15,d0
+	movh.a	a2,#61443
+	lea	a2,[a2]@los(0xf0036088)
+	st.w	[a2],d15
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	movh.a	a2,#63488
+	ld.w	d15,[a2]@los(0xf8002014)
+	ld.w	d0,[a15]76
+	mov	d1,#-1
+	xor	d0,d1
+	and	d15,d0
+	ld.w	d0,[a15]76
+	mov	d1,#-1
+	xor	d0,d1
+	and	d15,d0
+	ld.w	d0,[a15]76
+	ld.w	d1,[a15]72
+	and	d0,d1
+	or	d15,d0
+	mov	d4,d9
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a2,#63488
+	lea	a2,[a2]@los(0xf8002014)
+	st.w	[a2],d15
+	mov	d4,d9
+	call	IfxScuWdt_setCpuEndinit
+	mov	d12,#0
+	j	.L159
+.L160:
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L161
+.L162:
+.L161:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036014)
+	extr.u	d15,d15,#5,#1
+	jeq	d15,#0,.L162
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf003601c)
+	mul	d15,d12,#12
+	ld.a	a2,[a15]4
+	addsc.a	a2,a2,d15,#0
+	ld.bu	d15,[a2]
+	insert	d15,d0,d15,#0,#7
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003601c),d15
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	mul	d15,d12,#12
+	ld.a	a2,[a15]4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d15,[a2]8
+	jeq	d15,#0,.L163
+	mul	d15,d12,#12
+	ld.a	a2,[a15]4
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]8
+	calli	a2
+.L163:
+	mul	d15,d12,#12
+	ld.a	a2,[a15]4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d4,[a2]2
+	call	IfxScuCcu_wait
+	add	d12,#1
+	extr.u	d12,d12,#0,#8
+.L159:
+	ld.bu	d15,[a15]
+	jlt.u	d12,d15,.L160
+.L144:
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036018)
+	insert	d15,d15,#0,#6,#1
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036018),d15
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	mov	d4,d9
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003612c)
+	or	d15,#8
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf003612c),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036130)
+	insert	d15,d15,d11,#3,#1
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036130),d15
+	mov	d4,d9
+	call	IfxScuWdt_setCpuEndinit
+	mov	d2,d8
+	j	.L164
+.L164:
+	ret
+	
+__IfxScuCcu_init_function_end:
+	.size	IfxScuCcu_init,__IfxScuCcu_init_function_end-IfxScuCcu_init
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_initConfig',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_initConfig'
+	.align	2
+	
+	.global	IfxScuCcu_initConfig
+; Function IfxScuCcu_initConfig
+IfxScuCcu_initConfig:	.type	func
+	movh.a	a15,#@his(IfxScuCcu_defaultClockConfig)
+	lea	a15,[a15]@los(IfxScuCcu_defaultClockConfig)
+	lea	a15,[a15]0
+	lea	a2,[a4]0
+	mov.a	a4,#9
+.L165:
+	ld.d	e0,[a15+]8
+	st.d	[a2+]8,e0
+	loop	a4,.L165
+	ld.w	d15,[a15+]
+	st.w	[a2+],d15
+	ret
+	
+__IfxScuCcu_initConfig_function_end:
+	.size	IfxScuCcu_initConfig,__IfxScuCcu_initConfig_function_end-IfxScuCcu_initConfig
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_initErayPll',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_initErayPll'
+	.align	2
+	
+	.global	IfxScuCcu_initErayPll
+; Function IfxScuCcu_initErayPll
+IfxScuCcu_initErayPll:	.type	func
+	mov.aa	a15,a4
+	mov	d8,#0
+	call	IfxScuWdt_getCpuWatchdogPassword
+	mov	d9,d2
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d10,d2
+	mov	d4,d9
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036130)
+	extr.u	d11,d15,#3,#1
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036130)
+	or	d15,#8
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036130),d15
+	mov	d4,d9
+	call	IfxScuWdt_setCpuEndinit
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003602a)
+	jz.t	d15:0,.L166
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036028)
+	jnz.t	d15:1,.L167
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036024)
+	jz.t	d15:1,.L168
+.L167:
+.L166:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003602a)
+	or	d15,#1
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003602a),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036028)
+	insert	d15,d15,#0,#1,#1
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036028),d15
+	j	.L169
+.L170:
+.L169:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036024)
+	jnz.t	d15:1,.L170
+	ld.w	d4,[a15]4
+	call	IfxScuCcu_wait
+.L168:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036024)
+	jnz.t	d15:0,.L171
+	j	.L172
+.L173:
+.L172:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036024)
+	jz.t	d15:4,.L173
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003602e)
+	insert	d15,d15,#3,#0,#7
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003602e),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036028)
+	or	d15,#1
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf0036028),d15
+.L171:
+	j	.L174
+.L175:
+.L174:
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036024)
+	jz.t	d15:5,.L175
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf003602c)
+	ld.bu	d15,[a15]2
+	insert	d15,d0,d15,#0,#7
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003602c),d15
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf003602b)
+	ld.bu	d0,[a15]
+	insert	d15,d15,d0,#0,#4
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003602b),d15
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf0036029)
+	ld.bu	d15,[a15]1
+	insert	d15,d0,d15,#1,#5
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036029),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003602a)
+	or	d15,#4
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf003602a),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036028)
+	or	d15,#32
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036028),d15
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	mov.u	d15,#50000
+	j	.L176
+.L177:
+.L176:
+	add	d15,#-1
+	jeq	d15,#0,.L178
+	movh.a	a15,#61443
+	ld.bu	d0,[a15]@los(0xf0036024)
+	jz.t	d0:2,.L177
+.L178:
+	jne	d15,#0,.L179
+	mov	d8,#1
+.L179:
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036028)
+	insert	d15,d15,#0,#0,#1
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036028),d15
+	j	.L180
+.L181:
+.L180:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036024)
+	jnz.t	d15:0,.L181
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036024)
+	jnz.t	d15:2,.L182
+	mov	d8,#1
+.L182:
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	mov	d4,d9
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003612c)
+	or	d15,#8
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf003612c),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036130)
+	insert	d15,d15,d11,#3,#1
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036130),d15
+	mov	d4,d9
+	call	IfxScuWdt_setCpuEndinit
+	mov	d2,d8
+	j	.L183
+.L183:
+	ret
+	
+__IfxScuCcu_initErayPll_function_end:
+	.size	IfxScuCcu_initErayPll,__IfxScuCcu_initErayPll_function_end-IfxScuCcu_initErayPll
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_initErayPllConfig',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_initErayPllConfig'
+	.align	2
+	
+	.global	IfxScuCcu_initErayPllConfig
+; Function IfxScuCcu_initErayPllConfig
+IfxScuCcu_initErayPllConfig:	.type	func
+	movh.a	a15,#@his(IfxScuCcu_defaultErayPllConfig)
+	lea	a15,[a15]@los(IfxScuCcu_defaultErayPllConfig)
+	ld.da	a2/a3,[a15]0
+	st.da	[a4]0,a2/a3
+	ret
+	
+__IfxScuCcu_initErayPllConfig_function_end:
+	.size	IfxScuCcu_initErayPllConfig,__IfxScuCcu_initErayPllConfig_function_end-IfxScuCcu_initErayPllConfig
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_isOscillatorStable',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_isOscillatorStable'
+	.align	2
+	
+; Function IfxScuCcu_isOscillatorStable
+IfxScuCcu_isOscillatorStable:	.type	func
+	mov	d8,#640
+	mov	d9,#0
+	call	IfxScuWdt_getCpuWatchdogPassword
+	mov	d10,d2
+	movh.a	a15,#61443
+	ld.bu	d0,[a15]@los(0xf0036010)
+	insert	d0,d0,#0,#5,#2
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036010),d0
+	movh.a	a15,#61443
+	ld.bu	d0,[a15]@los(0xf0036012)
+	movh.a	a15,#@his(IfxScuCcu_xtalFrequency)
+	lea	a15,[a15]@los(IfxScuCcu_xtalFrequency)
+	ld.w	d1,[a15]
+	mov	d15,#9632
+	addih	d15,d15,#38
+	div.u	e2,d1,d15
+	add	d15,d2,#-1
+	extr.u	d15,d15,#0,#8
+	insert	d15,d0,d15,#0,#5
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036012),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036010)
+	or	d15,#4
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036010),d15
+	j	.L184
+.L185:
+.L186:
+	add	d8,#-1
+	jne	d8,#0,.L187
+	mov	d9,#1
+	j	.L188
+.L187:
+.L184:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036010)
+	jz.t	d15:1,.L186
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036011)
+	jz.t	d15:0,.L185
+.L188:
+	mov	d4,d10
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003612c)
+	or	d15,#8
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf003612c),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036130)
+	or	d15,#8
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036130),d15
+	mov	d4,d10
+	call	IfxScuWdt_setCpuEndinit
+	mov	d2,d9
+	j	.L189
+.L189:
+	ret
+	
+__IfxScuCcu_isOscillatorStable_function_end:
+	.size	IfxScuCcu_isOscillatorStable,__IfxScuCcu_isOscillatorStable_function_end-IfxScuCcu_isOscillatorStable
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_setCpuFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_setCpuFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_setCpuFrequency
+; Function IfxScuCcu_setCpuFrequency
+IfxScuCcu_setCpuFrequency:	.type	func
+	mov	e8,d4,d5
+	call	IfxScuCcu_getSriFrequency
+	mov	d10,d2
+	cmp.f	d15,d8,d10
+	and	d15,#6
+	ne	d15,d15,#0
+	jne	d15,#0,.L190
+	movh	d0,#17024
+	mul.f	d0,d8,d0
+	div.f	d15,d0,d10
+	ftouz	d8,d15
+	j	.L191
+.L190:
+	mov	d8,#0
+.L191:
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d11,d2
+	mov	d4,d11
+	call	IfxScuWdt_clearSafetyEndinit
+	mov	d15,#0
+	jeq	d15,d9,.L192
+	mov	d15,#1
+	jeq	d15,d9,.L193
+	mov	d15,#2
+	jeq	d15,d9,.L194
+	j	.L195
+.L192:
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036080),d8
+	j	.L196
+.L193:
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036084),d8
+	j	.L197
+.L194:
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036088),d8
+	j	.L198
+.L195:
+	j	.L199
+.L199:
+.L198:
+.L197:
+.L196:
+	mov	d4,d11
+	call	IfxScuWdt_setSafetyEndinit
+	jeq	d8,#0,.L200
+	utof	d15,d8
+	movh	d0,#17024
+	div.f	d15,d15,d0
+	mul.f	d10,d10,d15
+.L200:
+	mov	d2,d10
+	j	.L201
+.L201:
+	ret
+	
+__IfxScuCcu_setCpuFrequency_function_end:
+	.size	IfxScuCcu_setCpuFrequency,__IfxScuCcu_setCpuFrequency_function_end-IfxScuCcu_setCpuFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_setGtmFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_setGtmFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_setGtmFrequency
+; Function IfxScuCcu_setGtmFrequency
+IfxScuCcu_setGtmFrequency:	.type	func
+	mov	d8,d4
+	movh.a	a15,#61443
+	lea	a15,[a15]@los(0xf0036034)
+	ld.w	d9,[a15]
+	call	IfxScuCcu_getSourceFrequency
+	div.f	d15,d2,d8
+	div.f	d0,d2,d8
+	ftoiz	d0,d0
+	itof	d0,d0
+	sub.f	d15,d15,d0
+	movh	d0,#16128
+	cmp.f	d15,d15,d0
+	jnz.t	d15:2,.L202
+	div.f	d15,d2,d8
+	ftoiz	d15,d15
+	j	.L203
+.L202:
+	div.f	d15,d2,d8
+	ftoiz	d15,d15
+	add	d15,#1
+.L203:
+	max.u	d8,d15,#1
+	jlt.u	d8,#7,.L204
+	jge.u	d8,#14,.L205
+	jz.t	d8:0,.L206
+	add	d8,#-1
+.L206:
+.L205:
+.L204:
+	mov	d15,#14
+	jne	d15,d8,.L207
+	mov	d8,#12
+.L207:
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d10,d2
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L208
+.L209:
+.L208:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036037)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L209
+	extr.u	d15,d8,#0,#8
+	insert	d9,d9,d15,#12,#4
+	mov	d15,#1
+	insert	d9,d9,d15,#30,#1
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036034),d9
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	call	IfxScuCcu_getSourceFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036035)
+	extr.u	d15,d15,#4,#4
+	itof	d15,d15
+	div.f	d2,d2,d15
+	j	.L210
+.L210:
+	j	.L211
+.L211:
+	ret
+	
+__IfxScuCcu_setGtmFrequency_function_end:
+	.size	IfxScuCcu_setGtmFrequency,__IfxScuCcu_setGtmFrequency_function_end-IfxScuCcu_setGtmFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_setPll2ErayFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_setPll2ErayFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_setPll2ErayFrequency
+; Function IfxScuCcu_setPll2ErayFrequency
+IfxScuCcu_setPll2ErayFrequency:	.type	func
+	mov	d15,d4
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d8,d2
+	call	IfxScuCcu_getPllErayVcoFrequency
+	div.f	d15,d2,d15
+	movh	d0,#16256
+	sub.f	d15,d15,d0
+	ftouz	d15,d15
+	mov	d4,d8
+	call	IfxScuWdt_clearSafetyEndinit
+	movh.a	a15,#61443
+	ld.bu	d0,[a15]@los(0xf003602d)
+	extr.u	d15,d15,#0,#8
+	insert	d15,d0,d15,#0,#4
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf003602d),d15
+	mov	d4,d8
+	call	IfxScuWdt_setSafetyEndinit
+	call	IfxScuCcu_getPllErayVcoFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003602d)
+	and	d15,#15
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d2,d15
+	j	.L212
+.L212:
+	j	.L213
+.L213:
+	ret
+	
+__IfxScuCcu_setPll2ErayFrequency_function_end:
+	.size	IfxScuCcu_setPll2ErayFrequency,__IfxScuCcu_setPll2ErayFrequency_function_end-IfxScuCcu_setPll2ErayFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_setPll2Frequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_setPll2Frequency'
+	.align	2
+	
+	.global	IfxScuCcu_setPll2Frequency
+; Function IfxScuCcu_setPll2Frequency
+IfxScuCcu_setPll2Frequency:	.type	func
+	mov	d15,d4
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d8,d2
+	call	IfxScuCcu_getPllVcoFrequency
+	div.f	d15,d2,d15
+	movh	d0,#16256
+	sub.f	d15,d15,d0
+	ftouz	d15,d15
+	mov	d4,d8
+	call	IfxScuWdt_clearSafetyEndinit
+	movh.a	a15,#61443
+	ld.bu	d0,[a15]@los(0xf003601d)
+	extr.u	d15,d15,#0,#8
+	insert	d15,d0,d15,#0,#7
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf003601d),d15
+	mov	d4,d8
+	call	IfxScuWdt_setSafetyEndinit
+	call	IfxScuCcu_getPllVcoFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003601d)
+	and	d15,#127
+	add	d15,#1
+	itof	d15,d15
+	div.f	d2,d2,d15
+	j	.L214
+.L214:
+	j	.L215
+.L215:
+	ret
+	
+__IfxScuCcu_setPll2Frequency_function_end:
+	.size	IfxScuCcu_setPll2Frequency,__IfxScuCcu_setPll2Frequency_function_end-IfxScuCcu_setPll2Frequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_setSpbFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_setSpbFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_setSpbFrequency
+; Function IfxScuCcu_setSpbFrequency
+IfxScuCcu_setSpbFrequency:	.type	func
+	mov	d15,d4
+	call	IfxScuCcu_getSourceFrequency
+	div.f	d15,d2,d15
+	ftouz	d15,d15
+	max.u	d9,d15,#2
+	jlt.u	d9,#7,.L216
+	jge.u	d9,#14,.L217
+	jz.t	d9:0,.L218
+	add	d9,#-1
+.L218:
+.L217:
+.L216:
+	mov	d15,#14
+	jne	d15,d9,.L219
+	mov	d9,#12
+.L219:
+	call	IfxScuWdt_getCpuWatchdogPassword
+	mov	d8,d2
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d10,d2
+	mov	d4,d8
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a15,#61443
+	ld.w	d0,[a15]@los(0xf0036130)
+	mov	d1,#992
+	or	d0,d1
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036130),d0
+	mov	d4,d8
+	call	IfxScuWdt_setCpuEndinit
+	mov	d4,d10
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L220
+.L221:
+.L220:
+	movh.a	a15,#61443
+	ld.bu	d0,[a15]@los(0xf0036033)
+	extr.u	d15,d0,#7,#1
+	jne	d15,#0,.L221
+	movh.a	a15,#61443
+	ld.w	d15,[a15]@los(0xf0036030)
+	extr.u	d0,d9,#0,#8
+	insert	d15,d15,d0,#16,#4
+	mov	d0,#1
+	insert	d15,d15,d0,#30,#1
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036030),d15
+	mov	d4,d10
+	call	IfxScuWdt_setSafetyEndinit
+	mov	d4,d8
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a15,#61443
+	ld.w	d15,[a15]@los(0xf0036130)
+	insert	d15,d15,#0,#5,#5
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036130),d15
+	mov	d4,d8
+	call	IfxScuWdt_setCpuEndinit
+	j	.L222
+.L223:
+.L222:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L223
+	call	IfxScuCcu_getSpbFrequency
+	j	.L224
+.L224:
+	ret
+	
+__IfxScuCcu_setSpbFrequency_function_end:
+	.size	IfxScuCcu_setSpbFrequency,__IfxScuCcu_setSpbFrequency_function_end-IfxScuCcu_setSpbFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_setSriFrequency',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_setSriFrequency'
+	.align	2
+	
+	.global	IfxScuCcu_setSriFrequency
+; Function IfxScuCcu_setSriFrequency
+IfxScuCcu_setSriFrequency:	.type	func
+	mov	d8,d4
+	call	IfxScuCcu_getSourceFrequency
+	div.f	d15,d2,d8
+	div.f	d0,d2,d8
+	ftoiz	d0,d0
+	itof	d0,d0
+	sub.f	d15,d15,d0
+	movh	d0,#16128
+	cmp.f	d15,d15,d0
+	jnz.t	d15:2,.L225
+	div.f	d15,d2,d8
+	ftoiz	d15,d15
+	j	.L226
+.L225:
+	div.f	d15,d2,d8
+	ftoiz	d15,d15
+	add	d15,#1
+.L226:
+	max.u	d8,d15,#1
+	jlt.u	d8,#7,.L227
+	jge.u	d8,#14,.L228
+	jz.t	d8:0,.L229
+	add	d8,#-1
+.L229:
+.L228:
+.L227:
+	mov	d15,#14
+	jne	d15,d8,.L230
+	mov	d8,#12
+.L230:
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d9,d2
+	mov	d4,d9
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L231
+.L232:
+.L231:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L232
+	movh.a	a15,#61443
+	ld.w	d15,[a15]@los(0xf0036030)
+	extr.u	d0,d8,#0,#8
+	insert	d15,d15,d0,#8,#4
+	mov	d0,#1
+	insert	d15,d15,d0,#30,#1
+	movh.a	a15,#61443
+	st.w	[a15]@los(0xf0036030),d15
+	mov	d4,d9
+	call	IfxScuWdt_setSafetyEndinit
+	j	.L233
+.L234:
+.L233:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L234
+	call	IfxScuCcu_getSriFrequency
+	j	.L235
+.L235:
+	ret
+	
+__IfxScuCcu_setSriFrequency_function_end:
+	.size	IfxScuCcu_setSriFrequency,__IfxScuCcu_setSriFrequency_function_end-IfxScuCcu_setSriFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_switchToBackupClock',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_switchToBackupClock'
+	.align	2
+	
+	.global	IfxScuCcu_switchToBackupClock
+; Function IfxScuCcu_switchToBackupClock
+IfxScuCcu_switchToBackupClock:	.type	func
+	mov.aa	a15,a4
+	movh.a	a2,#61443
+	ld.bu	d15,[a2]@los(0xf0036033)
+	extr.u	d15,d15,#4,#2
+	jne	d15,#0,.L236
+	j	.L237
+.L236:
+	call	IfxScuWdt_getSafetyWatchdogPassword
+	mov	d8,d2
+	call	IfxScuWdt_getCpuWatchdogPassword
+	mov	d9,d2
+	ld.bu	d10,[a15]
+	j	.L238
+.L239:
+	mov	d4,d8
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L240
+.L241:
+.L240:
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf0036014)
+	extr.u	d15,d0,#5,#1
+	jeq	d15,#0,.L241
+	movh.a	a2,#61443
+	ld.bu	d0,[a2]@los(0xf003601c)
+	add	d15,d10,#-1
+	mul	d15,d15,#12
+	ld.a	a2,[a15]4
+	addsc.a	a2,a2,d15,#0
+	ld.bu	d15,[a2]
+	insert	d15,d0,d15,#0,#7
+	movh.a	a2,#61443
+	st.b	[a2]@los(0xf003601c),d15
+	mov	d4,d8
+	call	IfxScuWdt_setSafetyEndinit
+	add	d15,d10,#-1
+	mul	d15,d15,#12
+	ld.a	a2,[a15]4
+	addsc.a	a2,a2,d15,#0
+	ld.w	d4,[a2]2
+	call	IfxScuCcu_wait
+	add	d10,#-1
+.L238:
+	jge	d10,#1,.L239
+	mov	d4,d9
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036130)
+	extr.u	d10,d15,#3,#1
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036130)
+	or	d15,#8
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036130),d15
+	mov	d4,d9
+	call	IfxScuWdt_setCpuEndinit
+	mov	d4,d8
+	call	IfxScuWdt_clearSafetyEndinit
+	j	.L242
+.L243:
+.L242:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L243
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	insert	d15,d15,#0,#4,#2
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036033),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	or	d15,#64
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036033),d15
+	j	.L244
+.L245:
+.L244:
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036033)
+	extr.u	d15,d15,#7,#1
+	jne	d15,#0,.L245
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036018)
+	or	d15,#16
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036018),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036018)
+	insert	d15,d15,#0,#6,#1
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036018),d15
+	mov	d4,d8
+	call	IfxScuWdt_setSafetyEndinit
+	mov	d4,d9
+	call	IfxScuWdt_clearCpuEndinit
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf003612c)
+	or	d15,#8
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf003612c),d15
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036130)
+	insert	d15,d15,d10,#3,#1
+	movh.a	a15,#61443
+	st.b	[a15]@los(0xf0036130),d15
+	mov	d4,d9
+	call	IfxScuWdt_setCpuEndinit
+.L237:
+	ret
+	
+__IfxScuCcu_switchToBackupClock_function_end:
+	.size	IfxScuCcu_switchToBackupClock,__IfxScuCcu_switchToBackupClock_function_end-IfxScuCcu_switchToBackupClock
+	; End of function
+	
+	.sdecl	'.text.IfxScuCcu.IfxScuCcu_wait',code
+	.sect	'.text.IfxScuCcu.IfxScuCcu_wait'
+	.align	2
+	
+; Function IfxScuCcu_wait
+IfxScuCcu_wait:	.type	func
+	mov	d8,d4
+	call	IfxScuCcu_getSourceFrequency
+	movh.a	a15,#61443
+	ld.bu	d15,[a15]@los(0xf0036035)
+	and	d15,#15
+	itof	d15,d15
+	div.f	d15,d2,d15
+	j	.L246
+.L246:
+	mul.f	d15,d15,d8
+	ftouz	d15,d15
+	ld.w	d1,0xf0000010
+	j	.L247
+.L248:
+.L247:
+	ld.w	d0,0xf0000010
+	sub	d0,d1
+	jlt.u	d0,d15,.L248
+	ret
+	
+__IfxScuCcu_wait_function_end:
+	.size	IfxScuCcu_wait,__IfxScuCcu_wait_function_end-IfxScuCcu_wait
+	; End of function
+	
+	.sdecl	'.rodata.IfxScuCcu.IfxScuCcu_aDefaultPllConfigSteps',data,rom
+	.sect	'.rodata.IfxScuCcu.IfxScuCcu_aDefaultPllConfigSteps'
+	.align	4
+IfxScuCcu_aDefaultPllConfigSteps:	.type	object
+	.size	IfxScuCcu_aDefaultPllConfigSteps,36
+	.byte	4
+	.space	1
+	.word	953267991
+	.space	6
+	.byte	3
+	.space	1
+	.word	953267991
+	.space	6
+	.byte	2
+	.space	1
+	.word	953267991
+	.space	6
+	.sdecl	'.data.IfxScuCcu.IfxScuCcu_xtalFrequency',data
+	.sect	'.data.IfxScuCcu.IfxScuCcu_xtalFrequency'
+	.align	2
+IfxScuCcu_xtalFrequency:	.type	object
+	.size	IfxScuCcu_xtalFrequency,4
+	.word	20000000
+	.sdecl	'.rodata.IfxScuCcu.IfxScuCcu_defaultClockConfig',data,rom
+	.sect	'.rodata.IfxScuCcu.IfxScuCcu_defaultClockConfig'
+	.global	IfxScuCcu_defaultClockConfig
+	.align	4
+IfxScuCcu_defaultClockConfig:	.type	object
+	.size	IfxScuCcu_defaultClockConfig,84
+	.byte	3
+	.space	3
+	.word	IfxScuCcu_aDefaultPllConfigSteps
+	.byte	1,59,5
+	.space	1
+	.word	961656599,34734354,54464511,34873874,268435455,2,15,1
+	.word	15
+	.space	4
+	.word	63
+	.space	4
+	.word	63
+	.space	4
+	.word	63,5333,32767,20000000
+	.sdecl	'.rodata.IfxScuCcu.IfxScuCcu_defaultErayPllConfig',data,rom
+	.sect	'.rodata.IfxScuCcu.IfxScuCcu_defaultErayPllConfig'
+	.global	IfxScuCcu_defaultErayPllConfig
+	.align	4
+IfxScuCcu_defaultErayPllConfig:	.type	object
+	.size	IfxScuCcu_defaultErayPllConfig,8
+	.space	1
+	.byte	23,5
+	.space	5
+	.calls	'IfxScuCcu_getBaud1Frequency','IfxScuCcu_getMaxFrequency'
+	.calls	'IfxScuCcu_getBaud2Frequency','IfxScuCcu_getMaxFrequency'
+	.calls	'IfxScuCcu_getBbbFrequency','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_getCpuFrequency','IfxScuCcu_getSriFrequency'
+	.calls	'IfxScuCcu_getFsi2Frequency','IfxScuCcu_getSriFrequency'
+	.calls	'IfxScuCcu_getFsiFrequency','IfxScuCcu_getSriFrequency'
+	.calls	'IfxScuCcu_getMaxFrequency','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_getModuleFrequency','IfxScuCcu_getSpbFrequency'
+	.calls	'IfxScuCcu_getPllErayFrequency','IfxScuCcu_getOscFrequency'
+	.calls	'IfxScuCcu_getPllErayVcoFrequency','IfxScuCcu_getOscFrequency'
+	.calls	'IfxScuCcu_getPllFrequency','IfxScuCcu_getOscFrequency'
+	.calls	'IfxScuCcu_getPllVcoFrequency','IfxScuCcu_getOscFrequency'
+	.calls	'IfxScuCcu_getSourceFrequency','IfxScuCcu_getPllFrequency'
+	.calls	'IfxScuCcu_getSpbFrequency','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_getSriFrequency','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_init','IfxScuWdt_getCpuWatchdogPassword'
+	.calls	'IfxScuCcu_init','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_init','IfxScuWdt_clearCpuEndinit'
+	.calls	'IfxScuCcu_init','IfxScuWdt_setCpuEndinit'
+	.calls	'IfxScuCcu_init','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_init','IfxScuCcu_isOscillatorStable'
+	.calls	'IfxScuCcu_init','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_init','IfxScuCcu_wait'
+	.calls	'IfxScuCcu_init','__INDIRECT__'
+	.calls	'IfxScuCcu_initErayPll','IfxScuWdt_getCpuWatchdogPassword'
+	.calls	'IfxScuCcu_initErayPll','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_initErayPll','IfxScuWdt_clearCpuEndinit'
+	.calls	'IfxScuCcu_initErayPll','IfxScuWdt_setCpuEndinit'
+	.calls	'IfxScuCcu_initErayPll','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_initErayPll','IfxScuCcu_wait'
+	.calls	'IfxScuCcu_initErayPll','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_isOscillatorStable','IfxScuWdt_getCpuWatchdogPassword'
+	.calls	'IfxScuCcu_isOscillatorStable','IfxScuWdt_clearCpuEndinit'
+	.calls	'IfxScuCcu_isOscillatorStable','IfxScuWdt_setCpuEndinit'
+	.calls	'IfxScuCcu_setCpuFrequency','IfxScuCcu_getSriFrequency'
+	.calls	'IfxScuCcu_setCpuFrequency','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_setCpuFrequency','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_setCpuFrequency','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_setGtmFrequency','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_setGtmFrequency','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_setGtmFrequency','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_setGtmFrequency','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_setPll2ErayFrequency','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_setPll2ErayFrequency','IfxScuCcu_getPllErayVcoFrequency'
+	.calls	'IfxScuCcu_setPll2ErayFrequency','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_setPll2ErayFrequency','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_setPll2Frequency','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_setPll2Frequency','IfxScuCcu_getPllVcoFrequency'
+	.calls	'IfxScuCcu_setPll2Frequency','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_setPll2Frequency','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuWdt_getCpuWatchdogPassword'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuWdt_clearCpuEndinit'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuWdt_setCpuEndinit'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_setSpbFrequency','IfxScuCcu_getSpbFrequency'
+	.calls	'IfxScuCcu_setSriFrequency','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_setSriFrequency','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_setSriFrequency','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_setSriFrequency','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_setSriFrequency','IfxScuCcu_getSriFrequency'
+	.calls	'IfxScuCcu_switchToBackupClock','IfxScuWdt_getSafetyWatchdogPassword'
+	.calls	'IfxScuCcu_switchToBackupClock','IfxScuWdt_getCpuWatchdogPassword'
+	.calls	'IfxScuCcu_switchToBackupClock','IfxScuWdt_clearSafetyEndinit'
+	.calls	'IfxScuCcu_switchToBackupClock','IfxScuWdt_setSafetyEndinit'
+	.calls	'IfxScuCcu_switchToBackupClock','IfxScuCcu_wait'
+	.calls	'IfxScuCcu_switchToBackupClock','IfxScuWdt_clearCpuEndinit'
+	.calls	'IfxScuCcu_switchToBackupClock','IfxScuWdt_setCpuEndinit'
+	.calls	'IfxScuCcu_wait','IfxScuCcu_getSourceFrequency'
+	.calls	'IfxScuCcu_calculateSysPllDividers','',40
+	.calls	'IfxScuCcu_getBaud1Frequency','',0
+	.calls	'IfxScuCcu_getBaud2Frequency','',0
+	.calls	'IfxScuCcu_getBbbFrequency','',0
+	.calls	'IfxScuCcu_getCpuFrequency','',0
+	.calls	'IfxScuCcu_getFsi2Frequency','',0
+	.calls	'IfxScuCcu_getFsiFrequency','',0
+	.calls	'IfxScuCcu_getMaxFrequency','',0
+	.calls	'IfxScuCcu_getModuleFrequency','',0
+	.calls	'IfxScuCcu_getOsc0Frequency','',0
+	.calls	'IfxScuCcu_getOscFrequency','',0
+	.calls	'IfxScuCcu_getPllErayFrequency','',0
+	.calls	'IfxScuCcu_getPllErayVcoFrequency','',0
+	.calls	'IfxScuCcu_getPllFrequency','',0
+	.calls	'IfxScuCcu_getPllVcoFrequency','',0
+	.calls	'IfxScuCcu_getSourceFrequency','',0
+	.calls	'IfxScuCcu_getSpbFrequency','',0
+	.calls	'IfxScuCcu_getSriFrequency','',0
+	.calls	'IfxScuCcu_init','',0
+	.calls	'IfxScuCcu_initConfig','',0
+	.calls	'IfxScuCcu_initErayPll','',0
+	.calls	'IfxScuCcu_initErayPllConfig','',0
+	.calls	'IfxScuCcu_isOscillatorStable','',0
+	.calls	'IfxScuCcu_setCpuFrequency','',0
+	.calls	'IfxScuCcu_setGtmFrequency','',0
+	.calls	'IfxScuCcu_setPll2ErayFrequency','',0
+	.calls	'IfxScuCcu_setPll2Frequency','',0
+	.calls	'IfxScuCcu_setSpbFrequency','',0
+	.calls	'IfxScuCcu_setSriFrequency','',0
+	.calls	'IfxScuCcu_switchToBackupClock','',0
+	.extern	IfxScuWdt_clearCpuEndinit
+	.extern	IfxScuWdt_clearSafetyEndinit
+	.extern	IfxScuWdt_setCpuEndinit
+	.extern	IfxScuWdt_setSafetyEndinit
+	.extern	IfxScuWdt_getCpuWatchdogPassword
+	.extern	IfxScuWdt_getSafetyWatchdogPassword
+	.extern	__INDIRECT__
+	.calls	'IfxScuCcu_wait','',0
+	; Module end

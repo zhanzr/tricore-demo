@@ -1,0 +1,1193 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc14924a --dep-file=Libraries/iLLD/TC27D/Tricore/Gtm/Std/IfxGtm_Tom.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_PinMap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore/Compilers -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Icu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Math -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Platform/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Can -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Impl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth/Phy_Pef7071 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom/Driver -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/If -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Trap -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Hssl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eth -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Emem -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Multican -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Psi5 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/CStart -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiSlave -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Flash/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Crc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Cam -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Eray -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/General -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D/_Reg -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Qspi/SpiMaster -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Infra/Sfr/TC27D -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Asc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Sent/Sent -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Vadc/Adc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Stm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Mtu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/SysSe/Time -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cpu/Irq -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/_Lib/InternalMux -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Fce/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/Pwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Psi5s -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Scu -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Trig -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TimerWithTrigger -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Cif/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Eray/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/StdIf -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Spi -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Hssl/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6 -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/I2c/I2c -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Iom -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tom/Timer -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Atom/PwmHl -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Configurations/Debug -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Msc/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/Service/CpuGeneric/_Utilities -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dsadc/Rdc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dma -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Asclin/Lin -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gpt12/IncrEnc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/PwmBc -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/TPwm -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Dts -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Smu/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Gtm/Tim/In -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Src -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Ccu6/Std -ID:/aurix_1036_wks/ASCLIN_Shell_UART_1_KIT_TC275_LK/Libraries/iLLD/TC27D/Tricore/Port/Io -w544 -w557 -t2 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Libraries/iLLD/TC27D/Tricore/Gtm/Std/IfxGtm_Tom.src ../Libraries/iLLD/TC27D/Tricore/Gtm/Std/IfxGtm_Tom.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/iLLD/TC27D/Tricore/Gtm/Std/IfxGtm_Tom.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_clearOneNotification',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_clearOneNotification'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_clearOneNotification
+; Function IfxGtm_Tom_Ch_clearOneNotification
+IfxGtm_Tom_Ch_clearOneNotification:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L2
+.L2:
+	ld.w	d15,[a15]28
+	or	d15,#2
+	st.w	[a15]28,d15
+	ret
+	
+__IfxGtm_Tom_Ch_clearOneNotification_function_end:
+	.size	IfxGtm_Tom_Ch_clearOneNotification,__IfxGtm_Tom_Ch_clearOneNotification_function_end-IfxGtm_Tom_Ch_clearOneNotification
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_clearZeroNotification',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_clearZeroNotification'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_clearZeroNotification
+; Function IfxGtm_Tom_Ch_clearZeroNotification
+IfxGtm_Tom_Ch_clearZeroNotification:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L3
+.L3:
+	ld.w	d15,[a15]28
+	or	d15,#1
+	st.w	[a15]28,d15
+	ret
+	
+__IfxGtm_Tom_Ch_clearZeroNotification_function_end:
+	.size	IfxGtm_Tom_Ch_clearZeroNotification,__IfxGtm_Tom_Ch_clearZeroNotification_function_end-IfxGtm_Tom_Ch_clearZeroNotification
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getClockFrequency',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getClockFrequency'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getClockFrequency
+; Function IfxGtm_Tom_Ch_getClockFrequency
+IfxGtm_Tom_Ch_getClockFrequency:	.type	func
+	sub.a	a10,#8
+	mov.aa	a12,a4
+	movh.a	a15,#@his(.1.ini)
+	lea	a15,[a15]@los(.1.ini)
+	lea	a15,[a15]0
+	lea	a2,[a10]0
+	mov.a	a4,#4
+.L4:
+	ld.bu	d15,[a15+]
+	st.b	[a2+],d15
+	loop	a4,.L4
+	mov.aa	a4,a5
+	call	IfxGtm_Tom_Ch_getClockSource
+	jne	d2,#5,.L5
+	mov	d2,#0
+	j	.L6
+.L5:
+	addsc.a	a15,a10,d2,#0
+	ld.bu	d4,[a15]
+	mov	d5,#1
+	mov.aa	a4,a12
+	call	IfxGtm_Cmu_getFxClkFrequency
+	j	.L7
+.L7:
+.L6:
+	ret
+	
+__IfxGtm_Tom_Ch_getClockFrequency_function_end:
+	.size	IfxGtm_Tom_Ch_getClockFrequency,__IfxGtm_Tom_Ch_getClockFrequency_function_end-IfxGtm_Tom_Ch_getClockFrequency
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getClockSource',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getClockSource'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getClockSource
+; Function IfxGtm_Tom_Ch_getClockSource
+IfxGtm_Tom_Ch_getClockSource:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L8
+.L8:
+	ld.w	d15,[a15]
+	extr.u	d2,d15,#12,#3
+	j	.L9
+.L9:
+	ret
+	
+__IfxGtm_Tom_Ch_getClockSource_function_end:
+	.size	IfxGtm_Tom_Ch_getClockSource,__IfxGtm_Tom_Ch_getClockSource_function_end-IfxGtm_Tom_Ch_getClockSource
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareOne',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareOne'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getCompareOne
+; Function IfxGtm_Tom_Ch_getCompareOne
+IfxGtm_Tom_Ch_getCompareOne:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L10
+.L10:
+	ld.w	d2,[a15]16
+	j	.L11
+.L11:
+	ret
+	
+__IfxGtm_Tom_Ch_getCompareOne_function_end:
+	.size	IfxGtm_Tom_Ch_getCompareOne,__IfxGtm_Tom_Ch_getCompareOne_function_end-IfxGtm_Tom_Ch_getCompareOne
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareOnePointer',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareOnePointer'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getCompareOnePointer
+; Function IfxGtm_Tom_Ch_getCompareOnePointer
+IfxGtm_Tom_Ch_getCompareOnePointer:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L12
+.L12:
+	lea	a2,[a15]16
+	j	.L13
+.L13:
+	ret
+	
+__IfxGtm_Tom_Ch_getCompareOnePointer_function_end:
+	.size	IfxGtm_Tom_Ch_getCompareOnePointer,__IfxGtm_Tom_Ch_getCompareOnePointer_function_end-IfxGtm_Tom_Ch_getCompareOnePointer
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareZero',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareZero'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getCompareZero
+; Function IfxGtm_Tom_Ch_getCompareZero
+IfxGtm_Tom_Ch_getCompareZero:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L14
+.L14:
+	ld.w	d2,[a15]12
+	j	.L15
+.L15:
+	ret
+	
+__IfxGtm_Tom_Ch_getCompareZero_function_end:
+	.size	IfxGtm_Tom_Ch_getCompareZero,__IfxGtm_Tom_Ch_getCompareZero_function_end-IfxGtm_Tom_Ch_getCompareZero
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareZeroPointer',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getCompareZeroPointer'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getCompareZeroPointer
+; Function IfxGtm_Tom_Ch_getCompareZeroPointer
+IfxGtm_Tom_Ch_getCompareZeroPointer:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L16
+.L16:
+	lea	a2,[a15]12
+	j	.L17
+.L17:
+	ret
+	
+__IfxGtm_Tom_Ch_getCompareZeroPointer_function_end:
+	.size	IfxGtm_Tom_Ch_getCompareZeroPointer,__IfxGtm_Tom_Ch_getCompareZeroPointer_function_end-IfxGtm_Tom_Ch_getCompareZeroPointer
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getOutputLevel',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getOutputLevel'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getOutputLevel
+; Function IfxGtm_Tom_Ch_getOutputLevel
+IfxGtm_Tom_Ch_getOutputLevel:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L18
+.L18:
+	ld.w	d15,[a15]24
+	and	d15,#1
+	eq	d2,d15,#1
+	j	.L19
+.L19:
+	ret
+	
+__IfxGtm_Tom_Ch_getOutputLevel_function_end:
+	.size	IfxGtm_Tom_Ch_getOutputLevel,__IfxGtm_Tom_Ch_getOutputLevel_function_end-IfxGtm_Tom_Ch_getOutputLevel
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getSrcPointer',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getSrcPointer'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getSrcPointer
+; Function IfxGtm_Tom_Ch_getSrcPointer
+IfxGtm_Tom_Ch_getSrcPointer:	.type	func
+	jz.a	a4,.L20
+.L20:
+	ge	d15,d5,#0
+	caddn	d5,d15,#1
+	sha	d5,#-1
+	mul	d15,d5,#4
+	mul	d0,d4,#32
+	mov.a	a15,d0
+	movh.a	a3,#61444
+	add.a	a3,a15
+	lea	a15,[a3]-25728
+	addsc.a	a2,a15,d15,#0
+	j	.L21
+.L21:
+	ret
+	
+__IfxGtm_Tom_Ch_getSrcPointer_function_end:
+	.size	IfxGtm_Tom_Ch_getSrcPointer,__IfxGtm_Tom_Ch_getSrcPointer_function_end-IfxGtm_Tom_Ch_getSrcPointer
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getTgcPointer',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getTgcPointer'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getTgcPointer
+; Function IfxGtm_Tom_Ch_getTgcPointer
+IfxGtm_Tom_Ch_getTgcPointer:	.type	func
+	jne	d4,#0,.L22
+	lea	a2,[a4]48
+	j	.L23
+.L22:
+	lea	a2,[a4]560
+.L23:
+	j	.L24
+.L24:
+	ret
+	
+__IfxGtm_Tom_Ch_getTgcPointer_function_end:
+	.size	IfxGtm_Tom_Ch_getTgcPointer,__IfxGtm_Tom_Ch_getTgcPointer_function_end-IfxGtm_Tom_Ch_getTgcPointer
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getTimerPointer',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_getTimerPointer'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_getTimerPointer
+; Function IfxGtm_Tom_Ch_getTimerPointer
+IfxGtm_Tom_Ch_getTimerPointer:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L25
+.L25:
+	lea	a2,[a15]20
+	j	.L26
+.L26:
+	ret
+	
+__IfxGtm_Tom_Ch_getTimerPointer_function_end:
+	.size	IfxGtm_Tom_Ch_getTimerPointer,__IfxGtm_Tom_Ch_getTimerPointer_function_end-IfxGtm_Tom_Ch_getTimerPointer
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_isOneNotification',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_isOneNotification'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_isOneNotification
+; Function IfxGtm_Tom_Ch_isOneNotification
+IfxGtm_Tom_Ch_isOneNotification:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L27
+.L27:
+	ld.w	d15,[a15]28
+	extr.u	d15,d15,#1,#1
+	ne	d2,d15,#0
+	j	.L28
+.L28:
+	ret
+	
+__IfxGtm_Tom_Ch_isOneNotification_function_end:
+	.size	IfxGtm_Tom_Ch_isOneNotification,__IfxGtm_Tom_Ch_isOneNotification_function_end-IfxGtm_Tom_Ch_isOneNotification
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_isZeroNotification',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_isZeroNotification'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_isZeroNotification
+; Function IfxGtm_Tom_Ch_isZeroNotification
+IfxGtm_Tom_Ch_isZeroNotification:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L29
+.L29:
+	ld.w	d15,[a15]28
+	and	d15,#1
+	ne	d2,d15,#0
+	j	.L30
+.L30:
+	ret
+	
+__IfxGtm_Tom_Ch_isZeroNotification_function_end:
+	.size	IfxGtm_Tom_Ch_isZeroNotification,__IfxGtm_Tom_Ch_isZeroNotification_function_end-IfxGtm_Tom_Ch_isZeroNotification
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_raiseInterruptOne',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_raiseInterruptOne'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_raiseInterruptOne
+; Function IfxGtm_Tom_Ch_raiseInterruptOne
+IfxGtm_Tom_Ch_raiseInterruptOne:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L31
+.L31:
+	ld.w	d15,[a15]36
+	or	d15,#2
+	st.w	[a15]36,d15
+	ret
+	
+__IfxGtm_Tom_Ch_raiseInterruptOne_function_end:
+	.size	IfxGtm_Tom_Ch_raiseInterruptOne,__IfxGtm_Tom_Ch_raiseInterruptOne_function_end-IfxGtm_Tom_Ch_raiseInterruptOne
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_raiseInterruptZero',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_raiseInterruptZero'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_raiseInterruptZero
+; Function IfxGtm_Tom_Ch_raiseInterruptZero
+IfxGtm_Tom_Ch_raiseInterruptZero:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L32
+.L32:
+	ld.w	d15,[a15]36
+	or	d15,#1
+	st.w	[a15]36,d15
+	ret
+	
+__IfxGtm_Tom_Ch_raiseInterruptZero_function_end:
+	.size	IfxGtm_Tom_Ch_raiseInterruptZero,__IfxGtm_Tom_Ch_raiseInterruptZero_function_end-IfxGtm_Tom_Ch_raiseInterruptZero
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setClockSource',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setClockSource'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setClockSource
+; Function IfxGtm_Tom_Ch_setClockSource
+IfxGtm_Tom_Ch_setClockSource:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L33
+.L33:
+	ld.w	d15,[a15]
+	insert	d15,d15,d5,#12,#3
+	st.w	[a15],d15
+	ret
+	
+__IfxGtm_Tom_Ch_setClockSource_function_end:
+	.size	IfxGtm_Tom_Ch_setClockSource,__IfxGtm_Tom_Ch_setClockSource_function_end-IfxGtm_Tom_Ch_setClockSource
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompare',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompare'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setCompare
+; Function IfxGtm_Tom_Ch_setCompare
+IfxGtm_Tom_Ch_setCompare:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L34
+.L34:
+	st.w	[a15]12,d5
+	st.w	[a15]16,d6
+	ret
+	
+__IfxGtm_Tom_Ch_setCompare_function_end:
+	.size	IfxGtm_Tom_Ch_setCompare,__IfxGtm_Tom_Ch_setCompare_function_end-IfxGtm_Tom_Ch_setCompare
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareOne',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareOne'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setCompareOne
+; Function IfxGtm_Tom_Ch_setCompareOne
+IfxGtm_Tom_Ch_setCompareOne:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L35
+.L35:
+	st.w	[a15]16,d5
+	ret
+	
+__IfxGtm_Tom_Ch_setCompareOne_function_end:
+	.size	IfxGtm_Tom_Ch_setCompareOne,__IfxGtm_Tom_Ch_setCompareOne_function_end-IfxGtm_Tom_Ch_setCompareOne
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareOneShadow',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareOneShadow'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setCompareOneShadow
+; Function IfxGtm_Tom_Ch_setCompareOneShadow
+IfxGtm_Tom_Ch_setCompareOneShadow:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L36
+.L36:
+	st.w	[a15]8,d5
+	ret
+	
+__IfxGtm_Tom_Ch_setCompareOneShadow_function_end:
+	.size	IfxGtm_Tom_Ch_setCompareOneShadow,__IfxGtm_Tom_Ch_setCompareOneShadow_function_end-IfxGtm_Tom_Ch_setCompareOneShadow
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareShadow',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareShadow'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setCompareShadow
+; Function IfxGtm_Tom_Ch_setCompareShadow
+IfxGtm_Tom_Ch_setCompareShadow:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L37
+.L37:
+	st.w	[a15]4,d5
+	st.w	[a15]8,d6
+	ret
+	
+__IfxGtm_Tom_Ch_setCompareShadow_function_end:
+	.size	IfxGtm_Tom_Ch_setCompareShadow,__IfxGtm_Tom_Ch_setCompareShadow_function_end-IfxGtm_Tom_Ch_setCompareShadow
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareZero',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareZero'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setCompareZero
+; Function IfxGtm_Tom_Ch_setCompareZero
+IfxGtm_Tom_Ch_setCompareZero:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L38
+.L38:
+	st.w	[a15]12,d5
+	ret
+	
+__IfxGtm_Tom_Ch_setCompareZero_function_end:
+	.size	IfxGtm_Tom_Ch_setCompareZero,__IfxGtm_Tom_Ch_setCompareZero_function_end-IfxGtm_Tom_Ch_setCompareZero
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareZeroShadow',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCompareZeroShadow'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setCompareZeroShadow
+; Function IfxGtm_Tom_Ch_setCompareZeroShadow
+IfxGtm_Tom_Ch_setCompareZeroShadow:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L39
+.L39:
+	st.w	[a15]4,d5
+	ret
+	
+__IfxGtm_Tom_Ch_setCompareZeroShadow_function_end:
+	.size	IfxGtm_Tom_Ch_setCompareZeroShadow,__IfxGtm_Tom_Ch_setCompareZeroShadow_function_end-IfxGtm_Tom_Ch_setCompareZeroShadow
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCounterValue',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setCounterValue'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setCounterValue
+; Function IfxGtm_Tom_Ch_setCounterValue
+IfxGtm_Tom_Ch_setCounterValue:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L40
+.L40:
+	st.w	[a15]20,d5
+	ret
+	
+__IfxGtm_Tom_Ch_setCounterValue_function_end:
+	.size	IfxGtm_Tom_Ch_setCounterValue,__IfxGtm_Tom_Ch_setCounterValue_function_end-IfxGtm_Tom_Ch_setCounterValue
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setGatedCounter',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setGatedCounter'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setGatedCounter
+; Function IfxGtm_Tom_Ch_setGatedCounter
+IfxGtm_Tom_Ch_setGatedCounter:	.type	func
+	mov	d15,#7
+	jlt	d15,d4,.L41
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L42
+.L42:
+	jeq	d5,#0,.L43
+	mov	d15,#1
+	j	.L44
+.L43:
+	mov	d15,#0
+.L44:
+	ld.w	d0,[a15]
+	insert	d15,d0,d15,#29,#1
+	st.w	[a15],d15
+.L41:
+	ret
+	
+__IfxGtm_Tom_Ch_setGatedCounter_function_end:
+	.size	IfxGtm_Tom_Ch_setGatedCounter,__IfxGtm_Tom_Ch_setGatedCounter_function_end-IfxGtm_Tom_Ch_setGatedCounter
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setNotification',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setNotification'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setNotification
+; Function IfxGtm_Tom_Ch_setNotification
+IfxGtm_Tom_Ch_setNotification:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L45
+.L45:
+	ld.w	d0,[a15]32
+	mov	d15,#0
+	st.w	[a15]32,d15
+	ld.w	d15,[a15]40
+	insert	d15,d15,d5,#0,#2
+	st.w	[a15]40,d15
+	st.w	[a15]32,d0
+	jeq	d6,#0,.L46
+	mov	d15,#1
+	j	.L47
+.L46:
+	mov	d15,#0
+.L47:
+	insert	d15,d0,d15,#0,#1
+	jeq	d7,#0,.L48
+	mov	d0,#1
+	j	.L49
+.L48:
+	mov	d0,#0
+.L49:
+	insert	d15,d15,d0,#1,#1
+	st.w	[a15]32,d15
+	ret
+	
+__IfxGtm_Tom_Ch_setNotification_function_end:
+	.size	IfxGtm_Tom_Ch_setNotification,__IfxGtm_Tom_Ch_setNotification_function_end-IfxGtm_Tom_Ch_setNotification
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setOneShotMode',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setOneShotMode'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setOneShotMode
+; Function IfxGtm_Tom_Ch_setOneShotMode
+IfxGtm_Tom_Ch_setOneShotMode:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L50
+.L50:
+	jeq	d5,#0,.L51
+	mov	d15,#1
+	j	.L52
+.L51:
+	mov	d15,#0
+.L52:
+	ld.w	d0,[a15]
+	insert	d15,d0,d15,#26,#1
+	st.w	[a15],d15
+	ret
+	
+__IfxGtm_Tom_Ch_setOneShotMode_function_end:
+	.size	IfxGtm_Tom_Ch_setOneShotMode,__IfxGtm_Tom_Ch_setOneShotMode_function_end-IfxGtm_Tom_Ch_setOneShotMode
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setPcm',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setPcm'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setPcm
+; Function IfxGtm_Tom_Ch_setPcm
+IfxGtm_Tom_Ch_setPcm:	.type	func
+	mov	d15,#15
+	jne	d15,d4,.L53
+	jeq	d5,#0,.L54
+	mov	d15,#1
+	j	.L55
+.L54:
+	mov	d15,#0
+.L55:
+	ld.w	d0,[a4]960
+	insert	d15,d0,d15,#27,#1
+	st.w	[a4]960,d15
+.L53:
+	ret
+	
+__IfxGtm_Tom_Ch_setPcm_function_end:
+	.size	IfxGtm_Tom_Ch_setPcm,__IfxGtm_Tom_Ch_setPcm_function_end-IfxGtm_Tom_Ch_setPcm
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setResetSource',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setResetSource'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setResetSource
+; Function IfxGtm_Tom_Ch_setResetSource
+IfxGtm_Tom_Ch_setResetSource:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L56
+.L56:
+	ld.w	d15,[a15]
+	insert	d15,d15,d5,#20,#1
+	st.w	[a15],d15
+	ret
+	
+__IfxGtm_Tom_Ch_setResetSource_function_end:
+	.size	IfxGtm_Tom_Ch_setResetSource,__IfxGtm_Tom_Ch_setResetSource_function_end-IfxGtm_Tom_Ch_setResetSource
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setSignalLevel',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setSignalLevel'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setSignalLevel
+; Function IfxGtm_Tom_Ch_setSignalLevel
+IfxGtm_Tom_Ch_setSignalLevel:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L57
+.L57:
+	jne	d5,#1,.L58
+	mov	d15,#1
+	j	.L59
+.L58:
+	mov	d15,#0
+.L59:
+	ld.w	d0,[a15]
+	insert	d15,d0,d15,#11,#1
+	st.w	[a15],d15
+	ret
+	
+__IfxGtm_Tom_Ch_setSignalLevel_function_end:
+	.size	IfxGtm_Tom_Ch_setSignalLevel,__IfxGtm_Tom_Ch_setSignalLevel_function_end-IfxGtm_Tom_Ch_setSignalLevel
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setSpe',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setSpe'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setSpe
+; Function IfxGtm_Tom_Ch_setSpe
+IfxGtm_Tom_Ch_setSpe:	.type	func
+	mov	d15,#7
+	jlt	d15,d4,.L60
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L61
+.L61:
+	jeq	d5,#0,.L62
+	mov	d15,#1
+	j	.L63
+.L62:
+	mov	d15,#0
+.L63:
+	ld.w	d0,[a15]
+	insert	d15,d0,d15,#28,#1
+	st.w	[a15],d15
+.L60:
+	ret
+	
+__IfxGtm_Tom_Ch_setSpe_function_end:
+	.size	IfxGtm_Tom_Ch_setSpe,__IfxGtm_Tom_Ch_setSpe_function_end-IfxGtm_Tom_Ch_setSpe
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setTriggerOutput',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Ch_setTriggerOutput'
+	.align	2
+	
+	.global	IfxGtm_Tom_Ch_setTriggerOutput
+; Function IfxGtm_Tom_Ch_setTriggerOutput
+IfxGtm_Tom_Ch_setTriggerOutput:	.type	func
+	mov.d	d15,a4
+	mul	d0,d4,#64
+	add	d15,d0
+	mov.a	a15,d15
+	j	.L64
+.L64:
+	ld.w	d15,[a15]
+	insert	d15,d15,d5,#24,#1
+	st.w	[a15],d15
+	ret
+	
+__IfxGtm_Tom_Ch_setTriggerOutput_function_end:
+	.size	IfxGtm_Tom_Ch_setTriggerOutput,__IfxGtm_Tom_Ch_setTriggerOutput_function_end-IfxGtm_Tom_Ch_setTriggerOutput
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_buildFeature',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_buildFeature'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_buildFeature
+; Function IfxGtm_Tom_Tgc_buildFeature
+IfxGtm_Tom_Tgc_buildFeature:	.type	func
+	mov	d2,#0
+	sha	d15,d5,#16
+	or	d4,d15
+	mov	d15,#0
+	j	.L65
+.L66:
+	mov	d0,#2
+	madd	d0,d6,d15,d0
+	extr.u	d1,d0,#0,#8
+	jz.t	d4:0,.L67
+	mov	d0,#2
+	sha	d0,d0,d1
+	or	d2,d0
+.L67:
+	jz.t	d4:16,.L68
+	mov	d0,#1
+	sha	d0,d0,d1
+	or	d2,d0
+.L68:
+	sh	d4,#-1
+	add	d15,#1
+.L65:
+	jlt.u	d15,#8,.L66
+	j	.L69
+.L69:
+	ret
+	
+__IfxGtm_Tom_Tgc_buildFeature_function_end:
+	.size	IfxGtm_Tom_Tgc_buildFeature,__IfxGtm_Tom_Tgc_buildFeature_function_end-IfxGtm_Tom_Tgc_buildFeature
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_buildFeatureForChannel',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_buildFeatureForChannel'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_buildFeatureForChannel
+; Function IfxGtm_Tom_Tgc_buildFeatureForChannel
+IfxGtm_Tom_Tgc_buildFeatureForChannel:	.type	func
+	mov	d15,#0
+	ins.t	d15,d15:3,d4:31
+	extr.u	d0,d4,#0,#3
+	csub	d15,d0,d0,d15
+	mov	d0,#2
+	madd	d15,d6,d15,d0
+	extr.u	d15,d15,#0,#8
+	jne	d5,#1,.L70
+	mov	d2,#2
+	sha	d2,d2,d15
+	j	.L71
+.L70:
+	mov	d2,#1
+	sha	d2,d2,d15
+.L71:
+	j	.L72
+.L72:
+	ret
+	
+__IfxGtm_Tom_Tgc_buildFeatureForChannel_function_end:
+	.size	IfxGtm_Tom_Tgc_buildFeatureForChannel,__IfxGtm_Tom_Tgc_buildFeatureForChannel_function_end-IfxGtm_Tom_Tgc_buildFeatureForChannel
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannel',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannel'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableChannel
+; Function IfxGtm_Tom_Tgc_enableChannel
+IfxGtm_Tom_Tgc_enableChannel:	.type	func
+	mov.aa	a15,a4
+	mov	d15,d6
+	mov	d6,#0
+	call	IfxGtm_Tom_Tgc_buildFeatureForChannel
+	jeq	d15,#0,.L73
+	st.w	[a15]64,d2
+	st.w	[a15]68,d2
+	j	.L74
+.L73:
+	st.w	[a15]64,d2
+.L74:
+	ret
+	
+__IfxGtm_Tom_Tgc_enableChannel_function_end:
+	.size	IfxGtm_Tom_Tgc_enableChannel,__IfxGtm_Tom_Tgc_enableChannel_function_end-IfxGtm_Tom_Tgc_enableChannel
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelOutput',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelOutput'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableChannelOutput
+; Function IfxGtm_Tom_Tgc_enableChannelOutput
+IfxGtm_Tom_Tgc_enableChannelOutput:	.type	func
+	mov.aa	a15,a4
+	mov	d15,d6
+	mov	d6,#0
+	call	IfxGtm_Tom_Tgc_buildFeatureForChannel
+	jeq	d15,#0,.L75
+	st.w	[a15]72,d2
+	st.w	[a15]76,d2
+	j	.L76
+.L75:
+	st.w	[a15]72,d2
+.L76:
+	ret
+	
+__IfxGtm_Tom_Tgc_enableChannelOutput_function_end:
+	.size	IfxGtm_Tom_Tgc_enableChannelOutput,__IfxGtm_Tom_Tgc_enableChannelOutput_function_end-IfxGtm_Tom_Tgc_enableChannelOutput
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelUpdate',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelUpdate'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableChannelUpdate
+; Function IfxGtm_Tom_Tgc_enableChannelUpdate
+IfxGtm_Tom_Tgc_enableChannelUpdate:	.type	func
+	mov.aa	a15,a4
+	mov	d6,#16
+	call	IfxGtm_Tom_Tgc_buildFeatureForChannel
+	st.w	[a15],d2
+	ret
+	
+__IfxGtm_Tom_Tgc_enableChannelUpdate_function_end:
+	.size	IfxGtm_Tom_Tgc_enableChannelUpdate,__IfxGtm_Tom_Tgc_enableChannelUpdate_function_end-IfxGtm_Tom_Tgc_enableChannelUpdate
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannels',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannels'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableChannels
+; Function IfxGtm_Tom_Tgc_enableChannels
+IfxGtm_Tom_Tgc_enableChannels:	.type	func
+	mov.aa	a15,a4
+	mov	d15,d6
+	mov	d6,#0
+	call	IfxGtm_Tom_Tgc_buildFeature
+	jeq	d15,#0,.L77
+	st.w	[a15]64,d2
+	st.w	[a15]68,d2
+	j	.L78
+.L77:
+	st.w	[a15]64,d2
+.L78:
+	ret
+	
+__IfxGtm_Tom_Tgc_enableChannels_function_end:
+	.size	IfxGtm_Tom_Tgc_enableChannels,__IfxGtm_Tom_Tgc_enableChannels_function_end-IfxGtm_Tom_Tgc_enableChannels
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelsOutput',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelsOutput'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableChannelsOutput
+; Function IfxGtm_Tom_Tgc_enableChannelsOutput
+IfxGtm_Tom_Tgc_enableChannelsOutput:	.type	func
+	mov.aa	a15,a4
+	mov	d15,d6
+	mov	d6,#0
+	call	IfxGtm_Tom_Tgc_buildFeature
+	jeq	d15,#0,.L79
+	st.w	[a15]72,d2
+	st.w	[a15]76,d2
+	j	.L80
+.L79:
+	st.w	[a15]72,d2
+.L80:
+	ret
+	
+__IfxGtm_Tom_Tgc_enableChannelsOutput_function_end:
+	.size	IfxGtm_Tom_Tgc_enableChannelsOutput,__IfxGtm_Tom_Tgc_enableChannelsOutput_function_end-IfxGtm_Tom_Tgc_enableChannelsOutput
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelsTrigger',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelsTrigger'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableChannelsTrigger
+; Function IfxGtm_Tom_Tgc_enableChannelsTrigger
+IfxGtm_Tom_Tgc_enableChannelsTrigger:	.type	func
+	mov.aa	a15,a4
+	mov	d6,#0
+	call	IfxGtm_Tom_Tgc_buildFeature
+	st.w	[a15]12,d2
+	ret
+	
+__IfxGtm_Tom_Tgc_enableChannelsTrigger_function_end:
+	.size	IfxGtm_Tom_Tgc_enableChannelsTrigger,__IfxGtm_Tom_Tgc_enableChannelsTrigger_function_end-IfxGtm_Tom_Tgc_enableChannelsTrigger
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelsUpdate',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableChannelsUpdate'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableChannelsUpdate
+; Function IfxGtm_Tom_Tgc_enableChannelsUpdate
+IfxGtm_Tom_Tgc_enableChannelsUpdate:	.type	func
+	mov.aa	a15,a4
+	mov	d6,#16
+	call	IfxGtm_Tom_Tgc_buildFeature
+	st.w	[a15],d2
+	ret
+	
+__IfxGtm_Tom_Tgc_enableChannelsUpdate_function_end:
+	.size	IfxGtm_Tom_Tgc_enableChannelsUpdate,__IfxGtm_Tom_Tgc_enableChannelsUpdate_function_end-IfxGtm_Tom_Tgc_enableChannelsUpdate
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableTimeTrigger',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_enableTimeTrigger'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_enableTimeTrigger
+; Function IfxGtm_Tom_Tgc_enableTimeTrigger
+IfxGtm_Tom_Tgc_enableTimeTrigger:	.type	func
+	jeq	d4,#0,.L81
+	mov	d0,#1
+	j	.L82
+.L81:
+	mov	d0,#0
+.L82:
+	ld.w	d15,[a4]4
+	insert	d15,d15,d0,#24,#1
+	st.w	[a4]4,d15
+	ret
+	
+__IfxGtm_Tom_Tgc_enableTimeTrigger_function_end:
+	.size	IfxGtm_Tom_Tgc_enableTimeTrigger,__IfxGtm_Tom_Tgc_enableTimeTrigger_function_end-IfxGtm_Tom_Tgc_enableTimeTrigger
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_resetChannels',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_resetChannels'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_resetChannels
+; Function IfxGtm_Tom_Tgc_resetChannels
+IfxGtm_Tom_Tgc_resetChannels:	.type	func
+	mov	d15,#0
+	mov	d1,#0
+	j	.L83
+.L84:
+	jz.t	d4:0,.L85
+	mov	d0,#1
+	sha	d0,d0,d1
+	or	d15,d0
+.L85:
+	sh	d4,#-1
+	add	d1,#1
+.L83:
+	jlt.u	d1,#8,.L84
+	sh	d15,d15,#8
+	st.w	[a4],d15
+	ret
+	
+__IfxGtm_Tom_Tgc_resetChannels_function_end:
+	.size	IfxGtm_Tom_Tgc_resetChannels,__IfxGtm_Tom_Tgc_resetChannels_function_end-IfxGtm_Tom_Tgc_resetChannels
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_setChannelForceUpdate',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_setChannelForceUpdate'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_setChannelForceUpdate
+; Function IfxGtm_Tom_Tgc_setChannelForceUpdate
+IfxGtm_Tom_Tgc_setChannelForceUpdate:	.type	func
+	mov.aa	a15,a4
+	mov	d15,d4
+	mov	d9,d6
+	mov	d6,#0
+	mov	d4,d15
+	call	IfxGtm_Tom_Tgc_buildFeatureForChannel
+	mov	d8,d2
+	mov	d6,#16
+	mov	e4,d9,d15
+	call	IfxGtm_Tom_Tgc_buildFeatureForChannel
+	sh	d15,d2,#16
+	or	d8,d15
+	st.w	[a15]8,d8
+	ret
+	
+__IfxGtm_Tom_Tgc_setChannelForceUpdate_function_end:
+	.size	IfxGtm_Tom_Tgc_setChannelForceUpdate,__IfxGtm_Tom_Tgc_setChannelForceUpdate_function_end-IfxGtm_Tom_Tgc_setChannelForceUpdate
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_setChannelsForceUpdate',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_setChannelsForceUpdate'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_setChannelsForceUpdate
+; Function IfxGtm_Tom_Tgc_setChannelsForceUpdate
+IfxGtm_Tom_Tgc_setChannelsForceUpdate:	.type	func
+	mov.aa	a15,a4
+	mov	d15,d6
+	mov	d9,d7
+	mov	d6,#0
+	call	IfxGtm_Tom_Tgc_buildFeature
+	mov	d8,d2
+	mov	d6,#16
+	mov	e4,d9,d15
+	call	IfxGtm_Tom_Tgc_buildFeature
+	or	d8,d2
+	st.w	[a15]8,d8
+	ret
+	
+__IfxGtm_Tom_Tgc_setChannelsForceUpdate_function_end:
+	.size	IfxGtm_Tom_Tgc_setChannelsForceUpdate,__IfxGtm_Tom_Tgc_setChannelsForceUpdate_function_end-IfxGtm_Tom_Tgc_setChannelsForceUpdate
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_setTimeTrigger',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_setTimeTrigger'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_setTimeTrigger
+; Function IfxGtm_Tom_Tgc_setTimeTrigger
+IfxGtm_Tom_Tgc_setTimeTrigger:	.type	func
+	ld.w	d15,[a4]4
+	insert	d15,d15,d4,#25,#2
+	insert	d15,d15,d5,#0,#24
+	st.w	[a4]4,d15
+	ret
+	
+__IfxGtm_Tom_Tgc_setTimeTrigger_function_end:
+	.size	IfxGtm_Tom_Tgc_setTimeTrigger,__IfxGtm_Tom_Tgc_setTimeTrigger_function_end-IfxGtm_Tom_Tgc_setTimeTrigger
+	; End of function
+	
+	.sdecl	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_trigger',code
+	.sect	'.text.IfxGtm_Tom.IfxGtm_Tom_Tgc_trigger'
+	.align	2
+	
+	.global	IfxGtm_Tom_Tgc_trigger
+; Function IfxGtm_Tom_Tgc_trigger
+IfxGtm_Tom_Tgc_trigger:	.type	func
+	mov	d15,#1
+	st.w	[a4],d15
+	ret
+	
+__IfxGtm_Tom_Tgc_trigger_function_end:
+	.size	IfxGtm_Tom_Tgc_trigger,__IfxGtm_Tom_Tgc_trigger_function_end-IfxGtm_Tom_Tgc_trigger
+	; End of function
+	
+	.sdecl	'.rodata.IfxGtm_Tom..1.ini',data,rom
+	.sect	'.rodata.IfxGtm_Tom..1.ini'
+.1.ini:	.type	object
+	.size	.1.ini,5
+	.space	1
+	.byte	1,2,3,4
+	.calls	'IfxGtm_Tom_Ch_getClockFrequency','IfxGtm_Tom_Ch_getClockSource'
+	.calls	'IfxGtm_Tom_Ch_getClockFrequency','IfxGtm_Cmu_getFxClkFrequency'
+	.calls	'IfxGtm_Tom_Tgc_enableChannel','IfxGtm_Tom_Tgc_buildFeatureForChannel'
+	.calls	'IfxGtm_Tom_Tgc_enableChannelOutput','IfxGtm_Tom_Tgc_buildFeatureForChannel'
+	.calls	'IfxGtm_Tom_Tgc_enableChannelUpdate','IfxGtm_Tom_Tgc_buildFeatureForChannel'
+	.calls	'IfxGtm_Tom_Tgc_enableChannels','IfxGtm_Tom_Tgc_buildFeature'
+	.calls	'IfxGtm_Tom_Tgc_enableChannelsOutput','IfxGtm_Tom_Tgc_buildFeature'
+	.calls	'IfxGtm_Tom_Tgc_enableChannelsTrigger','IfxGtm_Tom_Tgc_buildFeature'
+	.calls	'IfxGtm_Tom_Tgc_enableChannelsUpdate','IfxGtm_Tom_Tgc_buildFeature'
+	.calls	'IfxGtm_Tom_Tgc_setChannelForceUpdate','IfxGtm_Tom_Tgc_buildFeatureForChannel'
+	.calls	'IfxGtm_Tom_Tgc_setChannelsForceUpdate','IfxGtm_Tom_Tgc_buildFeature'
+	.calls	'IfxGtm_Tom_Ch_clearOneNotification','',0
+	.calls	'IfxGtm_Tom_Ch_clearZeroNotification','',0
+	.calls	'IfxGtm_Tom_Ch_getClockFrequency','',8
+	.calls	'IfxGtm_Tom_Ch_getClockSource','',0
+	.calls	'IfxGtm_Tom_Ch_getCompareOne','',0
+	.calls	'IfxGtm_Tom_Ch_getCompareOnePointer','',0
+	.calls	'IfxGtm_Tom_Ch_getCompareZero','',0
+	.calls	'IfxGtm_Tom_Ch_getCompareZeroPointer','',0
+	.calls	'IfxGtm_Tom_Ch_getOutputLevel','',0
+	.calls	'IfxGtm_Tom_Ch_getSrcPointer','',0
+	.calls	'IfxGtm_Tom_Ch_getTgcPointer','',0
+	.calls	'IfxGtm_Tom_Ch_getTimerPointer','',0
+	.calls	'IfxGtm_Tom_Ch_isOneNotification','',0
+	.calls	'IfxGtm_Tom_Ch_isZeroNotification','',0
+	.calls	'IfxGtm_Tom_Ch_raiseInterruptOne','',0
+	.calls	'IfxGtm_Tom_Ch_raiseInterruptZero','',0
+	.calls	'IfxGtm_Tom_Ch_setClockSource','',0
+	.calls	'IfxGtm_Tom_Ch_setCompare','',0
+	.calls	'IfxGtm_Tom_Ch_setCompareOne','',0
+	.calls	'IfxGtm_Tom_Ch_setCompareOneShadow','',0
+	.calls	'IfxGtm_Tom_Ch_setCompareShadow','',0
+	.calls	'IfxGtm_Tom_Ch_setCompareZero','',0
+	.calls	'IfxGtm_Tom_Ch_setCompareZeroShadow','',0
+	.calls	'IfxGtm_Tom_Ch_setCounterValue','',0
+	.calls	'IfxGtm_Tom_Ch_setGatedCounter','',0
+	.calls	'IfxGtm_Tom_Ch_setNotification','',0
+	.calls	'IfxGtm_Tom_Ch_setOneShotMode','',0
+	.calls	'IfxGtm_Tom_Ch_setPcm','',0
+	.calls	'IfxGtm_Tom_Ch_setResetSource','',0
+	.calls	'IfxGtm_Tom_Ch_setSignalLevel','',0
+	.calls	'IfxGtm_Tom_Ch_setSpe','',0
+	.calls	'IfxGtm_Tom_Ch_setTriggerOutput','',0
+	.calls	'IfxGtm_Tom_Tgc_buildFeature','',0
+	.calls	'IfxGtm_Tom_Tgc_buildFeatureForChannel','',0
+	.calls	'IfxGtm_Tom_Tgc_enableChannel','',0
+	.calls	'IfxGtm_Tom_Tgc_enableChannelOutput','',0
+	.calls	'IfxGtm_Tom_Tgc_enableChannelUpdate','',0
+	.calls	'IfxGtm_Tom_Tgc_enableChannels','',0
+	.calls	'IfxGtm_Tom_Tgc_enableChannelsOutput','',0
+	.calls	'IfxGtm_Tom_Tgc_enableChannelsTrigger','',0
+	.calls	'IfxGtm_Tom_Tgc_enableChannelsUpdate','',0
+	.calls	'IfxGtm_Tom_Tgc_enableTimeTrigger','',0
+	.calls	'IfxGtm_Tom_Tgc_resetChannels','',0
+	.calls	'IfxGtm_Tom_Tgc_setChannelForceUpdate','',0
+	.calls	'IfxGtm_Tom_Tgc_setChannelsForceUpdate','',0
+	.calls	'IfxGtm_Tom_Tgc_setTimeTrigger','',0
+	.extern	IfxGtm_Cmu_getFxClkFrequency
+	.calls	'IfxGtm_Tom_Tgc_trigger','',0
+	; Module end
