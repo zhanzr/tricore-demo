@@ -9,9 +9,11 @@ Projects for the Application Kit TC2X4 (TC234) board.
 
 ## Projects
 
-| Project       | Description                                                       |
-|---------------|-------------------------------------------------------------------|
-| `blink_hello` | Blinks 4 LEDs (P13.0-P13.3) and prints CPU frequency via ASC0    |
+| Project         | Description                                                       |
+|-----------------|-------------------------------------------------------------------|
+| `blink_hello`   | Blinks 4 LEDs (P13.0-P13.3) and prints CPU frequency via ASC0    |
+| `dhry_200m`     | Dhrystone 2.1 benchmark @ 200 MHz (GCC -O3), 383k Dhrystone/s    |
+| `coremark_200m` | CoreMark 1.0 benchmark @ 200 MHz (GCC -O3), 478.7 it/s           |
 
 ### blink_hello
 
