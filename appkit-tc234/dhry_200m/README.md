@@ -42,7 +42,7 @@ Serial: **COM6**, 115200 8N1. The result prints once on reset.
 Captured 2026-08-09, TC234 @ **200.00 MHz**, GCC `-O3 -ffast-math -funroll-loops`:
 
 ```
-TC234 Dhrystone 2.1, CPU = 200.00 MHz
+TC234 Dhrystone 2.1, CPU = 200.00 MHz, Die = 35.80 C
 ...
 MicroSecond for one run through Dhrystone[1-5221]:  2.610
 Dhrystones per Second:  383141.750
@@ -54,10 +54,13 @@ DMIPS/MHz:  1.090
 | Microseconds / run            | 2.610 µs       |
 | Dhrystones / second           | 383,141.75     |
 | DMIPS / MHz                   | 1.090          |
+| Die temperature (DTS)         | ~36 °C         |
 | Validation                    | All checks OK  |
 
 For reference, the TC275 (TASKING, `-O3`, single core 200 MHz) measured
 183,318 Dhrystones/s / 0.522 DMIPS/MHz.
+
+The on-die temperature is printed on the banner line via the DTS driver.
 
 ## Notes
 

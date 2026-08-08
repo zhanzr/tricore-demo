@@ -14,6 +14,7 @@
 #include "ticks.h"
 #include "led.h"
 #include "dhry.h"
+#include "dts.h"
 
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
@@ -43,9 +44,11 @@ int core0_main(void)
     ticks_init(0);
 
     float32 cpuFreq = IfxScuCcu_getCpuFrequency(IfxCpu_ResourceCpu_0);
+    float32 tempC   = read_dts_celsius();
     IfxStdIf_DPipe_print(&g_ascStandardInterface,
-            "TC234 Dhrystone 2.1, CPU = %d.%02d MHz\r\n",
-            (sint32)cpuFreq / 1000000, (sint32)(cpuFreq / 10000) % 100);
+            "TC234 Dhrystone 2.1, CPU = %d.%02d MHz, Die = %.2f C\r\n",
+            (sint32)cpuFreq / 1000000, (sint32)(cpuFreq / 10000) % 100,
+            tempC);
 
     dhry_main((uint32_t)cpuFreq);
 

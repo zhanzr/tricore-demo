@@ -65,7 +65,7 @@ Serial: **COM6**, 115200 8N1. The result prints once on reset (~17 s).
 Captured 2026-08-09, TC234 @ **200.00 MHz**, GCC `-O3 -ffast-math -funroll-loops`:
 
 ```
-TC234 CoreMark 1.0, CPU = 200.00 MHz
+TC234 CoreMark 1.0, CPU = 200.00 MHz, Die = ~36 C
 CoreMark Size    : 666
 Total ticks      : 16713
 Total time (secs): 16.713000
@@ -86,10 +86,13 @@ CoreMark 1.0 : 478.669299 / -O3 -ffast-math -funroll-loops / Static
 |-----------------------|--------------|
 | CoreMark 1.0 score    | 478.67 it/s  |
 | Total time (8000 it)  | 16.713 s     |
+| Die temperature (DTS) | ~36 °C       |
 | Validation            | All CRC OK   |
 
 For reference, the TC275 (TASKING, `-O3`, 200 MHz) measured 248.49 it/s
 (single core).
+
+The on-die temperature is printed on the banner line via the DTS driver.
 
 ## Notes
 

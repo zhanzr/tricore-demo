@@ -14,13 +14,26 @@ Projects for the Application Kit TC2X4 (TC234) board.
 | `blink_hello`   | Blinks 4 LEDs (P13.0-P13.3) and prints CPU frequency via ASC0    |
 | `dhry_200m`     | Dhrystone 2.1 benchmark @ 200 MHz (GCC -O3), 383k Dhrystone/s    |
 | `coremark_200m` | CoreMark 1.0 benchmark @ 200 MHz (GCC -O3), 478.7 it/s           |
+| `pwm_buzz_test` | Passive buzzer on P33.0, 2048 Hz PWM, duty sweep 0-100-0          |
 
 ### blink_hello
 
 - LEDs on P13.0 ... P13.3, low active (set pin low to turn LED on).
 - Blink pattern rotates every 200 ms per LED.
 - Serial on **COM6**, ASC0: TX **P14.0**, RX **P14.1**, **115200 baud** (8N1).
-- Prints `hello blink CPU=... SPB=... MHz` every 2 seconds.
+- Prints `hello blink CPU=... SPB=... MHz Die=... C` every 2 seconds.
+- The **Die Temperature Sensor (DTS)** is read and printed each report
+  (typical ~36 °C at room temperature).
+
+### Die Temperature Sensor (DTS)
+
+All projects read and print the on-die temperature via the iLLD DTS driver
+(`dts.c/h` wrapping `IfxDts_Dts`):
+
+- `start_dts_measure()` initialises the DTS module (polling mode, no ISR) and
+  triggers a measurement.
+- `read_dts_celsius()` waits for the conversion and returns degrees Celsius.
+- Verified on TC234: **~36 °C** at room temperature.
 
 ## Toolchain options
 

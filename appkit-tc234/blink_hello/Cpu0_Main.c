@@ -25,6 +25,7 @@
 #include "Bsp.h"
 #include "led.h"
 #include "serial.h"
+#include "dts.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
@@ -46,10 +47,13 @@ static void reportCpuFrequency(void)
 {
     float32 cpuFreq = IfxScuCcu_getCpuFrequency(IfxCpu_ResourceCpu_0);
     float32 spbFreq = IfxScuCcu_getSpbFrequency();
+    float32 tempC   = read_dts_celsius();
 
-    IfxStdIf_DPipe_print(&g_ascStandardInterface, "hello blink CPU=%d.%02d MHz SPB=%d.%02d MHz\r\n",
+    IfxStdIf_DPipe_print(&g_ascStandardInterface,
+            "hello blink CPU=%d.%02d MHz SPB=%d.%02d MHz Die=%.2f C\r\n",
             (sint32)cpuFreq / 1000000, (sint32)(cpuFreq / 10000) % 100,
-            (sint32)spbFreq / 1000000, (sint32)(spbFreq / 10000) % 100);
+            (sint32)spbFreq / 1000000, (sint32)(spbFreq / 10000) % 100,
+            tempC);
 }
 
 int core0_main(void)
