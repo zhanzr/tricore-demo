@@ -1,0 +1,15 @@
+# Shell scripts must always use LF line endings (cross-platform)
+*.sh text eol=lf
+
+# PowerShell scripts: normalize to LF in the repo too
+*.ps1 text eol=lf
+
+# Windows-specific files keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary

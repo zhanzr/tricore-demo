@@ -5,6 +5,8 @@
 $ErrorActionPreference = 'Continue'
 
 $proj = Split-Path -Parent $MyInvocation.MyCommand.Path
+# Libraries are shared at the board root (appkit-tc234/Libraries).
+$libs = Join-Path (Split-Path -Parent $proj) 'Libraries'
 $buildDir = Join-Path $env:TEMP 'coremark_200m_build'
 $gcc = 'D:\aurixgcc_03_2026\bin\tricore-elf-gcc.exe'
 $objcopy = 'D:\aurixgcc_03_2026\bin\tricore-elf-objcopy.exe'
@@ -19,7 +21,7 @@ $includeDirs = [regex]::Matches($cproj, '\$\{ProjDirPath\}(/[^"]+)') |
     ForEach-Object { $_.Groups[1].Value } |
     Where-Object { $_ -notmatch '\.opt' -and $_ -ne '/Configurations/Debug' } |
     Sort-Object -Unique |
-    ForEach-Object { "-I`"$proj$_`"" }
+    ForEach-Object { if ($_ -like '/Libraries*') { "-I`"$libs$($_ -replace '^/Libraries','')`"" } else { "-I`"$proj$_`"" } }
 
 # Add CoreMark port include dir + project root
 $includeDirs += "-I`"$proj`""
@@ -41,14 +43,19 @@ $commonFlags = @(
     '-g'
 ) + $includeDirs
 
-# --- Gather all C sources (Libraries + project root + coremark) ---
-$sources = Get-ChildItem (Join-Path $proj 'Libraries') -Recurse -Filter '*.c' -ErrorAction SilentlyContinue
+# --- Gather all C sources (shared Libraries + project root + coremark) ---
+$sources = Get-ChildItem $libs -Recurse -Filter '*.c' -ErrorAction SilentlyContinue
 $sources += Get-ChildItem $proj -Filter '*.c'
 $sources += Get-ChildItem (Join-Path $proj 'coremark_1_0_1') -Recurse -Filter '*.c'
 
 $objList = @()
 foreach ($src in $sources) {
-    $rel = $src.FullName.Substring($proj.Length + 1).Replace('\', '_').Replace('.c', '.o')
+    $srcPath = $src.FullName
+    if ($srcPath.StartsWith($libs)) {
+        $rel = $srcPath.Substring($libs.Length + 1).Replace('\', '_').Replace('.c', '.o')
+    } else {
+        $rel = $srcPath.Substring($proj.Length + 1).Replace('\', '_').Replace('.c', '.o')
+    }
     $obj = Join-Path $buildDir $rel
     New-Item -ItemType Directory -Path (Split-Path $obj) -Force | Out-Null
     Write-Host "CC  $($src.Name)"

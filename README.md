@@ -1,30 +1,39 @@
 # AURIX Multi-Board Demo Workspace
+
 Using AURIX Development Studio.
 
 ## Boards
 
-| Folder          | Board                                   |
-|-----------------|-----------------------------------------|
-| `appkit-tc275/` | Application Kit TC2X5 V2.0 (TC275)      |
-| `appkit-tc234/` | Application Kit TC234 (placeholder)     |
+| Folder          | Board                              |
+|-----------------|------------------------------------|
+| `appkit-tc275/` | Application Kit TC2X5 V2.0 (TC275) |
+| `appkit-tc234/` | Application Kit TC2X4 (TC234)      |
 
-Each board folder contains Eclipse projects. Projects build inside AURIX
-Development Studio (TASKING compiler), not from the command line.
+Each board folder contains Eclipse projects. See the per-board READMEs for
+build/flash details.
 
-## Build System Notes
+## Build Options
 
-### TASKING Compiler License Limitation
-This project uses the **TASKING VX-toolset for AURIX Development Studio (non-commercial)** shipped with ADS at:
-`tools/Compilers/Tasking_1.1r8/ctc/bin/`
+### TASKING (AURIX Studio IDE)
 
-The free edition enforces a runtime check via `tlm.dll` (Tasking License Manager) loaded by the ADS Eclipse process. The compiler only executes when spawned **by the ADS IDE** — standalone use from command line (`make`, shell scripts, etc.) is blocked with:
+The projects are configured for the **TASKING VX-toolset** shipped with ADS.
+The free edition only runs the compiler when launched **by the IDE** —
+building from a plain command line fails with
+`License does not support running as standalone`. Use **Project → Build** in
+the IDE.
 
-> `License does not support running as standalone. Please use the integrated development environment.`
+### GCC (standalone, no license restriction)
 
-**Workarounds:**
-- Build via ADS GUI (**Project → Build Project** or **Ctrl+B**)
-- Use headless Eclipse (`AURIX-studioc.exe`) — requires fixing the `-perspective` argument injection and resolving CDT manifest conflicts
-- Switch to a GCC-based Tricore toolchain (no license restrictions, but requires updating compiler flags, linker scripts, and some TASKING-specific builtins/attributes in the codebase)
+The AURIX GCC toolchains (`tricore-elf-gcc`) run standalone. Each board has
+build scripts that compile all `Libraries/` sources plus the project sources
+and produce a `.hex` for flashing:
+
+```
+powershell -ExecutionPolicy Bypass -File appkit-tc234\blink_hello\build_blink_hello.ps1
+```
+
+See [appkit-tc234/README.md](appkit-tc234/README.md) for the full build/flash
+workflow (GCC linker script, defines, flash via `AURIXFlasher.exe`).
 
 ## Board Readmes
 

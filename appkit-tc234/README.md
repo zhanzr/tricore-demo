@@ -46,26 +46,66 @@ building from the command line fails with
 
 ### GCC (standalone CLI, no license restriction)
 
-All three tested AURIX GCC toolchains work standalone:
+This repository is built with the **AURIX GCC 11.3.1** toolchain
+(`tricore-elf-gcc`).
 
-| Toolchain                                                     | Version  |
-|---------------------------------------------------------------|----------|
-| `D:\aurixgcc_03_2026\bin\tricore-elf-gcc.exe`                | 11.3.1   |
-| `D:\Infineon\AURIX-Configuration-Studio-1.0.20\...\tricore-gcc11\bin\...` | 11.3.1 |
-| `D:\Infineon\AURIX-Studio-1.10.36\tools\Compilers\tricore-gcc11\bin\...` | 11.3.1 |
+Get the toolchain from an official source:
+
+- **Bundled with AURIX Development Studio / AURIX Configuration Studio** —
+  the `tricore-gcc11` compiler ships inside the IDE install.
+- **Official download** — see the Infineon AURIX Development Studio / AURIX
+  GCC downloads (search "AURIX tricore-elf-gcc" on
+  [Infineon Developer Community](https://community.infineon.com/) or the
+  Infineon software download portal).
+
+Add the toolchain's `bin/` directory to `PATH`, then run the build scripts
+below.
 
 CPU selection uses `-mcpu=tc23xx` (note the two trailing `x`).
 
 ## Building from the CLI (GCC)
 
-Run the project's build script:
+Run the project's build script (cross-platform shell or Windows PowerShell):
 
 ```
+# any POSIX shell (Linux / macOS / Git Bash)
+bash appkit-tc234/blink_hello/build_blink_hello.sh
+
+# Windows PowerShell
 powershell -ExecutionPolicy Bypass -File appkit-tc234\blink_hello\build_blink_hello.ps1
 ```
 
-It compiles all `Libraries/` sources + project sources and links with the GCC
-linker script, producing `blink_hello.hex` in `%TEMP%\blink_hello_build\`.
+Each project ships both `build_<project>.sh` and `build_<project>.ps1`. The
+script compiles all sources from the shared `Libraries/` plus the project
+sources and links with the GCC linker script, producing `<project>.hex` in a
+temporary build directory (`$BUILD_DIR`/`%TEMP%`, or `/tmp` / `~/.cache`).
+
+Set `TRICORE_GCC` to the full compiler path if `tricore-elf-gcc` is not on
+`PATH`:
+
+```
+export TRICORE_GCC=/path/to/tricore-elf-gcc
+```
+
+### Shared Libraries
+
+The iLLD `Libraries/` folder is **shared at the board root**
+(`appkit-tc234/Libraries`) — all projects reference the same copy, so there is
+no duplication. The CLI build scripts resolve it directly, so a fresh clone
+works out of the box.
+
+If you open the projects in the AURIX Studio IDE (whose `.cproject` expects
+`Libraries` inside each project via `${ProjDirPath}/Libraries`), recreate the
+per-project links once:
+
+```
+bash appkit-tc234/setup_libraries_links.sh      # POSIX: symlinks
+powershell -ExecutionPolicy Bypass -File appkit-tc234\setup_libraries_links.ps1   # Windows: junctions
+```
+
+This creates `blink_hello\Libraries`, `dhry_200m\Libraries`, etc. as links to
+`appkit-tc234\Libraries`. They are not tracked by git; re-run the script after
+a fresh clone.
 
 Important build details (documented, do not regress):
 
@@ -131,21 +171,28 @@ shipped inside AURIX Studio:
 ![screenshoot](board_0.jpg "screenshoot")
 ![screenshoot](board_1.webp "screenshoot")
 
-## How to add projects
+## How to add a project
 
-Copy a project folder from `../appkit-tc275/` (e.g. `shell`) into this
-directory, then:
+All builds and flashing are done from the command line; there is no need to
+import anything into an IDE.
 
-1. Rename the folder to the desired project name (folder name must equal the
-   Eclipse project name).
-2. Edit `<name>` in the `.project` file.
-3. Replace the build path references in `.cproject`:
-   - `${workspace_loc:/<oldName>}/Debug`
-   - `${workspace_loc:/<oldName>}/Release`
-4. Update board-specific settings in `.exportedSettings` and
-   `.settings/com.infineon.aurix.buildsystem.prefs`:
-   - `aurixDevice` / `DEVICE-ID-FULL` / `DEVICE-ID` (e.g. TC23x family)
-   - `aurixPlatform` (e.g. KIT_AURIX_TC234)
-5. Replace the `Libraries/` folder with the matching iLLD set for the new
-   device, and swap the linker script (`Lcf_Tasking_Tricore_Tc.lsl`).
-6. Import the project into AURIX Studio.
+Copy an existing project folder in this board directory (e.g. `blink_hello`)
+to a new name, then:
+
+1. Rename the folder to the desired project name (e.g. `my_app`).
+2. Edit the sources in the new folder (e.g. `Cpu0_Main.c`) to implement your
+   application.
+3. Create a build script by copying `blink_hello/build_blink_hello.sh` (and
+   `.ps1` if you use Windows) and changing the build directory/artifact names,
+   or run the GCC commands manually:
+   - compile all sources in `../Libraries/` plus your project sources with
+     `tricore-elf-gcc -mcpu=tc23xx -D__HIGHTEC__ -D__TRICORE__` and the include
+     paths from `.cproject`
+   - link with the GCC linker script `Lcf_Gnuc_Tricore_Tc.lsl` and
+     `-lgcc -lc -lnosys`
+   - convert to hex with `tricore-elf-objcopy -O ihex`
+4. Flash the `.hex` with `AURIXFlasher.exe` (see "Flashing from the CLI").
+
+The `.cproject`, `.project`, `.exportedSettings` and `.settings` files only
+matter for the optional AURIX Studio IDE import (and the shared-Libraries
+junctions in that case). For the CLI workflow they are not used.
