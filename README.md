@@ -1,5 +1,15 @@
-# TC275 Application Kit Demo
-Using Aurix IDE.
+# AURIX Multi-Board Demo Workspace
+Using AURIX Development Studio.
+
+## Boards
+
+| Folder          | Board                                   |
+|-----------------|-----------------------------------------|
+| `appkit-tc275/` | Application Kit TC2X5 V2.0 (TC275)      |
+| `appkit-tc234/` | Application Kit TC234 (placeholder)     |
+
+Each board folder contains Eclipse projects. Projects build inside AURIX
+Development Studio (TASKING compiler), not from the command line.
 
 ## Build System Notes
 
@@ -16,10 +26,7 @@ The free edition enforces a runtime check via `tlm.dll` (Tasking License Manager
 - Use headless Eclipse (`AURIX-studioc.exe`) — requires fixing the `-perspective` argument injection and resolving CDT manifest conflicts
 - Switch to a GCC-based Tricore toolchain (no license restrictions, but requires updating compiler flags, linker scripts, and some TASKING-specific builtins/attributes in the codebase)
 
-### About the in IDE Flasher
-If the original 'TC27x_D_step.json' does not support the non-D Step, first add the JTAG IDS in the file.
+## Board Readmes
 
-#  APPLICATION KIT TC2X5 V2.0
-![screenshoot](board_1.png "screenshoot")
-![screenshoot](board_2.jpg "screenshoot")
-![screenshoot](board_3.jpg "screenshoot")
+- [appkit-tc275/README.md](appkit-tc275/README.md)
+- [appkit-tc234/README.md](appkit-tc234/README.md)
