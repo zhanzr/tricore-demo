@@ -27,11 +27,10 @@ Passive buzzer test on the TC212 using GTM **TOM0_CH2 PWM on P10.5**.
 ## Build / Flash
 
 From a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe` preferred, else Git for
-Windows bash); `TRICORE_GCC` defaults to the AURIX GCC install. **Run from the
+Windows bash); `TRICORE_GCC` defaults to the AURIX GCC install. **Run from this
 project folder:**
 
 ```
-cd tc212-kit/pwm_buzz_test
 make hex      # -> build/pwm_buzz_test.hex
 make flash    # programs build/pwm_buzz_test.hex via AURIXFlasher
 ```

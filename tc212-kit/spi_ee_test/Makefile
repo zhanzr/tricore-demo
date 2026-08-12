@@ -27,7 +27,7 @@ BUILD := build
 ARCH  := tc22xx
 
 # --- Compile flags ---
-CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -O1 -g
+CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -O1 -MMD -MP -g
 INCLUDES := \
 	-I$(ROOT)/Configurations \
 	-I$(ROOT) \
@@ -93,6 +93,10 @@ $(BUILD)/$(subst /,_,$(call rel,$(1))).o: $(1)
 	$(CC) $(CFLAGS) -o $$@ $$<
 endef
 $(foreach src,$(SRCS),$(eval $(call CC_rule,$(src))))
+
+# --- Header dependencies (generated with -MMD -MP) ---
+DEPS := $(OBJS:.o=.d)
+-include $(DEPS)
 
 # --- Link / hex ---
 ELF := $(BUILD)/$(PROJ).elf

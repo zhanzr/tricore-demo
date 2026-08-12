@@ -18,12 +18,14 @@ Projects for the **TC212 Application Kit** (TC22x family, AURIX 1G).
 | Project         | Description                                                        | Build tool            | Result |
 |-----------------|--------------------------------------------------------------------|-----------------------|--------|
 | `blink_hello`   | 8 LEDs, CPU/die temp + **AN18 ADC** via ASC0                      | `make`                | boot OK @133.33 MHz, ~39 C die, AN18=2.556 V |
-| `dhry_133m`     | Dhrystone 2.1 benchmark (core0)                                    | `make`                | **214,018 Dhrystones/s**, 0.916 DMIPS/MHz |
-| `coremark_133m` | CoreMark 1.0 benchmark (core0)                                     | `make`                | **227.0 CoreMark** (1.70 CoreMark/MHz) @ -O1 |
+| `dhry_133m`     | Dhrystone 2.1 benchmark (core0)                                    | `make`                | **263,505 Dhrystones/s**, 1.128 DMIPS/MHz @ -O3 |
+| `coremark_133m` | CoreMark 1.0 benchmark (core0)                                     | `make`                | **322.9 CoreMark** (2.42 CoreMark/MHz) @ -O3 |
 | `pwm_buzz_test` | Passive buzzer on **P10.5** (GTM TOM0_CH2), 2048 Hz PWM duty sweep | `make`                | boot + banner OK (audible sweep) |
 | `spi_ee_test`   | **AT25128N** SPI EEPROM (P33.5/P20.11/P20.14/P20.12) erase/program/read speed test | `make`          | verify OK: write ~29 KB/s, read ~0.23 MB/s |
 
-All benchmark builds use `-O1` (same as the iLLD default appkit config).
+The benchmark projects (`dhry_133m`, `coremark_133m`) build with
+`-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`, matching
+the appkit-tc234 benchmark builds. Non-benchmark projects use `-O1`.
 
 ## Shared Libraries
 
@@ -53,13 +55,14 @@ Each project has a `Makefile` (GNU Make, AURIX GCC `tricore-elf-gcc`,
 `-mcpu=tc22xx`). Run from a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe`
 preferred, else Git for Windows bash). `TRICORE_GCC` defaults to
 `D:/aurixgcc_03_2026/bin/tricore-elf-gcc`; override it (or set the toolchain on
-PATH) if your install differs:
+PATH) if your install differs.
+
+**Generic workflow** — `cd` into any project folder and use the make targets:
 
 ```
-cd tc212-kit/blink_hello        && make hex
-cd tc212-kit/dhry_133m          && make hex
-cd tc212-kit/coremark_133m      && make hex
-cd tc212-kit/pwm_buzz_test      && make hex
+cd tc212-kit/<any-project>
+make hex      # build build/<proj>.hex
+make flash    # program build/<proj>.hex via AURIXFlasher
 ```
 
 Targets:
@@ -72,6 +75,9 @@ Targets:
 | `make size`  | print section sizes                                 |
 | `make clean` | remove `build/`                                     |
 
+Header dependencies are tracked via `-MMD -MP`, so touching a header
+automatically rebuilds the affected objects.
+
 Outputs stay in the project folder: `<project>/build/<proj>.hex` (plus
 `.elf`/`.map`/objects). These are ignored via the repo `.gitignore`
 (`build/`, `*.hex`, `*.elf`, `*.map`, `*.o`).
@@ -79,17 +85,17 @@ Outputs stay in the project folder: `<project>/build/<proj>.hex` (plus
 ## Flash
 
 `make flash` programs the project-local hex (defaults to the AURIX Studio
-flasher; set `AURIX_FLASHER` to override):
+flasher; set `AURIX_FLASHER` to override). From any project folder:
 
 ```
-cd tc212-kit/blink_hello && make flash
+cd tc212-kit/<any-project> && make flash
 ```
 
-Equivalent direct command:
+Equivalent direct command (run from the project folder):
 
 ```
 "D:\Infineon\AURIX-Studio-1.10.36\tools\AurixFlasherSoftwareTool_v3.0.18\AURIXFlasher.exe" ^
-    -hex build\blink_hello.hex -prog on -ver on -start on
+    -hex build\<proj>.hex -prog on -ver on -start on
 ```
 
 The tool auto-detects the connected TC21x device and reports `Pass` on success.

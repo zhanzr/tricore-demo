@@ -56,11 +56,10 @@ verify: OK, all 16384 bytes match
 
 ## Build / Flash
 
-From a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe` preferred); run in the
+From a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe` preferred); run in this
 project folder:
 
 ```
-cd tc212-kit/spi_ee_test
 make hex      # -> build/spi_ee_test.hex
 make flash    # programs build/spi_ee_test.hex via AURIXFlasher
 ```

@@ -32,11 +32,10 @@ COM at **115200 8N1**.
 ## Build / Flash
 
 From a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe` preferred, else Git for
-Windows bash); `TRICORE_GCC` defaults to the AURIX GCC install. **Run from the
+Windows bash); `TRICORE_GCC` defaults to the AURIX GCC install. **Run from this
 project folder:**
 
 ```
-cd tc212-kit/blink_hello
 make hex      # -> build/blink_hello.hex
 make flash    # programs build/blink_hello.hex via AURIXFlasher
 make clean

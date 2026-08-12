@@ -46,7 +46,7 @@
  */
 #include <stdint.h>
 
-#define	FLAGS_STR	"-O1"
+#define	FLAGS_STR	"-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno"
 #ifndef ITERATIONS
 #define ITERATIONS  8000
 #endif

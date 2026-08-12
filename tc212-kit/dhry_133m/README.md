@@ -2,18 +2,20 @@
 
 **Dhrystone 2.1** benchmark on the TC212 @ 133 MHz, single core (core0).
 
-## Result (measured)
+## Result (measured, `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`)
 
 ```
-TC212 Dhrystone 2.1, CPU = 133.33 MHz, Die = 40.93 C
-MicroSecond for one run through Dhrystone[1-9346]:  4.673
-Dhrystones per Second: 214018.188
-DMIPS/MHz: 0.916
+TC212 Dhrystone 2.1, CPU = 133.33 MHz, Die = 40.00 C
+MicroSecond for one run through Dhrystone[1-7591]:  3.795
+Dhrystones per Second: 263504.625
+DMIPS/MHz: 1.128
 ```
 
-Built with `-O1` (same as the iLLD default appkit config), AURIX GCC
+Built with `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`
+(matching the appkit-tc234 dhry build, also AURIX GCC), AURIX GCC
 `tricore-elf-gcc` 11.3.1. Validation checks pass (`Int_Glob=5`,
-`Arr_2_Glob=2000010`).
+`Arr_2_Glob=2000010`). For comparison, `-O1` scored 214,018 Dhrystones/s
+(0.916 DMIPS/MHz).
 
 ## Files
 
@@ -25,11 +27,10 @@ Built with `-O1` (same as the iLLD default appkit config), AURIX GCC
 ## Build / Flash
 
 From a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe` preferred, else Git for
-Windows bash); `TRICORE_GCC` defaults to the AURIX GCC install. **Run from the
+Windows bash); `TRICORE_GCC` defaults to the AURIX GCC install. **Run from this
 project folder:**
 
 ```
-cd tc212-kit/dhry_133m
 make hex      # -> build/dhry_133m.hex
 make flash    # programs build/dhry_133m.hex via AURIXFlasher
 ```
