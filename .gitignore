@@ -1,7 +1,8 @@
 # --- Build directories ---
 */Debug/
 */Release/
-*/build/
+build/
+**/build/
 
 
 # --- CMake generated ---
