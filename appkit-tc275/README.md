@@ -60,25 +60,27 @@ The projects also build from the command line with the **AURIX GCC 11.3.1**
 toolchain (`tricore-elf-gcc`, `-mcpu=tc27xx`), following the same pattern as
 `appkit-tc234` and `tc212-kit`.
 
-Each project ships `build_<project>.sh`. The script compiles all sources from
-the shared board-level `Libraries/` plus the project sources, and links with
-the GCC linker script `Lcf_Gnuc_Tricore_Tc.lsl`, producing `<project>.hex` in a
-temporary build directory (`/tmp` or `%TEMP%`).
+Each project ships a **Makefile** (GNU Make, incremental with header deps).
+Run from MSYS2 (`C:\msys64\usr\bin\bash.exe`) or Git Bash:
 
 ```
-# any POSIX shell (Linux / macOS / Git Bash)
-bash appkit-tc275/coremark/build_coremark.sh
+cd appkit-tc275/<project>
+make          # link build/<proj>.elf
+make hex      # build build/<proj>.hex
+make flash    # program build/<proj>.hex (rebuilds hex first if missing)
+make size     # print section sizes
+make clean    # remove build/
 ```
 
 Set `TRICORE_GCC` to the full compiler path if `tricore-elf-gcc` is not on
-`PATH`.
+`PATH`; override the flasher with `make flash AURIX_FLASHER=...`.
 
 ### Shared Libraries
 
 The iLLD `Libraries/` folder is **shared at the board root**
 (`appkit-tc275/Libraries`) — all projects reference the same copy, so there is
-no duplication. The CLI build scripts resolve it directly, so a fresh clone
-works out of the box.
+no duplication. The build resolves it directly, so a fresh clone works out of
+the box.
 
 If you open the projects in the AURIX Studio IDE (whose `.cproject` expects
 `Libraries` inside each project via `${ProjDirPath}/Libraries`), recreate the
