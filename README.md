@@ -41,9 +41,16 @@ for flashing:
   ```
 
   See [tc212-kit/README.md](tc212-kit/README.md).
-- **`appkit-tc234`**: each project has a `build_<proj>.sh` script. Run the
-  project's script from a bash shell (or the older `build_<proj>.ps1` from
-  PowerShell). See [appkit-tc234/README.md](appkit-tc234/README.md).
+- **`appkit-tc234`**: each project has a `Makefile` (GNU Make, incremental).
+  From a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe` preferred, else Git for
+  Windows bash):
+  ```
+  make          # link build/<proj>.elf
+  make hex      # build build/<proj>.hex
+  make flash    # program build/<proj>.hex via AURIXFlasher
+  ```
+  The iLLD `Libraries/` is shared at the board root. See
+  [appkit-tc234/README.md](appkit-tc234/README.md).
 - **`appkit-tc275`**: each project has a `Makefile` (GNU Make, incremental).
   From a bash shell (MSYS2 `C:\msys64\usr\bin\bash.exe` preferred, else Git for
   Windows bash):

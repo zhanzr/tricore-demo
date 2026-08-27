@@ -58,41 +58,34 @@ Get the toolchain from an official source:
   [Infineon Developer Community](https://community.infineon.com/) or the
   Infineon software download portal).
 
-Add the toolchain's `bin/` directory to `PATH`, then run the build scripts
-below.
+Add the toolchain's `bin/` directory to `PATH`, then run `make` in a project
+folder as shown below.
 
 CPU selection uses `-mcpu=tc23xx` (note the two trailing `x`).
 
 ## Building from the CLI (GCC)
 
-Run the project's build script (cross-platform shell or Windows PowerShell):
+Each project ships a **Makefile** (GNU Make, incremental with header deps).
+Run from MSYS2 (`C:\msys64\usr\bin\bash.exe`) or Git Bash:
 
 ```
-# any POSIX shell (Linux / macOS / Git Bash)
-bash appkit-tc234/blink_hello/build_blink_hello.sh
-
-# Windows PowerShell
-powershell -ExecutionPolicy Bypass -File appkit-tc234\blink_hello\build_blink_hello.ps1
+cd appkit-tc234/<project>
+make          # link build/<proj>.elf
+make hex      # build build/<proj>.hex
+make flash    # program build/<proj>.hex via AURIXFlasher (rebuilds hex first)
+make size     # print section sizes
+make clean    # remove build/
 ```
-
-Each project ships both `build_<project>.sh` and `build_<project>.ps1`. The
-script compiles all sources from the shared `Libraries/` plus the project
-sources and links with the GCC linker script, producing `<project>.hex` in a
-temporary build directory (`$BUILD_DIR`/`%TEMP%`, or `/tmp` / `~/.cache`).
 
 Set `TRICORE_GCC` to the full compiler path if `tricore-elf-gcc` is not on
-`PATH`:
-
-```
-export TRICORE_GCC=/path/to/tricore-elf-gcc
-```
+`PATH`; override the flasher with `make flash AURIX_FLASHER=...`.
 
 ### Shared Libraries
 
 The iLLD `Libraries/` folder is **shared at the board root**
 (`appkit-tc234/Libraries`) — all projects reference the same copy, so there is
-no duplication. The CLI build scripts resolve it directly, so a fresh clone
-works out of the box.
+no duplication. The Makefiles resolve it directly, so a fresh clone works out
+of the box.
 
 If you open the projects in the AURIX Studio IDE (whose `.cproject` expects
 `Libraries` inside each project via `${ProjDirPath}/Libraries`), recreate the
@@ -182,16 +175,15 @@ to a new name, then:
 1. Rename the folder to the desired project name (e.g. `my_app`).
 2. Edit the sources in the new folder (e.g. `Cpu0_Main.c`) to implement your
    application.
-3. Create a build script by copying `blink_hello/build_blink_hello.sh` (and
-   `.ps1` if you use Windows) and changing the build directory/artifact names,
-   or run the GCC commands manually:
-   - compile all sources in `../Libraries/` plus your project sources with
-     `tricore-elf-gcc -mcpu=tc23xx -D__HIGHTEC__ -D__TRICORE__` and the include
-     paths from `.cproject`
-   - link with the GCC linker script `Lcf_Gnuc_Tricore_Tc.lsl` and
-     `-lgcc -lc -lnosys`
-   - convert to hex with `tricore-elf-objcopy -O ihex`
-4. Flash the `.hex` with `AURIXFlasher.exe` (see "Flashing from the CLI").
+3. Copy the Makefile from an existing project and change `PROJ :=` to the new
+   project name (`my_app`). The Makefile compiles all sources from
+   `../Libraries/` plus the project sources with
+   `tricore-elf-gcc -mcpu=tc23xx -D__HIGHTEC__ -D__TRICORE__` and the include
+   paths from `.cproject`, links with the GCC linker script
+   `Lcf_Gnuc_Tricore_Tc.lsl` and `-lgcc -lc -lnosys`, and produces
+   `build/<proj>.hex`.
+4. Flash the `.hex` with `AURIXFlasher.exe` (`make flash`, see "Flashing from
+   the CLI").
 
 The `.cproject`, `.project`, `.exportedSettings` and `.settings` files only
 matter for the optional AURIX Studio IDE import (and the shared-Libraries
