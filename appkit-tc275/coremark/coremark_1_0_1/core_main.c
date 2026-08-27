@@ -67,7 +67,11 @@ ee_s32 get_seed_32(int i);
 #endif
 
 #if (MEM_METHOD==MEM_STATIC)
-ee_u8 static_memblk[TOTAL_DATA_SIZE];
+#if defined(__TASKING__)
+__align(8) ee_u8 static_memblk[TOTAL_DATA_SIZE];
+#else
+ee_u8 static_memblk[TOTAL_DATA_SIZE] __attribute__((aligned(8)));
+#endif
 #endif
 char *mem_name[3] = {"Static","Heap","Stack"};
 /* Function: main

@@ -2,32 +2,156 @@
 
 Projects for the **Application Kit TC2X5 V2.0** board (TC275).
 
+- Device: **TC27xTP C-Step** (`DEVICE-ID: TC27x`, CHIPID `70` = 'C'), TriCore
+  1.6.2, **3 cores** (CPU0/CPU1/CPU2), max 200 MHz
+- Platform: **KIT_AURIX_TC275_TFT** (Application Kit TC2x5 V2.0)
+- Debug adapter: onboard **miniWiggler** (Infineon DAS JDS, DAP/JTAG)
+- Serial: **COM6**, chip side **ASC0** (TX P14.0, RX P14.1), **921600 baud** (8N1)
+
 ## Projects
 
-| Project   | Description                          |
-|-----------|--------------------------------------|
-| `shell`   | ASCLIN shell over UART (921600 baud) |
-| `coremark`| CoreMark benchmark                   |
-| `dhry`    | Dhrystone benchmark                  |
+| Project       | Description                                           |
+|---------------|-------------------------------------------------------|
+| `blink_hello` | ASCLIN UART banner + Die-Temp + 4-LED blink (3 cores) |
+| `coremark`    | CoreMark 1.0 benchmark, runs on all 3 cores           |
+| `dhry`        | Dhrystone 2.1 benchmark, runs on all 3 cores          |
 
-Each project builds inside AURIX Development Studio (TASKING compiler).
+The benchmark projects run the benchmark on each core in turn using a shared
+token (`g_activeCoreToken`) and report results over the UART.
 
-> **Note:** These projects have only been tested with the **TASKING** toolchain
-> (the `Libraries/` iLLD set, linker script `Lcf_Tasking_Tricore_Tc.lsl`, and
-> `.cproject` are all TASKING-configured). They are not validated with the GCC
-> toolchain — the `.cproject` contains no GCC configuration and the project has
-> no GCC linker script. Building with GCC would require the additional
-> setup described in `../appkit-tc234/README.md` (GCC linker script, `-D__HIGHTEC__`,
-> `abort` stub, etc.) plus replacing the TC27D iLLD set with the matching one.
+## Benchmark results (200 MHz, GCC -O3)
+
+### CoreMark 1.0 (8000 iterations, 2K run, static)
+
+| Core | TASKING  | GCC     |
+|------|----------|---------|
+| CPU0 | 248.5    | **299.6** |
+| CPU1 | 417.1    | **510.8** |
+| CPU2 | 262.5    | **329.3** |
+
+The TASKING numbers are from the original in-IDE runs (stored in
+`coremark/README.md`). The GCC numbers were measured on this board at 200 MHz,
+all runs validated (`crcfinal 0x5275`, "Correct operation validated").
+
+### Dhrystone 2.1 (2,000,000 runs)
+
+| Core | TASKING  | GCC     |
+|------|----------|---------|
+| CPU0 | 183318   | **205128** |
+| CPU1 | 333890   | **315457** |
+| CPU2 | 245700   | **276243** |
+
+GCC is faster on CPU0/CPU2; CPU1's TASKING run shows a higher number
+(0.950 vs 0.898 DMIPS/MHz) — the cores share the GTM/bus, so results vary with
+the token-handoff timing.
+
+## Toolchain options
+
+### TASKING (AURIX Studio IDE)
+
+The projects were originally created for the **TASKING VX-toolset** in their
+`.cproject` (processor `tc27xd`). The free ADS edition only runs the compiler
+when spawned **by the IDE** — building from the command line fails with
+`License does not support running as standalone`. Use the IDE GUI build.
+
+### GCC (standalone CLI, no license restriction)
+
+The projects also build from the command line with the **AURIX GCC 11.3.1**
+toolchain (`tricore-elf-gcc`, `-mcpu=tc27xx`), following the same pattern as
+`appkit-tc234` and `tc212-kit`.
+
+Each project ships `build_<project>.sh`. The script compiles all sources from
+the shared board-level `Libraries/` plus the project sources, and links with
+the GCC linker script `Lcf_Gnuc_Tricore_Tc.lsl`, producing `<project>.hex` in a
+temporary build directory (`/tmp` or `%TEMP%`).
+
+```
+# any POSIX shell (Linux / macOS / Git Bash)
+bash appkit-tc275/coremark/build_coremark.sh
+```
+
+Set `TRICORE_GCC` to the full compiler path if `tricore-elf-gcc` is not on
+`PATH`.
+
+### Shared Libraries
+
+The iLLD `Libraries/` folder is **shared at the board root**
+(`appkit-tc275/Libraries`) — all projects reference the same copy, so there is
+no duplication. The CLI build scripts resolve it directly, so a fresh clone
+works out of the box.
+
+If you open the projects in the AURIX Studio IDE (whose `.cproject` expects
+`Libraries` inside each project via `${ProjDirPath}/Libraries`), recreate the
+per-project links once:
+
+```
+bash appkit-tc275/setup_libraries_links.sh      # POSIX: symlinks
+powershell -ExecutionPolicy Bypass -File appkit-tc275\setup_libraries_links.ps1   # Windows: junctions
+```
+
+This creates `blink_hello\Libraries`, `coremark\Libraries`, `dhry\Libraries`
+as links to `appkit-tc275\Libraries`. They are not tracked by git; re-run the
+script after a fresh clone.
+
+Important build details (documented, do not regress):
+
+1. **GCC linker script** `Lcf_Gnuc_Tricore_Tc.lsl` was copied from the AURIX
+   Studio bundled artefacts (`Linker_conf/GnuC/TC27D`) and extended with
+   `PROVIDE(end = __HEAP_END);` (newlib `sbrk` needs the `end` symbol).
+2. **Defines**: `-D__HIGHTEC__` (selects `CompilerGnuc.h` / HighTec-style GCC
+   startup), `-D__TRICORE__`.
+3. **Multicore**: all three cores start from one ELF — CPU0 runs `_START` at
+   the reset vector and starts CPU1/CPU2 via `IfxCpu_startCore()`.
+4. **Shared token**: `g_activeCoreToken` must be in a **globally-addressable
+   RAM**. Placing it in LMU (`.bss_lmu` at `0x90000000`) breaks the startup of
+   cores 1/2 in GCC builds (they never start). The GCC build places it in the
+   default `.bss` (dsram1 at `0x60000000`, globally aliased), which works;
+   TASKING keeps its original `#pragma section farbss "lmu_sram"` placement.
+5. **`abort()` stub**: newlib's `libc.a` does not provide `abort`, but the
+   CStart error path references it. Each project includes `abort_stub.c`.
+6. **Link order**: `-lgcc` must appear both before and after `-lc` so the
+   soft-float double helpers (`__divdf3`, `__unorddf2`, etc.) used by newlib's
+   `vsprintf` resolve.
+7. **`-ffunction-sections -fdata-sections`** are used so `--gc-sections` can
+   drop unused code — the image must stay below the BMHD1 boundary at
+   `0x80020000`.
+8. **CoreMark CRC**: the GCC TriCore backend pattern-matches the bitwise CRC
+   loop in `core_util.c` into `crcn`/`shuffle` instructions that its own
+   assembler rejects (`Opcode/operand mismatch`). A `volatile` local in
+   `crcu8()` forces real memory ops (same fix as `appkit-tc234`).
+9. **CoreMark `static_memblk` alignment**: `static_memblk` is a byte array so
+   GCC places it unaligned, and CoreMark's 32-bit accesses trap. It must be
+   `__attribute__((aligned(8)))` (TASKING's `__align(8)`).
+
+## Flashing from the CLI
+
+The onboard miniWiggler is supported via the AURIX Flasher CLI tool (DAS-based),
+shipped inside AURIX Studio:
+
+```
+"D:\Infineon\AURIX-Studio-1.10.36\tools\AurixFlasherSoftwareTool_v3.0.18\AURIXFlasher.exe" ^
+    -hex <path-to>.hex -prog on -ver on -start on
+```
+
+- `-prog on`: enable programming (erase + write).
+- `-ver on`: verify after write.
+- `-start on`: reset the device at the end (release CPU halt).
+- The tool auto-detects the connected TC27x device over the miniWiggler.
+  `doc/TC27x_D_step.json` is the matching device config for the in-IDE
+  flasher (note: this board is a **C-step** chip; the config's JTAGID was
+  extended to cover it).
+- Caveat: connecting with the flasher leaves the CPU **halted** unless
+  `-start on` (or a later `-start on` run) is used.
+- Caveat: after a long flash session the virtual COM may go silent. Unplug /
+  replug the board's USB to restore it.
+
+## Serial console
+
+Open the miniWiggler's virtual COM port (e.g. **COM6**) at **921600 baud 8N1**
+after flashing. All projects print their banner/benchmark results there.
 
 ## Board
 
 ![screenshoot](board_1.png "screenshoot")
 ![screenshoot](board_2.jpg "screenshoot")
 ![screenshoot](board_3.jpg "screenshoot")
-
-## Flasher
-
-Flasher JSON for the in-IDE flasher lives in `doc/`. If the original
-`TC27x_D_step.json` does not support the non-D Step, first add the JTAG IDs in
-the file.

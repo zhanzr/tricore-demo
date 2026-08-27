@@ -145,26 +145,30 @@ ee_s32 get_seed_32(int i) {
 ee_u16 crcu8(ee_u8 data, ee_u16 crc )
 {
 	ee_u8 i=0,x16=0,carry=0;
+	/* volatile forces the loop to real memory ops; the GCC TriCore backend
+	 * otherwise pattern-matches this bit loop into crcn/shuffle instructions
+	 * that its own assembler rejects ("Opcode/operand mismatch"). */
+	volatile ee_u16 crc_loc = crc;
 
 	for (i = 0; i < 8; i++)
     {
-		x16 = (ee_u8)((data & 1) ^ ((ee_u8)crc & 1));
+		x16 = (ee_u8)((data & 1) ^ ((ee_u8)crc_loc & 1));
 		data >>= 1;
 
 		if (x16 == 1)
 		{
-		   crc ^= 0x4002;
+		   crc_loc ^= 0x4002;
 		   carry = 1;
 		}
 		else 
 			carry = 0;
-		crc >>= 1;
+		crc_loc >>= 1;
 		if (carry)
-		   crc |= 0x8000;
+		   crc_loc |= 0x8000;
 		else
-		   crc &= 0x7fff;
+		   crc_loc &= 0x7fff;
     }
-	return crc;
+	return (ee_u16)crc_loc;
 } 
 ee_u16 crcu16(ee_u16 newval, ee_u16 crc) {
 	crc=crcu8( (ee_u8) (newval)				,crc);

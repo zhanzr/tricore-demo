@@ -44,6 +44,9 @@ for flashing:
 - **`appkit-tc234`**: each project has a `build_<proj>.sh` script. Run the
   project's script from a bash shell (or the older `build_<proj>.ps1` from
   PowerShell). See [appkit-tc234/README.md](appkit-tc234/README.md).
+- **`appkit-tc275`**: each project has a `build_<proj>.sh` script. Run from a
+  bash shell (Git for Windows bash). The iLLD `Libraries/` is shared at the
+  board root. See [appkit-tc275/README.md](appkit-tc275/README.md).
 
 ## Board Readmes
 
