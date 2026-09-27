@@ -1,4 +1,4 @@
-# coremark - TC275 (TC27x) build/flash
+# coremark_200m - TC275 (TC27x) build/flash
 #
 # Targets:   make            build build/coremark.elf (link)
 #            make hex        build build/coremark.hex
@@ -11,7 +11,7 @@
 #            make TRICORE_GCC=/d/aurixgcc_03_2026/bin/tricore-elf-gcc
 #            Override the flasher with: make flash AURIX_FLASHER=...
 
-PROJ := coremark
+PROJ := coremark_200m
 
 # Bare `make` builds the ELF (not the first generated object rule).
 .DEFAULT_GOAL := all
@@ -25,7 +25,7 @@ AURIX_FLASHER ?= D:/Infineon/AURIX-Studio-1.10.36/tools/AurixFlasherSoftwareTool
 
 # --- Paths ---
 ROOT  := $(CURDIR)
-LIBS  := $(abspath $(ROOT)/../Libraries)
+LIBS  := $(abspath $(ROOT)/../../Libraries)
 BUILD := build
 ARCH  := tc27xx
 
@@ -172,7 +172,7 @@ INCLUDES += -I$(ROOT)/coremark_1_0_1/tc275
 INCLUDES += -I$(ROOT)
 
 # --- Compile flags ---
-CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno \
+CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -Ofast -ffp-contract=fast -funroll-all-loops \
            -ffunction-sections -fdata-sections -MMD -MP -g
 CFLAGS += $(INCLUDES)
 

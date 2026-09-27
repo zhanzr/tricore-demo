@@ -6,44 +6,53 @@ Projects for the **Application Kit TC2X5 V2.0** board (TC275).
   1.6.2, **3 cores** (CPU0/CPU1/CPU2), max 200 MHz
 - Platform: **KIT_AURIX_TC275_TFT** (Application Kit TC2x5 V2.0)
 - Debug adapter: onboard **miniWiggler** (Infineon DAS JDS, DAP/JTAG)
-- Serial: **COM6**, chip side **ASC0** (TX P14.0, RX P14.1), **921600 baud** (8N1)
+- Serial: **COM6**, chip side **ASC0** (TX P14.0, RX P14.1), **115200 baud** (8N1)
 
 ## Projects
 
-| Project       | Description                                           |
-|---------------|-------------------------------------------------------|
-| `blink_hello` | ASCLIN UART banner + Die-Temp + 4-LED blink (3 cores) |
-| `coremark`    | CoreMark 1.0 benchmark, runs on all 3 cores           |
-| `dhry`        | Dhrystone 2.1 benchmark, runs on all 3 cores          |
+| Project                     | Description                                           |
+|-----------------------------|-------------------------------------------------------|
+| `bare/blink_hello`          | ASCLIN UART banner + Die-Temp + 4-LED blink (3 cores) |
+| `bare/coremark_200m`        | CoreMark 1.0 benchmark, runs on all 3 cores           |
+| `bare/dhry_200m`            | Dhrystone 2.1 benchmark, runs on all 3 cores          |
+
+All projects are **bare metal** (no RTOS), hence the `bare/` folder. The
+`_200m` suffix reflects the board's maximum core frequency (200 MHz).
 
 The benchmark projects run the benchmark on each core in turn using a shared
 token (`g_activeCoreToken`) and report results over the UART.
 
-## Benchmark results (200 MHz, GCC -O3)
+## Benchmark results (200 MHz, GCC -Ofast)
+
+The benchmark Makefiles use the same `arm-none-eabi-gcc` optimization flags as
+the STM32U575 `nucleo-u575` reference projects (`bare/dhry_200m`:
+`-Ofast -ffp-contract=fast -funroll-loops`, `bare/coremark_200m`:
+`-Ofast -ffp-contract=fast -funroll-all-loops`).
 
 ### CoreMark 1.0 (8000 iterations, 2K run, static)
 
-| Core | TASKING  | GCC     |
-|------|----------|---------|
-| CPU0 | 248.5    | **299.6** |
-| CPU1 | 417.1    | **510.8** |
-| CPU2 | 262.5    | **329.3** |
+| Core | TASKING -O3 | GCC -O3 | GCC -Ofast (current) |
+|------|----------|---------|---------|
+| CPU0 | 248.5    | 299.6   | **300.7** (26.61 s) |
+| CPU1 | 417.1    | 510.8   | **511.5** (15.64 s) |
+| CPU2 | 262.5    | 329.3   | **348.3** (22.97 s) |
 
-The TASKING numbers are from the original in-IDE runs (stored in
-`coremark/README.md`). The GCC numbers were measured on this board at 200 MHz,
-all runs validated (`crcfinal 0x5275`, "Correct operation validated").
+The TASKING numbers are from the original in-IDE runs. The GCC -O3 numbers were
+the previous CLI measurements; the current -Ofast numbers were re-measured on
+this board at 200 MHz, all runs validated (`crcfinal 0x5275`, "Correct
+operation validated"). See `bare/coremark_200m/README.md`.
 
 ### Dhrystone 2.1 (2,000,000 runs)
 
-| Core | TASKING  | GCC     |
+| Core | TASKING -O3 | GCC -Ofast (current) |
 |------|----------|---------|
-| CPU0 | 183318   | **205128** |
-| CPU1 | 333890   | **315457** |
-| CPU2 | 245700   | **276243** |
+| CPU0 | 183318   | **205128** (0.584 DMIPS/MHz) |
+| CPU1 | 333890   | **315457** (0.898 DMIPS/MHz) |
+| CPU2 | 245700   | **276243** (0.786 DMIPS/MHz) |
 
-GCC is faster on CPU0/CPU2; CPU1's TASKING run shows a higher number
-(0.950 vs 0.898 DMIPS/MHz) — the cores share the GTM/bus, so results vary with
-the token-handoff timing.
+The Dhrystone results with the new -Ofast flags are identical to the previous
+GCC -O3 measurements (integer workload, unaffected by the FP-related flag
+delta). See `bare/dhry_200m/README.md`.
 
 ## Toolchain options
 
@@ -64,7 +73,7 @@ Each project ships a **Makefile** (GNU Make, incremental with header deps).
 Run from MSYS2 (`C:\msys64\usr\bin\bash.exe`) or Git Bash:
 
 ```
-cd appkit-tc275/<project>
+cd appkit-tc275/bare/<project>
 make          # link build/<proj>.elf
 make hex      # build build/<proj>.hex
 make flash    # program build/<proj>.hex (rebuilds hex first if missing)
@@ -91,7 +100,8 @@ bash appkit-tc275/setup_libraries_links.sh      # POSIX: symlinks
 powershell -ExecutionPolicy Bypass -File appkit-tc275\setup_libraries_links.ps1   # Windows: junctions
 ```
 
-This creates `blink_hello\Libraries`, `coremark\Libraries`, `dhry\Libraries`
+This creates `bare\blink_hello\Libraries`, `bare\coremark_200m\Libraries`,
+`bare\dhry_200m\Libraries`
 as links to `appkit-tc275\Libraries`. They are not tracked by git; re-run the
 script after a fresh clone.
 
@@ -149,11 +159,12 @@ shipped inside AURIX Studio:
 
 ## Serial console
 
-Open the miniWiggler's virtual COM port (e.g. **COM6**) at **921600 baud 8N1**
+Open the miniWiggler's virtual COM port (e.g. **COM6**) at **115200 baud 8N1**
 after flashing. All projects print their banner/benchmark results there.
 
 ## Board
 
-![screenshoot](board_1.png "screenshoot")
-![screenshoot](board_2.jpg "screenshoot")
-![screenshoot](board_3.jpg "screenshoot")
+![screenshoot](board_images/board_1.png "screenshoot")
+![screenshoot](board_images/board_2.jpg "screenshoot")
+![screenshoot](board_images/board_3.jpg "screenshoot")
+![screenshoot](board_images/board_4.png "screenshoot")

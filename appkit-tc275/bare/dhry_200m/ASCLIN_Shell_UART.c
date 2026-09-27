@@ -52,7 +52,7 @@
 #define ISR_PRIORITY_ASCLIN_ER      12                                      /* Priority for interrupt ISR Errors    */
 #define ASC_TX_BUFFER_SIZE          256                                     /* Define the TX buffer size in byte    */
 #define ASC_RX_BUFFER_SIZE          256                                     /* Define the RX buffer size in byte    */
-#define ASC_BAUDRATE                921600                                  /* Define the UART baud rate            */
+#define ASC_BAUDRATE                115200                                  /* Define the UART baud rate            */
 
 /* Shell commands and help descriptions */
 #define COMMAND_INFO                "info"
@@ -135,7 +135,7 @@ void printInfo (IfxStdIf_DPipe *io)
 
     IfxStdIf_DPipe_print(io, ENDLINE);
     IfxStdIf_DPipe_print(io, "******************************************************************************"ENDLINE);
-    IfxStdIf_DPipe_print(io, "tc275 demo:%08X.       "ENDLINE, jtag_id);
+    IfxStdIf_DPipe_print(io, "iLLDs demo:%08X.       "ENDLINE, jtag_id);
     IfxStdIf_DPipe_print(io,
             "In order to toggle the LEDs enter the command '" COMMAND_TOGGLE "' followed by one of the "ENDLINE);
     IfxStdIf_DPipe_print(io, "following parameters:                                                         "ENDLINE);
@@ -151,7 +151,7 @@ void printInfo (IfxStdIf_DPipe *io)
 /* Function to show information about the example through the shell */
 boolean printShellInfo (pchar args, void *data, IfxStdIf_DPipe *io)
 {
-//    printInfo(io);
+    printInfo(io);
     return TRUE;
 }
 
@@ -252,8 +252,8 @@ void initShellInterface (void)
     Ifx_Console_init(&g_ascStandardInterface);
 
     /* Print info to the console */
-//    printInfo(&g_ascStandardInterface);
-//    Ifx_Console_print(ENDLINE "Enter '" COMMAND_HELP "' to see the available commands" ENDLINE);
+    printInfo(&g_ascStandardInterface);
+    Ifx_Console_print(ENDLINE "Enter '" COMMAND_HELP "' to see the available commands" ENDLINE);
 
     /* Initialize the shell */
     Ifx_Shell_Config shellConf;

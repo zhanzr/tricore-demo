@@ -17,7 +17,7 @@ if [ ! -d "$target" ]; then
     exit 1
 fi
 
-for p in blink_hello coremark dhry; do
+for p in bare/blink_hello bare/coremark_200m bare/dhry_200m; do
     link="$board/$p/Libraries"
     if [ -e "$link" ]; then
         echo "Exists (leave as-is): $link"

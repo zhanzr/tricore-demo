@@ -40,7 +40,12 @@ Toolchain / flasher defaults (override via environment or `make VAR=...`):
 
 Compile flags: `-std=c11 -Wall -MMD -MP -g`, plus `-ffunction-sections
 -fdata-sections`. Optimization:
-- Benchmark projects (`dhry_*`, `coremark_*`): `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno` (matches the TC234 benchmark builds).
+- Benchmark projects (`dhry_*`, `coremark_*`) in `appkit-tc234`/`tc212-kit`:
+  `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`.
+- Benchmark projects in `appkit-tc275/bare/`:
+  `-Ofast -ffp-contract=fast` + `-funroll-loops` (`dhry_200m`) /
+  `-funroll-all-loops` (`coremark_200m`) — matches the `arm-none-eabi-gcc`
+  flags of the `nucleo-u575` benchmark reference projects.
 - All other projects: `-O1`.
 
 Header dependencies are tracked with `-MMD -MP` (generated `.d` files are

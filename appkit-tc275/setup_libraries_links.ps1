@@ -14,7 +14,7 @@ if (-not (Test-Path -LiteralPath $target)) {
     exit 1
 }
 
-$projects = @('blink_hello', 'coremark', 'dhry')
+$projects = @('bare\blink_hello', 'bare\coremark_200m', 'bare\dhry_200m')
 
 foreach ($p in $projects) {
     $link = Join-Path $board (Join-Path $p 'Libraries')

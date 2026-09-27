@@ -34,7 +34,6 @@
 #include "ASCLIN_Shell_UART.h"
 
 #include "Ifx_Types.h"
-#include "IfxStdIf_DPipe.h"
 #include "IfxAsclin_Asc.h"
 #include "Ifx_Shell.h"
 #include "Ifx_Console.h"
@@ -52,7 +51,7 @@
 #define ISR_PRIORITY_ASCLIN_ER      12                                      /* Priority for interrupt ISR Errors    */
 #define ASC_TX_BUFFER_SIZE          256                                     /* Define the TX buffer size in byte    */
 #define ASC_RX_BUFFER_SIZE          256                                     /* Define the RX buffer size in byte    */
-#define ASC_BAUDRATE                921600                                  /* Define the UART baud rate            */
+#define ASC_BAUDRATE                115200                                  /* Define the UART baud rate            */
 
 /* Shell commands and help descriptions */
 #define COMMAND_INFO                "info"
@@ -271,5 +270,3 @@ void runShellInterface (void)
     /* Process the received data */
     Ifx_Shell_process(&g_shellInterface);
 }
-
-

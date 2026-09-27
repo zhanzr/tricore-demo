@@ -25,7 +25,7 @@ AURIX_FLASHER ?= D:/Infineon/AURIX-Studio-1.10.36/tools/AurixFlasherSoftwareTool
 
 # --- Paths ---
 ROOT  := $(CURDIR)
-LIBS  := $(abspath $(ROOT)/../Libraries)
+LIBS  := $(abspath $(ROOT)/../../Libraries)
 BUILD := build
 ARCH  := tc27xx
 

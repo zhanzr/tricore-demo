@@ -70,7 +70,11 @@
  */
 #include <stdint.h>
 
+#if defined(__TASKING__)
 #define	FLAGS_STR	"-O3"
+#else /* GCC CLI build flags (match the Makefile) */
+#define	FLAGS_STR	"-Ofast -ffp-contract=fast -funroll-all-loops"
+#endif
 #ifndef ITERATIONS
 #define ITERATIONS  8000
 #endif
