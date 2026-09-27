@@ -33,10 +33,17 @@ IfxAsclin_Asc g_asclin;
 /* Ifx_Fifo_init() casts these buffers to Ifx_Fifo* and the FIFO code performs
  * 32-bit accesses at offsets 0/4/12 of that struct, so the buffers MUST be
  * 4-byte aligned. Declared as plain uint8[] the linker only guarantees
- * alignment 1, and higher optimisation levels then emit wide accesses that
- * raise an instruction-error trap on a misaligned address (class 2, tin 4). */
+ * alignment 1, and higher optimisation levels (e.g. -Ofast) then emit wide
+ * accesses that raise an instruction-error trap on a misaligned address
+ * (trap class 2, tin 4). Keep the explicit alignment. */
 uint8 g_uartTxBuffer[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
 uint8 g_uartRxBuffer[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
+
+/* Set once initSerial() is done. The ISRs can fire as soon as the ASC
+ * SRCs are enabled inside IfxAsclin_Asc_initModule - BEFORE the DPipe
+ * interface is initialized - and IfxStdIf_DPipe_onReceive/onTransmit
+ * would call through a NULL pointer (trap -> halted CPU). */
+static volatile boolean g_serialReady = FALSE;
 
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
@@ -45,21 +52,40 @@ IFX_INTERRUPT(asc0TxISR, 0, ISR_PRIORITY_ASCLIN_TX);
 
 void asc0TxISR(void)
 {
-    IfxStdIf_DPipe_onTransmit(&g_ascStandardInterface);
+    if (g_serialReady)
+    {
+        IfxStdIf_DPipe_onTransmit(&g_ascStandardInterface);
+    }
 }
 
 IFX_INTERRUPT(asc0RxISR, 0, ISR_PRIORITY_ASCLIN_RX);
 
 void asc0RxISR(void)
 {
-    IfxStdIf_DPipe_onReceive(&g_ascStandardInterface);
+    if (g_serialReady)
+    {
+        IfxStdIf_DPipe_onReceive(&g_ascStandardInterface);
+    }
+    else
+    {
+        /* spurious byte during init: drain the RX FIFO so the request
+         * does not retrigger */
+        IfxAsclin_flushRxFifo(g_asclin.asclin);
+    }
 }
 
 IFX_INTERRUPT(asc0ErrISR, 0, ISR_PRIORITY_ASCLIN_ER);
 
 void asc0ErrISR(void)
 {
-    IfxStdIf_DPipe_onError(&g_ascStandardInterface);
+    if (g_serialReady)
+    {
+        IfxStdIf_DPipe_onError(&g_ascStandardInterface);
+    }
+    else if (g_asclin.asclin != NULL_PTR)
+    {
+        IfxAsclin_Asc_isrError(&g_asclin);
+    }
 }
 
 void initSerial(void)
@@ -99,4 +125,5 @@ void initSerial(void)
 
     IfxAsclin_Asc_initModule(&g_asclin, &ascConf);
     IfxAsclin_Asc_stdIfDPipeInit(&g_ascStandardInterface, &g_asclin);
+    g_serialReady = TRUE;
 }

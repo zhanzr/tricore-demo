@@ -51,7 +51,7 @@ Desktop.ini
 *.src
 */Debug/
 */Release/
-*_pinout/
+*_local_test_proj/
 
 Blinky_LED_1_KIT_TC234_TFT/
 Blinky_LED_1_KIT_TC234_TFT_gcc/

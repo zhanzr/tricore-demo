@@ -1,8 +1,8 @@
-# pwm_buzz_test - TC234 (TC23A) build/flash
+# nv3030b_md183_240x284_cst816d - TC234 (TC23A) build/flash
 #
-# Targets:   make            build build/pwm_buzz_test.elf (link)
-#            make hex        build build/pwm_buzz_test.hex
-#            make flash      program build/pwm_buzz_test.hex (builds it first if missing)
+# Targets:   make            build build/nv3030b_md183_240x284_cst816d.elf (link)
+#            make hex        build build/nv3030b_md183_240x284_cst816d.hex
+#            make flash      program build/nv3030b_md183_240x284_cst816d.hex (builds it first if missing)
 #            make size       print section sizes
 #            make clean      remove build/
 #
@@ -11,7 +11,7 @@
 #            make TRICORE_GCC=/d/aurixgcc_03_2026/bin/tricore-elf-gcc
 #            Override the flasher with: make flash AURIX_FLASHER=...
 
-PROJ := pwm_buzz_test
+PROJ := nv3030b_md183_240x284_cst816d
 
 # Bare `make` builds the ELF (not the first generated object rule).
 .DEFAULT_GOAL := all
@@ -25,7 +25,7 @@ AURIX_FLASHER ?= D:/Infineon/AURIX-Studio-1.10.36/tools/AurixFlasherSoftwareTool
 
 # --- Paths ---
 ROOT  := $(CURDIR)
-LIBS  := $(abspath $(ROOT)/../Libraries)
+LIBS  := $(abspath $(ROOT)/../../Libraries)
 BUILD := build
 ARCH  := tc23xx
 
@@ -137,9 +137,13 @@ INCLUDES := \
 
 # Project root include (project-local headers live here).
 INCLUDES += -I$(ROOT)
+# LCD/touch driver sources live under src/ (ported from the nano-f411 port).
+INCLUDES += -I$(ROOT)/src
+INCLUDES += -I$(ROOT)/src/lcd
+INCLUDES += -I$(ROOT)/src/blockwrite
 
 # --- Compile flags ---
-CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -O1            -ffunction-sections -fdata-sections -MMD -MP -g
+CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -O1            -ffunction-sections -fdata-sections -MMD -MP -g
 CFLAGS += $(INCLUDES)
 
 # --- Sources -> objects (mangled paths avoid name collisions) ---

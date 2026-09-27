@@ -16,10 +16,16 @@ All bare-metal projects live in the `bare/` folder.
 | `bare/blink_hello`       | Blinks 4 LEDs (P13.0-P13.3) and prints CPU frequency via ASC0    |
 | `bare/dhry_200m`         | Dhrystone 2.1 @ 200 MHz: 394.5k Dhrystones/s (1.12 DMIPS/MHz)    |
 | `bare/coremark_200m`     | CoreMark 1.0 @ 200 MHz: 490.9 it/s                               |
-| `pwm_buzz_test`          | Passive buzzer on P33.0, 2048 Hz PWM, duty sweep 0-100-0          |
+| `bare/pwm_buzz_test`     | Passive buzzer on P33.0, 2048 Hz PWM, duty sweep 0-100-0          |
+| `bare/nv3030b_md183_240x284_cst816d` | TK018F3716 240x284 NV3030B LCD (QSPI2) + CST816D touch (soft I2C) |
 
 All projects run at **CPU = 200 MHz / SPB = 100 MHz** (PLL from the 20 MHz
 XTAL, see "Clock configuration" below).
+
+The LCD/touch project wires the panel CS to **P15.2** (GPIO software CS) and
+uses QSPI2 on **SCLK P15.6 / MOSI P15.5**; touch is bit-banged I2C on
+**P02.0/P02.1**. See its own `README.md` for the transport details and the
+bug notes.
 
 ### blink_hello
 

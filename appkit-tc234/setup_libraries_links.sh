@@ -26,6 +26,7 @@ fi
 
 projects=(bare/blink_hello bare/dhry_200m bare/coremark_200m bare/pwm_buzz_test)
 
+
 winify() {
     # POSIX path -> Windows path (cygpath is present in MSYS2 and Git Bash)
     cygpath -w "$1" 2>/dev/null || echo "$1"

@@ -1,0 +1,590 @@
+/*
+  nv3030b_md183_240x284_cst816d main for the appkit-tc234
+  (TC23xLP A-step @ 200 MHz). TK018F3716 module: NV3030B 240x284 panel
+  over its wrapped-command SPI protocol on QSPI2 (hardware 8-bit
+  frames, mode 3, ~25 MHz), plus CST816D capacitive touch over
+  bit-banged I2C (SDA=P02.0, SCL=P02.1) with the touch state printed
+  on the serial console.
+
+  Demo phases per pass (live FPS counter throughout): big-font banner,
+  TEST_STAND vendor screens (timed solid fills), info pages (normal +
+  inverted), HSV gradient sweep, LED test. Ported from the nano-f411
+  nv3030b port (same module); the TC234 build is HW QSPI2 only (the
+  f411 port's soft bit-bang bus is not implemented here).
+
+  Wiring: SCLK=P15.6, MOSI=P15.5, CS=P15.2 (GPIO). The module has no
+  DC/reset/backlight pin in use (DC floating is fine for the wrapped
+  protocol; backlight is powered from the module supply).
+  Touch: CST816D I2C SDA=P02.0 SCL=P02.1.
+*/
+
+#include <string.h>
+#include <stdio.h>
+#include "serial.h"
+#include "Bsp.h"
+#include "IfxPort.h"
+#include "lcd.h"
+#include "interface.h"
+#include "touch.h"
+#include "dts.h"
+#include "lcd/lcd_font_1608.h"
+
+#define SCREEN_W   LCD_Width     /* 240 (row buffer sizing) */
+#define FPS_BAND   20            /* bottom rows reserved for the FPS text   */
+#define BACK_COLOR LCD_BLACK
+#define LED_HALF   1000          /* LED test dwell (ms)                    */
+
+/* Info page layout. The big 8x16 font needs a 24 px line pitch (16 px
+ * glyph + spacing), which limits the page to 11 lines + the FPS band on
+ * a 284 px panel.
+ *
+ * The panel has rounded corners, so text flush against row 0 or the left
+ * edge gets cropped. INFO_TOP starts the block one glyph line down, and
+ * INFO_X indents far enough to clear the corner radius. */
+#define INFO_DY    24            /* info page line pitch (8x16 font)       */
+#define INFO_X     22            /* left indent: clears the corner radius  */
+#define INFO_TOP   18            /* first text row (skip row 0)            */
+#define INFO_LINES 11            /* usable lines before the FPS band       */
+
+/* ---- on-board LEDs (D107-D110 on P13.0 ... P13.3, low active) ---- */
+#define LED_PORT        &MODULE_P13
+#define LED_COUNT       4u
+
+static void leds_all(uint8_t on)
+{
+    uint8 i;
+    for (i = 0; i < LED_COUNT; i++)
+    {
+        IfxPort_setPinModeOutput(LED_PORT, i, IfxPort_OutputMode_pushPull,
+                                 IfxPort_OutputIdx_general);
+        if (on != 0u) { IfxPort_setPinLow(LED_PORT, i); }
+        else          { IfxPort_setPinHigh(LED_PORT, i); }
+    }
+}
+
+static void leds_off(void)
+{
+    leds_all(0u);
+}
+
+/* Milliseconds from the system timer.
+ *
+ * Bsp.h's now() returns raw STM ticks, NOT milliseconds (the nano-f411
+ * original uses a HAL_GetTick() that already counts ms). Dividing by the
+ * live STM frequency keeps every dwell, the FPS window and the
+ * TEST_STAND fill timing in real milliseconds, and is independent of the
+ * CPU/SPB clock configuration. */
+static uint32_t ms_now(void)
+{
+    static uint32_t s_ticks_ms;
+    if (s_ticks_ms == 0U)
+    {
+        s_ticks_ms = (uint32_t)(IfxStm_getFrequency(BSP_DEFAULT_TIMER) / 1000U);
+    }
+    return (uint32_t)(now() / s_ticks_ms);
+}
+
+static void delay_ms(uint32_t ms)
+{
+    waitTime(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, ms));
+}
+
+/* --------------------------------------------------------------------- */
+/* Touch printout: polls the CST816D and prints state/X/Y on the serial
+ * port (on touch-down, and on release).                                 */
+static uint8_t s_touch_down;
+
+static void touch_task(void)
+{
+    uint8_t buf[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+    uint16_t x, y;
+
+    Touch_Read(buf, 8);
+
+    if (buf[3] == 0x80U && buf[4] > 1U)
+    {
+        x = buf[4];
+        y = (uint16_t)(((buf[5] & 0x0FU) << 8) | buf[6]);
+
+        if (s_touch_down == 0U)
+        {
+            PRINTF("[TOUCH] down X=%u Y=%u (284-Y=%u)\r\n",
+                   (unsigned)x, (unsigned)y, (unsigned)(284U - y));
+            s_touch_down = 1U;
+        }
+    }
+    else if (s_touch_down != 0U)
+    {
+        PRINTF("[TOUCH] release\r\n");
+        s_touch_down = 0U;
+    }
+}
+
+/* Runtime window geometry (follows LCD_SetWindow). */
+static uint16_t anim_h(void)
+{
+    return (uint16_t)(LCD_H() - FPS_BAND);
+}
+
+/* Die temperature in hundredths of a degree C (DTS), sampled on demand.
+ * Matches the blink_hello project's reporting. */
+static sint32 dts_celsius_x100(void)
+{
+    float32 t = read_dts_celsius();
+    return (sint32)(t * 100.0F);
+}
+
+/* --------------------------------------------------------------------- */
+/* FPS counter.                                                          */
+static volatile uint32_t g_frames;
+static uint32_t         g_last_frames;
+static uint32_t         g_fps_last_tick;
+static uint32_t         g_fps_color = LCD_WHITE;   /* FPS glyph color     */
+
+static void fps_frame(void)
+{
+    g_frames++;
+}
+
+static void fps_update(void)
+{
+    uint32_t now = ms_now();
+    if (now - g_fps_last_tick >= 1000)
+    {
+        uint32_t fps = g_frames - g_last_frames;
+        g_last_frames = g_frames;
+        g_fps_last_tick = now;
+
+        char buf[8];
+        buf[0] = 'F'; buf[1] = 'P'; buf[2] = 'S'; buf[3] = ':';
+        buf[4] = (char)('0' + (fps / 100) % 10);
+        buf[5] = (char)('0' + (fps / 10) % 10);
+        buf[6] = (char)('0' + fps % 10);
+        buf[7] = '\0';
+        LCD_SetColor(g_fps_color);
+        LCD_ShowTransparent(1);              /* no opaque box */
+        LCD_DisplayString(1, (uint16_t)(anim_h() + 4), buf);
+        LCD_ShowTransparent(0);
+    }
+}
+
+static void paint_fps_band(void)
+{
+    LCD_SetColor(BACK_COLOR);
+    LCD_SetBackColor(BACK_COLOR);
+    LCD_FillRect(0, anim_h(), LCD_W(), FPS_BAND);
+}
+
+static void delay_with_fps(uint32_t ms)
+{
+    uint32_t start = ms_now();
+    do
+    {
+        fps_update();
+        touch_task();                        /* touch printout during waits */
+        delay_ms(50);
+    } while (ms_now() - start < ms);
+}
+
+/* --------------------------------------------------------------------- */
+/* Animated gradient: hue sweeps the full color wheel over `ms`.         */
+static uint32_t hsv_to_rgb(int h, int s, int v)
+{
+    int region = (h / 600) % 6;
+    int fpart  = h % 600;
+    int p = v * (255 - s) / 255;
+    int q = v * (255 - (s * fpart) / 600) / 255;
+    int t = v * (255 - (s * (600 - fpart)) / 600) / 255;
+    int r, g, b;
+    switch (region)
+    {
+    case 0: r = v; g = t; b = p; break;
+    case 1: r = q; g = v; b = p; break;
+    case 2: r = p; g = v; b = t; break;
+    case 3: r = p; g = q; b = v; break;
+    case 4: r = t; g = p; b = v; break;
+    default:r = v; g = p; b = q; break;
+    }
+    return ((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b;
+}
+
+static void draw_gradient(int hue_a, int hue_b, uint16_t *row)
+{
+    for (int y = 0; y < anim_h(); y++)
+    {
+        int frac = y * 1000 / anim_h();
+        int hue  = hue_a + (hue_b - hue_a) * frac / 1000;
+        uint32_t c = hsv_to_rgb(hue, 255, 255);
+        uint16_t rgb565 = (uint16_t)(((c >> 8) & 0xF800) | ((c >> 5) & 0x07E0) |
+                                     ((c >> 3) & 0x001F));
+        for (int x = 0; x < LCD_W(); x++)
+        {
+            row[x] = rgb565;
+        }
+        LCD_CopyBuffer(0, (uint16_t)y, LCD_W(), 1, row);
+    }
+}
+
+static void gradient_demo(uint32_t ms)
+{
+    static uint16_t row[SCREEN_W];
+    LCD_SetBackColor(BACK_COLOR);
+    paint_fps_band();
+
+    uint32_t start = ms_now();
+    uint32_t t = 0;
+    do
+    {
+        int hue_a = (int)(t * 3600 / ms);
+        int hue_b = hue_a + 1800;
+        if (hue_b >= 3600) { hue_b -= 3600; }
+        draw_gradient(hue_a, hue_b, row);
+        fps_frame();
+        fps_update();
+        t = ms_now() - start;
+    } while (t < ms);
+}
+
+/* --------------------------------------------------------------------- */
+/* LED test (the four on-board user LEDs).                               */
+static void led_test(void)
+{
+    PRINTF("[LCD] LED ON\r\n");
+    leds_all(1u);
+    delay_with_fps(LED_HALF);
+    PRINTF("[LCD] LED OFF\r\n");
+    leds_all(0u);
+    delay_with_fps(LED_HALF);
+}
+
+/* --------------------------------------------------------------------- */
+/* Vendor TEST_STAND screens. The five solid-color fills are timed (ms). */
+static uint32_t g_solid_ms[5];
+static const char *const g_solid_name[5] =
+{
+    "RED", "GREEN", "BLUE", "WHITE", "BLACK"
+};
+
+/* kHz -> "25 MHz" text (shared by console + info page). */
+static const char *mhz_text(unsigned long khz)
+{
+    static char t[16];
+    if (khz % 1000UL == 0UL)
+    {
+        snprintf(t, sizeof t, "%lu MHz", khz / 1000UL);
+    }
+    else
+    {
+        snprintf(t, sizeof t, "%lu.%lu MHz",
+                 khz / 1000UL, (khz % 1000UL) / 100UL);
+    }
+    return t;
+}
+
+static void TEST_STAND(void)
+{
+    const uint32_t solid_color[5] = { RED, GREEN, BLUE, WHITE, BLACK };
+
+    DispFrame();
+    StopDelay(Delay_Time);
+
+    DispGrayHor16();
+    StopDelay(Delay_Time);
+
+    DispBand();
+    StopDelay(Delay_Time);
+
+    for (int i = 0; i < 5; i++)
+    {
+        uint32_t t0 = ms_now();
+        DispColor(solid_color[i]);
+        g_solid_ms[i] = ms_now() - t0;
+        StopDelay(Delay_Time);
+    }
+
+    PRINTF("[LCD] solid fills (ms): RED=%lu GREEN=%lu BLUE=%lu "
+           "WHITE=%lu BLACK=%lu\r\n",
+           (unsigned long)g_solid_ms[0], (unsigned long)g_solid_ms[1],
+           (unsigned long)g_solid_ms[2], (unsigned long)g_solid_ms[3],
+           (unsigned long)g_solid_ms[4]);
+}
+
+/* --------------------------------------------------------------------- */
+/* Info page: compiler, build date, clock rates, DTS die temperature and
+ * the IO map, in the big 8x16 font (same as the banner page). `invert`
+ * swaps fg/bg (white background page).
+ *
+ * Layout notes:
+ *  - The panel has rounded corners, so the block is indented by INFO_X and
+ *    starts at INFO_TOP instead of row 0; a line touching row 0 or the
+ *    left edge would have its glyphs clipped.
+ *  - A 24 px pitch is used instead of the 16 px glyph height so the bigger
+ *    font does not run into itself. That caps the page at 11 lines plus
+ *    the FPS band, so the content is trimmed to fit; the full detail stays
+ *    on the serial console. */
+static void info_demo(uint32_t ms, uint8_t invert)
+{
+    char buf[40];
+    char comp[24];
+    unsigned long mhz = 200u;
+    uint32_t fg = invert ? LCD_BLACK : LCD_WHITE;
+    uint32_t bg = invert ? LCD_WHITE : LCD_BLACK;
+
+#if defined(__TASKING__)
+    snprintf(comp, sizeof comp, "TASKING");
+#elif defined(__GNUC__)
+    snprintf(comp, sizeof comp, "GCC %d.%d.%d",
+             __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+#else
+    snprintf(comp, sizeof comp, "unknown");
+#endif
+
+    PRINTF("[LCD] info%s: compiler=%s build=%s %s\r\n",
+           invert ? " (inverted)" : "", comp, __DATE__, __TIME__);
+    PRINTF("[LCD] info: freq=%lu MHz  qspi=%s  touch=%lu kHz\r\n",
+           mhz, mhz_text(LCD_HwSpiKHz()), Touch_GetHz() / 1000UL);
+    PRINTF("[LCD] info: die=%d.%02d C  solids(R,G,B,W,K)=%lu,%lu,%lu,%lu,%lu ms\r\n",
+           (int)(dts_celsius_x100() / 100), (int)(dts_celsius_x100() % 100),
+           (unsigned long)g_solid_ms[0], (unsigned long)g_solid_ms[1],
+           (unsigned long)g_solid_ms[2], (unsigned long)g_solid_ms[3],
+           (unsigned long)g_solid_ms[4]);
+
+    /* Big font for the whole page (matches the banner page). */
+    LCD_SetAsciiFont(&ASCII_Font16);
+    LCD_SetColor(fg);
+    LCD_SetBackColor(bg);
+    LCD_Clear();
+
+    /* FPS band in the page background color, then restore fg/bg. */
+    LCD_SetColor(bg);
+    LCD_SetBackColor(bg);
+    LCD_FillRect(0, anim_h(), LCD_W(), FPS_BAND);
+    LCD_SetColor(fg);
+    LCD_SetBackColor(bg);
+    g_fps_color = fg;                     /* FPS glyph matches the page */
+
+    /* 8 px per glyph in the 8x16 font. */
+    const int ix = INFO_X;
+    int       y  = INFO_TOP;
+
+    snprintf(buf, sizeof buf, "%s", comp);
+    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
+
+    snprintf(buf, sizeof buf, "CPU %lu MHz", mhz);
+    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
+
+    snprintf(buf, sizeof buf, "QSPI");
+    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);
+    snprintf(buf, sizeof buf, "%s", mhz_text(LCD_HwSpiKHz()));
+    LCD_DisplayString((uint16_t)(ix + 5 * 8), (uint16_t)y, buf);  y += INFO_DY;
+
+    snprintf(buf, sizeof buf, "I2C");
+    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);
+    snprintf(buf, sizeof buf, "%lu kHz", Touch_GetHz() / 1000UL);
+    LCD_DisplayString((uint16_t)(ix + 5 * 8), (uint16_t)y, buf);  y += INFO_DY;
+
+    /* Die temperature, as reported by the blink_hello project. */
+    {
+        sint32 t100 = dts_celsius_x100();
+        snprintf(buf, sizeof buf, "DIE");
+        LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);
+        snprintf(buf, sizeof buf, "%d.%02d C", (int)(t100 / 100), (int)(t100 % 100));
+        LCD_DisplayString((uint16_t)(ix + 5 * 8), (uint16_t)y, buf);  y += INFO_DY;
+    }
+
+    /* Fill durations (R,G,B,W,K), measured earlier this pass so they always
+     * reflect the current SPI rate. Two short lines fit the big font. */
+    snprintf(buf, sizeof buf, "R:%lu G:%lu",
+             (unsigned long)g_solid_ms[0], (unsigned long)g_solid_ms[1]);
+    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
+
+    snprintf(buf, sizeof buf, "B:%lu W:%lu",
+             (unsigned long)g_solid_ms[2], (unsigned long)g_solid_ms[3]);
+    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
+
+    snprintf(buf, sizeof buf, "K:%lu",
+             (unsigned long)g_solid_ms[4]);
+    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
+
+    g_fps_color = LCD_WHITE;              /* restore default FPS glyph color */
+
+    uint32_t start = ms_now();
+    do
+    {
+        fps_update();
+        touch_task();                     /* touch printout during waits */
+        delay_ms(50);
+    } while (ms_now() - start < ms);
+
+    LCD_SetAsciiFont(&ASCII_Font12);      /* back to the normal font      */
+}
+
+/* --------------------------------------------------------------------- */
+/* Big-font banner page (8x16 font), lines centered on the panel width.  */
+static void banner_page(const char *l1, const char *l2,
+                        uint32_t fg, uint32_t bg, uint32_t ms)
+{
+    g_fps_color = fg;
+
+    LCD_SetAsciiFont(&ASCII_Font16);      /* bigger than the normal 6x12  */
+    LCD_SetColor(fg);
+    LCD_SetBackColor(bg);
+    LCD_Clear();
+    LCD_SetColor(bg);
+    LCD_SetBackColor(bg);
+    LCD_FillRect(0, anim_h(), LCD_W(), FPS_BAND);
+    LCD_SetColor(fg);
+    LCD_SetBackColor(bg);
+
+    /* 8 px/glyph: center each line dynamically. */
+    LCD_DisplayString((uint16_t)((LCD_W() - (int)strlen(l1) * 8) / 2), 40,
+                      (char *)l1);
+    LCD_DisplayString((uint16_t)((LCD_W() - (int)strlen(l2) * 8) / 2), 64,
+                      (char *)l2);
+
+    delay_ms(ms);
+
+    LCD_SetAsciiFont(&ASCII_Font12);      /* back to the normal font      */
+    g_fps_color = LCD_WHITE;
+}
+
+/* --------------------------------------------------------------------- */
+/* Full test-pattern set.                                                */
+static void run_patterns(void)
+{
+    PRINTF("[LCD] phase: TEST_STAND\r\n");
+    memset(g_solid_ms, 0, sizeof g_solid_ms);   /* current method only */
+    TEST_STAND();
+
+    PRINTF("[LCD] phase: info\r\n");
+    info_demo(5000, 0);
+
+    PRINTF("[LCD] phase: info (inverted colors)\r\n");
+    info_demo(5000, 1);
+
+    PRINTF("[LCD] phase: gradient\r\n");
+    gradient_demo(4000);
+
+    PRINTF("[LCD] phase: LED test\r\n");
+    led_test();
+}
+
+/* --------------------------------------------------------------------- */
+/* Clock sweep - bring-up tool to find the fastest usable rates.
+ *
+ * SPI: each ladder step is applied live, then a full-panel fill is timed.
+ * A marginal clock does not fail outright - the panel just shows garbage -
+ * so every step prints its measured fill time (a rate that stops scaling
+ * with the clock is the tell) AND draws a labelled colour bar that can be
+ * checked by eye. The rate is ramped from slow to fast so a bad step is
+ * always preceded by a known-good one.
+ *
+ * I2C: the ladder is applied live too and each step is scored on the
+ * CST816D ACK via Touch_SelfTest(), which is a real bus verdict.
+ *
+ * Both buses are left at their last (highest) rate afterwards; drop them
+ * back with LCD_HwSetBaudrate()/Touch_SetHz() from the constants. */
+static void sweep_test(void)
+{
+    uint32_t i;
+
+    PRINTF("[SWEEP] ---- SPI sweep (%lu steps) ----\r\n", (unsigned long)LCD_SweepCount());
+    for (i = 0; i < LCD_SweepCount(); i++)
+    {
+        uint32_t khz = LCD_SweepKhz(i);
+        uint32_t t0, dt;
+        char buf[16];
+
+        LCD_HwSetBaudrate(khz);           /* live retune, no reset */
+
+        /* Colour-bar pattern: any clocking error corrupts it visibly, so
+         * the panel itself is the pass/fail indicator. */
+        t0 = ms_now();
+        DispBand();
+        dt = ms_now() - t0;
+
+        PRINTF("[SWEEP] SPI %5lu kHz -> real %5lu kHz, band fill %4lu ms\r\n",
+               (unsigned long)khz, LCD_HwSpiKHz(), (unsigned long)dt);
+
+        /* Overlay the rate so a marginal step can be identified on the
+         * panel: if the number is legible and the bars are clean, this
+         * rate is good. */
+        LCD_SetAsciiFont(&ASCII_Font16);
+        snprintf(buf, sizeof buf, "%lu", (unsigned long)khz);
+        LCD_DisplayString(INFO_X, 8, "SPI kHz?");
+        LCD_DisplayString(INFO_X, 8 + INFO_DY, buf);
+        LCD_SetAsciiFont(&ASCII_Font12);
+        delay_ms(900);
+    }
+
+    PRINTF("[SWEEP] ---- I2C sweep (%lu steps) ----\r\n", (unsigned long)Touch_SweepCount());
+    for (i = 0; i < Touch_SweepCount(); i++)
+    {
+        uint32_t hz  = Touch_SweepHz(i);
+        uint8_t  ack;
+
+        Touch_SetHz(hz);
+        ack = Touch_SelfTest();
+
+        PRINTF("[SWEEP] I2C %6lu Hz -> %s\r\n",
+               (unsigned long)hz, (ack != 0U) ? "ACK" : "NO ACK");
+        delay_ms(150);
+    }
+
+    PRINTF("[SWEEP] done: SPI %lu kHz, I2C %lu Hz\r\n",
+           LCD_HwSpiKHz(), Touch_GetHz());
+}
+
+/* --------------------------------------------------------------------- */
+void lcd_demo_main(void)
+{
+    PRINTF("\r\n==== appkit-tc234 (TC23xLP) nv3030b_md183_240x284_cst816d @ %lu MHz ====\r\n",
+           (unsigned long)200u);
+    PRINTF("NV3030B 1.83\" 240x284 (wrapped-command SPI, MADCTL 0x08):\r\n");
+    PRINTF("SCLK=P15.6 MOSI=P15.5 CS=P15.2; no DC/MISO/RST/BL pin\r\n");
+    PRINTF("TOUCH: CST816D I2C SDA=P02.0 SCL=P02.1\r\n");
+
+    Touch_Init();
+    IfxPort_setPinModeOutput(&MODULE_P13, 0, IfxPort_OutputMode_pushPull,
+                             IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(&MODULE_P13, 0);    /* BOOT PROBE: Touch_Init done */
+
+    /* Bring-up diagnostic: does the CST816D answer on I2C at all? */
+    {
+        static uint8_t st_buf[8];
+        uint8_t ack = Touch_SelfTest();
+        uint8_t i;
+
+        PRINTF("[TOUCH] self-test: %s\r\n",
+               (ack != 0U) ? "ACK (chip present)" : "NO ACK (check wiring/addr)");
+
+        Touch_Read(st_buf, 8);
+        PRINTF("[TOUCH] id regs:");
+        for (i = 0; i < 8U; i++)
+        {
+            PRINTF(" %02X", st_buf[i]);
+        }
+        PRINTF("\r\n");
+    }
+    LCD_UseHwBus();       /* QSPI2 init + pins (before LCD_Init) */
+    IfxPort_setPinLow(&MODULE_P13, 1);    /* BOOT PROBE: QSPI2 up */
+    LCD_Init();
+    IfxPort_setPinLow(&MODULE_P13, 2);    /* BOOT PROBE: LCD_Init done */
+    LCD_SetAsciiFont(&ASCII_Font12);
+    paint_fps_band();
+    IfxPort_setPinLow(&MODULE_P13, 3);    /* BOOT PROBE: entering loop */
+
+    sweep_test();         /* find the fastest working SPI/I2C rates */
+
+    while (1)
+    {
+        PRINTF("[LCD] phase: HARDWARE banner\r\n");
+        LCD_Reinit();         /* re-frame the panel */
+        banner_page("NV3030B", "HW QSPI2 test",
+                    LCD_BLACK, LCD_CYAN, 3000);
+
+        PRINTF("[LCD] running patterns on HARDWARE QSPI2 @ %s\r\n",
+               mhz_text(LCD_HwSpiKHz()));
+        run_patterns();
+    }
+}
