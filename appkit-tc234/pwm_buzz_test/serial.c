@@ -29,8 +29,14 @@
 /*********************************************************************************************************************/
 IfxStdIf_DPipe g_ascStandardInterface;
 IfxAsclin_Asc g_asclin;
-uint8 g_uartTxBuffer[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
-uint8 g_uartRxBuffer[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
+
+/* Ifx_Fifo_init() casts these buffers to Ifx_Fifo* and the FIFO code performs
+ * 32-bit accesses at offsets 0/4/12 of that struct, so the buffers MUST be
+ * 4-byte aligned. Declared as plain uint8[] the linker only guarantees
+ * alignment 1, and higher optimisation levels then emit wide accesses that
+ * raise an instruction-error trap on a misaligned address (class 2, tin 4). */
+uint8 g_uartTxBuffer[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
+uint8 g_uartRxBuffer[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
 
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/

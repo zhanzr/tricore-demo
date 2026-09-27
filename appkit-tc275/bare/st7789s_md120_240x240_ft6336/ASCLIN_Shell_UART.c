@@ -82,9 +82,15 @@ Ifx_Shell g_shellInterface; /* Shell interface object               */
 /* The transfer buffers allocate memory for the data itself and for FIFO runtime variables.
  * 8 more bytes have to be added to ensure a proper circular buffer handling independent from
  * the address to which the buffers have been located.
+ *
+ * Ifx_Fifo_init() casts these buffers to Ifx_Fifo* and the FIFO code performs
+ * 32-bit accesses at struct offsets 0/4/12 of that struct, so they MUST be
+ * 4-byte aligned. Declared as plain uint8[] the linker only guarantees
+ * alignment 1, and higher optimisation levels then emit wide accesses that
+ * raise an instruction-error trap on a misaligned address (class 2, tin 4).
  */
-uint8 g_uartTxBuffer[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
-uint8 g_uartRxBuffer[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
+uint8 g_uartTxBuffer[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
+uint8 g_uartRxBuffer[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
 
 /* Array that stores the supported Shell commands */
 const Ifx_Shell_Command g_shellCommands[] = {{COMMAND_INFO, COMMAND_INFO_HELP_TEXT, &g_shellInterface, &printShellInfo},

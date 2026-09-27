@@ -122,3 +122,28 @@ The tool auto-detects the connected TC21x device and reports `Pass` on success.
   (`VF`). `IfxVadc_Adc_initModule` must NOT enable `startupCalibration`
   (it enables all converter groups and can hang when only G1 is configured),
   and `IfxVadc_Adc_setScan`'s `mask` argument must cover the channel bits.
+- **UART software-FIFO buffers must be 4-byte aligned.** `serial.c` declares
+  `g_uartTxBuffer` / `g_uartRxBuffer` as `uint8[]` and `Ifx_Fifo_init()` casts
+  them to `Ifx_Fifo *`; the FIFO code then performs 32-bit accesses at struct
+  offsets 0/4/12. A plain `uint8[]` only has alignment 1 and gets **no
+  alignment directive at all** in the generated assembly — it merely inherits
+  the default alignment of its section, so whether it lands on a 4-byte
+  boundary is luck (and changes whenever the layout changes). At higher
+  optimisation levels GCC emits wide accesses for the FIFO header, and a
+  misaligned buffer then raises an **instruction-error trap (class 2, tin 4 =
+  data address alignment)**; the iLLD trap handler ends in `__debug()`, so the
+  CPU silently parks and serial output just stops mid-message.
+
+  This was reproduced on the TC234 board, where the buffers happened to land
+  2-byte aligned (`0x7000319E`) and both benchmarks died mid-report. All UART
+  buffers here carry an explicit alignment so the bug cannot reappear:
+
+  ```c
+  static uint8 g_uartTxBuffer[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
+  static uint8 g_uartRxBuffer[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
+  ```
+
+  Verified: the generated assembly now carries `.align 2` (4 bytes) for both
+  objects and all projects link with both symbols on 4-byte boundaries. Keep
+  the attribute on any new UART buffer. (Not yet re-verified on hardware —
+  these two boards were unavailable; the fix is build-verified only.)

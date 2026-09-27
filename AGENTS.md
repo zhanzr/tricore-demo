@@ -40,13 +40,15 @@ Toolchain / flasher defaults (override via environment or `make VAR=...`):
 
 Compile flags: `-std=c11 -Wall -MMD -MP -g`, plus `-ffunction-sections
 -fdata-sections`. Optimization:
-- Benchmark projects (`dhry_*`, `coremark_*`) in `appkit-tc234`/`tc212-kit`:
+- Benchmark projects in `appkit-tc234/bare/` and `appkit-tc275/bare/`:
+  `-Ofast -ffp-contract=fast` + `-funroll-loops` (dhry) /
+  `-funroll-all-loops` (coremark) — matches the `arm-none-eabi-gcc` flags of
+  the `nucleo-u575` benchmark reference projects. (`appkit-tc234`dhry/coremark
+  also need the UART FIFO buffers `__attribute__((aligned(4)))` — the DPipe
+  FIFO code does 32-bit accesses; unaligned buffers trap at -Ofast.)
+- Benchmark projects in `tc212-kit`:
   `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`.
-- Benchmark projects in `appkit-tc275/bare/`:
-  `-Ofast -ffp-contract=fast` + `-funroll-loops` (`dhry_200m`) /
-  `-funroll-all-loops` (`coremark_200m`) — matches the `arm-none-eabi-gcc`
-  flags of the `nucleo-u575` benchmark reference projects.
-- All other projects: `-O1`.
+- All other projects: `-O1` (tc234/tc275) / `-O2` (tc212-kit).
 
 Header dependencies are tracked with `-MMD -MP` (generated `.d` files are
 included), so editing a header rebuilds the right objects — no forced `clean`

@@ -64,7 +64,18 @@
 #endif
 
 #ifndef IFXCPU_CSTART_CCU_INIT_HOOK
-#define IFXCPU_CSTART_CCU_INIT_HOOK() (void)IfxScuCcu_init(&IfxScuCcu_defaultClockConfig);   /*The status returned by Ccu init is ignored */
+/* Clock init hook: bring the PLL up to the frequency selected in
+ * Configurations/Ifx_Cfg.h (IFX_CFG_SCU_XTAL_FREQUENCY /
+ * IFX_CFG_SCU_PLL_FREQUENCY, e.g. 20 MHz XTAL -> 200 MHz fPLL).
+ *
+ * History (KIT_AURIX_TC234_TFT, TC23x A-step): this hook was previously
+ * made a no-op because enabling the PLL appeared to stop the CPU. The real
+ * cause was the ESR0/ESR1 reset outputs being left in their post-reset state
+ * in _START() (see there); fixing that is what makes the PLL usable, so the
+ * hook is restored to the standard iLLD behaviour. Verified on the board:
+ * CPU = 200.00 MHz, SPB = 100.00 MHz, with Dhrystone/CoreMark running to
+ * completion. Re-define this macro (e.g. in Ifx_Cfg.h) to override. */
+#define IFXCPU_CSTART_CCU_INIT_HOOK() (void)IfxScuCcu_init(&IfxScuCcu_defaultClockConfig)
 #endif
 
 /*******************************************************************************
@@ -180,6 +191,11 @@ void _Core0_start(void)
 
 void _START(void)
 {
+    /* BOOT FIX: release the ESR0/ESR1 reset outputs (drive the /ESR
+     * pins HIGH). Left in their post-reset state they can interact
+     * with the kit's reset circuitry. */
+    MODULE_SCU.OMR.B.PCL0 = 1;
+    MODULE_SCU.OMR.B.PCL1 = 1;
     __non_return_call(_Core0_start);
 }
 

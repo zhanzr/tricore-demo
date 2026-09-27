@@ -163,6 +163,36 @@ shipped inside AURIX Studio:
 Open the miniWiggler's virtual COM port (e.g. **COM6**) at **115200 baud 8N1**
 after flashing. All projects print their banner/benchmark results there.
 
+### UART software-FIFO buffers must be 4-byte aligned
+
+`ASCLIN_Shell_UART.c` declares `g_uartTxBuffer` / `g_uartRxBuffer` as
+`uint8[]` and `Ifx_Fifo_init()` casts them to `Ifx_Fifo *`; the FIFO code then
+performs 32-bit accesses at struct offsets 0/4/12. A plain `uint8[]` only has
+alignment 1 and gets **no alignment directive at all** in the generated
+assembly — it merely inherits the default alignment of its section, so
+whether it lands on a 4-byte boundary is luck (and changes whenever the memory
+layout changes).
+
+At higher optimisation levels (the `-Ofast` benchmark builds) GCC emits wide
+accesses for the FIFO header, and a misaligned buffer then raises an
+**instruction-error trap (class 2, tin 4 = data address alignment)**. The iLLD
+trap handler ends in `__debug()`, so the CPU silently parks and serial output
+just stops mid-message.
+
+This was reproduced on the TC234 board, where the buffers happened to land
+2-byte aligned (`0x7000319E`) and both benchmarks died mid-report. All UART
+buffers here carry an explicit alignment so the bug cannot reappear:
+
+```c
+uint8 g_uartTxBuffer[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
+uint8 g_uartRxBuffer[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((aligned(4)));
+```
+
+Verified: the compiled objects carry `.align 2` (4 bytes) and all projects link
+with both symbols on 4-byte boundaries. Keep the attribute on any new UART
+buffer. (Not yet re-verified on hardware — the board was unavailable; the fix
+is build-verified only.)
+
 ## Board
 
 ![screenshoot](board_images/board_1.png "screenshoot")

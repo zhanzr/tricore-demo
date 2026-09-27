@@ -9,12 +9,17 @@ Projects for the Application Kit TC2X4 (TC234) board.
 
 ## Projects
 
-| Project         | Description                                                       |
-|-----------------|-------------------------------------------------------------------|
-| `blink_hello`   | Blinks 4 LEDs (P13.0-P13.3) and prints CPU frequency via ASC0    |
-| `dhry_200m`     | Dhrystone 2.1 benchmark @ 200 MHz (GCC -O3), 383k Dhrystone/s    |
-| `coremark_200m` | CoreMark 1.0 benchmark @ 200 MHz (GCC -O3), 478.7 it/s           |
-| `pwm_buzz_test` | Passive buzzer on P33.0, 2048 Hz PWM, duty sweep 0-100-0          |
+All bare-metal projects live in the `bare/` folder.
+
+| Project                  | Description                                                       |
+|--------------------------|-------------------------------------------------------------------|
+| `bare/blink_hello`       | Blinks 4 LEDs (P13.0-P13.3) and prints CPU frequency via ASC0    |
+| `bare/dhry_200m`         | Dhrystone 2.1 @ 200 MHz: 394.5k Dhrystones/s (1.12 DMIPS/MHz)    |
+| `bare/coremark_200m`     | CoreMark 1.0 @ 200 MHz: 490.9 it/s                               |
+| `pwm_buzz_test`          | Passive buzzer on P33.0, 2048 Hz PWM, duty sweep 0-100-0          |
+
+All projects run at **CPU = 200 MHz / SPB = 100 MHz** (PLL from the 20 MHz
+XTAL, see "Clock configuration" below).
 
 ### blink_hello
 
@@ -69,7 +74,7 @@ Each project ships a **Makefile** (GNU Make, incremental with header deps).
 Run from MSYS2 (`C:\msys64\usr\bin\bash.exe`) or Git Bash:
 
 ```
-cd appkit-tc234/<project>
+cd appkit-tc234/bare/<project>
 make          # link build/<proj>.elf
 make hex      # build build/<proj>.hex
 make flash    # program build/<proj>.hex via AURIXFlasher (rebuilds hex first)
@@ -92,13 +97,12 @@ If you open the projects in the AURIX Studio IDE (whose `.cproject` expects
 per-project links once:
 
 ```
-bash appkit-tc234/setup_libraries_links.sh      # POSIX: symlinks
-powershell -ExecutionPolicy Bypass -File appkit-tc234\setup_libraries_links.ps1   # Windows: junctions
+bash appkit-tc234/setup_libraries_links.sh   # symlinks on POSIX, junctions on Windows
 ```
 
-This creates `blink_hello\Libraries`, `dhry_200m\Libraries`, etc. as links to
-`appkit-tc234\Libraries`. They are not tracked by git; re-run the script after
-a fresh clone.
+This creates `bare\blink_hello\Libraries`, `bare\dhry_200m\Libraries`, etc. as
+links to `appkit-tc234\Libraries`. They are not tracked by git; re-run the
+script after a fresh clone.
 
 Important build details (documented, do not regress):
 
@@ -147,22 +151,58 @@ shipped inside AURIX Studio:
   used `-start off`, which is why the board appeared dead until re-flashed or
   USB re-plugged.
 
+## Clock configuration
+
+The board runs from the on-board 20 MHz crystal with the PLL configured for
+**200 MHz** (`Configurations/Ifx_Cfg.h`: `IFX_CFG_SCU_XTAL_FREQUENCY` 20 MHz,
+`IFX_CFG_SCU_PLL_FREQUENCY` 200 MHz). The matching iLLD PLL step table is
+`IFXSCU_CFG_PLL_STEPS_20MHZ_200MHZ` (K2 = 5 / 4 / 3), selected automatically
+from those two macros.
+
+The clock is brought up by the standard iLLD hook in
+`Libraries/iLLD/TC23A/Tricore/Cpu/CStart/IfxCpu_CStart0.c`:
+
+```c
+#define IFXCPU_CSTART_CCU_INIT_HOOK() (void)IfxScuCcu_init(&IfxScuCcu_defaultClockConfig)
+```
+
+Two historical boot problems on this kit are fixed in that file and must not
+be reverted:
+
+1. **ESR0/ESR1 reset outputs** — `_START()` drives `SCU_OMR.PCL0/PCL1` high.
+   Left in their post-reset state they interact with the kit's reset
+   circuitry.
+2. **Clock init** — the hook above must stay enabled. It was once replaced by
+   a no-op (the PLL was believed dead), which silently left the chip on the
+   100 MHz backup clock. With fix (1) in place the PLL works and the chip runs
+   at the configured 200 MHz.
+
+Verify with `blink_hello`: it prints `CPU=200.00 MHz SPB=100.00 MHz`.
+
 ## Known pitfalls
 
 - If the serial terminal shows garbage like `�a�a`, the terminal baud does not
   match the firmware (firmware prints at 115200; a "clean" letter is usually
   the terminal's own local echo, not the MCU). Unplug/replug USB to get a clean
   console after a flash session, and verify the baud setting in the terminal.
-- ASC0 baud is derived from the SPB clock via `IfxScuCcu_getSpbFrequency()`.
-  The clock config in `Configurations/Ifx_Cfg.h` (XTAL 20 MHz, PLL 200 MHz)
-  must match the board.
+- ASC0 baud is derived from the SPB clock via `IfxScuCcu_getSpbFrequency()`,
+  so it follows the clock configuration automatically.
+- **UART software-FIFO buffers must be 4-byte aligned.** `serial.c` declares
+  `g_uartTxBuffer` / `g_uartRxBuffer` as `uint8[]` and `Ifx_Fifo_init()` casts
+  them to `Ifx_Fifo *`; the FIFO code performs 32-bit accesses at struct
+  offsets 0/4/12. Without `__attribute__((aligned(4)))` the linker may place
+  them 2-byte aligned, and at higher optimisation levels (`-Ofast`) the
+  resulting wide access raises an **instruction-error trap (class 2, tin 4 =
+  data address alignment)**. The iLLD trap handler ends in `__debug()`, so the
+  CPU silently parks and the serial output just stops mid-message. Keep the
+  alignment attribute on any new UART buffer.
 - LED blink period is 200 ms by design; the "2 s" applies to the serial report
   only.
 
 ## Board
 
-![screenshoot](board_0.jpg "screenshoot")
-![screenshoot](board_1.webp "screenshoot")
+![screenshoot](board_images/board_0.jpg "screenshoot")
+![screenshoot](board_images/board_1.webp "screenshoot")
 
 ## How to add a project
 
