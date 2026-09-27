@@ -15,6 +15,7 @@ Projects for the **Application Kit TC2X5 V2.0** board (TC275).
 | `bare/blink_hello`          | ASCLIN UART banner + Die-Temp + 4-LED blink (3 cores) |
 | `bare/coremark_200m`        | CoreMark 1.0 benchmark, runs on all 3 cores           |
 | `bare/dhry_200m`            | Dhrystone 2.1 benchmark, runs on all 3 cores          |
+| `bare/st7789s_md120_240x240_ft6336` | TK012F6 240x240 touch LCD (ST7789S via QSPI2 + FT6336 via I2C0) |
 
 All projects are **bare metal** (no RTOS), hence the `bare/` folder. The
 `_200m` suffix reflects the board's maximum core frequency (200 MHz).
@@ -96,12 +97,12 @@ If you open the projects in the AURIX Studio IDE (whose `.cproject` expects
 per-project links once:
 
 ```
-bash appkit-tc275/setup_libraries_links.sh      # POSIX: symlinks
-powershell -ExecutionPolicy Bypass -File appkit-tc275\setup_libraries_links.ps1   # Windows: junctions
+bash appkit-tc275/setup_libraries_links.sh   # symlinks on POSIX, junctions on Windows
 ```
 
 This creates `bare\blink_hello\Libraries`, `bare\coremark_200m\Libraries`,
-`bare\dhry_200m\Libraries`
+`bare\dhry_200m\Libraries`,
+`bare\st7789s_md120_240x240_ft6336\Libraries`
 as links to `appkit-tc275\Libraries`. They are not tracked by git; re-run the
 script after a fresh clone.
 

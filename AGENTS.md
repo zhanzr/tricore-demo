@@ -56,7 +56,8 @@ Link: `-mcpu=<arch> -T <proj>/Lcf_Gnuc_Tricore_Tc.lsl -nostdlib -Wl,--gc-section
 -lgcc -lc -lnosys -lgcc` (libgcc must come after libc for soft-float doubles).
 
 `appkit-tc275` is TASKING-only (free edition builds only from the IDE). The
-`setup_libraries_links.{sh,ps1}` scripts there link the shared `Libraries/`.
+`setup_libraries_links.sh` script there links the shared `Libraries/`
+(symlinks on POSIX, directory junctions on Windows).
 
 ## Project layout (GCC projects)
 
