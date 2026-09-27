@@ -205,6 +205,29 @@ Verify with `blink_hello`: it prints `CPU=200.00 MHz SPB=100.00 MHz`.
 - LED blink period is 200 ms by design; the "2 s" applies to the serial report
   only.
 
+## LCD/touch porting checklist (nv3030b bring-up lessons)
+
+Full story in `bare/nv3030b_md183_240x284_cst816d/README.md` ("Bugs found and
+fixed"). The generalizable traps, all hit during that bring-up:
+
+- **`CS_SET` / `CS_CLR` are functions, not macros.** A `CS_SET;` statement
+  (macro-style, no parens) compiles with only a `-Wall` "statement with no
+  effect" warning — CS never asserts and the panel ignores every byte while
+  the code "sends" normally. Always call them: `CS_SET();`.
+- **`WriteComm()` must copy the wrapped-command prefix (`02 00 <cmd> 00`)
+  into the driver's TX buffer** before flushing. Dropping the copy leaves
+  `s_tx_len == 0`, and the first burst waits forever on an end-of-frame
+  event that never comes (keep that wait bounded + print a diagnostic).
+- **`Bsp.h`'s `now()` returns raw STM ticks, not ms.** Divide by the STM
+  frequency before using it as a millisecond timestamp.
+- **Soft-I2C reads: restore SDA to output mode before driving the master
+  ACK.** With SDA left in input mode the ACK never reaches the slave and
+  every register read returns `0xFF` after the first byte.
+- **Size `GLOBALCON.TQ` from the fastest rate you will request.** The QSPI
+  time quanta (`fMAX / (TQ + 1)`) is the base for all channel dividers; a
+  coarse quantum silently clamps every higher request (observed: "set
+  50000 kHz → real 10000 kHz" for nine consecutive ladder steps).
+
 ## Board
 
 ![screenshoot](board_images/board_0.jpg "screenshoot")

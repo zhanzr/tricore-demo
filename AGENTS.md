@@ -54,6 +54,14 @@ Header dependencies are tracked with `-MMD -MP` (generated `.d` files are
 included), so editing a header rebuilds the right objects — no forced `clean`
 needed for normal edits.
 
+LCD/touch port gotchas (see `appkit-tc234/README.md` "LCD/touch porting
+checklist" for the full list): `CS_SET`/`CS_CLR` in `src/interface.c` are
+functions — a macro-style `CS_SET;` statement silently does nothing; the
+wrapped-command prefix must be copied into the driver's TX buffer before the
+flush (an empty flush must return early, never wait on PT2F); `Bsp.h`'s
+`now()` is raw STM ticks (divide for ms); soft-I2C must restore SDA to
+output mode before driving the master ACK.
+
 Link: `-mcpu=<arch> -T <proj>/Lcf_Gnuc_Tricore_Tc.lsl -nostdlib -Wl,--gc-sections
 -lgcc -lc -lnosys -lgcc` (libgcc must come after libc for soft-float doubles).
 
