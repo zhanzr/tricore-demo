@@ -52,3 +52,6 @@ Desktop.ini
 */Debug/
 */Release/
 *_pinout/
+
+Blinky_LED_1_KIT_TC234_TFT/
+Blinky_LED_1_KIT_TC234_TFT_gcc/
