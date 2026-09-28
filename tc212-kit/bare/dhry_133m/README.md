@@ -2,20 +2,24 @@
 
 **Dhrystone 2.1** benchmark on the TC212 @ 133 MHz, single core (core0).
 
-## Result (measured, `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`)
+## Result (measured, `-Ofast -ffp-contract=fast -funroll-loops`)
 
 ```
-TC212 Dhrystone 2.1, CPU = 133.33 MHz, Die = 40.00 C
-MicroSecond for one run through Dhrystone[1-7591]:  3.795
-Dhrystones per Second: 263504.625
-DMIPS/MHz: 1.128
+TC212 Dhrystone 2.1, CPU = 133.33 MHz, Die = 38.13 C
+MicroSecond for one run through Dhrystone[1-7846]:  3.923
+Dhrystones per Second: 254939.453
+DMIPS/MHz: 1.091
 ```
 
-Built with `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`
-(matching the appkit-tc234 dhry build, also AURIX GCC), AURIX GCC
-`tricore-elf-gcc` 11.3.1. Validation checks pass (`Int_Glob=5`,
-`Arr_2_Glob=2000010`). For comparison, `-O1` scored 214,018 Dhrystones/s
-(0.916 DMIPS/MHz).
+Built with `-Ofast -ffp-contract=fast -funroll-loops -ffunction-sections
+-fdata-sections`, matching the appkit-tc275/appkit-tc234 dhry builds (AURIX
+GCC `tricore-elf-gcc` 11.3.1). Validation checks pass (`Int_Glob=5`,
+`Arr_2_Glob=2000010`). For comparison, the previous `-O3 -ffast-math
+-funroll-loops -finline-functions -fno-math-errno` build scored 263,505
+Dhrystones/s (1.128 DMIPS/MHz) — slightly faster here, since unrolled code
+costs more flash wait-state time on the cache-less TC212 — and `-O1` scored
+214,018 Dhrystones/s (0.916 DMIPS/MHz). The `-Ofast` set is kept for
+cross-board comparability.
 
 ## Files
 
@@ -37,7 +41,7 @@ make flash    # programs build/dhry_133m.hex via AURIXFlasher
 
 ```
 "D:\Infineon\AURIX-Studio-1.10.36\tools\AurixFlasherSoftwareTool_v3.0.18\AURIXFlasher.exe" ^
-    -hex %TEMP%\tc212_dhry_build\dhry_133m.hex -prog on -ver on -start on
+    -hex build\dhry_133m.hex -prog on -ver on -start on
 ```
 
 ## Linker

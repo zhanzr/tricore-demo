@@ -2,14 +2,14 @@
 
 **CoreMark 1.0** benchmark on the TC212 @ 133 MHz, single core (core0).
 
-## Result (measured, `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`)
+## Result (measured, `-Ofast -ffp-contract=fast -funroll-all-loops`)
 
 ```
-TC212 CoreMark, CPU = 133.33 MHz, Die = 40.93 C
+TC212 CoreMark, CPU = 133.33 MHz, Die = 38.13 C
 2K performance run parameters for coremark.
 CoreMark Size    : 666
-Total time (secs): 24.773000
-Iterations/Sec   : 322.932225
+Total time (secs): 24.570000
+Iterations/Sec   : 325.600326
 Iterations       : 8000
 seedcrc          : 0xe9f5
 [0]crclist       : 0xe714
@@ -17,15 +17,18 @@ seedcrc          : 0xe9f5
 [0]crcstate      : 0x8e3a
 [0]crcfinal      : 0x5275
 Correct operation validated.
-CoreMark 1.0 : 322.932225 / -O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno / Static
+CoreMark 1.0 : 325.600326 / -Ofast -ffp-contract=fast -funroll-all-loops -ffunction-sections -fdata-sections / Static
 ```
 
 All CRCs match the known-good 2K performance run values -> valid score.
-**322.9 CoreMark = 2.42 CoreMark/MHz @ -O3** (AURIX GCC 11.3.1). For
-comparison, `-O1` scored 227.0 (1.70 CoreMark/MHz).
+**325.6 CoreMark = 2.44 CoreMark/MHz** (AURIX GCC 11.3.1). For comparison,
+the previous `-O3 -ffast-math -funroll-loops -finline-functions
+-fno-math-errno` build scored 322.9 (2.42 CoreMark/MHz) and `-O1` scored
+227.0 (1.70 CoreMark/MHz).
 
-The `-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno` flags
-match the appkit-tc234 coremark build (also AURIX GCC).
+The `-Ofast -ffp-contract=fast -funroll-all-loops -ffunction-sections
+-fdata-sections` flags match the appkit-tc275/appkit-tc234 coremark builds
+(also AURIX GCC).
 
 ## Files
 
@@ -48,7 +51,7 @@ make flash    # programs build/coremark_133m.hex via AURIXFlasher
 
 ```
 "D:\Infineon\AURIX-Studio-1.10.36\tools\AurixFlasherSoftwareTool_v3.0.18\AURIXFlasher.exe" ^
-    -hex %TEMP%\tc212_coremark_build\coremark_133m.hex -prog on -ver on -start on
+    -hex build\coremark_133m.hex -prog on -ver on -start on
 ```
 
 ## Linker

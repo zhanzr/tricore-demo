@@ -22,12 +22,12 @@ AURIX_FLASHER ?= D:/Infineon/AURIX-Studio-1.10.36/tools/AurixFlasherSoftwareTool
 
 # --- Paths ---
 ROOT  := $(CURDIR)
-LIBS  := $(abspath $(ROOT)/../Libraries)
+LIBS  := $(abspath $(ROOT)/../../Libraries)
 BUILD := build
 ARCH  := tc22xx
 
 # --- Compile flags ---
-CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno -MMD -MP -g
+CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -Ofast -ffp-contract=fast -funroll-all-loops -ffunction-sections -fdata-sections -MMD -MP -g
 INCLUDES := \
 	-I$(ROOT)/Configurations \
 	-I$(ROOT) \

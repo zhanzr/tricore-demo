@@ -46,7 +46,7 @@
  */
 #include <stdint.h>
 
-#define	FLAGS_STR	"-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno"
+#define	FLAGS_STR	"-Ofast -ffp-contract=fast -funroll-all-loops -ffunction-sections -fdata-sections"
 #ifndef ITERATIONS
 #define ITERATIONS  8000
 #endif

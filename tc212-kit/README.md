@@ -2,7 +2,7 @@
 
 Projects for the **TC212 Application Kit** (TC22x family, AURIX 1G).
 
-![TC212 Application Kit](board_1.jpg "TC212 Application Kit")
+![TC212 Application Kit](board_images/board_1.jpg "TC212 Application Kit")
 
 - Device: **TC21x/TC22x** (`DEVICE-ID: TC22x` family)
 - Verified silicon CHIPID: `CHID=12 CHREV=1 FSIZE=1` (**TC212, 512 KB program flash**)
@@ -17,15 +17,22 @@ Projects for the **TC212 Application Kit** (TC22x family, AURIX 1G).
 
 | Project         | Description                                                        | Build tool            | Result |
 |-----------------|--------------------------------------------------------------------|-----------------------|--------|
-| `blink_hello`   | 8 LEDs, CPU/die temp + **AN18 ADC** via ASC0                      | `make`                | boot OK @133.33 MHz, ~39 C die, AN18=2.556 V |
-| `dhry_133m`     | Dhrystone 2.1 benchmark (core0)                                    | `make`                | **263,505 Dhrystones/s**, 1.128 DMIPS/MHz @ -O3 |
-| `coremark_133m` | CoreMark 1.0 benchmark (core0)                                     | `make`                | **322.9 CoreMark** (2.42 CoreMark/MHz) @ -O3 |
+| `bare/blink_hello`   | 8 LEDs, CPU/die temp + **AN18 ADC** via ASC0                      | `make`                | boot OK @133.33 MHz, ~39 C die, AN18=2.556 V |
+| `bare/dhry_133m`     | Dhrystone 2.1 benchmark (core0)                                    | `make`                | **254,939 Dhrystones/s**, 1.091 DMIPS/MHz @ -Ofast |
+| `bare/coremark_133m` | CoreMark 1.0 benchmark (core0)                                     | `make`                | **325.6 CoreMark** (2.44 CoreMark/MHz) @ -Ofast |
 | `pwm_buzz_test` | Passive buzzer on **P10.5** (GTM TOM0_CH2), 2048 Hz PWM duty sweep | `make`                | boot + banner OK (audible sweep) |
 | `spi_ee_test`   | **AT25128N** SPI EEPROM (P33.5/P20.11/P20.14/P20.12) erase/program/read speed test | `make`          | verify OK: write ~29 KB/s, read ~0.23 MB/s |
 
-The benchmark projects (`dhry_133m`, `coremark_133m`) build with
-`-O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno`, matching
-the appkit-tc234 benchmark builds. Non-benchmark projects use `-O1`.
+The bare-metal demo/benchmark projects live in `bare/`; `pwm_buzz_test` and
+`spi_ee_test` remain at the board root.
+
+The benchmark projects (`bare/dhry_133m`, `bare/coremark_133m`) build with
+`-Ofast -ffp-contract=fast` plus `-funroll-loops` (dhry) / `-funroll-all-loops`
+(coremark) and `-ffunction-sections -fdata-sections`, matching the
+appkit-tc275/appkit-tc234 benchmark builds. (On the cache-less TC212 this set
+scores marginally below the old `-O3 -ffast-math` set for Dhrystone and
+marginally above for CoreMark; it is kept for cross-board comparability.)
+Non-benchmark projects use `-O1`.
 
 ## Shared Libraries
 
@@ -60,7 +67,7 @@ PATH) if your install differs.
 **Generic workflow** — `cd` into any project folder and use the make targets:
 
 ```
-cd tc212-kit/<any-project>
+cd tc212-kit/bare/<project>      # or tc212-kit/<project> for pwm_buzz_test, spi_ee_test
 make hex      # build build/<proj>.hex
 make flash    # program build/<proj>.hex via AURIXFlasher
 ```
@@ -145,5 +152,6 @@ The tool auto-detects the connected TC21x device and reports `Pass` on success.
 
   Verified: the generated assembly now carries `.align 2` (4 bytes) for both
   objects and all projects link with both symbols on 4-byte boundaries. Keep
-  the attribute on any new UART buffer. (Not yet re-verified on hardware —
-  these two boards were unavailable; the fix is build-verified only.)
+  the attribute on any new UART buffer. Hardware-verified: both benchmarks
+  now run to completion at `-Ofast` on this board (previously they died
+  mid-report when the buffers landed 2-byte aligned).

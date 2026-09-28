@@ -1,4 +1,4 @@
-# dhry_133m - TC212 (TC22x) build/flash
+# blink_hello - TC212 (TC22x) build/flash
 #
 # Targets:   make            build <proj>.hex (same as `make hex`)
 #            make hex        build <proj>.hex
@@ -7,11 +7,11 @@
 #            make clean      remove build/
 #
 # Toolchain: run from MSYS2 (C:\msys64\usr\bin\bash.exe) or Git Bash.
-#            Set TRICORE_GCC if tricore-elf-gcc is not on PATH, e.g.
-#            make TRICORE_GCC=/d/aurixgcc_03_2026/bin/tricore-elf-gcc
-#            Override the flasher with: make flash AURIX_FLASHER=...
+# TRICORE_GCC defaults to the AURIX GCC install on this machine; override if
+# needed, e.g.  make TRICORE_GCC=tricore-elf-gcc  (toolchain on PATH).
+# Override the flasher with: make flash AURIX_FLASHER=...
 
-PROJ := dhry_133m
+PROJ := blink_hello
 
 # --- Toolchain ---
 TRICORE_GCC  ?= D:/aurixgcc_03_2026/bin/tricore-elf-gcc
@@ -22,12 +22,12 @@ AURIX_FLASHER ?= D:/Infineon/AURIX-Studio-1.10.36/tools/AurixFlasherSoftwareTool
 
 # --- Paths ---
 ROOT  := $(CURDIR)
-LIBS  := $(abspath $(ROOT)/../Libraries)
+LIBS  := $(abspath $(ROOT)/../../Libraries)
 BUILD := build
 ARCH  := tc22xx
 
 # --- Compile flags ---
-CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -O3 -ffast-math -funroll-loops -finline-functions -fno-math-errno -MMD -MP -g
+CFLAGS  := -c -mcpu=$(ARCH) -D__HIGHTEC__ -D__TRICORE__ -std=c11 -Wall -O1 -MMD -MP -g
 INCLUDES := \
 	-I$(ROOT)/Configurations \
 	-I$(ROOT) \
