@@ -20,11 +20,11 @@ Projects for the **TC212 Application Kit** (TC22x family, AURIX 1G).
 | `bare/blink_hello`   | 8 LEDs, CPU/die temp + **AN18 ADC** via ASC0                      | `make`                | boot OK @133.33 MHz, ~39 C die, AN18=2.556 V |
 | `bare/dhry_133m`     | Dhrystone 2.1 benchmark (core0)                                    | `make`                | **254,939 Dhrystones/s**, 1.091 DMIPS/MHz @ -Ofast |
 | `bare/coremark_133m` | CoreMark 1.0 benchmark (core0)                                     | `make`                | **325.6 CoreMark** (2.44 CoreMark/MHz) @ -Ofast |
-| `pwm_buzz_test` | Passive buzzer on **P10.5** (GTM TOM0_CH2), 2048 Hz PWM duty sweep | `make`                | boot + banner OK (audible sweep) |
-| `spi_ee_test`   | **AT25128N** SPI EEPROM (P33.5/P20.11/P20.14/P20.12) erase/program/read speed test | `make`          | verify OK: write ~29 KB/s, read ~0.23 MB/s |
+| `bare/pwm_buzz_test` | Passive buzzer on **P10.5** (GTM TOM0_CH2), 2048 Hz PWM duty sweep | `make`                | boot + banner OK (audible sweep) |
+| `bare/spi_ee_test`   | **AT25128N** SPI EEPROM (P33.5/P20.11/P20.14/P20.12) erase/program/read speed test | `make`          | verify OK: write ~29 KB/s, read ~0.23 MB/s |
 
-The bare-metal demo/benchmark projects live in `bare/`; `pwm_buzz_test` and
-`spi_ee_test` remain at the board root.
+All projects live in the `bare/` folder; the board root holds only the shared
+`Libraries/`, `bare/` and `board_images/`.
 
 The benchmark projects (`bare/dhry_133m`, `bare/coremark_133m`) build with
 `-Ofast -ffp-contract=fast` plus `-funroll-loops` (dhry) / `-funroll-all-loops`
@@ -67,7 +67,7 @@ PATH) if your install differs.
 **Generic workflow** — `cd` into any project folder and use the make targets:
 
 ```
-cd tc212-kit/bare/<project>      # or tc212-kit/<project> for pwm_buzz_test, spi_ee_test
+cd tc212-kit/bare/<project>
 make hex      # build build/<proj>.hex
 make flash    # program build/<proj>.hex via AURIXFlasher
 ```
@@ -95,7 +95,7 @@ Outputs stay in the project folder: `<project>/build/<proj>.hex` (plus
 flasher; set `AURIX_FLASHER` to override). From any project folder:
 
 ```
-cd tc212-kit/<any-project> && make flash
+cd tc212-kit/bare/<project> && make flash
 ```
 
 Equivalent direct command (run from the project folder):
