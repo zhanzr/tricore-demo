@@ -3,9 +3,14 @@
   TK018F3716 240x284 module).
 
   Transport: QSPI2 hardware, 8-bit frames, SPI mode 3 (idle-high
-  clock, shift on leading edge), MSB first, ~25 MHz SCK. The module's
-  DC pin carries no framing in the NV3030B wrapped-command protocol,
-  and the MISO pin is not wired on this module - write-only.
+  clock, shift on leading edge), MSB first, 40 MHz SCK.
+
+  WRITE-ONLY BY DESIGN: the driver never reads from the panel. Most
+  modules from this vendor do not bring MISO out to the connector, so
+  relying on it would tie the driver to the few boards that do. The
+  NV3030B wrapped-command protocol needs no readback (no status polling,
+  no RAM read), so nothing here depends on MISO even though this
+  particular module happens to wire it to P15.4.
 
   Wrapped-command framing (vendor-verbatim): WriteComm raises CS
   (settle), lowers it, then streams the 4-byte prefix 02 00 <cmd> 00;
@@ -24,39 +29,38 @@
 #include "interface.h"
 #include "lcd.h"
 #include "IfxQspi.h"
+#include "IfxScuCcu.h"
 #include "IfxScuWdt.h"
 #include "serial.h"
 #include <string.h>
 
 /* Panel SCK. Overridable at build time via
- * make CFLAGS+=-DLCD_QSPI_BAUDRATE=25000000.0 (etc.).
- * The live value is held in s_baudrate so the bring-up sweep can retune
- * the channel at runtime without rebuilding.
+ * make CFLAGS+=-DLCD_QSPI_BAUDRATE=20000000.0 (etc.).
  *
- * 50 MHz is the fastest rate QSPI2 can generate here (fMAX = 200 MHz) and
- * the clock sweep confirmed it works: the fill time tracks the clock all
- * the way up and the panel pattern stays clean. */
+ * MEASURED LIMITS on this module:
+ *   20 MHz - reliable (many consecutive clean loops)
+ *   40 MHz - reliable (validated)  <- default
+ *   50 MHz - NOT usable: transfers complete and the fill timing is correct,
+ *            but detailed content is intermittently corrupted. Marginal
+ *            signal integrity, not a driver bug.
+ *
+ * ALWAYS validate a rate with the checkerboard (stress_pattern), never with
+ * solid fills: those have no information content, so bit errors are
+ * invisible and the fill timing stays perfect while the data is wrong. */
 #ifndef LCD_QSPI_BAUDRATE
-#define LCD_QSPI_BAUDRATE 50000000.0F
+#define LCD_QSPI_BAUDRATE 40000000.0F
 #endif
 
-/* Sweep ladder for the bring-up test: start very slow and step up to the
- * fastest rate the QSPI can generate (~50 MHz). A step "passes" when the
- * frame completes and the FPS loop keeps running; a marginal clock shows
- * up as garbage on the panel, so the operator confirms the last good one. */
-#define LCD_SWEEP_STEPS   10U
-static const uint32_t s_sweep_khz[LCD_SWEEP_STEPS] = {
-    1000U, 2000U, 5000U, 10000U, 15000U, 20000U, 25000U, 30000U, 40000U, 50000U
-};
+/* SCLK/MOSI pad slew rate. Speed1 is the SLOWEST edge, which reduces
+ * overshoot/ringing on the module's flex cable + connector and is the first
+ * thing to try when a high SPI clock corrupts data. Speed4 is the fastest.
+ * Override with make CFLAGS+=-DLCD_QSPI_PAD_DRIVER=IfxPort_PadDriver_cmosAutomotiveSpeed2 */
+#ifndef LCD_QSPI_PAD_DRIVER
+#define LCD_QSPI_PAD_DRIVER IfxPort_PadDriver_cmosAutomotiveSpeed1
+#endif
 
-/* Fastest rate the ladder uses. The time quantum (TQ) must be sized for
- * THIS, not for the slowest rate: TQ sets the QSPI time quanta
- * (TQspi = fMAX / (TQ + 1)) and the channel dividers are integer
- * multiples of it, so a coarse quantum cannot express high baud rates at
- * all. Sizing TQ for 1 MHz forced TQspi = 40 MHz and clamped every
- * request above 10 MHz back to 10 MHz (the sweep showed "set 50000 kHz ->
- * real 10000 kHz"). Sizing for the top rate gives TQ = 0, i.e.
- * TQspi = 200 MHz and ~5 ns resolution. */
+/* Fastest rate the QSPI can generate (fMAX = 200 MHz / 4). Only used to
+ * size the time quantum, never exceeded. */
 #define LCD_QSPI_BAUDRATE_MAX 50000000.0F
 
 /* Bring-up diagnostic: print the baud actually programmed into QSPI2.
@@ -117,33 +121,6 @@ static void spi_apply_baud(float32 baudrate)
     s_baudrate = baudrate;
 }
 
-/* Retune the running QSPI2 to a new SCK (bring-up sweep). */
-void LCD_HwSetBaudrate(uint32_t khz)
-{
-    if (khz == 0U)
-    {
-        return;
-    }
-
-    SPI_HW_Flush();
-    spi_apply_baud((float32)khz * 1000.0F);
-
-#if LCD_QSPI_TRACE
-    PRINTF("[QSPI] set %lu kHz -> real %lu kHz\r\n",
-           (unsigned long)khz, LCD_HwSpiKHz());
-#endif
-}
-
-uint32_t LCD_SweepCount(void)
-{
-    return LCD_SWEEP_STEPS;
-}
-
-uint32_t LCD_SweepKhz(uint32_t index)
-{
-    return (index < LCD_SWEEP_STEPS) ? s_sweep_khz[index] : 0U;
-}
-
 /* Configure + init QSPI2 (once). */
 static void spi_hw_init(void)
 {
@@ -152,11 +129,40 @@ static void spi_hw_init(void)
         return;
     }
 
-    /* Enable the module (ENDINIT-protected write). */
+    /* Enable the module (ENDINIT-protected write).
+     *
+     * Force an explicit disable -> enable cycle. CLC.DISR is only a
+     * *request* and the module acknowledges it via CLC.DISS; while the
+     * module is still gated, writes to GLOBALCON/ECON are silently lost.
+     * The module's state also differs between reset sources - a debugger
+     * reset leaves it configured from the previous run, a power-on reset
+     * starts from scratch - so doing the cycle explicitly makes this init
+     * independent of how we got here. */
     uint16 password = IfxScuWdt_getCpuWatchdogPassword();
+
     IfxScuWdt_clearCpuEndinit(password);
-    IfxQspi_setEnableModuleRequest(g_qspi);
+    g_qspi->CLC.B.DISR = 1;                       /* request disable */
     IfxScuWdt_setCpuEndinit(password);
+
+    {
+        uint32 guard = 0;
+        while (g_qspi->CLC.B.DISS == 0U)          /* wait until really gated */
+        {
+            if (++guard > 10000000UL) { break; }
+        }
+    }
+
+    IfxScuWdt_clearCpuEndinit(password);
+    IfxQspi_setEnableModuleRequest(g_qspi);       /* request run */
+    IfxScuWdt_setCpuEndinit(password);
+
+    {
+        uint32 guard = 0;
+        while (g_qspi->CLC.B.DISS != 0U)          /* wait until really running */
+        {
+            if (++guard > 10000000UL) { break; }
+        }
+    }
 
     /* GLOBALCON: master mode, time quantum sized for the top sweep rate. */
     Ifx_QSPI_GLOBALCON globalcon;
@@ -178,12 +184,16 @@ static void spi_hw_init(void)
      * stays paused, the FIFO never drains and the first frame hangs. */
     IfxQspi_run(g_qspi);
 
-    /* Pins: SCLK2B = P15.6, MTSR2A = P15.5. No MRST (module MISO not
-     * wired) and no SLSO (CS is GPIO P15.2, software controlled). */
+    /* Pins: SCLK2B = P15.6, MTSR2A = P15.5. MRST is deliberately NOT
+     * initialised: this module does wire MISO to P15.4, but the driver is
+     * write-only by design so it must not depend on it (most modules from
+     * this vendor do not bring MISO out at all). No SLSO either - CS is the
+     * GPIO P15.2, software controlled.
+     * Pad slew is configurable (LCD_QSPI_PAD_DRIVER) - see the note there. */
     IfxQspi_initSclkOutPin(&IfxQspi2_SCLK_P15_6_OUT, IfxPort_OutputMode_pushPull,
-                           IfxPort_PadDriver_cmosAutomotiveSpeed3);
+                           LCD_QSPI_PAD_DRIVER);
     IfxQspi_initMtsrOutPin(&IfxQspi2_MTSR_P15_5_OUT, IfxPort_OutputMode_pushPull,
-                           IfxPort_PadDriver_cmosAutomotiveSpeed3);
+                           LCD_QSPI_PAD_DRIVER);
 
     spi_apply_baud(LCD_QSPI_BAUDRATE);
 
@@ -203,6 +213,28 @@ static void spi_hw_init(void)
 void LCD_UseHwBus(void)
 {
     spi_hw_init();
+}
+
+/* Dump the QSPI module + clock tree state. Used by the boot diagnostic to
+ * compare a cold power-on against a debugger reset: if the panel works
+ * after flashing but not after re-powering, the difference is in here. */
+void LCD_BusDump(void)
+{
+    Ifx_QSPI *q = g_qspi;
+
+    PRINTF("[QSPI] CLC=0x%08lX GLB=0x%08lX GLB1=0x%08lX ECON0=0x%08lX STATUS=0x%08lX\r\n",
+           (unsigned long)q->CLC.U, (unsigned long)q->GLOBALCON.U,
+           (unsigned long)q->GLOBALCON1.U, (unsigned long)q->ECON[0].U,
+           (unsigned long)q->STATUS.U);
+    PRINTF("[QSPI] DISS=%u EN=%u TQ=%u fmax=%lu MHz spb=%lu MHz sri=%lu MHz\r\n",
+           (unsigned)q->CLC.B.DISS,
+           (unsigned)q->GLOBALCON.B.EN,
+           (unsigned)q->GLOBALCON.B.TQ,
+           (unsigned long)(IfxScuCcu_getMaxFrequency() / 1000000.0F),
+           (unsigned long)(IfxScuCcu_getSpbFrequency() / 1000000.0F),
+           (unsigned long)(IfxScuCcu_getSriFrequency() / 1000000.0F));
+    PRINTF("[QSPI] real=%lu kHz  (requested %lu kHz)\r\n",
+           LCD_HwSpiKHz(), (unsigned long)(s_baudrate / 1000.0F));
 }
 
 /* Active QSPI2 baud in kHz (for the info page). */

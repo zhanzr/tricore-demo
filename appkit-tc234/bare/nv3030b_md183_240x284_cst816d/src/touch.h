@@ -21,10 +21,9 @@ void Touch_Read(uint8_t *buf, uint8_t len);
  * buf[3] != 0x80) from "the chip never answered" (wiring/address). */
 uint8_t Touch_SelfTest(void);
 
-/* Runtime SCL control + sweep ladder for the bring-up clock test. */
-void     Touch_SetHz(uint32_t hz);
+/* Configuration figure: the SCL rate actually asked for. The real rate is
+ * quantised by the bit-bang delay's tick granularity, so this reports the
+ * request, not a derived value. */
 uint32_t Touch_GetHz(void);
-uint32_t Touch_SweepCount(void);
-uint32_t Touch_SweepHz(uint32_t index);
 
 #endif /* __TOUCH_H */

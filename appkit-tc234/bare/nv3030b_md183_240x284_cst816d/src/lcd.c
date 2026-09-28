@@ -80,7 +80,6 @@ void LCD_RESET(void)
     LCD_CS_CLR;
     waitTime(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 100));
 }
-
 /* =====================================================================
    Init sequence - NV3030B (vendored TK018F3716 example, verbatim
    registers): command-set enable, panel power/gate/source timing,
@@ -224,6 +223,24 @@ void LCD_IC_Init(void)
 void LCD_Init(void)
 {
     LCD_GPIOInit();
+
+    /* Power-on settle.
+     *
+     * This module has no reset pin, so the panel's own power-on reset and
+     * its charge pumps are tied to board power, not to anything the MCU
+     * can drive. The MCU reaches this point only a few ms after reset, so
+     * on a COLD power-on the first commands can easily arrive while the
+     * panel is still starting up - they are lost and the panel never
+     * initialises (blank display at any SPI rate). After a debugger reset
+     * the panel has been powered for a long time and settles instantly,
+     * which is what makes "works after flashing, fails after re-powering"
+     * look like a clock problem when it is really a sequencing one.
+     *
+     * Wait here, before the very first clock edge, and ignore the settle
+     * time on the LCD_RESET() path used by LCD_Reinit() (the panel is
+     * already running by then). */
+    waitTime(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, LCD_POWER_SETTLE_MS));
+
     LCD_RESET();
     LCD_IC_Init();
 
@@ -668,7 +685,7 @@ void LCD_FillCircle(uint16_t x, uint16_t y, uint16_t r)
 }
 
 void LCD_CopyBuffer(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
-                    uint16_t *data)
+                    const uint16_t *data)
 {
     uint32_t n = (uint32_t)width * height;
     LCD_SetAddress(x, y, (uint16_t)(x + width - 1), (uint16_t)(y + height - 1));

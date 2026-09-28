@@ -45,15 +45,9 @@
 #define T_I2C_HZ        400000UL    /* CST816D Fast-mode maximum */
 #endif
 
-/* Live SCL target, retunable at runtime by the bring-up sweep. */
-#define T_I2C_HZ_MIN    10000UL     /* slowest step of the sweep          */
+/* Live SCL target. */
+#define T_I2C_HZ_MIN    10000UL     /* slowest supported rate             */
 #define T_I2C_HZ_MAX    400000UL    /* CST816D supports Fast-mode 400 kHz */
-
-/* Sweep ladder: 50 kHz (proven) up to the CST816D Fast-mode maximum. */
-#define T_SWEEP_STEPS   8U
-static const uint32_t s_sweep_hz[T_SWEEP_STEPS] = {
-    50000UL, 100000UL, 200000UL, 250000UL, 300000UL, 340000UL, 400000UL, 400000UL
-};
 
 static uint32_t s_ticks_per_us = 1U;   /* STM ticks per microsecond        */
 static uint32_t s_half_bit     = 1U;   /* STM ticks per half SCL period    */
@@ -107,28 +101,12 @@ static void t_set_hz(uint32_t hz)
     s_target_hz = hz;
 }
 
-/* Retune the running bus (bring-up sweep). */
-void Touch_SetHz(uint32_t hz)
-{
-    t_set_hz(hz);
-}
-
 /* Configuration figure: the rate that was requested. The real SCL rate is
  * quantised by t_delay()'s one-tick granularity, so deriving it back from
  * the tick count misreports (400 kHz -> "500 kHz"). */
 uint32_t Touch_GetHz(void)
 {
     return s_target_hz;
-}
-
-uint32_t Touch_SweepCount(void)
-{
-    return T_SWEEP_STEPS;
-}
-
-uint32_t Touch_SweepHz(uint32_t index)
-{
-    return (index < T_SWEEP_STEPS) ? s_sweep_hz[index] : 0U;
 }
 
 static void t_sda_out_od(void)

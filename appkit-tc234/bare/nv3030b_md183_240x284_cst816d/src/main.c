@@ -23,11 +23,14 @@
 #include "serial.h"
 #include "Bsp.h"
 #include "IfxPort.h"
+#include "IfxScu_reg.h"
+#include "IfxScuCcu.h"
 #include "lcd.h"
 #include "interface.h"
 #include "touch.h"
 #include "dts.h"
 #include "lcd/lcd_font_1608.h"
+#include "lcd/asset_test1.h"
 
 #define SCREEN_W   LCD_Width     /* 240 (row buffer sizing) */
 #define FPS_BAND   20            /* bottom rows reserved for the FPS text   */
@@ -46,6 +49,24 @@
 #define INFO_TOP   18            /* first text row (skip row 0)            */
 #define INFO_LINES 11            /* usable lines before the FPS band       */
 
+/* Cold-boot panel bring-up.
+ *
+ * How long a cold-booted panel needs before it accepts commands varies run to
+ * run and cannot be measured (the module is write-only by design). Rather than
+ * sleeping or counting retries, this fills the screen with a tiled asset:
+ * the drawing is the wait, and it doubles as the "the panel came up" test -
+ * the moment the artwork appears the panel is live. See panel_bringup_draw().
+ *
+ * Each cycle is one whole-screen fill plus one LCD_Reinit, so the loop
+ * interleaves drawing with init attempts - an init that lands shows up as the
+ * next fill actually appearing. */
+#define ASSET_TILE_GAP      4    /* gap between tiles, px (keeps a border)  */
+
+/* Draw/re-init cycles. Trades boot time for init attempts (~0.5 s per cycle,
+ * mostly the datasheet delays inside LCD_Reinit). A final fill is always done
+ * after the last Reinit. */
+#define LCD_BRINGUP_PASSES  2u
+
 /* ---- on-board LEDs (D107-D110 on P13.0 ... P13.3, low active) ---- */
 #define LED_PORT        &MODULE_P13
 #define LED_COUNT       4u
@@ -60,11 +81,6 @@ static void leds_all(uint8_t on)
         if (on != 0u) { IfxPort_setPinLow(LED_PORT, i); }
         else          { IfxPort_setPinHigh(LED_PORT, i); }
     }
-}
-
-static void leds_off(void)
-{
-    leds_all(0u);
 }
 
 /* Milliseconds from the system timer.
@@ -87,6 +103,21 @@ static uint32_t ms_now(void)
 static void delay_ms(uint32_t ms)
 {
     waitTime(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, ms));
+}
+
+/* Milliseconds since the STM was first read - i.e. roughly since boot.
+ * Prefixes every phase line so a cold-boot capture shows exactly when the
+ * panel starts responding (the settle fix is tuned against this). */
+static uint32_t uptime_ms(void)
+{
+    static uint32_t s_t0;
+    uint32_t t = ms_now();
+
+    if (s_t0 == 0U)
+    {
+        s_t0 = t;
+    }
+    return t - s_t0;
 }
 
 /* --------------------------------------------------------------------- */
@@ -260,7 +291,7 @@ static void led_test(void)
 /* --------------------------------------------------------------------- */
 /* Vendor TEST_STAND screens. The five solid-color fills are timed (ms). */
 static uint32_t g_solid_ms[5];
-static const char *const g_solid_name[5] =
+const char *const g_solid_name[5] =
 {
     "RED", "GREEN", "BLUE", "WHITE", "BLACK"
 };
@@ -392,19 +423,25 @@ static void info_demo(uint32_t ms, uint8_t invert)
         LCD_DisplayString((uint16_t)(ix + 5 * 8), (uint16_t)y, buf);  y += INFO_DY;
     }
 
-    /* Fill durations (R,G,B,W,K), measured earlier this pass so they always
-     * reflect the current SPI rate. Two short lines fit the big font. */
-    snprintf(buf, sizeof buf, "R:%lu G:%lu",
-             (unsigned long)g_solid_ms[0], (unsigned long)g_solid_ms[1]);
-    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
-
-    snprintf(buf, sizeof buf, "B:%lu W:%lu",
-             (unsigned long)g_solid_ms[2], (unsigned long)g_solid_ms[3]);
-    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
-
-    snprintf(buf, sizeof buf, "K:%lu",
-             (unsigned long)g_solid_ms[4]);
-    LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
+    /* Fill durations, measured earlier this pass so they always reflect the
+     * current SPI rate. The names come from g_solid_name, so adding a colour
+     * to the list cannot leave this page mislabelled. The 8x16 font allows
+     * 11 chars per line at the 240 px width, hence two per line. */
+    for (int i = 0; i < 5; i += 2)
+    {
+        if (i + 1 < 5)
+        {
+            snprintf(buf, sizeof buf, "%c%lu %c%lu",
+                     g_solid_name[i][0], (unsigned long)g_solid_ms[i],
+                     g_solid_name[i + 1][0], (unsigned long)g_solid_ms[i + 1]);
+        }
+        else
+        {
+            snprintf(buf, sizeof buf, "%c%lu",
+                     g_solid_name[i][0], (unsigned long)g_solid_ms[i]);
+        }
+        LCD_DisplayString((uint16_t)ix, (uint16_t)y, buf);  y += INFO_DY;
+    }
 
     g_fps_color = LCD_WHITE;              /* restore default FPS glyph color */
 
@@ -450,89 +487,193 @@ static void banner_page(const char *l1, const char *l2,
 
 /* --------------------------------------------------------------------- */
 /* Full test-pattern set.                                                */
+/* --------------------------------------------------------------------- */
+/* Checkerboard stress pattern - the sensitive test the earlier clock sweep
+ * was missing.
+ *
+ * The sweep scored each rate with DispBand(), whose 8 wide solid bars are
+ * almost immune to bit errors (a wrong bit inside a solid bar is invisible).
+ * That is why 50 MHz "passed" there yet corrupts real content: solid fills
+ * never change their data, so any error is hidden, while a checkerboard
+ * alternates every single pixel and exposes one wrong bit as a broken cell.
+ *
+ * Single pixels are drawn with LCD_CopyBuffer so the pattern also exercises
+ * the address-window setup (a lost WriteComm shows up as a shifted row).
+ * Any tearing, bit error or framing slip is immediately obvious. */
+static void stress_pattern(void)
+{
+    static uint16_t row[SCREEN_W];
+
+    LCD_SetColor(LCD_WHITE);
+    LCD_SetBackColor(BACK_COLOR);
+    paint_fps_band();
+
+    for (int y = 0; y < anim_h(); y++)
+    {
+        for (int x = 0; x < LCD_W(); x++)
+        {
+            /* 1-pixel checkerboard: adjacent pixels are opposite, so every
+             * data bit toggles on every pixel. */
+            row[x] = ((x ^ y) & 1) ? WHITE : BLACK;
+        }
+        LCD_CopyBuffer(0, (uint16_t)y, LCD_W(), 1, row);
+    }
+}
+
+/* =====================================================================
+   Asset fill - the cold-boot wait, made productive.
+   ===================================================================== */
+
+/* Tile asset_test1 over the row range [y0, y1).
+ *
+ * As many complete tiles as fit are drawn, centred, with a gap between them
+ * and a margin all round - nothing is drawn hard against an edge, so the
+ * rounded corners never clip a tile and no partial tile is emitted. This is
+ * the real image (RGB565, alpha composited over black when it was converted),
+ * not a synthesised shape.
+ *
+ * 64x64 tiles at 240 px wide give 3 columns; the drawing is therefore short
+ * (tens of ms). The wait is dominated by the LCD_Reinit() calls in
+ * panel_bringup_draw(), which each carry the datasheet's own delays. */
+static void asset_fill_range(uint16_t y0, uint16_t y1)
+{
+    const int tw  = ASSET_TEST1_W;
+    const int th  = ASSET_TEST1_H;
+    const int gap = ASSET_TILE_GAP;
+    int span_h = (int)y1 - (int)y0;
+    int cols, rows, used_w, used_h, x_off, y_off, r, c;
+
+    if ((span_h < th) || ((int)LCD_W() < tw))
+    {
+        return;                          /* no room for even one tile */
+    }
+
+    cols = (LCD_W() - gap) / (tw + gap);
+    rows = (span_h   - gap) / (th + gap);
+    if ((cols <= 0) || (rows <= 0))
+    {
+        return;
+    }
+
+    used_w = cols * tw + (cols - 1) * gap;
+    used_h = rows * th + (rows - 1) * gap;
+    x_off  = ((int)LCD_W() - used_w) / 2;
+    y_off  = (int)y0 + (span_h - used_h) / 2;
+
+    for (r = 0; r < rows; r++)
+    {
+        for (c = 0; c < cols; c++)
+        {
+            LCD_CopyBuffer((uint16_t)(x_off + c * (tw + gap)),
+                           (uint16_t)(y_off + r * (th + gap)),
+                           (uint16_t)tw, (uint16_t)th, asset_test1);
+        }
+    }
+}
+
+/* Bring the panel up by drawing.
+ *
+ * The drawing replaces the old sleep-and-retry wait: the time is spent
+ * sending real pixels, and the artwork appearing is itself the "the panel is
+ * up" signal. The LCD_Reinit() calls are what actually spend most of the
+ * wall-clock time, and each one is another chance for a slow-starting panel
+ * to catch an init - which is why the structure interleaves draws and
+ * reinits: draw -> Reinit -> draw -> Reinit -> ... -> final draw.
+ *
+ * The final draw is deliberate: it happens after the last Reinit, so the
+ * image that stays on screen was sent with the most recent init in effect.
+ *
+ * A whole-screen fill is used rather than the upper/lower split sketched
+ * originally, because 64x64 tiles only fit ONE row in a 114 px half - the
+ * split would leave most of the panel empty. Every tile is still whole and
+ * inset, so nothing is clipped by the rounded corners. */
+static void panel_bringup_draw(void)
+{
+    uint32_t pass;
+
+    LCD_Clear();
+
+    for (pass = 0; pass < LCD_BRINGUP_PASSES; pass++)
+    {
+        PRINTF("[%lums] bring-up %lu/%lu: draw\r\n",
+               (unsigned long)uptime_ms(),
+               (unsigned long)(pass + 1), (unsigned long)LCD_BRINGUP_PASSES);
+        asset_fill_range(INFO_TOP, anim_h());
+
+        PRINTF("[%lums] bring-up: Reinit\r\n", (unsigned long)uptime_ms());
+        LCD_Reinit();
+    }
+
+    /* Last draw with the most recent init in effect. */
+    asset_fill_range(INFO_TOP, anim_h());
+    PRINTF("[%lums] bring-up: done\r\n", (unsigned long)uptime_ms());
+}
+
 static void run_patterns(void)
 {
-    PRINTF("[LCD] phase: TEST_STAND\r\n");
+    /* Sensitive pattern FIRST, right after LCD_Init(): this is what
+     * actually proves the panel initialised and the SPI rate is usable.
+     * Clean checkerboard = the init landed; malformed = it did not (or the
+     * link is marginal). Running it first also shortens the wait before
+     * the first meaningful thing appears on a cold boot. */
+    PRINTF("[%lums] phase: STRESS (checkerboard @ %s)\r\n",
+           (unsigned long)uptime_ms(), mhz_text(LCD_HwSpiKHz()));
+    stress_pattern();
+    delay_with_fps(3000);
+
+    PRINTF("[%lums] phase: TEST_STAND\r\n", (unsigned long)uptime_ms());
     memset(g_solid_ms, 0, sizeof g_solid_ms);   /* current method only */
     TEST_STAND();
 
-    PRINTF("[LCD] phase: info\r\n");
+    PRINTF("[%lums] phase: info\r\n", (unsigned long)uptime_ms());
     info_demo(5000, 0);
 
-    PRINTF("[LCD] phase: info (inverted colors)\r\n");
+    PRINTF("[%lums] phase: info (inverted colors)\r\n", (unsigned long)uptime_ms());
     info_demo(5000, 1);
 
-    PRINTF("[LCD] phase: gradient\r\n");
+    PRINTF("[%lums] phase: gradient\r\n", (unsigned long)uptime_ms());
     gradient_demo(4000);
 
-    PRINTF("[LCD] phase: LED test\r\n");
+    PRINTF("[%lums] phase: LED test\r\n", (unsigned long)uptime_ms());
     led_test();
 }
 
 /* --------------------------------------------------------------------- */
-/* Clock sweep - bring-up tool to find the fastest usable rates.
+/* Boot diagnostic: report which reset source we came from and the clock
+ * tree state, then dump the QSPI module.
  *
- * SPI: each ladder step is applied live, then a full-panel fill is timed.
- * A marginal clock does not fail outright - the panel just shows garbage -
- * so every step prints its measured fill time (a rate that stops scaling
- * with the clock is the tell) AND draws a labelled colour bar that can be
- * checked by eye. The rate is ramped from slow to fast so a bad step is
- * always preceded by a known-good one.
- *
- * I2C: the ladder is applied live too and each step is scored on the
- * CST816D ACK via Touch_SelfTest(), which is a real bus verdict.
- *
- * Both buses are left at their last (highest) rate afterwards; drop them
- * back with LCD_HwSetBaudrate()/Touch_SetHz() from the constants. */
-static void sweep_test(void)
+ * This exists because the display is known to work after a debugger reset
+ * (flashing) but fail after a power cycle. SCU_RSTSTAT tells the two apart
+ * (PORST = power-on, CB1 = debug reset) so the cold-boot case can be
+ * captured with the same firmware - without it, every capture is a warm
+ * boot and the failing case is never observed. */
+static void boot_report(void)
 {
-    uint32_t i;
+    uint32 rst = SCU_RSTSTAT.U;
 
-    PRINTF("[SWEEP] ---- SPI sweep (%lu steps) ----\r\n", (unsigned long)LCD_SweepCount());
-    for (i = 0; i < LCD_SweepCount(); i++)
-    {
-        uint32_t khz = LCD_SweepKhz(i);
-        uint32_t t0, dt;
-        char buf[16];
+    PRINTF("[BOOT] RSTSTAT=0x%08lX  PORST=%u ESR0=%u ESR1=%u SW=%u SMU=%u "
+           "CB0=%u CB1=%u CB3=%u EVR13=%u\r\n",
+           (unsigned long)rst,
+           (unsigned)((rst >> 16) & 1U),      /* PORST: power-on reset      */
+           (unsigned)((rst >> 0) & 1U),       /* ESR0                       */
+           (unsigned)((rst >> 1) & 1U),       /* ESR1                       */
+           (unsigned)((rst >> 4) & 1U),       /* SW                         */
+           (unsigned)((rst >> 3) & 1U),       /* SMU                        */
+           (unsigned)((rst >> 18) & 1U),      /* CB0                        */
+           (unsigned)((rst >> 19) & 1U),      /* CB1                        */
+           (unsigned)((rst >> 20) & 1U),      /* CB3                        */
+           (unsigned)((rst >> 23) & 1U));     /* EVR13                      */
 
-        LCD_HwSetBaudrate(khz);           /* live retune, no reset */
-
-        /* Colour-bar pattern: any clocking error corrupts it visibly, so
-         * the panel itself is the pass/fail indicator. */
-        t0 = ms_now();
-        DispBand();
-        dt = ms_now() - t0;
-
-        PRINTF("[SWEEP] SPI %5lu kHz -> real %5lu kHz, band fill %4lu ms\r\n",
-               (unsigned long)khz, LCD_HwSpiKHz(), (unsigned long)dt);
-
-        /* Overlay the rate so a marginal step can be identified on the
-         * panel: if the number is legible and the bars are clean, this
-         * rate is good. */
-        LCD_SetAsciiFont(&ASCII_Font16);
-        snprintf(buf, sizeof buf, "%lu", (unsigned long)khz);
-        LCD_DisplayString(INFO_X, 8, "SPI kHz?");
-        LCD_DisplayString(INFO_X, 8 + INFO_DY, buf);
-        LCD_SetAsciiFont(&ASCII_Font12);
-        delay_ms(900);
-    }
-
-    PRINTF("[SWEEP] ---- I2C sweep (%lu steps) ----\r\n", (unsigned long)Touch_SweepCount());
-    for (i = 0; i < Touch_SweepCount(); i++)
-    {
-        uint32_t hz  = Touch_SweepHz(i);
-        uint8_t  ack;
-
-        Touch_SetHz(hz);
-        ack = Touch_SelfTest();
-
-        PRINTF("[SWEEP] I2C %6lu Hz -> %s\r\n",
-               (unsigned long)hz, (ack != 0U) ? "ACK" : "NO ACK");
-        delay_ms(150);
-    }
-
-    PRINTF("[SWEEP] done: SPI %lu kHz, I2C %lu Hz\r\n",
-           LCD_HwSpiKHz(), Touch_GetHz());
+    PRINTF("[BOOT] %s\r\n",
+           (((rst >> 16) & 1U) != 0U) ? "COLD BOOT (power-on reset)"
+                                      : "warm boot (debug/app reset)");
+    PRINTF("[BOOT] HWCFG=0x%02X MODE=%u    cpu=%lu spb=%lu sri=%lu fmax=%lu MHz\r\n",
+           (unsigned)SCU_STSTAT.B.HWCFG,
+           (unsigned)SCU_STSTAT.B.MODE,
+           (unsigned long)(IfxScuCcu_getCpuFrequency(IfxCpu_ResourceCpu_0) / 1000000.0F),
+           (unsigned long)(IfxScuCcu_getSpbFrequency() / 1000000.0F),
+           (unsigned long)(IfxScuCcu_getSriFrequency() / 1000000.0F),
+           (unsigned long)(IfxScuCcu_getMaxFrequency() / 1000000.0F));
 }
 
 /* --------------------------------------------------------------------- */
@@ -543,6 +684,8 @@ void lcd_demo_main(void)
     PRINTF("NV3030B 1.83\" 240x284 (wrapped-command SPI, MADCTL 0x08):\r\n");
     PRINTF("SCLK=P15.6 MOSI=P15.5 CS=P15.2; no DC/MISO/RST/BL pin\r\n");
     PRINTF("TOUCH: CST816D I2C SDA=P02.0 SCL=P02.1\r\n");
+
+    boot_report();
 
     Touch_Init();
     IfxPort_setPinModeOutput(&MODULE_P13, 0, IfxPort_OutputMode_pushPull,
@@ -568,23 +711,41 @@ void lcd_demo_main(void)
     }
     LCD_UseHwBus();       /* QSPI2 init + pins (before LCD_Init) */
     IfxPort_setPinLow(&MODULE_P13, 1);    /* BOOT PROBE: QSPI2 up */
+    LCD_BusDump();        /* QSPI state, for cold-vs-warm comparison */
     LCD_Init();
     IfxPort_setPinLow(&MODULE_P13, 2);    /* BOOT PROBE: LCD_Init done */
     LCD_SetAsciiFont(&ASCII_Font12);
     paint_fps_band();
     IfxPort_setPinLow(&MODULE_P13, 3);    /* BOOT PROBE: entering loop */
 
-    sweep_test();         /* find the fastest working SPI/I2C rates */
+    /* Panel bring-up by drawing.
+     *
+     * The old approach repeated the init on a fixed schedule and slept in
+     * between, which wasted the wait and blinked. This instead spends the
+     * time drawing a tiled icon, so:
+     *   - the wait is the drawing itself (no idle delay);
+     *   - progress is visible, and the icon appearing IS the "panel is up"
+     *     signal - it is also the test, because the icon is drawn with the
+     *     same path as everything else;
+     *   - the icon is simple and blocky, so a marginal clock shows as a
+     *     slightly noisy face rather than a broken image;
+     *   - the second half is drawn after LCD_Reinit(), so both init paths
+     *     get a chance, matching how the demo itself re-inits each loop.
+     *
+     * A border is left undrawn around the icon field, and the range stays
+     * inside INFO_TOP..anim_h(), to keep clear of the rounded corners and the
+     * FPS band. */
+    panel_bringup_draw();
 
     while (1)
     {
-        PRINTF("[LCD] phase: HARDWARE banner\r\n");
+        PRINTF("[%lums] phase: banner (Reinit)\r\n", (unsigned long)uptime_ms());
         LCD_Reinit();         /* re-frame the panel */
         banner_page("NV3030B", "HW QSPI2 test",
                     LCD_BLACK, LCD_CYAN, 3000);
 
-        PRINTF("[LCD] running patterns on HARDWARE QSPI2 @ %s\r\n",
-               mhz_text(LCD_HwSpiKHz()));
+        PRINTF("[%lums] running patterns on HARDWARE QSPI2 @ %s\r\n",
+               (unsigned long)uptime_ms(), mhz_text(LCD_HwSpiKHz()));
         run_patterns();
     }
 }

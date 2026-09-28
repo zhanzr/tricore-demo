@@ -29,6 +29,18 @@
 #define ROW_Pre   0
 #define Delay_Time 500
 
+/* Power-on settle before the first panel command, in ms. The module has
+ * no reset pin, so its POR/charge-pump settling rides on board power; a
+ * cold power-on needs this delay or the init sequence is lost (see
+ * LCD_Init in lcd.c).
+ *
+ * 250 ms proved MUCH too short: on a cold boot the panel only came alive
+ * after ~26 s, which is exactly one demo-loop period - i.e. it was the
+ * SECOND init (LCD_Reinit at the top of loop 2) that finally took. Raise
+ * this until a cold boot shows the first init working; 500 ms is a
+ * starting point for a slow-starting module. */
+#define LCD_POWER_SETTLE_MS 500
+
 /* ---- backlight ----
  * The module's backlight is powered from the module supply (no
  * dedicated backlight pin is wired on this connector set). */
@@ -113,6 +125,6 @@ void LCD_FillCircle(uint16_t x, uint16_t y, uint16_t r);
 
 /* ---- API: raw buffer blit (RGB565 words) ---- */
 void LCD_CopyBuffer(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
-                    uint16_t *data);
+                    const uint16_t *data);
 
 #endif /* __LCD_H */

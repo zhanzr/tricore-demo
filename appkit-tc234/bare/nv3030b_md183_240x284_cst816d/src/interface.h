@@ -37,11 +37,6 @@ void LCD_FillBulk(uint32_t color, uint32_t pixels); /* solid burst, open frame *
 unsigned long LCD_HwSpiKHz(void); /* active QSPI2 baud in kHz (info page) */
 void    SPI_HW_Flush(void);     /* drain the HW TX buffer (blocking)      */
 void    LCD_UseHwBus(void);     /* QSPI2 init (idempotent)                */
-
-/* Bring-up clock sweep: retune the running QSPI2 and step through a
- * ladder from slow to the fastest rate the QSPI can generate. */
-void     LCD_HwSetBaudrate(uint32_t khz);
-uint32_t LCD_SweepCount(void);
-uint32_t LCD_SweepKhz(uint32_t index);
+void    LCD_BusDump(void);      /* print QSPI + clock tree state          */
 
 #endif /* __INTERFACE_H */

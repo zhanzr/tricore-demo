@@ -15,7 +15,7 @@ Display SPI (QSPI2):
 | Signal        | Port  | X102 pin | Notes                          |
 |---------------|-------|----------|--------------------------------|
 | CS            | P15.2 | 31       | plain GPIO (software CS)       |
-| MISO (MRST2A) | P15.4 | 33       | **not used** (write-only panel)|
+| MISO (MRST2A) | P15.4 | 33       | wired, but **unused by design**|
 | MOSI (MTSR2A) | P15.5 | 34       | QSPI2 MTSR2A                   |
 | SCLK (SCLK2B) | P15.6 | 35       | QSPI2 SCLK2B                   |
 
@@ -25,6 +25,18 @@ Touch I2C:
 |--------|-------|----------|
 | SDA    | P02.0 | 13       |
 | SCL    | P02.1 | 14       |
+
+### Write-only by design (MISO)
+
+This module wires MISO to P15.4 (`QSPI2_MRSTA`), but **the driver does not use
+it — and must not**. Most modules from this vendor do not bring MISO out to
+the connector at all, so depending on it would tie this driver to the few
+boards that do. The NV3030B wrapped-command protocol needs no readback (no
+status polling, no GRAM read), so nothing in `interface.c` reads the bus even
+though the pin is available here.
+
+The practical consequence is that **the panel's readiness cannot be probed** —
+hence the boot retry loop below rather than a status poll.
 
 The module has **no DC, reset or backlight pin** in use: the wrapped-command
 framing carries command/data, there is no reset (power-cycle is the only
@@ -46,49 +58,42 @@ make clean    # remove build/
 Serial: **COM6**, 115200 8N1. The demo loops (banner, vendor test screens,
 info pages, HSV gradient, LED test) with a live FPS counter.
 
-Override the panel clock with, e.g.
-`make CFLAGS+=-DLCD_QSPI_BAUDRATE=25000000.0`. Defaults are the fastest
-rates the clock sweep confirmed good: **50 MHz** SPI
-(`LCD_QSPI_BAUDRATE` in `interface.c`) and **400 kHz** I2C
-(`T_I2C_HZ` in `touch.c`, the CST816D Fast-mode maximum).
+Defaults: **40 MHz** SPI (`LCD_QSPI_BAUDRATE` in `interface.c`) — validated;
+20 MHz also proven, 50 MHz not usable. I2C is **400 kHz** (`T_I2C_HZ` in
+`touch.c`, the CST816D Fast-mode maximum). See "SPI clock" below.
 
-## Clock sweep (bring-up)
+Override, e.g. `make CFLAGS+=-DLCD_QSPI_BAUDRATE=20000000.0`.
 
-`sweep_test()` runs once at startup and ramps both buses from slow to fast,
-so the highest usable rate can be confirmed on the real hardware:
+## Finding the usable SPI rate
 
-- **SPI**: each ladder step is applied live (no reset), then a colour-bar
-  pattern is drawn and timed. The panel is the pass/fail indicator — a
-  marginal clock visibly corrupts the bars — and the rate is printed on the
-  panel so a bad step can be identified. The serial log gives the measured
-  fill time, which should roughly halve each time the rate doubles.
-- **I2C**: each step is scored on the CST816D ACK (`Touch_SelfTest()`),
-  which is an unambiguous bus verdict.
+`LCD_HwSetBaudrate(khz)` retunes the QSPI live (no reset) and
+`LCD_HwSpiKHz()` reports the rate actually programmed, so a rate can be
+tested without rebuilding.
 
-Ladders live in `interface.c` (`s_sweep_khz`, 1 MHz → 50 MHz) and `touch.c`
-(`s_sweep_hz`, 50 kHz → 400 kHz). Both buses are left at the last (fastest)
-rate afterwards; drop them back with `LCD_HwSetBaudrate()` / `Touch_SetHz()`
-or by editing the constants.
+**Score every candidate rate with the checkerboard (`stress_pattern()`),
+never with solid fills or the colour bars.** Those have no information
+content: a bit error inside a solid region is invisible, and the fill timing
+stays perfect even when the data is wrong. This is exactly how 50 MHz passed
+the original sweep and then corrupted real content — see "Why the default is
+20 MHz" below.
 
-Measured 2026-09-28 (TC234, fMAX = 200 MHz):
+History, for reference (measured 2026-09-28, TC234, fMAX = 200 MHz, scored
+with the insensitive colour-bar test — treat these timings as throughput
+figures only, **not** as proof the rate is usable):
 
 ```
-[SWEEP] SPI  1000 kHz -> real  1000 kHz, band fill 1110 ms
-[SWEEP] SPI  2000 kHz -> real  2000 kHz, band fill  565 ms
-[SWEEP] SPI  5000 kHz -> real  5000 kHz, band fill  237 ms
-[SWEEP] SPI 10000 kHz -> real 10000 kHz, band fill  128 ms
-[SWEEP] SPI 15000 kHz -> real 14285 kHz, band fill   96 ms
-[SWEEP] SPI 20000 kHz -> real 20000 kHz, band fill   74 ms
-[SWEEP] SPI 25000 kHz -> real 25000 kHz, band fill   63 ms
-[SWEEP] SPI 30000 kHz -> real 28571 kHz, band fill   58 ms
-[SWEEP] SPI 40000 kHz -> real 40000 kHz, band fill   47 ms
-[SWEEP] SPI 50000 kHz -> real 50000 kHz, band fill   42 ms
+[SWEEP] SPI  1000 kHz -> band fill 1110 ms
+[SWEEP] SPI  5000 kHz -> band fill  237 ms
+[SWEEP] SPI 10000 kHz -> band fill  128 ms
+[SWEEP] SPI 20000 kHz -> band fill   74 ms
+[SWEEP] SPI 25000 kHz -> band fill   63 ms
+[SWEEP] SPI 50000 kHz -> band fill   42 ms
 [SWEEP] I2C  50000 Hz -> ACK  ...  400000 Hz -> ACK
 ```
 
-The fill time tracks the clock all the way to 50 MHz, and the CST816D ACKs
-at every I2C step through its 400 kHz Fast-mode maximum — so both buses are
-electrically sound at their top rates, which are now the **defaults**.
+The I2C ladder is trustworthy — each step is scored on the CST816D ACK
+(`Touch_SelfTest()`), a real bus verdict, and every step through the 400 kHz
+Fast-mode maximum ACKs.
 
 `LCD_HwSpiKHz()` is rendered through `mhz_text()`, so whole-megahertz rates
 print as `50 MHz` rather than `50000 kHz`. `Touch_GetHz()` returns the
@@ -118,6 +123,226 @@ resolution.
 Same 4-byte alignment requirement as the other boards — see the board
 `README.md`. Any `uint8 x[.. + sizeof(Ifx_Fifo) + 8]` handed to
 `Ifx_Fifo_init()` needs `__attribute__((aligned(4)))`.
+
+## SPI clock: 40 MHz validated, 20 MHz proven, 50 MHz not usable
+
+**50 MHz is not usable on this module.** It completes transfers — so the
+QSPI reports `real=50000 kHz` and the fill timing looks perfect — but the
+panel then shows **intermittent, pattern-dependent corruption**. That is a
+marginal SPI clock (signal integrity), not a driver bug.
+
+| Rate | Result |
+|------|--------|
+| 20 MHz | reliable (many consecutive clean loops) |
+| **40 MHz** | **reliable — validated, current default** |
+| 50 MHz | **not usable** — intermittent corruption of detailed content |
+
+`LCD_QSPI_PAD_DRIVER` defaults to `IfxPort_PadDriver_cmosAutomotiveSpeed1`
+(the *slowest* edge), which is part of why 40 MHz holds up here.
+
+### Why the earlier sweep "passed" 50 MHz
+
+The sweep scored each rate with `DispBand()`, whose 8 wide **solid** bars are
+nearly immune to bit errors: a wrong bit *inside* a solid bar is invisible,
+and a solid fill never changes its data, so any error is hidden. Only
+detailed content exposes the problem — hence "solid fills correct, grey ramp
+and colour/black bars malformed".
+
+`stress_pattern()` in `main.c` is the sensitive test the sweep was missing:
+a **1-pixel checkerboard**, where adjacent pixels are opposite so *every*
+data bit toggles on *every* pixel, and each row is drawn through
+`LCD_CopyBuffer` so the address-window setup is exercised too. One wrong bit
+shows up as a broken cell; a lost `WriteComm` shows up as a shifted row.
+
+**Rule: validate a new SPI rate with the checkerboard, never with solid
+fills.**
+
+### What was changed
+
+- `LCD_QSPI_BAUDRATE` default lowered to **20 MHz**. Raise it only after
+  re-validating with the checkerboard.
+- `LCD_QSPI_PAD_DRIVER` added, defaulting to
+  **`IfxPort_PadDriver_cmosAutomotiveSpeed1`** — the *slowest* edge. The
+  earlier code used `Speed3`; a fast edge on the module's flex cable and
+  connector makes overshoot/ringing worse. Slower slew is the standard first
+  fix for a marginal high-speed bus. Override with
+  `make CFLAGS+=-DLCD_QSPI_PAD_DRIVER=IfxPort_PadDriver_cmosAutomotiveSpeed2`.
+- The checkerboard runs every pass and prints the active rate, so corruption
+  can be spotted without guessing which phase is which.
+
+### Reading the remaining symptoms
+
+The corruption drifting over time (bad → worse → recovers → different
+corruption) is characteristic of a marginal link whose bit errors move with
+temperature and refresh content. It is **not** a software race: the DMA is
+unused, `spi_send_stream()` is the only writer and completes fully before any
+refresh, and the panel periodically refreshes its own GRAM from the values it
+received — so stale/marginal cells appear, drift and can clear again with no
+MCU involvement. That explains why the display can "recover" on its own.
+
+If 20 MHz still shows any checkerboard corruption, step down to 10 MHz and
+re-test; if it is clean at 20 MHz but the demo still shows occasional tearing,
+the next lever is verifying the MCU/P15 ground return and shortening the
+display wiring.
+
+## Power-on sequencing (important)
+
+**Symptom:** the display works right after flashing but comes up blank after
+a power cycle — and then fails at *any* SPI rate, even rates that were proven
+good. That makes it look like a clock/signal-integrity problem when it is a
+**sequencing** one.
+
+The module has **no reset pin**, so the panel's own power-on reset and its
+charge pumps ride on board power — nothing the MCU can drive.
+
+### The panel needs time, and how much varies
+
+A first attempt used a single 250 ms settle wait (`LCD_POWER_SETTLE_MS`)
+before the init. That was too short. Measured on a cold boot: after
+re-powering the screen showed "hardly any visible change" until it came back
+to normal **after about half a minute** — which is *exactly one demo-loop
+period* (26.3 s). That timing is the tell: it was the **second** init
+(`LCD_Reinit()` at the top of loop 2) that finally took, not the first.
+
+Note the delay is **variable**, not a fixed number to look up: with the settle
+raised to 500 ms the panel is typically already up at the first init, so
+250 ms was simply below the threshold on that power cycle rather than the
+panel needing tens of seconds. The variability is why the code draws through
+the wait instead of relying on one constant.
+
+### Fix: draw through the wait instead of sleeping
+
+This module is **write-only** (MISO is deliberately unused — see "Write-only
+by design"), so there is no status register to poll and software cannot ask
+whether the panel is ready. The panel's wake time also varies run to run, so
+no single settle constant is right.
+
+Rather than sleeping, `panel_bringup_draw()` **spends the wait drawing a tiled
+image**, interleaved with re-inits:
+
+```c
+LCD_Clear();
+for (pass = 0; pass < LCD_BRINGUP_PASSES; pass++) {
+    asset_fill_range(INFO_TOP, anim_h());   /* whole-screen tile fill */
+    LCD_Reinit();                           /* one more init attempt  */
+}
+asset_fill_range(INFO_TOP, anim_h());       /* final draw, latest init */
+```
+
+Measured on hardware:
+
+```
+[0ms] bring-up 1/2: draw
+[26ms] bring-up: Reinit
+[296ms] bring-up 2/2: draw
+[321ms] bring-up: Reinit
+[616ms] bring-up: done
+```
+
+Why this shape:
+
+- **The drawing is the wait.** Every pixel sent is another chance for the
+  panel to have come up, so no time is idle.
+- **The image appearing IS the "panel is up" signal.** It is drawn through the
+  same path as everything else, so it cannot report success while the panel is
+  still deaf.
+- **Each `LCD_Reinit()` is a fresh init attempt**, and it is what dominates the
+  ~0.6 s wall-clock time (the datasheet delays inside it). The loop therefore
+  alternates "draw" and "try an init", and a fill that lands tells you the
+  preceding init worked.
+- **A final draw after the last `LCD_Reinit()`** leaves on screen an image sent
+  with the most recent init in effect.
+- **Tiles stay whole and inset** — a gap between tiles and a margin all round,
+  inside `INFO_TOP`..`anim_h()`, so nothing is clipped by the rounded corners
+  and no partial tile is emitted.
+
+`LCD_BRINGUP_PASSES` (default **2**) trades boot time for init attempts, at
+roughly 0.5 s per pass.
+
+An earlier version retried the init on a fixed schedule and slept in between.
+That worked but wasted the wait and blinked (each retry did a sleep-in /
+display-off), which also hid which attempt had landed.
+
+`LCD_Init()` additionally waits `LCD_POWER_SETTLE_MS` (default **500 ms**, in
+`lcd.h`) before its first clock edge, and drives **CS high as its very first
+action** (in `LCD_GPIOInit()`) so no spurious clock edges are seen as
+commands.
+
+## Image assets
+
+The bring-up fill uses `assets/test1.png` (64x64), converted to an RGB565 C
+array by a checked-in script:
+
+```
+python tools/png_to_rgb565.py ../../assets/test1.png src/lcd/asset_test1 asset_test1
+```
+
+It writes `src/lcd/asset_test1.c` (the array) and `src/lcd/asset_test1.h`
+(dimensions + declaration). Regenerate rather than editing the `.c` by hand.
+
+Notes on the conversion:
+
+- **Alpha is composited over black**, so transparent and anti-aliased edge
+  pixels come out black — matching the panel background — instead of garbage.
+- **Standard RGB565 packing** (R 15..11, G 10..5, B 4..0), which is what
+  `LCD_CopyBuffer` expects (it sends the high byte first).
+- The script is **pure standard library** (`zlib` only), so it runs without
+  Pillow/numpy.
+- Colour is preserved as far as RGB565 allows; the conversion was verified by
+  decoding the generated array back to a PNG and comparing.
+- The header guard is `<SYMBOL>_H_INCLUDED`, deliberately **not**
+  `<SYMBOL>_H`: the latter would collide with the `<SYMBOL>_H` height macro
+  and silently break the height (`#define ASSET_TEST1_H 64` would be
+  redefined to nothing by the guard).
+
+The asset is a plain RGB565 array with no third-party artwork, and the script
+keeps its provenance auditable.
+
+### Reading the timestamps
+
+Every phase line is prefixed with milliseconds since boot:
+
+```
+[0ms] bring-up retry 1/8
+[439ms] bring-up retry 2/8
+...
+[3066ms] bring-up retry 8/8
+[3505ms] phase: banner (Reinit)
+[6827ms] running patterns on HARDWARE QSPI2 @ 40 MHz
+```
+
+That makes a cold boot directly comparable to a warm one, and shows exactly
+which retry the panel started responding to.
+
+## Boot diagnostic
+
+`boot_report()` prints the reset source, so a cold boot can be captured with
+the same firmware (without it every capture is a warm boot and the failing
+case is never observed):
+
+```
+[BOOT] RSTSTAT=0x12810000  PORST=1 ESR0=0 ESR1=0 SW=0 SMU=0 CB0=0 CB1=0 CB3=0 EVR13=1
+[BOOT] COLD BOOT (power-on reset)
+[BOOT] HWCFG=0x74 MODE=1    cpu=200 spb=100 sri=200 fmax=200 MHz
+```
+
+`PORST = 1` means power-on reset; `CB1` means a debug reset. Note that the
+AURIX Flasher's `-start on` **also** reports `PORST = 1`, so the reset source
+alone does not separate the two cases — what actually differs is how long the
+panel has been powered.
+
+`LCD_BusDump()` prints the QSPI module and clock tree so a cold boot can be
+diffed against a working run:
+
+```
+[QSPI] CLC=0x00000000 GLB=0x01003C00 GLB1=0x02800000 ECON0=0x00003240 STATUS=0x00000000
+[QSPI] DISS=0 EN=1 TQ=0 fmax=200 MHz spb=100 MHz sri=200 MHz
+[QSPI] real=50000 kHz  (requested 50000 kHz)
+```
+
+`spi_hw_init()` also forces an explicit `CLC.DISR` disable → enable cycle and
+waits for `DISS` at each step, because `DISR` is only a *request* and writes
+to `GLOBALCON`/`ECON` are silently dropped while the module is still gated.
 
 ## Transport notes
 
@@ -249,23 +474,27 @@ check, so a silent panel/touch can be narrowed down quickly:
 
 ## Verification
 
-Captured 2026-09-28, TC234 @ 200 MHz, QSPI2 @ 10 MHz, I2C @ 50 kHz:
+Captured 2026-09-28, TC234 @ 200 MHz, QSPI2 @ 40 MHz, I2C @ 400 kHz:
 
 ```
 [TOUCH] self-test: ACK (chip present)
-[TOUCH] id regs: 00 00 00 00 00 00 00 00
-[QSPI] target=10000 kHz  real=10000 kHz  moduleClk=200 MHz  TQ=4
-[LCD] phase: HARDWARE banner
-[LCD] running patterns on HARDWARE QSPI2 @ 10 MHz
-[LCD] phase: TEST_STAND
-[LCD] solid fills (ms): RED=115 GREEN=115 BLUE=115 WHITE=115 BLACK=115
-... (loops)
+[TOUCH] id regs: 2B 00 00 00 00 00 00 00
+[QSPI] target=40000 kHz  real=40000 kHz  moduleClk=200 MHz  TQ=0
+[0ms] bring-up retry 1/8
+...
+[3066ms] bring-up retry 8/8
+[3505ms] phase: banner (Reinit)
+[6827ms] running patterns on HARDWARE QSPI2 @ 40 MHz
 ```
 
-No `PT2F` timeouts; the demo loops continuously; the CST816D answers on I2C.
+No `PT2F` timeouts; the demo loops continuously; the CST816D answers on I2C at
+its Fast-mode maximum.
 
-**Still to confirm on hardware:** that the panel actually lights up now that CS
-toggles. The serial report alone cannot prove pixels are being rendered - the
-fill timings (~115 ms at 10 MHz, which matches 240x284x2 bytes plus overhead)
-are consistent with data being clocked out, and the touch chip is confirmed
-alive, but the visual result needs a human check.
+Visually confirmed by the operator:
+
+- 40 MHz shows a **clean checkerboard** across many consecutive loops.
+- On a cold power-on the panel comes up by **retry 1** (the on-screen `R1`),
+  and the init retry loop recovers it reliably.
+
+The panel itself remains the final authority — the serial log reports what the
+MCU sent, not what the module accepted.
