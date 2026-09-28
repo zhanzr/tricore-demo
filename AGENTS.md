@@ -117,6 +117,21 @@ compile **all** `Libraries/**/*.c` plus the project sources.
   default CPH=1 corrupt data. 2 MHz is reliable; 8 MHz is not.
 - `IFX_INTERRUPT(isr, 0, srn)` places an ISR at vector slot `srn`; the SRC must
   also be wired with `IfxSrc_init`/`IfxSrc_enable`.
+- TC212 spare-bus pin selection: **P21.6/P21.7 are the TC2x DAP2/JTAG pins
+  (`P21.6/TDI`, `P21.7/TDO/DAP2`)**, wired to the miniWiggler debug
+  connector — never usable for application buses (the connector tables do
+  not show it; the pin's primary name does). Full pin-usage map and the
+  verified spare pairs: `tc212-kit/README.md` "Pin usage and spare buses".
+- Bit-bang I2C pin hunting on the TC212: an LED net on a candidate SDA pin
+  makes **every address ACK** (LED nets load the bus low); require both
+  lines idle-high before trusting an ACK, and test **cross-port** pairs —
+  the working nv3030b touch pair is SDA=P23.1 / SCL=P20.13 (X700-8/6).
+- TC22A iLLD differs from TC23A: QSPI channel config types are
+  `IfxQspi_chMode`/`IfxQspi_chConfig` (not `SpiIf_*`), and register
+  bitfields claim short names like `RED` (ASCLIN FLAGS) — do not define
+  raw color macros with those names (the nv3030b port uses `C565_*`).
+- tc212-kit Makefiles need `.DEFAULT_GOAL := all`: without it, bare `make`
+  picks the first generated-object rule and never links.
 
 ## Git
 

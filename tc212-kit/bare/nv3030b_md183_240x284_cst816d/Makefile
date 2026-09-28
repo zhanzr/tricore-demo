@@ -1,4 +1,4 @@
-# pwm_buzz_test - TC212 (TC22x) build/flash
+# nv3030b_md183_240x284_cst816d - TC212 (TC22x) build/flash
 #
 # Targets:   make            build <proj>.hex (same as `make hex`)
 #            make hex        build <proj>.hex
@@ -7,11 +7,11 @@
 #            make clean      remove build/
 #
 # Toolchain: run from MSYS2 (C:\msys64\usr\bin\bash.exe) or Git Bash.
-#            Set TRICORE_GCC if tricore-elf-gcc is not on PATH, e.g.
-#            make TRICORE_GCC=/d/aurixgcc_03_2026/bin/tricore-elf-gcc
-#            Override the flasher with: make flash AURIX_FLASHER=...
+# TRICORE_GCC defaults to the AURIX GCC install on this machine; override if
+# needed, e.g.  make TRICORE_GCC=tricore-elf-gcc  (toolchain on PATH).
+# Override the flasher with: make flash AURIX_FLASHER=...
 
-PROJ := pwm_buzz_test
+PROJ := nv3030b_md183_240x284_cst816d
 
 # Bare `make` must build the HEX. Without this, make uses the FIRST
 # target in the file - which is the first generated object rule from
@@ -59,6 +59,9 @@ INCLUDES := \
 	-I$(LIBS)/iLLD/TC22A/Tricore/Gtm/Std \
 	-I$(LIBS)/iLLD/TC22A/Tricore/Gtm/Tom/Pwm \
 	-I$(LIBS)/iLLD/TC22A/Tricore/Port/Std \
+	-I$(LIBS)/iLLD/TC22A/Tricore/Qspi \
+	-I$(LIBS)/iLLD/TC22A/Tricore/Qspi/Std \
+	-I$(LIBS)/iLLD/TC22A/Tricore/Qspi/SpiMaster \
 	-I$(LIBS)/iLLD/TC22A/Tricore/Port/Io \
 	-I$(LIBS)/iLLD/TC22A/Tricore/Scu/Std \
 	-I$(LIBS)/iLLD/TC22A/Tricore/Src/Std \
@@ -83,7 +86,12 @@ INCLUDES := \
 	-I$(LIBS)/Service/CpuGeneric \
 	-I$(LIBS)/Service \
 	-I$(LIBS)
+INCLUDES += -I$(ROOT)/src
+INCLUDES += -I$(ROOT)/src/lcd
+INCLUDES += -I$(ROOT)/src/blockwrite
 CFLAGS += $(INCLUDES)
+# Build-time overrides, e.g. make EXTRA_DEFS="-DT_SCL_PIN=6 -DT_SDA_PIN=7"
+CFLAGS += $(EXTRA_DEFS)
 
 # --- Sources -> objects (mangled paths avoid name collisions) ---
 SRCS := $(shell find $(LIBS) $(ROOT) -maxdepth 10 -name '*.c')

@@ -13,6 +13,12 @@
 
 PROJ := spi_ee_test
 
+# Bare `make` must build the HEX. Without this, make uses the FIRST
+# target in the file - which is the first generated object rule from
+# the $(foreach ... CC_rule) expansion below, so `make` would just
+# report "build/<some>.o is up to date" and never link.
+.DEFAULT_GOAL := all
+
 # --- Toolchain ---
 TRICORE_GCC  ?= D:/aurixgcc_03_2026/bin/tricore-elf-gcc
 CC           := $(TRICORE_GCC)

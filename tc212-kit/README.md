@@ -22,6 +22,7 @@ Projects for the **TC212 Application Kit** (TC22x family, AURIX 1G).
 | `bare/coremark_133m` | CoreMark 1.0 benchmark (core0)                                     | `make`                | **325.6 CoreMark** (2.44 CoreMark/MHz) @ -Ofast |
 | `bare/pwm_buzz_test` | Passive buzzer on **P10.5** (GTM TOM0_CH2), 2048 Hz PWM duty sweep | `make`                | boot + banner OK (audible sweep) |
 | `bare/spi_ee_test`   | **AT25128N** SPI EEPROM (P33.5/P20.11/P20.14/P20.12) erase/program/read speed test | `make`          | verify OK: write ~29 KB/s, read ~0.23 MB/s |
+| `bare/nv3030b_md183_240x284_cst816d` | TK018F3716 240x284 NV3030B LCD (QSPI1) + CST816D touch (bit-bang I2C) | `make`     | panel clean @33.3 MHz; touch ACK + coords on SDA=P23.1 / SCL=P20.13 |
 
 All projects live in the `bare/` folder; the board root holds only the shared
 `Libraries/`, `bare/` and `board_images/`.
@@ -42,6 +43,158 @@ extracted from the **TC22A iLLD 1.20.0** package bundled in AURIX Studio
 (the register base addresses are identical to the TC212 for all shared modules).
 The TC212's own memory map is used via each project's linker script
 `Lcf_Gnuc_Tricore_Tc.lsl`.
+
+## Pin usage and spare buses
+
+### Pins currently taken
+
+| Function | Pins | Project |
+|----------|------|---------|
+| ASC0 UART (console) | P15.2 (TX), P15.3 (RX) | all |
+| LEDs (8, low active) | P02.0, P02.1, P02.2, P02.3, P02.4, P02.5, P11.10, P11.11 | `bare/blink_hello` |
+| Buzzer (GTM TOM0_CH2) | P10.5 | `bare/pwm_buzz_test` |
+| QSPI0 SPI EEPROM | P20.11 (SCLK), P20.14 (MOSI), P20.12 (MISO), P33.5 (CS) | `bare/spi_ee_test` |
+| VADC AN18 | P41.6 (not on X700/X701) | `bare/blink_hello` |
+
+### Spare SPI
+
+**QSPI1 and QSPI3 are both completely unused** (QSPI0 is the EEPROM, QSPI2
+shares pins with the console ASC0). The best spare set is **QSPI1, all on
+X700** — four adjacent pins, all on port P11, so one pad-driver/slew setting
+covers them all:
+
+| Signal | Pin | X700 | iLLD symbol |
+|--------|-----|------|-------------|
+| CS (software) | P11.2 | 25 | GPIO — not a QSPI pin |
+| MISO (MRST1B) | P11.3 | 26 | `IfxQspi1_MRSTB_P11_3_IN` |
+| SCLK | P11.6 | 27 | `IfxQspi1_SCLK_P11_6_OUT` |
+| MOSI (MTSR1B) | P11.9 | 28 | `IfxQspi1_MTSR_P11_9_OUT` |
+
+👍 **Use software CS on P11.2** (plain GPIO), not a hardware SLSO. This matches
+the project convention and the lessons already recorded for the other boards:
+hardware `autoCS` corrupts data on these panels, and a GPIO CS also lets several
+sub-transfers share one CS-low frame (which wrapped-command protocols need).
+P11.2 *is* also `QSPI1_SLSO5` (alt4, different selector from the alt3 used by
+the other three) if a hardware chip-select is ever wanted, but software CS is
+the recommended choice.
+
+Naming note: **MISO must use the `_IN` symbol `IfxQspi1_MRSTB_P11_3_IN`**, not
+`IfxQspi1_MRST_P11_3_OUT`. Both exist for P11.3 — the `_OUT` variant is the
+same pin's alternate *output* function (a master driving MRST), which is not
+what a MISO input needs.
+
+#### Trap: the X701 "QSPI3, four adjacent pins" option
+
+P02.4-P02.7 looks like a clean QSPI3 set (SCLK3A = P02.7, MTSR3A = P02.6,
+MRST3A = P02.5, SLSO0 = P02.4) on four adjacent X701 pins. **Don't use it:**
+
+- **P02.0-P02.5 are the 8 on-board LEDs** (`bare/blink_hello/led.c`), so
+  QSPI3's MISO input **MRST3A = P02.5 collides with LED6**.
+- P02.6/P02.7 sit next to those LED pins on the same port. Their nets were
+  never probed for the touch bus, so they are not a safe assumption either.
+
+#### Other spare SPI-capable pins
+
+If P11 is unsuitable, these X700 pins also carry QSPI alternate functions:
+P11.10/P11.11 (QSPI0/1 SLSO3/4), P20.9 and P20.13 (QSPI0/1 SLSO/SCLK),
+P33.6-P33.10 (QSPI1/3 SLSO), P23.1 (QSPI3 SLSO13).
+
+### Spare I2C
+
+**The TC212 has no hardware I2C controller** — there is no I2C module in the
+TC22A register set (same as TC23x). "I2C" therefore means a **bit-banged bus on
+two spare GPIOs**, which is exactly what the `nv3030b` touch driver already
+does on the TC234, so that code transfers directly.
+
+#### ⚠️ Do NOT use P21.6 / P21.7 — they are the JTAG/DAP pins
+
+`P21.6` and `P21.7` are **`P21.6/TDI`** and **`P21.7/TDO/DAP2`** on the TC22xA.
+They are the debug interface, and the pin mapper's own reset state confirms it
+(P21.6 resets to **PU**, P21.7 to **PD**) — the pull-up/pull-down keeps the JTAG
+lines defined while the debugger is attached. Using them as a normal bus means
+the DAP/JTAG hardware fights the bus, and driving them can interfere with
+debugging and with attaching the flasher.
+
+Despite the iLLD listing only GTM/GPT12 alternate functions for these pins
+(its pin-map tables cover *peripheral* routing and never list debug signals),
+the TC22xA pin mapper names the debug function in the pin's own primary name.
+**This was caught in review — an earlier draft of this document recommended
+P21.6/P21.7, which was wrong.**
+
+For reference, the complete set of debug-default pins on TC22xA is:
+
+| Pin | Primary function |
+|-----|------------------|
+| P21.6 | `P21.6/TDI` (JTAG data in) |
+| P21.7 | `P21.7/TDO/DAP2` (JTAG data out / DAP) |
+| — | `TCK/DAP0`, `TMS/DAP1` (dedicated debug pins) |
+| P20.0 | primary `P20.0`, but carries `OCDS.TGO0` as an alternate — avoid |
+
+#### Verified working pair (used by the nv3030b touch driver)
+
+| Signal | Pin | X700 | Reset | Notes |
+|--------|-----|------|-------|-------|
+| SCL | P20.13 | 6 | HighZ | `QSPI0_M.CLK` / `QSPI1_M.SEL2` alternates (unused) |
+| SDA | P23.1 | 8 | HighZ | `QSPI3_M.SEL13`; also `SCU.EXTCLK0/1` |
+
+These are the pins the TK018F3716 module's CST816D touch controller actually
+answers on, confirmed on hardware:
+
+```
+[TOUCH] compiled pins: SDA=P23.1 SCL=P20.13
+[TOUCH] bus scan: 0x15  (1 device)
+[TOUCH] self-test: ACK (chip present)
+[TOUCH] down X=105 Y=230 (284-Y=54)
+```
+
+⚠️ The two pins are on **different ports** (P20 and P23). An earlier version of
+the touch driver's pin hunt only ever tried *same-port* pairs, so it could not
+find them however many pairs it tried — worth remembering when writing a pin
+hunt: test cross-port combinations too.
+
+The only caveat is P23.1 also carrying `SCU.EXTCLK0`/`SCU.EXTCLK1` as
+alternates; that only matters if an external clock source is fed into the chip.
+
+No external pull-ups are needed: the module provides them, which is confirmed
+by the bus idling high (`t_bus_idle_ok()` passes on this pair).
+
+#### Pins that are NOT usable for I2C
+
+An earlier revision of this section recommended P21.4/P21.2. **That pair is
+wrong** — it was reasoned from the pinmapper alone, and on hardware the CST816D
+never answers on it, nor on P20.9/P20.13, P33.6/P33.10 or P14.3/P14.4. Several of
+the candidate pairs also read back "stuck low" at reset, which is what a wrong
+pair looks like.
+
+| Pins | Why not |
+|------|---------|
+| P02.0-P02.5, P11.10, P11.11 | the 8 on-board LEDs — the LED nets load the bus, so a low SDA fakes an ACK on *every* address (a scan reported 119 "devices") |
+| P21.6, P21.7 | JTAG `TDI`/`TDO` (DAP) — see the warning above |
+| P11.2, P11.3, P11.6, P11.9 | the panel SPI above |
+| P33.5 | EEPROM CS (`bare/spi_ee_test`) |
+| P15.2, P15.3 | console ASC0 |
+
+#### Other verified-free pins
+
+Every one of these is HighZ at reset, non-debug, and open-drain capable:
+**P33.6-P33.10**, **P11.12**, **P20.9**, **P14.3/P14.4**. (P33.5/P33.10 clash
+with the EEPROM CS / spare SPI, and P11.x with the recommended SPI set above,
+so pick a pair that does not clash.) They all probe cleanly but no device
+answered on them in the hunt — so treat them as free, not as known touch pins.
+
+### Notes
+
+- All four SPI pins use **alt3**; the iLLD pin-map symbols encode the
+  alternate-function selectors (`RxSel_b` for MRST1B/MTSR1B), so passing the
+  symbol to `IfxQspi_initSclkOutPin()` / `IfxQspi_initMtsrOutPin()` /
+  `IfxQspi_initMrstInPin()` is enough — no manual P11xx register writes. The
+  software CS on P11.2 is configured with `IfxPort_setPinModeOutput()`, exactly
+  as `bare/spi_ee_test` does for its SLSO7/P33.5 pin.
+- X701 exposes the analogue inputs **AN5-AN18 on pins 25-38**. In particular
+  **AN18 = X701 pin 38 = P41.6 = VADC G1CH6**, which is what `bare/blink_hello`
+  samples - so that pin is in use by the ADC demo and must not be repurposed.
+- The power/supply pins (VIN, +3V3, +5V, GND, VAREF), `NC`, `/ESR1` and
+  `/PORST` are not usable as GPIO.
 
 ## Serial port (host)
 
